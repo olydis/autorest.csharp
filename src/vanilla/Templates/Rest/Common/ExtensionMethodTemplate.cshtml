@@ -49,32 +49,18 @@ foreach (var parameter in Model.LocalParameters)
 }
 @:@((Model as MethodCs).AccessModifier) static async @Model.TaskExtensionReturnTypeString @(Model.Name)Async(@Model.GetExtensionParameters(Model.GetAsyncMethodParameterDeclaration()))
 @:{
-    if (Model.ReturnType.Body != null)
+    if (Model.ReturnType.Body != null && Model.ReturnType.Body.IsPrimaryType(KnownPrimaryType.Stream))
     {
-        if (Model.ReturnType.Body.IsPrimaryType(KnownPrimaryType.Stream))
-        {
-    @:var _result = await operations.@(Model.Name)WithHttpMessagesAsync(@(Model.GetAsyncMethodInvocationArgs("null"))).ConfigureAwait(false);
-    @:_result.Request.Dispose();
-    @:return _result.Body;
-        }
-        else
-        {
-    @:using (var _result = await operations.@(Model.Name)WithHttpMessagesAsync(@(Model.GetAsyncMethodInvocationArgs("null"))).ConfigureAwait(false))
-    @:{
-    @:    return _result.Body;
-    @:}
-        }
-    }
-    else if (Model.ReturnType.Headers != null)
-    {
-    @:using (var _result = await operations.@(Model.Name)WithHttpMessagesAsync(@(Model.GetAsyncMethodInvocationArgs("null"))).ConfigureAwait(false))
-    @:{
-    @:    return _result.Headers;
-    @:}
+        @:using (var _result = await operations.@(Model.Name)WithHttpMessagesAsync(@(Model.GetAsyncMethodInvocationArgs("null"))).ConfigureAwait(false))    
     }
     else
     {
-    @:(await operations.@(Model.Name)WithHttpMessagesAsync(@(Model.GetAsyncMethodInvocationArgs("null"))).ConfigureAwait(false)).Dispose();
+        @:var _result = await operations.@(Model.Name)WithHttpMessagesAsync(@(Model.GetAsyncMethodInvocationArgs("null"))).ConfigureAwait(false);
+        @:_result.Request.Dispose();
+    }
+    if (Model.ReturnType.Body != null || Model.ReturnType.Headers != null)
+    {
+        @:return new HttpResponse<@(Model.OperationResponseReturnTypeBodyString), @(Model.OperationResponseReturnTypeHeadersString)>(_result.Body, _result.Headers);
     }
 @:}
 

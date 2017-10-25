@@ -55,6 +55,9 @@ namespace AutoRest.CSharp
 
         protected virtual async Task GenerateClientSideCode(CodeModelCs codeModel)
         {
+            var commonCodeTemplate = new CommonCodeTemplate { Model = codeModel };
+            await Write(commonCodeTemplate, $"CommonCode{ImplementationFileExtension}");
+
             // Service client
             var serviceClientTemplate = new ServiceClientTemplate { Model = codeModel };
             await Write(serviceClientTemplate, $"{codeModel.Name}{ImplementationFileExtension}");

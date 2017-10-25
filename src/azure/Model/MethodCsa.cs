@@ -108,34 +108,7 @@ namespace AutoRest.CSharp.Azure.Model
         /// Returns AzureOperationResponse generic type declaration.
         /// </summary>
         public override string OperationResponseReturnTypeString
-        {
-            get
-            {
-                if (ReturnType.Body != null)
-                {
-                   
-                    if (ReturnType.Headers != null)
-                    {
-                        return string.Format(CultureInfo.InvariantCulture,
-                                    "Microsoft.Rest.Azure.AzureOperationResponse<{0},{1}>", ReturnTypeString, ReturnType.Headers.AsNullableType(HttpMethod != HttpMethod.Head));
-                    }
-                    else
-                    {
-                        return string.Format(CultureInfo.InvariantCulture,
-                                    "Microsoft.Rest.Azure.AzureOperationResponse<{0}>", ReturnTypeString);
-                    }
-                }
-                else if (ReturnType.Headers != null)
-                {
-                    return string.Format(CultureInfo.InvariantCulture,
-                                    "Microsoft.Rest.Azure.AzureOperationHeaderResponse<{0}>", ReturnType.Headers.AsNullableType(HttpMethod != HttpMethod.Head));
-                }
-                else
-                {
-                    return "Microsoft.Rest.Azure.AzureOperationResponse";
-                }
-            }
-        }
+            => $"Microsoft.Rest.Azure.AzureOperationResponse<{OperationResponseReturnTypeBodyString},{OperationResponseReturnTypeHeadersString}>";
 
         /// <summary>
         /// Get the type name for the method's return type

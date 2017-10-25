@@ -123,30 +123,17 @@ namespace AutoRest.CSharp.Model
             }
         }
 
+        public virtual string OperationResponseReturnTypeBodyString
+            => ReturnType.Body?.AsNullableType(HttpMethod != HttpMethod.Head && IsXNullableReturnType) ?? "VoidType";
+
+        public virtual string OperationResponseReturnTypeHeadersString
+            => ReturnType.Headers?.AsNullableType(HttpMethod != HttpMethod.Head) ?? "VoidType";
+
         /// <summary>
         /// Get the return type name for the underlying interface method
         /// </summary>
         public virtual string OperationResponseReturnTypeString
-        {
-            get
-            {
-                if (ReturnType.Body != null && ReturnType.Headers != null)
-                {
-                    return $"Microsoft.Rest.HttpOperationResponse<{ReturnType.Body.AsNullableType(HttpMethod != HttpMethod.Head && IsXNullableReturnType)},{ReturnType.Headers.AsNullableType(HttpMethod != HttpMethod.Head)}>";
-                }
-                if (ReturnType.Body != null)
-                {
-                    return $"Microsoft.Rest.HttpOperationResponse<{ReturnType.Body.AsNullableType(HttpMethod != HttpMethod.Head && IsXNullableReturnType)}>";
-                }
-                if (ReturnType.Headers != null)
-                {
-                    return $"Microsoft.Rest.HttpOperationHeaderResponse<{ReturnType.Headers.AsNullableType(HttpMethod != HttpMethod.Head)}>";
-                }
-
-                return "Microsoft.Rest.HttpOperationResponse";
-
-            }
-        }
+            => $"Microsoft.Rest.HttpOperationResponse<{OperationResponseReturnTypeBodyString},{OperationResponseReturnTypeHeadersString}>";
 
         /// <summary>
         /// Get the return type for the async extension method
@@ -155,15 +142,22 @@ namespace AutoRest.CSharp.Model
         {
             get
             {
+                if (ReturnType.Body != null && ReturnType.Headers != null)
+                {
+                    return string.Format(CultureInfo.InvariantCulture,
+                        "System.Threading.Tasks.Task<HttpResponse<{0}, {1}>>",
+                        OperationResponseReturnTypeBodyString,
+                        OperationResponseReturnTypeHeadersString);
+                }
                 if (ReturnType.Body != null)
                 {
                     return string.Format(CultureInfo.InvariantCulture,
-                        "System.Threading.Tasks.Task<{0}>", ReturnType.Body.AsNullableType(HttpMethod != HttpMethod.Head && IsXNullableReturnType));
+                        "System.Threading.Tasks.Task<{0}>", OperationResponseReturnTypeBodyString);
                 }
                 else if (ReturnType.Headers != null)
                 {
                     return string.Format(CultureInfo.InvariantCulture,
-                        "System.Threading.Tasks.Task<{0}>", ReturnType.Headers.AsNullableType(HttpMethod != HttpMethod.Head));
+                        "System.Threading.Tasks.Task<{0}>", OperationResponseReturnTypeHeadersString);
                 }
                 else
                 {

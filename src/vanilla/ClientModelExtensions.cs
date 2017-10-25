@@ -471,7 +471,7 @@ namespace AutoRest.CSharp
         /// </summary>
         /// <param name="modelType">The ModelType to return as nullable</param>
         /// <returns>The ModelType name expressed as a nullable type</returns>
-        public static string AsNullableType(this IModelType modelType) => modelType.IsValueType() ? $"{modelType.Name}?" : modelType.DeclarationName;
+        public static string AsNullableType(this IModelType modelType) =>  AsNullableType(modelType, true);
 
         /// <summary>
         /// Conditiallaly returns the ModelType name expressed as a nullable type (for classes, nothing different, for value types, append a '?'
@@ -479,7 +479,7 @@ namespace AutoRest.CSharp
         /// <param name="modelType">The ModelType to return as nullable</param>
         /// <param name="predicate">An expression indicating whether to make the type nullable</param>
         /// <returns>The ModelType name expressed as a nullable type</returns>
-        public static string AsNullableType(this IModelType modelType, Func<bool> predicate ) => predicate() && modelType.IsValueType() ? $"{modelType.Name}?" : modelType.DeclarationName;
+        public static string AsNullableType(this IModelType modelType, Func<bool> predicate) => AsNullableType(modelType, predicate());
         /// <summary>
         /// Conditionally returns the ModelType name expressed as a nullable type (for classes, nothing different, for value types, append a '?'
         /// </summary>

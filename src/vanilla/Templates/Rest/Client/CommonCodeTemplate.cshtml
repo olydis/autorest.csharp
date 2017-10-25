@@ -1,0 +1,33 @@
+@using System
+@using System.Linq;
+@using AutoRest.Core.Utilities
+@using AutoRest.CSharp
+@using AutoRest.CSharp.Model
+@inherits TemplateCs<AutoRest.CSharp.Model.CodeModelCs>
+@Header("// ")
+@EmptyLine
+namespace @Settings.Namespace
+{
+    public struct VoidType { }
+
+    public class HttpResponse<TBody, THeader>
+    {
+        public HttpResponse(TBody body, THeader headers)
+        {
+            this.Body = body;
+            this.Headers = headers;
+        }
+
+        public TBody Body { get; private set; }
+        public THeader Headers { get; private set; }
+
+        public static implicit operator TBody(HttpResponse<TBody, THeader> response)
+        {
+            return response.Body;
+        }
+        public static implicit operator THeader(HttpResponse<TBody, THeader> response)
+        {
+            return response.Headers;
+        }
+    }
+}
