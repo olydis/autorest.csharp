@@ -8,7 +8,7 @@ using AutoRest.Core.Model;
 using AutoRest.Core.Parsing;
 using AutoRest.Core.Utilities;
 using Microsoft.Perks.JsonRPC;
-
+using YamlDotNet.RepresentationModel;
 using IAnyPlugin = AutoRest.Core.Extensibility.IPlugin<AutoRest.Core.Extensibility.IGeneratorSettings, AutoRest.Core.IModelSerializer<AutoRest.Core.Model.CodeModel>, AutoRest.Core.ITransformer<AutoRest.Core.Model.CodeModel>, AutoRest.Core.CodeGenerator, AutoRest.Core.CodeNamer, AutoRest.Core.Model.CodeModel>;
 
 namespace AutoRest.CSharp
@@ -21,6 +21,77 @@ namespace AutoRest.CSharp
             if (fluent) return new AutoRest.CSharp.Azure.Fluent.PluginCsaf();
             if (azure) return new AutoRest.CSharp.Azure.PluginCsa();
             return new AutoRest.CSharp.PluginCs();
+        }
+    }
+
+    class YamlAnchorResolverVisitor1 : IYamlVisitor
+    {
+        public void Visit(YamlStream stream) { }
+
+        public void Visit(YamlDocument document) { }
+
+        public void Visit(YamlScalarNode scalar) { }
+
+        public void Visit(YamlSequenceNode sequence)
+        {
+            foreach (var child in sequence.Children)
+            {
+                child.Accept(this);
+            }
+        }
+
+        public void Visit(YamlMappingNode mapping)
+        {
+            foreach (var child in mapping.Children.Values)
+            {
+                child.Accept(this);
+            }
+
+            var anchor = mapping.Anchor;
+            if (anchor != null)
+            {
+                mapping.Anchor = null;
+                mapping.Children.Add(new YamlScalarNode("$id"), new YamlScalarNode(anchor));
+            }
+        }
+    }
+
+    class YamlAnchorResolverVisitor2 : IYamlVisitor
+    {
+        private HashSet<string> seenAnchors = new HashSet<string>();
+
+        public void Visit(YamlStream stream) { }
+
+        public void Visit(YamlDocument document) { }
+
+        public void Visit(YamlScalarNode scalar) { }
+
+        public void Visit(YamlSequenceNode sequence)
+        {
+            foreach (var child in sequence.Children)
+            {
+                child.Accept(this);
+            }
+        }
+
+        public void Visit(YamlMappingNode mapping)
+        {
+            if (mapping.Children.TryGetValue(new YamlScalarNode("$id"), out var anchorNode))
+            {
+                var anchor = anchorNode.ToString();
+                var subsequent = seenAnchors.Contains(anchor);
+                seenAnchors.Add(anchor);
+                if (subsequent)
+                {
+                    mapping.Children.Clear();
+                    mapping.Children.Add(new YamlScalarNode("$ref"), anchorNode);
+                }
+            }
+
+            foreach (var child in mapping.Children.Values)
+            {
+                child.Accept(this);
+            }
         }
     }
 
@@ -98,7 +169,15 @@ namespace AutoRest.CSharp
                 {
                     throw new Exception($"Generator received incorrect number of inputs: {files.Length} : {string.Join(",", files)}");
                 }
-                var modelAsJson = (await ReadFile(files[0])).EnsureYamlIsJson();
+                System.IO.File.WriteAllText(@"C:\work\tmp\a.yaml", await ReadFile(files[0]));
+                var yaml = (await ReadFile(files[0])).ParseYaml();
+                // unwind references/anchors
+                yaml.Accept(new YamlAnchorResolverVisitor1());
+                System.IO.File.WriteAllText(@"C:\work\tmp\a.json", yaml.Serialize().EnsureYamlIsJson());
+                yaml = yaml.Serialize().ParseYaml(); // break up referential equality of anchored nodes
+                yaml.Accept(new YamlAnchorResolverVisitor2());
+                System.IO.File.WriteAllText(@"C:\work\tmp\b.json", yaml.Serialize().EnsureYamlIsJson());
+                var modelAsJson = yaml.Serialize().EnsureYamlIsJson();
                 var codeModelT = new ModelSerializer<CodeModel>().Load(modelAsJson);
 
                 // build settings
