@@ -35,9 +35,9 @@ namespace Fixtures.UrlMultiCollectionFormat
 
 
         /// <summary>
-        /// Gets the IQueries.
+        /// Gets the Operations.
         /// </summary>
-        IQueries Queries { get; }
+        IOperations Operations { get; }
 
     }
 }

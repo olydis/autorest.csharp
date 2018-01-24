@@ -38,15 +38,12 @@ public Newtonsoft.Json.JsonSerializerSettings DeserializationSettings { get; pri
 @:public @property.ModelTypeName @property.Name { get; @(property.IsReadOnly || property.IsConstant ? "private " : "")set; }
 @EmptyLine
 }
-        
-@foreach (var operation in Model.AllOperations) 
-{
-@:/// <summary>
-@:/// Gets the I@(operation.TypeName).
-@:/// </summary>
-@:public virtual I@(operation.TypeName) @(operation.NameForProperty) { get; private set; }
+
+/// <summary>
+/// Gets the operations.
+/// </summary>
+public virtual IOperations Operations { get; private set; }
 @EmptyLine
-}
        
 /// <summary>
 /// Initializes a new instance of the @Model.Name class.

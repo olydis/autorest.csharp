@@ -71,44 +71,9 @@ namespace Fixtures.Azure.AzureSpecials
 
 
         /// <summary>
-        /// Gets the IXMsClientRequestIdOperations.
+        /// Gets the Operations.
         /// </summary>
-        IXMsClientRequestIdOperations XMsClientRequestId { get; }
-
-        /// <summary>
-        /// Gets the ISubscriptionInCredentialsOperations.
-        /// </summary>
-        ISubscriptionInCredentialsOperations SubscriptionInCredentials { get; }
-
-        /// <summary>
-        /// Gets the ISubscriptionInMethodOperations.
-        /// </summary>
-        ISubscriptionInMethodOperations SubscriptionInMethod { get; }
-
-        /// <summary>
-        /// Gets the IApiVersionDefaultOperations.
-        /// </summary>
-        IApiVersionDefaultOperations ApiVersionDefault { get; }
-
-        /// <summary>
-        /// Gets the IApiVersionLocalOperations.
-        /// </summary>
-        IApiVersionLocalOperations ApiVersionLocal { get; }
-
-        /// <summary>
-        /// Gets the ISkipUrlEncodingOperations.
-        /// </summary>
-        ISkipUrlEncodingOperations SkipUrlEncoding { get; }
-
-        /// <summary>
-        /// Gets the IOdataOperations.
-        /// </summary>
-        IOdataOperations Odata { get; }
-
-        /// <summary>
-        /// Gets the IHeaderOperations.
-        /// </summary>
-        IHeaderOperations Header { get; }
+        IOperations Operations { get; }
 
     }
 }

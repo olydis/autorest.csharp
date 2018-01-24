@@ -59,9 +59,9 @@ namespace Fixtures.Azure.AzureParameterGrouping
 
 
         /// <summary>
-        /// Gets the IParameterGroupingOperations.
+        /// Gets the Operations.
         /// </summary>
-        IParameterGroupingOperations ParameterGrouping { get; }
+        IOperations Operations { get; }
 
     }
 }

@@ -45,9 +45,9 @@ namespace Fixtures.CustomBaseUriMoreOptions
 
 
         /// <summary>
-        /// Gets the IPaths.
+        /// Gets the Operations.
         /// </summary>
-        IPaths Paths { get; }
+        IOperations Operations { get; }
 
     }
 }

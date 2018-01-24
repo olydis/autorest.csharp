@@ -17,7 +17,6 @@ namespace Fixtures.Azure.AzureReport
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Net;
     using System.Net.Http;
     using System.Threading;
@@ -26,7 +25,7 @@ namespace Fixtures.Azure.AzureReport
     /// <summary>
     /// Test Infrastructure for AutoRest
     /// </summary>
-    public partial class AutoRestReportServiceForAzureClient : ServiceClient<AutoRestReportServiceForAzureClient>, IAutoRestReportServiceForAzureClient, IAzureClient
+    public partial class AutoRestReportServiceForAzureClient : ServiceClient<AutoRestReportServiceForAzureClient>, IAutoRestReportServiceForAzureClient
     {
         /// <summary>
         /// The base URI of the service.
@@ -64,6 +63,11 @@ namespace Fixtures.Azure.AzureReport
         /// included in each request. Default is true.
         /// </summary>
         public bool? GenerateClientRequestId { get; set; }
+
+        /// <summary>
+        /// Gets the operations.
+        /// </summary>
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the AutoRestReportServiceForAzureClient class.
@@ -259,13 +263,14 @@ namespace Fixtures.Azure.AzureReport
 
         /// <summary>
         /// An optional partial-method to perform custom initialization.
-        /// </summary>
+        ///</summary>
         partial void CustomInitialize();
         /// <summary>
         /// Initializes client properties.
         /// </summary>
         private void Initialize()
         {
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://localhost:3000");
             AcceptLanguage = "en-US";
             LongRunningOperationRetryTimeout = 30;
@@ -278,7 +283,7 @@ namespace Fixtures.Azure.AzureReport
                 NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore,
                 ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize,
                 ContractResolver = new ReadOnlyJsonContractResolver(),
-                Converters = new List<JsonConverter>
+                Converters = new  List<JsonConverter>
                     {
                         new Iso8601TimeSpanConverter()
                     }
@@ -296,7 +301,6 @@ namespace Fixtures.Azure.AzureReport
                     }
             };
             CustomInitialize();
-            DeserializationSettings.Converters.Add(new CloudErrorJsonConverter());
         }
         /// <summary>
         /// Get test coverage report
@@ -312,16 +316,13 @@ namespace Fixtures.Azure.AzureReport
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        /// <exception cref="ErrorException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IDictionary<string, int?>>> GetReportAsync(string qualifier = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IDictionary<string, int?>>> getReport(string qualifier = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -402,14 +403,15 @@ namespace Fixtures.Azure.AzureReport
             string _responseContent = null;
             if ((int)_statusCode != 200)
             {
-                var ex = new ErrorException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                var ex = new System.Exception(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                     Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
-                        ex.Body = _errorBody;
+                        //
+                        //ex.Body = _errorBody;
                     }
                 }
                 catch (JsonException)

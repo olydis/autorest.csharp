@@ -18,6 +18,7 @@ using static AutoRest.Core.Utilities.DependencyInjection;
 using AutoRest.Extensions;
 using Newtonsoft.Json.Linq;
 using System.Text;
+using AutoRest.CSharp.azure.Templates;
 
 namespace AutoRest.CSharp
 {
@@ -29,9 +30,6 @@ namespace AutoRest.CSharp
 
         protected string FolderModels => Settings.Instance.ModelsName;
 
-        public override bool IsSingleFileGenerationSupported => true;
-
-
         public override string UsageInstructions => string.Format(CultureInfo.InvariantCulture,
             Properties.Resources.UsageInformation, ClientRuntimePackage);
 
@@ -39,40 +37,33 @@ namespace AutoRest.CSharp
 
         protected virtual async Task GenerateClientSideCode(CodeModelCs codeModel)
         {
-            await GenerateServiceClient<ServiceClientTemplate>(codeModel);
-            await GenerateOperations<MethodGroupTemplate>(codeModel.Operations);
+            await GenerateServiceClient(codeModel);
+            await GenerateOperations(codeModel);
             await GenerateModels(codeModel.ModelTypes.Union(codeModel.HeaderTypes));
             await GenerateEnums(codeModel.EnumTypes);
-            await GenerateExceptions(codeModel.ErrorTypes);
             if (codeModel.ShouldGenerateXmlSerialization)
             {
                 await GenerateXmlSerialization();
             }
         }
 
-        protected virtual async Task GenerateServiceClient<T>(CodeModelCs codeModel) where T : Template<CodeModelCs>, new()
+        protected virtual async Task GenerateServiceClient(CodeModelCs codeModel)
         {
-            await Write(new T { Model = codeModel }, $"{GeneratedSourcesBaseFolder}{codeModel.Name}{ImplementationFileExtension}");
+            await Write(new ServiceClientTemplate { Model = codeModel }, $"{GeneratedSourcesBaseFolder}{codeModel.Name}{ImplementationFileExtension}");
             await Write(new ServiceClientInterfaceTemplate { Model = codeModel }, $"{GeneratedSourcesBaseFolder}I{codeModel.Name}{ImplementationFileExtension}");
         }
 
-        protected virtual async Task GenerateOperations<T>(IEnumerable<MethodGroup> modelTypes) where T : Template<MethodGroupCs>, new()
+        protected virtual async Task GenerateOperations(CodeModelCs codeModel)
         {
-            foreach (MethodGroupCs methodGroup in modelTypes)
-            {
-                if (!methodGroup.Name.IsNullOrEmpty())
-                {
-                    // Operation
-                    await Write(
-                        new T { Model = methodGroup },
-                        $"{GeneratedSourcesBaseFolder}{methodGroup.TypeName}{ImplementationFileExtension}");
+            // Operation
+            await Write(
+                new AzureMethodGroupTemplate { Model = codeModel },
+                $"{GeneratedSourcesBaseFolder}Operations{ImplementationFileExtension}");
 
-                    // Operation interface
-                    await Write(
-                        new MethodGroupInterfaceTemplate { Model = methodGroup },
-                        $"{GeneratedSourcesBaseFolder}I{methodGroup.TypeName}{ImplementationFileExtension}");
-                }
-            }
+            // Operation interface
+            await Write(
+                new MethodGroupInterfaceTemplate { Model = codeModel },
+                $"{GeneratedSourcesBaseFolder}IOperations{ImplementationFileExtension}");
         }
 
         protected virtual async Task GenerateModels(IEnumerable<CompositeType> modelTypes)
@@ -99,16 +90,7 @@ namespace AutoRest.CSharp
                     $"{GeneratedSourcesBaseFolder}{FolderModels}/{enumType.Name + "Converter"}{ImplementationFileExtension}");
             }
         }
-
-        protected virtual async Task GenerateExceptions(IEnumerable<CompositeType> errorTypes)
-        {
-            foreach (CompositeTypeCs exceptionType in errorTypes)
-            {
-                await Write(new ExceptionTemplate { Model = exceptionType },
-                    $"{GeneratedSourcesBaseFolder}{FolderModels}/{exceptionType.ExceptionTypeDefinitionName}{ImplementationFileExtension}");
-            }
-        }
-
+        
         protected virtual async Task GenerateXmlSerialization()
         {
             await Write(new XmlSerializationTemplate(), 

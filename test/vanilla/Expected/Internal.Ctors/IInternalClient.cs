@@ -35,9 +35,9 @@ namespace Fixtures.InternalCtors
 
 
         /// <summary>
-        /// Gets the IPets.
+        /// Gets the Operations.
         /// </summary>
-        IPets Pets { get; }
+        IOperations Operations { get; }
 
     }
 }

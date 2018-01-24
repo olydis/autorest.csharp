@@ -58,9 +58,9 @@ namespace Fixtures.Azure.HeadExceptions
 
 
         /// <summary>
-        /// Gets the IHeadExceptionOperations.
+        /// Gets the Operations.
         /// </summary>
-        IHeadExceptionOperations HeadException { get; }
+        IOperations Operations { get; }
 
     }
 }

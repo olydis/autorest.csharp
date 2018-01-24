@@ -40,9 +40,9 @@ namespace Fixtures.BodyNumber
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
-        /// Gets the INumber.
+        /// Gets the operations.
         /// </summary>
-        public virtual INumber Number { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the AutoRestNumberTestService class.
@@ -123,7 +123,7 @@ namespace Fixtures.BodyNumber
         /// </summary>
         private void Initialize()
         {
-            Number = new Number(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://localhost:3000");
             SerializationSettings = new JsonSerializerSettings
             {

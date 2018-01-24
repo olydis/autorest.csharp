@@ -59,9 +59,9 @@ namespace Fixtures.Azure.Paging
 
 
         /// <summary>
-        /// Gets the IPagingOperations.
+        /// Gets the Operations.
         /// </summary>
-        IPagingOperations Paging { get; }
+        IOperations Operations { get; }
 
     }
 }

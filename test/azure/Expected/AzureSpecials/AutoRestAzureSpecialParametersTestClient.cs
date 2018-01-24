@@ -17,14 +17,13 @@ namespace Fixtures.Azure.AzureSpecials
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Net;
     using System.Net.Http;
 
     /// <summary>
     /// Test Infrastructure for AutoRest
     /// </summary>
-    public partial class AutoRestAzureSpecialParametersTestClient : ServiceClient<AutoRestAzureSpecialParametersTestClient>, IAutoRestAzureSpecialParametersTestClient, IAzureClient
+    public partial class AutoRestAzureSpecialParametersTestClient : ServiceClient<AutoRestAzureSpecialParametersTestClient>, IAutoRestAzureSpecialParametersTestClient
     {
         /// <summary>
         /// The base URI of the service.
@@ -76,44 +75,9 @@ namespace Fixtures.Azure.AzureSpecials
         public bool? GenerateClientRequestId { get; set; }
 
         /// <summary>
-        /// Gets the IXMsClientRequestIdOperations.
+        /// Gets the operations.
         /// </summary>
-        public virtual IXMsClientRequestIdOperations XMsClientRequestId { get; private set; }
-
-        /// <summary>
-        /// Gets the ISubscriptionInCredentialsOperations.
-        /// </summary>
-        public virtual ISubscriptionInCredentialsOperations SubscriptionInCredentials { get; private set; }
-
-        /// <summary>
-        /// Gets the ISubscriptionInMethodOperations.
-        /// </summary>
-        public virtual ISubscriptionInMethodOperations SubscriptionInMethod { get; private set; }
-
-        /// <summary>
-        /// Gets the IApiVersionDefaultOperations.
-        /// </summary>
-        public virtual IApiVersionDefaultOperations ApiVersionDefault { get; private set; }
-
-        /// <summary>
-        /// Gets the IApiVersionLocalOperations.
-        /// </summary>
-        public virtual IApiVersionLocalOperations ApiVersionLocal { get; private set; }
-
-        /// <summary>
-        /// Gets the ISkipUrlEncodingOperations.
-        /// </summary>
-        public virtual ISkipUrlEncodingOperations SkipUrlEncoding { get; private set; }
-
-        /// <summary>
-        /// Gets the IOdataOperations.
-        /// </summary>
-        public virtual IOdataOperations Odata { get; private set; }
-
-        /// <summary>
-        /// Gets the IHeaderOperations.
-        /// </summary>
-        public virtual IHeaderOperations Header { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the AutoRestAzureSpecialParametersTestClient class.
@@ -309,21 +273,14 @@ namespace Fixtures.Azure.AzureSpecials
 
         /// <summary>
         /// An optional partial-method to perform custom initialization.
-        /// </summary>
+        ///</summary>
         partial void CustomInitialize();
         /// <summary>
         /// Initializes client properties.
         /// </summary>
         private void Initialize()
         {
-            XMsClientRequestId = new XMsClientRequestIdOperations(this);
-            SubscriptionInCredentials = new SubscriptionInCredentialsOperations(this);
-            SubscriptionInMethod = new SubscriptionInMethodOperations(this);
-            ApiVersionDefault = new ApiVersionDefaultOperations(this);
-            ApiVersionLocal = new ApiVersionLocalOperations(this);
-            SkipUrlEncoding = new SkipUrlEncodingOperations(this);
-            Odata = new OdataOperations(this);
-            Header = new HeaderOperations(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://localhost:3000");
             ApiVersion = "2015-07-01-preview";
             AcceptLanguage = "en-US";
@@ -337,7 +294,7 @@ namespace Fixtures.Azure.AzureSpecials
                 NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore,
                 ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize,
                 ContractResolver = new ReadOnlyJsonContractResolver(),
-                Converters = new List<JsonConverter>
+                Converters = new  List<JsonConverter>
                     {
                         new Iso8601TimeSpanConverter()
                     }
@@ -355,7 +312,6 @@ namespace Fixtures.Azure.AzureSpecials
                     }
             };
             CustomInitialize();
-            DeserializationSettings.Converters.Add(new CloudErrorJsonConverter());
         }
     }
 }

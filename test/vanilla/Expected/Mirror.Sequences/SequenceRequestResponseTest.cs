@@ -43,6 +43,11 @@ namespace Fixtures.MirrorSequences
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
+        /// Gets the operations.
+        /// </summary>
+        public virtual IOperations Operations { get; private set; }
+
+        /// <summary>
         /// Initializes a new instance of the SequenceRequestResponseTest class.
         /// </summary>
         /// <param name='handlers'>
@@ -121,6 +126,7 @@ namespace Fixtures.MirrorSequences
         /// </summary>
         private void Initialize()
         {
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://petstore.swagger.wordnik.com/api");
             SerializationSettings = new JsonSerializerSettings
             {
@@ -161,9 +167,6 @@ namespace Fixtures.MirrorSequences
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        /// <exception cref="ErrorModelException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
@@ -176,7 +179,7 @@ namespace Fixtures.MirrorSequences
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<Pet>>> AddPetAsync(IList<Pet> pets, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<Pet>>> addPet(IList<Pet> pets, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (pets == null)
             {
@@ -250,14 +253,15 @@ namespace Fixtures.MirrorSequences
             string _responseContent = null;
             if ((int)_statusCode != 200)
             {
-                var ex = new ErrorModelException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                var ex = new System.Exception(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                     ErrorModel _errorBody =  SafeJsonConvert.DeserializeObject<ErrorModel>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
-                        ex.Body = _errorBody;
+                        //
+                        //ex.Body = _errorBody;
                     }
                 }
                 catch (JsonException)
@@ -318,9 +322,6 @@ namespace Fixtures.MirrorSequences
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        /// <exception cref="HttpOperationException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
@@ -333,7 +334,7 @@ namespace Fixtures.MirrorSequences
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<int?>>> AddPetStylesAsync(IList<int?> petStyle, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<int?>>> addPetStyles(IList<int?> petStyle, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (petStyle == null)
             {
@@ -397,14 +398,15 @@ namespace Fixtures.MirrorSequences
             string _responseContent = null;
             if ((int)_statusCode != 200)
             {
-                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                var ex = new System.Exception(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                     IList<ErrorModel> _errorBody =  SafeJsonConvert.DeserializeObject<IList<ErrorModel>>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
-                        ex.Body = _errorBody;
+                        //
+                        //ex.Body = _errorBody;
                     }
                 }
                 catch (JsonException)
@@ -465,9 +467,6 @@ namespace Fixtures.MirrorSequences
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        /// <exception cref="HttpOperationException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
@@ -480,7 +479,7 @@ namespace Fixtures.MirrorSequences
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<int?>>> UpdatePetStylesAsync(IList<int?> petStyle, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<int?>>> updatePetStyles(IList<int?> petStyle, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (petStyle == null)
             {
@@ -544,14 +543,15 @@ namespace Fixtures.MirrorSequences
             string _responseContent = null;
             if ((int)_statusCode != 200)
             {
-                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                var ex = new System.Exception(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                     IList<ErrorModel> _errorBody =  SafeJsonConvert.DeserializeObject<IList<ErrorModel>>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
-                        ex.Body = _errorBody;
+                        //
+                        //ex.Body = _errorBody;
                     }
                 }
                 catch (JsonException)

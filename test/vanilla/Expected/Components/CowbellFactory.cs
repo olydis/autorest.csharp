@@ -36,9 +36,9 @@ namespace Fixtures.Components
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
-        /// Gets the ICowbellOperations.
+        /// Gets the operations.
         /// </summary>
-        public virtual ICowbellOperations Cowbell { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the CowbellFactory class.
@@ -119,7 +119,7 @@ namespace Fixtures.Components
         /// </summary>
         private void Initialize()
         {
-            Cowbell = new CowbellOperations(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("https://localhost");
             SerializationSettings = new JsonSerializerSettings
             {

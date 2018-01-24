@@ -6,6 +6,7 @@
 
 namespace Zapappi.Client
 {
+    using Microsoft.Rest;
     using Models;
     using Newtonsoft.Json;
 
@@ -29,46 +30,17 @@ namespace Zapappi.Client
         /// </summary>
         JsonSerializerSettings DeserializationSettings { get; }
 
+        /// <summary>
+        /// Subscription credentials which uniquely identify client
+        /// subscription.
+        /// </summary>
+        ServiceClientCredentials Credentials { get; }
+
 
         /// <summary>
-        /// Gets the IApplications.
+        /// Gets the Operations.
         /// </summary>
-        IApplications Applications { get; }
-
-        /// <summary>
-        /// Gets the IContacts.
-        /// </summary>
-        IContacts Contacts { get; }
-
-        /// <summary>
-        /// Gets the IDomains.
-        /// </summary>
-        IDomains Domains { get; }
-
-        /// <summary>
-        /// Gets the IInbound.
-        /// </summary>
-        IInbound Inbound { get; }
-
-        /// <summary>
-        /// Gets the INumbers.
-        /// </summary>
-        INumbers Numbers { get; }
-
-        /// <summary>
-        /// Gets the IPorting.
-        /// </summary>
-        IPorting Porting { get; }
-
-        /// <summary>
-        /// Gets the ISMS.
-        /// </summary>
-        ISMS SMS { get; }
-
-        /// <summary>
-        /// Gets the ITrunks.
-        /// </summary>
-        ITrunks Trunks { get; }
+        IOperations Operations { get; }
 
     }
 }

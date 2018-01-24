@@ -35,9 +35,9 @@ namespace Fixtures.BodyDictionary
 
 
         /// <summary>
-        /// Gets the IDictionary.
+        /// Gets the Operations.
         /// </summary>
-        IDictionary Dictionary { get; }
+        IOperations Operations { get; }
 
     }
 }

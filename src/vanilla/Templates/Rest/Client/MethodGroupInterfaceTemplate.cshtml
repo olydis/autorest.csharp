@@ -3,19 +3,17 @@
 @using AutoRest.Core.Utilities
 @using AutoRest.CSharp
 @using AutoRest.CSharp.Model
-@inherits AutoRest.Core.Template<AutoRest.CSharp.Model.MethodGroupCs>
+@inherits AutoRest.Core.Template<CodeModelCs>
 @Header("// ")
 @EmptyLine
 namespace @Settings.Namespace
 {
-@foreach (var usingString in Model.Usings) {
-    @:using @usingString;
-}
+    using Models;
 @EmptyLine
     /// <summary>
-    /// @(Model.TypeName) operations.
+    /// Operations.
     /// </summary>
-    public partial interface I@(Model.TypeName)
+    public partial interface IOperations
     {
     @foreach(MethodCs method in Model.Methods)
     {
@@ -47,9 +45,6 @@ namespace @Settings.Namespace
         @:/// <param name='cancellationToken'>
         @:/// The cancellation token.
         @:/// </param>
-        @:/// <exception cref="@(method.OperationExceptionTypeString)">
-        @:/// Thrown when the operation returned an invalid status code
-        @:/// </exception>
         @if (method.Responses.Where(r => r.Value.Body != null).Any())
         {
         @:/// <exception cref="Microsoft.Rest.SerializationException">
@@ -66,7 +61,7 @@ namespace @Settings.Namespace
         {
         @:[System.Obsolete()]
         }
-        @:System.Threading.Tasks.Task<@method.OperationResponseReturnTypeString> @(method.Name)Async(@(method.GetAsyncMethodParameterDeclaration(true)));
+        @:System.Threading.Tasks.Task<@method.OperationResponseReturnTypeString> @(method.MethodName)(@(method.GetAsyncMethodParameterDeclaration(true)));
     }
     }
 }

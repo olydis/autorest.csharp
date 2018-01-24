@@ -17,14 +17,13 @@ namespace Fixtures.Azure.CustomBaseUri
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Net;
     using System.Net.Http;
 
     /// <summary>
     /// Test Infrastructure for AutoRest
     /// </summary>
-    public partial class AutoRestParameterizedHostTestClient : ServiceClient<AutoRestParameterizedHostTestClient>, IAutoRestParameterizedHostTestClient, IAzureClient
+    public partial class AutoRestParameterizedHostTestClient : ServiceClient<AutoRestParameterizedHostTestClient>, IAutoRestParameterizedHostTestClient
     {
         /// <summary>
         /// The base URI of the service.
@@ -69,9 +68,9 @@ namespace Fixtures.Azure.CustomBaseUri
         public bool? GenerateClientRequestId { get; set; }
 
         /// <summary>
-        /// Gets the IPathsOperations.
+        /// Gets the operations.
         /// </summary>
-        public virtual IPathsOperations Paths { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the AutoRestParameterizedHostTestClient class.
@@ -153,14 +152,14 @@ namespace Fixtures.Azure.CustomBaseUri
 
         /// <summary>
         /// An optional partial-method to perform custom initialization.
-        /// </summary>
+        ///</summary>
         partial void CustomInitialize();
         /// <summary>
         /// Initializes client properties.
         /// </summary>
         private void Initialize()
         {
-            Paths = new PathsOperations(this);
+            Operations = new Operations(this);
             BaseUri = "http://{accountName}{host}";
             Host = "host";
             AcceptLanguage = "en-US";
@@ -174,7 +173,7 @@ namespace Fixtures.Azure.CustomBaseUri
                 NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore,
                 ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize,
                 ContractResolver = new ReadOnlyJsonContractResolver(),
-                Converters = new List<JsonConverter>
+                Converters = new  List<JsonConverter>
                     {
                         new Iso8601TimeSpanConverter()
                     }
@@ -192,7 +191,6 @@ namespace Fixtures.Azure.CustomBaseUri
                     }
             };
             CustomInitialize();
-            DeserializationSettings.Converters.Add(new CloudErrorJsonConverter());
         }
     }
 }

@@ -40,9 +40,9 @@ namespace Fixtures.Header
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
-        /// Gets the IHeaderOperations.
+        /// Gets the operations.
         /// </summary>
-        public virtual IHeaderOperations Header { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the AutoRestSwaggerBATHeaderService class.
@@ -123,7 +123,7 @@ namespace Fixtures.Header
         /// </summary>
         private void Initialize()
         {
-            Header = new HeaderOperations(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://localhost:3000");
             SerializationSettings = new JsonSerializerSettings
             {

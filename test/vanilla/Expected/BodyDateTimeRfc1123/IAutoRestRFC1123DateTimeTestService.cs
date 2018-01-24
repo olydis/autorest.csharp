@@ -35,9 +35,9 @@ namespace Fixtures.BodyDateTimeRfc1123
 
 
         /// <summary>
-        /// Gets the IDatetimerfc1123.
+        /// Gets the Operations.
         /// </summary>
-        IDatetimerfc1123 Datetimerfc1123 { get; }
+        IOperations Operations { get; }
 
     }
 }

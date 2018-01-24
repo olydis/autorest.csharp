@@ -40,9 +40,9 @@ namespace Fixtures.ParameterFlattening
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
-        /// Gets the IAvailabilitySets.
+        /// Gets the operations.
         /// </summary>
-        public virtual IAvailabilitySets AvailabilitySets { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the AutoRestParameterFlattening class.
@@ -123,7 +123,7 @@ namespace Fixtures.ParameterFlattening
         /// </summary>
         private void Initialize()
         {
-            AvailabilitySets = new AvailabilitySets(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://localhost:3000");
             SerializationSettings = new JsonSerializerSettings
             {

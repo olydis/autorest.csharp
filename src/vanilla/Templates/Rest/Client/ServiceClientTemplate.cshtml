@@ -33,10 +33,7 @@ namespace @Settings.Namespace
         /// </summary>
         private void Initialize()
         {
-        @foreach (var operation in Model.AllOperations) 
-        {
-            @:this.@(operation.NameForProperty) = new @(operation.TypeName)(this);
-        }
+            this.Operations = new Operations(this);
 
         @if (Model.IsCustomBaseUri)
         {
@@ -65,10 +62,6 @@ namespace @Settings.Namespace
                         new Microsoft.Rest.Serialization.Iso8601TimeSpanConverter()
                     }
             };
-            @if (Model.NeedsTransformationConverter)
-            {
-            @:SerializationSettings.Converters.Add(new Microsoft.Rest.Serialization.TransformationJsonConverter());
-            }
             DeserializationSettings = new Newtonsoft.Json.JsonSerializerSettings
             {
                 DateFormatHandling = Newtonsoft.Json.DateFormatHandling.IsoDateFormat,
@@ -89,11 +82,6 @@ namespace @Settings.Namespace
 
             CustomInitialize();
             
-            @if (Model.NeedsTransformationConverter)
-            {
-            @:DeserializationSettings.Converters.Add(new Microsoft.Rest.Serialization.TransformationJsonConverter());
-            }
-    
         }    
     
         @foreach (MethodCs method in Model.Methods.Where( m => m.Group.IsNullOrEmpty()))

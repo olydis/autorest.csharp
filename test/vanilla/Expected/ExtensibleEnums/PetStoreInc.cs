@@ -45,9 +45,9 @@ namespace Fixtures.ExtensibleEnums
         public string PetId { get; set; }
 
         /// <summary>
-        /// Gets the IPetOperations.
+        /// Gets the operations.
         /// </summary>
-        public virtual IPetOperations Pet { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the PetStoreInc class.
@@ -128,7 +128,7 @@ namespace Fixtures.ExtensibleEnums
         /// </summary>
         private void Initialize()
         {
-            Pet = new PetOperations(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://localhost:3000");
             SerializationSettings = new JsonSerializerSettings
             {

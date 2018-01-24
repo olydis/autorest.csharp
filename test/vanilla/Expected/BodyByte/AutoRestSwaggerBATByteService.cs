@@ -40,9 +40,9 @@ namespace Fixtures.BodyByte
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
-        /// Gets the IByteModel.
+        /// Gets the operations.
         /// </summary>
-        public virtual IByteModel ByteModel { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the AutoRestSwaggerBATByteService class.
@@ -123,7 +123,7 @@ namespace Fixtures.BodyByte
         /// </summary>
         private void Initialize()
         {
-            ByteModel = new ByteModel(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://localhost:3000");
             SerializationSettings = new JsonSerializerSettings
             {

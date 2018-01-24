@@ -17,14 +17,13 @@ namespace Fixtures.Azure.Paging
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Net;
     using System.Net.Http;
 
     /// <summary>
     /// Long-running Operation for AutoRest
     /// </summary>
-    public partial class AutoRestPagingTestServiceClient : ServiceClient<AutoRestPagingTestServiceClient>, IAutoRestPagingTestServiceClient, IAzureClient
+    public partial class AutoRestPagingTestServiceClient : ServiceClient<AutoRestPagingTestServiceClient>, IAutoRestPagingTestServiceClient
     {
         /// <summary>
         /// The base URI of the service.
@@ -64,9 +63,9 @@ namespace Fixtures.Azure.Paging
         public bool? GenerateClientRequestId { get; set; }
 
         /// <summary>
-        /// Gets the IPagingOperations.
+        /// Gets the operations.
         /// </summary>
-        public virtual IPagingOperations Paging { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the AutoRestPagingTestServiceClient class.
@@ -262,14 +261,14 @@ namespace Fixtures.Azure.Paging
 
         /// <summary>
         /// An optional partial-method to perform custom initialization.
-        /// </summary>
+        ///</summary>
         partial void CustomInitialize();
         /// <summary>
         /// Initializes client properties.
         /// </summary>
         private void Initialize()
         {
-            Paging = new PagingOperations(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://localhost:3000");
             AcceptLanguage = "en-US";
             LongRunningOperationRetryTimeout = 30;
@@ -282,7 +281,7 @@ namespace Fixtures.Azure.Paging
                 NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore,
                 ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize,
                 ContractResolver = new ReadOnlyJsonContractResolver(),
-                Converters = new List<JsonConverter>
+                Converters = new  List<JsonConverter>
                     {
                         new Iso8601TimeSpanConverter()
                     }
@@ -300,7 +299,6 @@ namespace Fixtures.Azure.Paging
                     }
             };
             CustomInitialize();
-            DeserializationSettings.Converters.Add(new CloudErrorJsonConverter());
         }
     }
 }

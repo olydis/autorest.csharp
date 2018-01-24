@@ -16,22 +16,6 @@ namespace AutoRest.CSharp.Model
         {
         }
 
-        /// <Summary>
-        /// Accessor for <code>ExtensionTypeName</code>
-        /// </Summary>
-        public string ExtensionTypeName
-        {
-            get
-            {
-                if (IsCodeModelMethodGroup)
-                {
-                    return (CodeModel?.Name).Else(string.Empty);
-                }
-
-                return CodeNamer.Instance.GetTypeName(TypeName.Else(CodeModel?.Name.Else(NameForProperty.Else(String.Empty))));
-            }
-        }
-
         public override IEnumerable<string> Usings
         {
             get

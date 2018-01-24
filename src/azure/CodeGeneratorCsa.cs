@@ -37,12 +37,11 @@ namespace AutoRest.CSharp.Azure
         {
             var codeModel = cm as CodeModelCsa ?? throw new InvalidCastException("CodeModel is not a Azure c# CodeModel");
 
-            await GenerateServiceClient<AzureServiceClientTemplate>(codeModel);
-            await GenerateOperations<AzureMethodGroupTemplate>(codeModel.Operations);
+            await GenerateServiceClient(codeModel);
+            await GenerateOperations(codeModel);
             await GenerateModels(codeModel.ModelTypes.Union(codeModel.HeaderTypes));
             await GenerateEnums(codeModel.EnumTypes);
             await GeneratePageClasses(codeModel.pageClasses);
-            await GenerateExceptions(codeModel.ErrorTypes);
             if (codeModel.ShouldGenerateXmlSerialization)
             {
                 await GenerateXmlSerialization();
@@ -55,21 +54,6 @@ namespace AutoRest.CSharp.Azure
             {
                 var page = new Page(pageClass.Value, pageClass.Key.Key, pageClass.Key.Value);
                 await Write(new PageTemplate { Model = page }, $"{GeneratedSourcesBaseFolder}{FolderModels}/{page.TypeDefinitionName}{ImplementationFileExtension}");
-            }
-        }
-
-        protected override async Task GenerateExceptions(IEnumerable<CompositeType> errorTypes)
-        {
-            foreach (CompositeTypeCs exceptionType in errorTypes)
-            {
-                if (exceptionType.Name == "CloudError")
-                {
-                    continue;
-                }
-
-                var exceptionTemplate = new ExceptionTemplate {Model = exceptionType};
-                await Write(exceptionTemplate,
-                     $"{GeneratedSourcesBaseFolder}{FolderModels}/{exceptionTemplate.Model.ExceptionTypeDefinitionName}{ImplementationFileExtension}");
             }
         }
     }

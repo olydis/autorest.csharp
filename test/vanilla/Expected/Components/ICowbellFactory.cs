@@ -31,9 +31,9 @@ namespace Fixtures.Components
 
 
         /// <summary>
-        /// Gets the ICowbellOperations.
+        /// Gets the Operations.
         /// </summary>
-        ICowbellOperations Cowbell { get; }
+        IOperations Operations { get; }
 
     }
 }

@@ -40,9 +40,9 @@ namespace Fixtures.ExtensibleEnums
 
 
         /// <summary>
-        /// Gets the IPetOperations.
+        /// Gets the Operations.
         /// </summary>
-        IPetOperations Pet { get; }
+        IOperations Operations { get; }
 
     }
 }

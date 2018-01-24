@@ -14,10 +14,6 @@ namespace Fixtures.Azure.AzureCompositeModelClient
     using Microsoft.Rest.Azure;
     using Models;
     using Newtonsoft.Json;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Threading;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// Composite Swagger Client that represents merging body complex and
@@ -69,110 +65,9 @@ namespace Fixtures.Azure.AzureCompositeModelClient
 
 
         /// <summary>
-        /// Gets the IBasicOperations.
+        /// Gets the Operations.
         /// </summary>
-        IBasicOperations Basic { get; }
-
-        /// <summary>
-        /// Gets the IPrimitiveOperations.
-        /// </summary>
-        IPrimitiveOperations Primitive { get; }
-
-        /// <summary>
-        /// Gets the IArrayOperations.
-        /// </summary>
-        IArrayOperations Array { get; }
-
-        /// <summary>
-        /// Gets the IDictionaryOperations.
-        /// </summary>
-        IDictionaryOperations Dictionary { get; }
-
-        /// <summary>
-        /// Gets the IInheritanceOperations.
-        /// </summary>
-        IInheritanceOperations Inheritance { get; }
-
-        /// <summary>
-        /// Gets the IPolymorphismOperations.
-        /// </summary>
-        IPolymorphismOperations Polymorphism { get; }
-
-        /// <summary>
-        /// Gets the IPolymorphicrecursiveOperations.
-        /// </summary>
-        IPolymorphicrecursiveOperations Polymorphicrecursive { get; }
-
-        /// <summary>
-        /// Gets the IReadonlypropertyOperations.
-        /// </summary>
-        IReadonlypropertyOperations Readonlyproperty { get; }
-
-        /// <summary>
-        /// Product Types
-        /// </summary>
-        /// <remarks>
-        /// The Products endpoint returns information about the Uber products
-        /// offered at a given location. The response includes the display name
-        /// and other details about each product, and lists the products in the
-        /// proper display order.
-        /// </remarks>
-        /// <param name='resourceGroupName'>
-        /// Resource Group ID.
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<AzureOperationResponse<CatalogArray>> ListAsync(string resourceGroupName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Create products
-        /// </summary>
-        /// <remarks>
-        /// Resets products.
-        /// </remarks>
-        /// <param name='subscriptionId'>
-        /// Subscription ID.
-        /// </param>
-        /// <param name='resourceGroupName'>
-        /// Resource Group ID.
-        /// </param>
-        /// <param name='bodyParameter'>
-        /// body Parameter
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<AzureOperationResponse<CatalogDictionary>> CreateAsync(string subscriptionId, string resourceGroupName, CatalogDictionaryOfArray bodyParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Update products
-        /// </summary>
-        /// <remarks>
-        /// Resets products.
-        /// </remarks>
-        /// <param name='subscriptionId'>
-        /// Subscription ID.
-        /// </param>
-        /// <param name='resourceGroupName'>
-        /// Resource Group ID.
-        /// </param>
-        /// <param name='bodyParameter'>
-        /// body Parameter
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<AzureOperationResponse<CatalogArray>> UpdateAsync(string subscriptionId, string resourceGroupName, CatalogArrayOfDictionary bodyParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        IOperations Operations { get; }
 
     }
 }

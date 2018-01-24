@@ -69,9 +69,9 @@ namespace Fixtures.Azure.SubscriptionIdApiVersion
 
 
         /// <summary>
-        /// Gets the IGroupOperations.
+        /// Gets the Operations.
         /// </summary>
-        IGroupOperations Group { get; }
+        IOperations Operations { get; }
 
     }
 }

@@ -10,13 +10,8 @@
 
 namespace Fixtures.MirrorPrimitives
 {
-    using Microsoft.Rest;
     using Models;
     using Newtonsoft.Json;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Threading;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// Some cool documentation.
@@ -40,72 +35,9 @@ namespace Fixtures.MirrorPrimitives
 
 
         /// <summary>
-        /// Product Types
+        /// Gets the Operations.
         /// </summary>
-        /// <param name='responseCode'>
-        /// The desired returned status code
-        /// </param>
-        /// <param name='product'>
-        /// The only parameter
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<Product>> GetProductAsync(string responseCode = default(string), Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Product Types
-        /// </summary>
-        /// <param name='responseCode'>
-        /// The desired returned status code
-        /// </param>
-        /// <param name='product'>
-        /// The only parameter
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<Product>> PutProductAsync(string responseCode = default(string), Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Product Types
-        /// </summary>
-        /// <param name='responseCode'>
-        /// The desired returned status code
-        /// </param>
-        /// <param name='product'>
-        /// The only parameter
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<Product>> PostProductAsync(string responseCode = default(string), Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Product Types
-        /// </summary>
-        /// <param name='responseCode'>
-        /// The desired returned status code
-        /// </param>
-        /// <param name='product'>
-        /// The only parameter
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<Product>> PatchProductAsync(string responseCode = default(string), Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        IOperations Operations { get; }
 
     }
 }

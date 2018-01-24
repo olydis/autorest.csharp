@@ -27,64 +27,6 @@ namespace AutoRest.CSharp.Azure.Model
         [JsonIgnore]
         public string RequestIdString => AzureExtensions.GetRequestIdString(this);
 
-        [JsonIgnore]
-        public MethodCsa GetMethod
-        {
-            get
-            {
-                var getMethod = CodeModel.Methods.FirstOrDefault(m => m.Url == Url
-                                                                          && m.HttpMethod == HttpMethod.Get &&
-                                                                          m.Group == Group);
-                if (getMethod == null)
-                {
-                    throw new InvalidOperationException(
-                        $"Long running operations for '{Name}' requires a GET operation under the same path and same operation group '{Group}'.");
-                }
-                return getMethod as MethodCsa;
-            }
-        }
-
-        /// <summary>
-        /// Get the expression for exception initialization with message.
-        /// </summary>
-        public override string InitializeExceptionWithMessage
-        {
-            get
-            {
-                if (DefaultResponse.Body != null && DefaultResponse.Body.Name == "CloudError")
-                {
-                    return "ex = new Microsoft.Rest.Azure.CloudException(_errorBody.Message);";
-                }
-                return base.InitializeExceptionWithMessage;
-            }
-        }
-
-        /// <summary>
-        /// Get the expression for exception initialization.
-        /// </summary>
-        public override string InitializeException
-        {
-            get
-            {
-                if (OperationExceptionTypeString == "Microsoft.Rest.Azure.CloudException")
-                {
-                    IndentedStringBuilder sb = new IndentedStringBuilder();
-                    sb.AppendLine(base.InitializeExceptionWithMessage)
-                      .AppendLine("if (_httpResponse.Headers.Contains(\"{0}\"))", this.RequestIdString)
-                      .AppendLine("{").Indent()
-                        .AppendLine("ex.RequestId = _httpResponse.Headers.GetValues(\"{0}\").FirstOrDefault();", this.RequestIdString).Outdent()
-                      .AppendLine("}");
-                    return sb.ToString();
-                }
-                return base.InitializeExceptionWithMessage;
-            }
-        }
-
-        /// <summary>
-        /// Returns true if method has x-ms-long-running-operation extension.
-        /// </summary>
-        public bool IsLongRunningOperation => Extensions.ContainsKey(AzureExtensions.LongRunningExtension) && true == Extensions[AzureExtensions.LongRunningExtension] as bool?;
-
         private string ReturnTypePageInterfaceName
         {
             get
@@ -152,21 +94,6 @@ namespace AutoRest.CSharp.Azure.Model
                     return $"System.Threading.Tasks.Task<{ReturnTypePageInterfaceName}>";
                 }
                 return base.TaskExtensionReturnTypeString;
-            }
-        }
-
-        /// <summary>
-        /// Get the type for operation exception.
-        /// </summary>
-        public override string OperationExceptionTypeString
-        {
-            get
-            {
-                if (DefaultResponse.Body == null || DefaultResponse.Body.Name == "CloudError")
-                {
-                    return "Microsoft.Rest.Azure.CloudException";
-                }
-                return base.OperationExceptionTypeString;
             }
         }
 

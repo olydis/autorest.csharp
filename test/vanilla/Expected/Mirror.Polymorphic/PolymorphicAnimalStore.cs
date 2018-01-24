@@ -42,6 +42,11 @@ namespace Fixtures.MirrorPolymorphic
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
+        /// Gets the operations.
+        /// </summary>
+        public virtual IOperations Operations { get; private set; }
+
+        /// <summary>
         /// Initializes a new instance of the PolymorphicAnimalStore class.
         /// </summary>
         /// <param name='handlers'>
@@ -120,6 +125,7 @@ namespace Fixtures.MirrorPolymorphic
         /// </summary>
         private void Initialize()
         {
+            Operations = new Operations(this);
             BaseUri = new System.Uri("https://management.azure.com");
             SerializationSettings = new JsonSerializerSettings
             {
@@ -168,16 +174,13 @@ namespace Fixtures.MirrorPolymorphic
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        /// <exception cref="Error2Exception">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Animal>> CreateOrUpdatePolymorphicAnimalsAsync(Animal animalCreateOrUpdateParameter = default(Animal), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Animal>> CreateOrUpdatePolymorphicAnimals(Animal animalCreateOrUpdateParameter = default(Animal), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -237,14 +240,15 @@ namespace Fixtures.MirrorPolymorphic
             string _responseContent = null;
             if ((int)_statusCode != 200)
             {
-                var ex = new Error2Exception(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                var ex = new System.Exception(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                     Error2 _errorBody =  SafeJsonConvert.DeserializeObject<Error2>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
-                        ex.Body = _errorBody;
+                        //
+                        //ex.Body = _errorBody;
                     }
                 }
                 catch (JsonException)

@@ -45,19 +45,9 @@ namespace Fixtures.Url
 
 
         /// <summary>
-        /// Gets the IPaths.
+        /// Gets the Operations.
         /// </summary>
-        IPaths Paths { get; }
-
-        /// <summary>
-        /// Gets the IQueries.
-        /// </summary>
-        IQueries Queries { get; }
-
-        /// <summary>
-        /// Gets the IPathItems.
-        /// </summary>
-        IPathItems PathItems { get; }
+        IOperations Operations { get; }
 
     }
 }

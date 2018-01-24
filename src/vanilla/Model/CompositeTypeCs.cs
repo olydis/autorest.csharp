@@ -45,9 +45,6 @@ namespace AutoRest.CSharp.Model
         public bool NeedsPolymorphicConverter => BaseIsPolymorphic && Name != SerializedName;
 
         [JsonIgnore]
-        public bool NeedsTransformationConverter => Properties.Any(p => p.WasFlattened());
-
-        [JsonIgnore]
         public string ConstructorParameters => _constructorModel.Signature;
 
         [JsonIgnore]

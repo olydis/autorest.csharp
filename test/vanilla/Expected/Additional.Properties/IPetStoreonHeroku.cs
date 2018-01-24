@@ -36,19 +36,9 @@ namespace Fixtures.AdditionalProperties
 
 
         /// <summary>
-        /// Gets the IGet.
+        /// Gets the Operations.
         /// </summary>
-        IGet Get { get; }
-
-        /// <summary>
-        /// Gets the IPost.
-        /// </summary>
-        IPost Post { get; }
-
-        /// <summary>
-        /// Gets the IPut.
-        /// </summary>
-        IPut Put { get; }
+        IOperations Operations { get; }
 
     }
 }

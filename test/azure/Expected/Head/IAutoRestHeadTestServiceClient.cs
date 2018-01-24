@@ -58,9 +58,9 @@ namespace Fixtures.Azure.Head
 
 
         /// <summary>
-        /// Gets the IHttpSuccessOperations.
+        /// Gets the Operations.
         /// </summary>
-        IHttpSuccessOperations HttpSuccess { get; }
+        IOperations Operations { get; }
 
     }
 }

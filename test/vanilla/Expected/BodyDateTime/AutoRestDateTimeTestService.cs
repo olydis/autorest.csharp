@@ -40,9 +40,9 @@ namespace Fixtures.BodyDateTime
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
-        /// Gets the IDatetime.
+        /// Gets the operations.
         /// </summary>
-        public virtual IDatetime Datetime { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the AutoRestDateTimeTestService class.
@@ -123,7 +123,7 @@ namespace Fixtures.BodyDateTime
         /// </summary>
         private void Initialize()
         {
-            Datetime = new Datetime(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://localhost:3000");
             SerializationSettings = new JsonSerializerSettings
             {

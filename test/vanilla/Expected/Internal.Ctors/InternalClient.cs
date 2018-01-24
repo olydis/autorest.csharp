@@ -40,9 +40,9 @@ namespace Fixtures.InternalCtors
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
-        /// Gets the IPets.
+        /// Gets the operations.
         /// </summary>
-        public virtual IPets Pets { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the InternalClient class.
@@ -123,7 +123,7 @@ namespace Fixtures.InternalCtors
         /// </summary>
         private void Initialize()
         {
-            Pets = new Pets(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://petstore.swagger.wordnik.com/api");
             SerializationSettings = new JsonSerializerSettings
             {

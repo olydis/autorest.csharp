@@ -14,10 +14,6 @@ namespace Fixtures.Azure.AzureReport
     using Microsoft.Rest.Azure;
     using Models;
     using Newtonsoft.Json;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Threading;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// Test Infrastructure for AutoRest
@@ -63,20 +59,9 @@ namespace Fixtures.Azure.AzureReport
 
 
         /// <summary>
-        /// Get test coverage report
+        /// Gets the Operations.
         /// </summary>
-        /// <param name='qualifier'>
-        /// If specified, qualifies the generated report further (e.g. '2.7' vs
-        /// '3.5' in for Python). The only effect is, that generators that run
-        /// all tests several times, can distinguish the generated reports.
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<AzureOperationResponse<IDictionary<string, int?>>> GetReportAsync(string qualifier = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        IOperations Operations { get; }
 
     }
 }

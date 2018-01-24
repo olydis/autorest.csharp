@@ -40,9 +40,9 @@ namespace Fixtures.BodyDuration
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
-        /// Gets the IDuration.
+        /// Gets the operations.
         /// </summary>
-        public virtual IDuration Duration { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the AutoRestDurationTestService class.
@@ -123,7 +123,7 @@ namespace Fixtures.BodyDuration
         /// </summary>
         private void Initialize()
         {
-            Duration = new Duration(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://localhost:3000");
             SerializationSettings = new JsonSerializerSettings
             {

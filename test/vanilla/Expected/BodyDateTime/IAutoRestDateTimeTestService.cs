@@ -35,9 +35,9 @@ namespace Fixtures.BodyDateTime
 
 
         /// <summary>
-        /// Gets the IDatetime.
+        /// Gets the Operations.
         /// </summary>
-        IDatetime Datetime { get; }
+        IOperations Operations { get; }
 
     }
 }

@@ -40,39 +40,9 @@ namespace Fixtures.Http
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
-        /// Gets the IHttpFailure.
+        /// Gets the operations.
         /// </summary>
-        public virtual IHttpFailure HttpFailure { get; private set; }
-
-        /// <summary>
-        /// Gets the IHttpSuccess.
-        /// </summary>
-        public virtual IHttpSuccess HttpSuccess { get; private set; }
-
-        /// <summary>
-        /// Gets the IHttpRedirects.
-        /// </summary>
-        public virtual IHttpRedirects HttpRedirects { get; private set; }
-
-        /// <summary>
-        /// Gets the IHttpClientFailure.
-        /// </summary>
-        public virtual IHttpClientFailure HttpClientFailure { get; private set; }
-
-        /// <summary>
-        /// Gets the IHttpServerFailure.
-        /// </summary>
-        public virtual IHttpServerFailure HttpServerFailure { get; private set; }
-
-        /// <summary>
-        /// Gets the IHttpRetry.
-        /// </summary>
-        public virtual IHttpRetry HttpRetry { get; private set; }
-
-        /// <summary>
-        /// Gets the IMultipleResponses.
-        /// </summary>
-        public virtual IMultipleResponses MultipleResponses { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the AutoRestHttpInfrastructureTestService class.
@@ -153,13 +123,7 @@ namespace Fixtures.Http
         /// </summary>
         private void Initialize()
         {
-            HttpFailure = new HttpFailure(this);
-            HttpSuccess = new HttpSuccess(this);
-            HttpRedirects = new HttpRedirects(this);
-            HttpClientFailure = new HttpClientFailure(this);
-            HttpServerFailure = new HttpServerFailure(this);
-            HttpRetry = new HttpRetry(this);
-            MultipleResponses = new MultipleResponses(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://localhost:3000");
             SerializationSettings = new JsonSerializerSettings
             {

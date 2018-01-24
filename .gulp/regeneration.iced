@@ -150,7 +150,7 @@ task 'regenerate-csazure', '', ['regenerate-csazurecomposite','regenerate-csazur
   },done
   return null
 
-task 'regenerate-cs', '', ['regenerate-cswithcreds', 'regenerate-cscomposite', 'regenerate-csallsync', 'regenerate-csnosync', 'regenerate-cs-config'], (done) ->
+task 'regenerate-cs', '', ['regenerate-cswithcreds', 'regenerate-cscomposite', 'regenerate-csallsync', 'regenerate-cs-config'], (done) ->
   mappings = {
     'Mirror.RecursiveTypes': 'swagger-mirror-recursive-type.json',
     'Mirror.Primitives': 'swagger-mirror-primitives.json',

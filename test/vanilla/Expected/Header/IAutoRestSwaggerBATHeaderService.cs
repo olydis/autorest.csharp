@@ -35,9 +35,9 @@ namespace Fixtures.Header
 
 
         /// <summary>
-        /// Gets the IHeaderOperations.
+        /// Gets the Operations.
         /// </summary>
-        IHeaderOperations Header { get; }
+        IOperations Operations { get; }
 
     }
 }

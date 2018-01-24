@@ -10,13 +10,8 @@
 
 namespace Fixtures.MirrorSequences
 {
-    using Microsoft.Rest;
     using Models;
     using Newtonsoft.Json;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Threading;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// A sample API that uses a petstore as an example to demonstrate features
@@ -41,46 +36,9 @@ namespace Fixtures.MirrorSequences
 
 
         /// <summary>
-        /// Creates a new pet in the store.  Duplicates are allowed
+        /// Gets the Operations.
         /// </summary>
-        /// <param name='pets'>
-        /// Pets to add to the store
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<IList<Pet>>> AddPetAsync(IList<Pet> pets, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Adds new pet stylesin the store.  Duplicates are allowed
-        /// </summary>
-        /// <param name='petStyle'>
-        /// Pet style to add to the store
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<IList<int?>>> AddPetStylesAsync(IList<int?> petStyle, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Updates new pet stylesin the store.  Duplicates are allowed
-        /// </summary>
-        /// <param name='petStyle'>
-        /// Pet style to add to the store
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<IList<int?>>> UpdatePetStylesAsync(IList<int?> petStyle, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        IOperations Operations { get; }
 
     }
 }

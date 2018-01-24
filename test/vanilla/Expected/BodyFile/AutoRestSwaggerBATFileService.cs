@@ -40,9 +40,9 @@ namespace Fixtures.BodyFile
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
-        /// Gets the IFiles.
+        /// Gets the operations.
         /// </summary>
-        public virtual IFiles Files { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the AutoRestSwaggerBATFileService class.
@@ -123,7 +123,7 @@ namespace Fixtures.BodyFile
         /// </summary>
         private void Initialize()
         {
-            Files = new Files(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://localhost:3000");
             SerializationSettings = new JsonSerializerSettings
             {

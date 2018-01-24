@@ -16,7 +16,7 @@ namespace AutoRest.CSharp.Model
     public class CodeModelCs : CodeModel
     {
         [JsonIgnore]
-        public IEnumerable<MethodGroupCs> AllOperations => Operations.Where( operation => !operation.Name.IsNullOrEmpty()).Cast<MethodGroupCs>();
+        public IEnumerable<MethodGroupCs> AllOperations => Operations.Cast<MethodGroupCs>();
 
         public bool IsCustomBaseUri => Extensions.ContainsKey(SwaggerExtensions.ParameterizedHostExtension);
 
@@ -54,9 +54,6 @@ namespace AutoRest.CSharp.Model
                 return string.Join(", ", requireParams);
             }
         }
-
-        [JsonIgnore]
-        public bool NeedsTransformationConverter => ModelTypes.Any(m => m.Properties.Any(p => p.WasFlattened()));
 
         /// <summary>
         /// Returns the list of names that this element is reserving

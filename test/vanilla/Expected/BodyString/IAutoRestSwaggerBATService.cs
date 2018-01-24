@@ -35,14 +35,9 @@ namespace Fixtures.BodyString
 
 
         /// <summary>
-        /// Gets the IStringModel.
+        /// Gets the Operations.
         /// </summary>
-        IStringModel StringModel { get; }
-
-        /// <summary>
-        /// Gets the IEnumModel.
-        /// </summary>
-        IEnumModel EnumModel { get; }
+        IOperations Operations { get; }
 
     }
 }

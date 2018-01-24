@@ -17,14 +17,13 @@ namespace Fixtures.Azure.SubscriptionIdApiVersion
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Net;
     using System.Net.Http;
 
     /// <summary>
     /// Some cool documentation.
     /// </summary>
-    public partial class MicrosoftAzureTestUrlClient : ServiceClient<MicrosoftAzureTestUrlClient>, IMicrosoftAzureTestUrlClient, IAzureClient
+    public partial class MicrosoftAzureTestUrlClient : ServiceClient<MicrosoftAzureTestUrlClient>, IMicrosoftAzureTestUrlClient
     {
         /// <summary>
         /// The base URI of the service.
@@ -74,9 +73,9 @@ namespace Fixtures.Azure.SubscriptionIdApiVersion
         public bool? GenerateClientRequestId { get; set; }
 
         /// <summary>
-        /// Gets the IGroupOperations.
+        /// Gets the operations.
         /// </summary>
-        public virtual IGroupOperations Group { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the MicrosoftAzureTestUrlClient class.
@@ -272,14 +271,14 @@ namespace Fixtures.Azure.SubscriptionIdApiVersion
 
         /// <summary>
         /// An optional partial-method to perform custom initialization.
-        /// </summary>
+        ///</summary>
         partial void CustomInitialize();
         /// <summary>
         /// Initializes client properties.
         /// </summary>
         private void Initialize()
         {
-            Group = new GroupOperations(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("https://management.azure.com");
             ApiVersion = "2014-04-01-preview";
             AcceptLanguage = "en-US";
@@ -293,7 +292,7 @@ namespace Fixtures.Azure.SubscriptionIdApiVersion
                 NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore,
                 ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize,
                 ContractResolver = new ReadOnlyJsonContractResolver(),
-                Converters = new List<JsonConverter>
+                Converters = new  List<JsonConverter>
                     {
                         new Iso8601TimeSpanConverter()
                     }
@@ -311,7 +310,6 @@ namespace Fixtures.Azure.SubscriptionIdApiVersion
                     }
             };
             CustomInitialize();
-            DeserializationSettings.Converters.Add(new CloudErrorJsonConverter());
         }
     }
 }

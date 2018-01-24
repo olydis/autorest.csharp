@@ -35,9 +35,9 @@ namespace Fixtures.BodyInteger
 
 
         /// <summary>
-        /// Gets the IIntModel.
+        /// Gets the Operations.
         /// </summary>
-        IIntModel IntModel { get; }
+        IOperations Operations { get; }
 
     }
 }

@@ -29,5 +29,5 @@
     var ps = string.Join("," + indent, vars.Select(v => $"{varsTarget[v]}: {(varsSource.ContainsKey(v) ? varsSource[v] : target.LocalParameters.First(p => p.SerializedName == v).ActualDefaultValue)}"));
     if (ps != "") ps = indent + ps;
 
-@:return await @(target.MethodReference)Async(@ps);
+@:return await @(target.MethodReference)(@ps);
 }

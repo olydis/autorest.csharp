@@ -48,46 +48,11 @@ namespace @Settings.Namespace
         }
 
         @EmptyLine
-    @foreach(var operation in Model.AllOperations)
-    {
-        @:/// <summary>
-        @:/// Gets the I@(operation.TypeName).
-        @:/// </summary>
-        @:I@(operation.TypeName) @(operation.NameForProperty) { get; }
+        /// <summary>
+        /// Gets the Operations.
+        /// </summary>
+        IOperations Operations { get; }
         @EmptyLine
-        @:
-    }
-     
-    @foreach(MethodCs method in Model.Methods.Where( each => each.Group.IsNullOrEmpty()) )
-    {
-        if (!String.IsNullOrEmpty(method.Description) || !String.IsNullOrEmpty(method.Summary))
-        {
-        @:/// <summary>
-        @:@WrapComment("/// ", String.IsNullOrEmpty(method.Summary) ? method.Description.EscapeXmlComment() : method.Summary.EscapeXmlComment())
-        @:/// </summary>
-        }
-        if (!String.IsNullOrEmpty(method.Description) && !String.IsNullOrEmpty(method.Summary))
-        {
-        @:/// <remarks>
-        @:@WrapComment("/// ", method.Description.EscapeXmlComment())
-        @:/// </remarks>
-        }
-        foreach (var parameter in method.LocalParameters)
-        {
-        @:/// <param name='@parameter.Name'>
-        @:@WrapComment("/// ", parameter.Documentation.EscapeXmlComment())
-        @:/// </param>
-        }
-        @:/// <param name='customHeaders'>
-        @:/// The headers that will be added to request.
-        @:/// </param>
-        @:/// <param name='cancellationToken'>
-        @:/// The cancellation token.
-        @:/// </param>
-        @:System.Threading.Tasks.Task<@(method.OperationResponseReturnTypeString)> @(method.Name)Async(@(method.GetAsyncMethodParameterDeclaration(true)));
-        @EmptyLine
-        @:
-    }
 
     }
 }

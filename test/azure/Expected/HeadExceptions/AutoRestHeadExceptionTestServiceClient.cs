@@ -16,14 +16,13 @@ namespace Fixtures.Azure.HeadExceptions
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Net;
     using System.Net.Http;
 
     /// <summary>
     /// Test Infrastructure for AutoRest
     /// </summary>
-    public partial class AutoRestHeadExceptionTestServiceClient : ServiceClient<AutoRestHeadExceptionTestServiceClient>, IAutoRestHeadExceptionTestServiceClient, IAzureClient
+    public partial class AutoRestHeadExceptionTestServiceClient : ServiceClient<AutoRestHeadExceptionTestServiceClient>, IAutoRestHeadExceptionTestServiceClient
     {
         /// <summary>
         /// The base URI of the service.
@@ -63,9 +62,9 @@ namespace Fixtures.Azure.HeadExceptions
         public bool? GenerateClientRequestId { get; set; }
 
         /// <summary>
-        /// Gets the IHeadExceptionOperations.
+        /// Gets the operations.
         /// </summary>
-        public virtual IHeadExceptionOperations HeadException { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the AutoRestHeadExceptionTestServiceClient class.
@@ -261,14 +260,14 @@ namespace Fixtures.Azure.HeadExceptions
 
         /// <summary>
         /// An optional partial-method to perform custom initialization.
-        /// </summary>
+        ///</summary>
         partial void CustomInitialize();
         /// <summary>
         /// Initializes client properties.
         /// </summary>
         private void Initialize()
         {
-            HeadException = new HeadExceptionOperations(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://localhost:3000");
             AcceptLanguage = "en-US";
             LongRunningOperationRetryTimeout = 30;
@@ -281,7 +280,7 @@ namespace Fixtures.Azure.HeadExceptions
                 NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore,
                 ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize,
                 ContractResolver = new ReadOnlyJsonContractResolver(),
-                Converters = new List<JsonConverter>
+                Converters = new  List<JsonConverter>
                     {
                         new Iso8601TimeSpanConverter()
                     }
@@ -299,7 +298,6 @@ namespace Fixtures.Azure.HeadExceptions
                     }
             };
             CustomInitialize();
-            DeserializationSettings.Converters.Add(new CloudErrorJsonConverter());
         }
     }
 }

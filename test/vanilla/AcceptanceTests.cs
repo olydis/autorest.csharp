@@ -57,7 +57,6 @@ using Newtonsoft.Json;
 using Xunit;
 using Error = Fixtures.Http.Models.Error;
 using ErrorException = Fixtures.Http.Models.ErrorException;
-using SwaggerPetstoreV2Extensions = Fixtures.PetstoreV2AllSync.SwaggerPetstoreV2Extensions;
 using System.Net.Http.Headers;
 using System.Reflection;
 

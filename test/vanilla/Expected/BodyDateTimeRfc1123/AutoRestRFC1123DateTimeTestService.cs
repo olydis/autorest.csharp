@@ -40,9 +40,9 @@ namespace Fixtures.BodyDateTimeRfc1123
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
-        /// Gets the IDatetimerfc1123.
+        /// Gets the operations.
         /// </summary>
-        public virtual IDatetimerfc1123 Datetimerfc1123 { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the AutoRestRFC1123DateTimeTestService class.
@@ -123,7 +123,7 @@ namespace Fixtures.BodyDateTimeRfc1123
         /// </summary>
         private void Initialize()
         {
-            Datetimerfc1123 = new Datetimerfc1123(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://localhost:3000");
             SerializationSettings = new JsonSerializerSettings
             {

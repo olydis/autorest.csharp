@@ -28,7 +28,7 @@ namespace AutoRest.CSharp
         {
             if(args != null && args.Length > 0 && args[0] == "--server") {
                 var connection = new Connection(Console.OpenStandardOutput(), Console.OpenStandardInput());
-                connection.Dispatch<IEnumerable<string>>("GetPluginNames", async () => new []{ "jsonrpcclient", "csharp", "csharp-simplifier" });
+                connection.Dispatch<IEnumerable<string>>("GetPluginNames", async () => new []{ "csharp", "csharp-simplifier" });
                 connection.Dispatch<string, string, bool>("Process", (plugin, sessionId) => new Program(connection, plugin, sessionId).Process());
                 connection.DispatchNotification("Shutdown", connection.Stop);
 
@@ -106,6 +106,7 @@ namespace AutoRest.CSharp
                 {
                     Namespace = await GetValue("namespace"),
                     ClientName = GetXmsCodeGenSetting<string>(codeModelT, "name") ?? await GetValue("override-client-name"),
+                    AddCredentials = await GetValue<bool?>("add-credentials") ?? false,
                     Host = this
                 };
                 var header = await GetValue("license-header");

@@ -35,9 +35,9 @@ namespace Fixtures.BodyByte
 
 
         /// <summary>
-        /// Gets the IByteModel.
+        /// Gets the Operations.
         /// </summary>
-        IByteModel ByteModel { get; }
+        IOperations Operations { get; }
 
     }
 }

@@ -41,14 +41,9 @@ namespace Fixtures.CompositeBoolIntClient
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
-        /// Gets the IBoolModel.
+        /// Gets the operations.
         /// </summary>
-        public virtual IBoolModel BoolModel { get; private set; }
-
-        /// <summary>
-        /// Gets the IIntModel.
-        /// </summary>
-        public virtual IIntModel IntModel { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the CompositeBoolInt class.
@@ -129,8 +124,7 @@ namespace Fixtures.CompositeBoolIntClient
         /// </summary>
         private void Initialize()
         {
-            BoolModel = new BoolModel(this);
-            IntModel = new IntModel(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://localhost:3000");
             SerializationSettings = new JsonSerializerSettings
             {

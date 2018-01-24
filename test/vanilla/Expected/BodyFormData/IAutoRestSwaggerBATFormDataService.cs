@@ -35,9 +35,9 @@ namespace Fixtures.BodyFormData
 
 
         /// <summary>
-        /// Gets the IFormdata.
+        /// Gets the Operations.
         /// </summary>
-        IFormdata Formdata { get; }
+        IOperations Operations { get; }
 
     }
 }

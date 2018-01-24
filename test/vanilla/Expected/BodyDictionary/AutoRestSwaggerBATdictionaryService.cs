@@ -40,9 +40,9 @@ namespace Fixtures.BodyDictionary
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
-        /// Gets the IDictionary.
+        /// Gets the operations.
         /// </summary>
-        public virtual IDictionary Dictionary { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the AutoRestSwaggerBATdictionaryService class.
@@ -123,7 +123,7 @@ namespace Fixtures.BodyDictionary
         /// </summary>
         private void Initialize()
         {
-            Dictionary = new Dictionary(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://localhost:3000");
             SerializationSettings = new JsonSerializerSettings
             {

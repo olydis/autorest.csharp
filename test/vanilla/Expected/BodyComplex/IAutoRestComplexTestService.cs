@@ -40,44 +40,9 @@ namespace Fixtures.BodyComplex
 
 
         /// <summary>
-        /// Gets the IBasicOperations.
+        /// Gets the Operations.
         /// </summary>
-        IBasicOperations Basic { get; }
-
-        /// <summary>
-        /// Gets the IPrimitive.
-        /// </summary>
-        IPrimitive Primitive { get; }
-
-        /// <summary>
-        /// Gets the IArray.
-        /// </summary>
-        IArray Array { get; }
-
-        /// <summary>
-        /// Gets the IDictionary.
-        /// </summary>
-        IDictionary Dictionary { get; }
-
-        /// <summary>
-        /// Gets the IInheritance.
-        /// </summary>
-        IInheritance Inheritance { get; }
-
-        /// <summary>
-        /// Gets the IPolymorphism.
-        /// </summary>
-        IPolymorphism Polymorphism { get; }
-
-        /// <summary>
-        /// Gets the IPolymorphicrecursive.
-        /// </summary>
-        IPolymorphicrecursive Polymorphicrecursive { get; }
-
-        /// <summary>
-        /// Gets the IReadonlyproperty.
-        /// </summary>
-        IReadonlyproperty Readonlyproperty { get; }
+        IOperations Operations { get; }
 
     }
 }

@@ -35,9 +35,9 @@ namespace Fixtures.BodyBoolean
 
 
         /// <summary>
-        /// Gets the IBoolModel.
+        /// Gets the Operations.
         /// </summary>
-        IBoolModel BoolModel { get; }
+        IOperations Operations { get; }
 
     }
 }

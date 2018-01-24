@@ -35,9 +35,9 @@ namespace Fixtures.BodyDate
 
 
         /// <summary>
-        /// Gets the IDate.
+        /// Gets the Operations.
         /// </summary>
-        IDate Date { get; }
+        IOperations Operations { get; }
 
     }
 }

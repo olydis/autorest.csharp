@@ -40,9 +40,9 @@ namespace Fixtures.BodyArray
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
-        /// Gets the IArray.
+        /// Gets the operations.
         /// </summary>
-        public virtual IArray Array { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the AutoRestSwaggerBATArrayService class.
@@ -123,7 +123,7 @@ namespace Fixtures.BodyArray
         /// </summary>
         private void Initialize()
         {
-            Array = new Array(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://localhost:3000");
             SerializationSettings = new JsonSerializerSettings
             {

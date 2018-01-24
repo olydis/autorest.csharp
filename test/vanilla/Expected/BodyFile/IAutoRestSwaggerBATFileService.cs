@@ -35,9 +35,9 @@ namespace Fixtures.BodyFile
 
 
         /// <summary>
-        /// Gets the IFiles.
+        /// Gets the Operations.
         /// </summary>
-        IFiles Files { get; }
+        IOperations Operations { get; }
 
     }
 }

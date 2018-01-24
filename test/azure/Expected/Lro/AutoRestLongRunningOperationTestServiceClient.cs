@@ -17,14 +17,13 @@ namespace Fixtures.Azure.Lro
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Net;
     using System.Net.Http;
 
     /// <summary>
     /// Long-running Operation for AutoRest
     /// </summary>
-    public partial class AutoRestLongRunningOperationTestServiceClient : ServiceClient<AutoRestLongRunningOperationTestServiceClient>, IAutoRestLongRunningOperationTestServiceClient, IAzureClient
+    public partial class AutoRestLongRunningOperationTestServiceClient : ServiceClient<AutoRestLongRunningOperationTestServiceClient>, IAutoRestLongRunningOperationTestServiceClient
     {
         /// <summary>
         /// The base URI of the service.
@@ -64,24 +63,9 @@ namespace Fixtures.Azure.Lro
         public bool? GenerateClientRequestId { get; set; }
 
         /// <summary>
-        /// Gets the ILROsOperations.
+        /// Gets the operations.
         /// </summary>
-        public virtual ILROsOperations LROs { get; private set; }
-
-        /// <summary>
-        /// Gets the ILRORetrysOperations.
-        /// </summary>
-        public virtual ILRORetrysOperations LRORetrys { get; private set; }
-
-        /// <summary>
-        /// Gets the ILROSADsOperations.
-        /// </summary>
-        public virtual ILROSADsOperations LROSADs { get; private set; }
-
-        /// <summary>
-        /// Gets the ILROsCustomHeaderOperations.
-        /// </summary>
-        public virtual ILROsCustomHeaderOperations LROsCustomHeader { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the AutoRestLongRunningOperationTestServiceClient class.
@@ -277,17 +261,14 @@ namespace Fixtures.Azure.Lro
 
         /// <summary>
         /// An optional partial-method to perform custom initialization.
-        /// </summary>
+        ///</summary>
         partial void CustomInitialize();
         /// <summary>
         /// Initializes client properties.
         /// </summary>
         private void Initialize()
         {
-            LROs = new LROsOperations(this);
-            LRORetrys = new LRORetrysOperations(this);
-            LROSADs = new LROSADsOperations(this);
-            LROsCustomHeader = new LROsCustomHeaderOperations(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://localhost:3000");
             AcceptLanguage = "en-US";
             LongRunningOperationRetryTimeout = 30;
@@ -300,7 +281,7 @@ namespace Fixtures.Azure.Lro
                 NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore,
                 ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize,
                 ContractResolver = new ReadOnlyJsonContractResolver(),
-                Converters = new List<JsonConverter>
+                Converters = new  List<JsonConverter>
                     {
                         new Iso8601TimeSpanConverter()
                     }
@@ -318,7 +299,6 @@ namespace Fixtures.Azure.Lro
                     }
             };
             CustomInitialize();
-            DeserializationSettings.Converters.Add(new CloudErrorJsonConverter());
         }
     }
 }

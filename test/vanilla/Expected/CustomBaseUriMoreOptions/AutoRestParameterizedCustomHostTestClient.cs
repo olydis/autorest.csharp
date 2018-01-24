@@ -51,9 +51,9 @@ namespace Fixtures.CustomBaseUriMoreOptions
         public string DnsSuffix { get; set; }
 
         /// <summary>
-        /// Gets the IPaths.
+        /// Gets the operations.
         /// </summary>
-        public virtual IPaths Paths { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the AutoRestParameterizedCustomHostTestClient class.
@@ -89,7 +89,7 @@ namespace Fixtures.CustomBaseUriMoreOptions
         /// </summary>
         private void Initialize()
         {
-            Paths = new Paths(this);
+            Operations = new Operations(this);
             BaseUri = "{vault}{secret}{dnsSuffix}";
             DnsSuffix = "host";
             SerializationSettings = new JsonSerializerSettings

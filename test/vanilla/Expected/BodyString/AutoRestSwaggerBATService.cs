@@ -40,14 +40,9 @@ namespace Fixtures.BodyString
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
-        /// Gets the IStringModel.
+        /// Gets the operations.
         /// </summary>
-        public virtual IStringModel StringModel { get; private set; }
-
-        /// <summary>
-        /// Gets the IEnumModel.
-        /// </summary>
-        public virtual IEnumModel EnumModel { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the AutoRestSwaggerBATService class.
@@ -128,8 +123,7 @@ namespace Fixtures.BodyString
         /// </summary>
         private void Initialize()
         {
-            StringModel = new StringModel(this);
-            EnumModel = new EnumModel(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://localhost:3000");
             SerializationSettings = new JsonSerializerSettings
             {

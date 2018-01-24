@@ -35,9 +35,9 @@ namespace Fixtures.BodyDuration
 
 
         /// <summary>
-        /// Gets the IDuration.
+        /// Gets the Operations.
         /// </summary>
-        IDuration Duration { get; }
+        IOperations Operations { get; }
 
     }
 }

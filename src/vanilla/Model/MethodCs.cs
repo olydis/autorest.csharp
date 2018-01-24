@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using AutoRest.Core.Model;
 using AutoRest.Core.Utilities;
 using AutoRest.Extensions;
+using AutoRest.Extensions.Azure;
 using Newtonsoft.Json;
 
 namespace AutoRest.CSharp.Model
@@ -20,6 +21,11 @@ namespace AutoRest.CSharp.Model
         
         public bool IsCustomBaseUri
             => CodeModel.Extensions.ContainsKey(SwaggerExtensions.ParameterizedHostExtension);
+
+        /// <summary>
+        /// Returns true if method has x-ms-long-running-operation extension.
+        /// </summary>
+        public bool IsLongRunningOperation => Extensions.ContainsKey(AzureExtensions.LongRunningExtension) && true == Extensions[AzureExtensions.LongRunningExtension] as bool?;
 
         /// <summary>
         /// Get the predicate to determine of the http operation status code indicates failure
@@ -169,33 +175,6 @@ namespace AutoRest.CSharp.Model
         }
 
         /// <summary>
-        /// Get the type for operation exception
-        /// </summary>
-        public virtual string OperationExceptionTypeString
-        {
-            get
-            {
-                if (this.DefaultResponse.Body is CompositeType)
-                {
-                    CompositeType type = this.DefaultResponse.Body as CompositeType;
-                    if (type.Extensions.ContainsKey(SwaggerExtensions.NameOverrideExtension))
-                    {
-                        var ext = type.Extensions[SwaggerExtensions.NameOverrideExtension] as Newtonsoft.Json.Linq.JContainer;
-                        if (ext != null && ext["name"] != null)
-                        {
-                            return ext["name"].ToString();
-                        }
-                    }
-                    return type.Name + "Exception";
-                }
-                else
-                {
-                    return "Microsoft.Rest.HttpOperationException";
-                }
-            }
-        }
-
-        /// <summary>
         /// Get the expression for exception initialization with message.
         /// </summary>
         public virtual string InitializeExceptionWithMessage => string.Empty;
@@ -310,12 +289,25 @@ namespace AutoRest.CSharp.Model
             return ((int)code).ToString(CultureInfo.InvariantCulture);
         }
 
+        public string MethodName
+        {
+            get
+            {
+                var s = new string(SerializedName.Select(c => char.IsLetterOrDigit(c) || c == '_' ? c : '_').ToArray());
+                if (s.Length == 0 || char.IsDigit(s[0]))
+                {
+                    s = "_" + s;
+                }
+                return s;
+            }
+        }
+
         /// <summary>
         /// Generates a code fragment like `.ProfileOperations.Create` or `.GetOperations`
         /// representing how to reach this method given a client instance.
         /// </summary>
         public virtual string MethodReference
-            => $"{ClientReference}{(MethodGroup?.Name.IsNullOrEmpty() != false ? "" : "." + MethodGroup.NameForProperty)}.{Name}";
+            => $"{ClientReference}.Operations.{SerializedName}";
 
         /// <summary>
         /// Generate code to build the URL from a url expression and method parameters

@@ -59,9 +59,9 @@ namespace Fixtures.Azure.AzureBodyDurationAllSync
 
 
         /// <summary>
-        /// Gets the IDurationOperations.
+        /// Gets the Operations.
         /// </summary>
-        IDurationOperations Duration { get; }
+        IOperations Operations { get; }
 
     }
 }

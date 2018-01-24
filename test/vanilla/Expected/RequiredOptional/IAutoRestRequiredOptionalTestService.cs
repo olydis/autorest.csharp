@@ -50,14 +50,9 @@ namespace Fixtures.RequiredOptional
 
 
         /// <summary>
-        /// Gets the IImplicitModel.
+        /// Gets the Operations.
         /// </summary>
-        IImplicitModel ImplicitModel { get; }
-
-        /// <summary>
-        /// Gets the IExplicitModel.
-        /// </summary>
-        IExplicitModel ExplicitModel { get; }
+        IOperations Operations { get; }
 
     }
 }

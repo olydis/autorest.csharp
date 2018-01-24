@@ -35,9 +35,9 @@ namespace Fixtures.BodyNumber
 
 
         /// <summary>
-        /// Gets the INumber.
+        /// Gets the Operations.
         /// </summary>
-        INumber Number { get; }
+        IOperations Operations { get; }
 
     }
 }

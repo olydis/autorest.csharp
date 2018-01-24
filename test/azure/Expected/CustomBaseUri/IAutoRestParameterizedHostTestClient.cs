@@ -64,9 +64,9 @@ namespace Fixtures.Azure.CustomBaseUri
 
 
         /// <summary>
-        /// Gets the IPathsOperations.
+        /// Gets the Operations.
         /// </summary>
-        IPathsOperations Paths { get; }
+        IOperations Operations { get; }
 
     }
 }

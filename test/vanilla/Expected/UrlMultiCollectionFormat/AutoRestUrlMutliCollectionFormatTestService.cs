@@ -40,9 +40,9 @@ namespace Fixtures.UrlMultiCollectionFormat
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
-        /// Gets the IQueries.
+        /// Gets the operations.
         /// </summary>
-        public virtual IQueries Queries { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the AutoRestUrlMutliCollectionFormatTestService class.
@@ -123,7 +123,7 @@ namespace Fixtures.UrlMultiCollectionFormat
         /// </summary>
         private void Initialize()
         {
-            Queries = new Queries(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://localhost:3000");
             SerializationSettings = new JsonSerializerSettings
             {

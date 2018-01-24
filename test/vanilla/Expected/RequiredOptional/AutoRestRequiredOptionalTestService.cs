@@ -55,14 +55,9 @@ namespace Fixtures.RequiredOptional
         public int? OptionalGlobalQuery { get; set; }
 
         /// <summary>
-        /// Gets the IImplicitModel.
+        /// Gets the operations.
         /// </summary>
-        public virtual IImplicitModel ImplicitModel { get; private set; }
-
-        /// <summary>
-        /// Gets the IExplicitModel.
-        /// </summary>
-        public virtual IExplicitModel ExplicitModel { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the AutoRestRequiredOptionalTestService class.
@@ -143,8 +138,7 @@ namespace Fixtures.RequiredOptional
         /// </summary>
         private void Initialize()
         {
-            ImplicitModel = new ImplicitModel(this);
-            ExplicitModel = new ExplicitModel(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://localhost:3000");
             SerializationSettings = new JsonSerializerSettings
             {

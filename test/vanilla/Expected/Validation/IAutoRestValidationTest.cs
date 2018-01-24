@@ -10,13 +10,8 @@
 
 namespace Fixtures.Validation
 {
-    using Microsoft.Rest;
     using Models;
     using Newtonsoft.Json;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Threading;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// Test Infrastructure for AutoRest. No server backend exists for these
@@ -51,58 +46,9 @@ namespace Fixtures.Validation
 
 
         /// <summary>
-        /// Validates input parameters on the method. See swagger for details.
+        /// Gets the Operations.
         /// </summary>
-        /// <param name='resourceGroupName'>
-        /// Required string between 3 and 10 chars with pattern [a-zA-Z0-9]+.
-        /// </param>
-        /// <param name='id'>
-        /// Required int multiple of 10 from 100 to 1000.
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<Product>> ValidationOfMethodParametersAsync(string resourceGroupName, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Validates body parameters on the method. See swagger for details.
-        /// </summary>
-        /// <param name='resourceGroupName'>
-        /// Required string between 3 and 10 chars with pattern [a-zA-Z0-9]+.
-        /// </param>
-        /// <param name='id'>
-        /// Required int multiple of 10 from 100 to 1000.
-        /// </param>
-        /// <param name='body'>
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<Product>> ValidationOfBodyAsync(string resourceGroupName, int id, Product body = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse> GetWithConstantInPathAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <param name='body'>
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<Product>> PostWithConstantInBodyAsync(Product body = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        IOperations Operations { get; }
 
     }
 }

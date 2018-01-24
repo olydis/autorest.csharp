@@ -291,7 +291,7 @@ string _responseContent = null;
 
 if (@(Model.FailureStatusCodePredicate))
 {
-    var ex = new @(Model.OperationExceptionTypeString)(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+    var ex = new System.Exception(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
 @if (Model.DefaultResponse.Body != null)
 {
     @:try
@@ -307,8 +307,8 @@ if (@(Model.FailureStatusCodePredicate))
         }
         @:if (_errorBody != null)
         @:{
-            @:@(Model.InitializeExceptionWithMessage)
-            @:ex.Body = _errorBody;
+            @://@(Model.InitializeExceptionWithMessage)
+            @://ex.Body = _errorBody;
         @:}
     @:}
     @:catch (Newtonsoft.Json.JsonException)

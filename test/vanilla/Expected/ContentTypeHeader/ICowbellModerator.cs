@@ -35,14 +35,9 @@ namespace Fixtures.ContentTypeHeader
 
 
         /// <summary>
-        /// Gets the IImage.
+        /// Gets the Operations.
         /// </summary>
-        IImage Image { get; }
-
-        /// <summary>
-        /// Gets the IText.
-        /// </summary>
-        IText Text { get; }
+        IOperations Operations { get; }
 
     }
 }

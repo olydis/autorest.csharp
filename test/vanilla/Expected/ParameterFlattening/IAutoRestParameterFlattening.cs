@@ -35,9 +35,9 @@ namespace Fixtures.ParameterFlattening
 
 
         /// <summary>
-        /// Gets the IAvailabilitySets.
+        /// Gets the Operations.
         /// </summary>
-        IAvailabilitySets AvailabilitySets { get; }
+        IOperations Operations { get; }
 
     }
 }

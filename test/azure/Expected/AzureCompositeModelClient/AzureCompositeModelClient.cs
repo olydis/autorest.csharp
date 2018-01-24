@@ -17,7 +17,6 @@ namespace Fixtures.Azure.AzureCompositeModelClient
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Net;
     using System.Net.Http;
     using System.Threading;
@@ -27,7 +26,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
     /// Composite Swagger Client that represents merging body complex and
     /// complex model swagger clients
     /// </summary>
-    public partial class AzureCompositeModelClient : ServiceClient<AzureCompositeModelClient>, IAzureCompositeModelClient, IAzureClient
+    public partial class AzureCompositeModelClient : ServiceClient<AzureCompositeModelClient>, IAzureCompositeModelClient
     {
         /// <summary>
         /// The base URI of the service.
@@ -72,44 +71,9 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         public bool? GenerateClientRequestId { get; set; }
 
         /// <summary>
-        /// Gets the IBasicOperations.
+        /// Gets the operations.
         /// </summary>
-        public virtual IBasicOperations Basic { get; private set; }
-
-        /// <summary>
-        /// Gets the IPrimitiveOperations.
-        /// </summary>
-        public virtual IPrimitiveOperations Primitive { get; private set; }
-
-        /// <summary>
-        /// Gets the IArrayOperations.
-        /// </summary>
-        public virtual IArrayOperations Array { get; private set; }
-
-        /// <summary>
-        /// Gets the IDictionaryOperations.
-        /// </summary>
-        public virtual IDictionaryOperations Dictionary { get; private set; }
-
-        /// <summary>
-        /// Gets the IInheritanceOperations.
-        /// </summary>
-        public virtual IInheritanceOperations Inheritance { get; private set; }
-
-        /// <summary>
-        /// Gets the IPolymorphismOperations.
-        /// </summary>
-        public virtual IPolymorphismOperations Polymorphism { get; private set; }
-
-        /// <summary>
-        /// Gets the IPolymorphicrecursiveOperations.
-        /// </summary>
-        public virtual IPolymorphicrecursiveOperations Polymorphicrecursive { get; private set; }
-
-        /// <summary>
-        /// Gets the IReadonlypropertyOperations.
-        /// </summary>
-        public virtual IReadonlypropertyOperations Readonlyproperty { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the AzureCompositeModelClient class.
@@ -305,21 +269,14 @@ namespace Fixtures.Azure.AzureCompositeModelClient
 
         /// <summary>
         /// An optional partial-method to perform custom initialization.
-        /// </summary>
+        ///</summary>
         partial void CustomInitialize();
         /// <summary>
         /// Initializes client properties.
         /// </summary>
         private void Initialize()
         {
-            Basic = new BasicOperations(this);
-            Primitive = new PrimitiveOperations(this);
-            Array = new ArrayOperations(this);
-            Dictionary = new DictionaryOperations(this);
-            Inheritance = new InheritanceOperations(this);
-            Polymorphism = new PolymorphismOperations(this);
-            Polymorphicrecursive = new PolymorphicrecursiveOperations(this);
-            Readonlyproperty = new ReadonlypropertyOperations(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://localhost:3000");
             SubscriptionId = "123456";
             AcceptLanguage = "en-US";
@@ -333,7 +290,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
                 NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore,
                 ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize,
                 ContractResolver = new ReadOnlyJsonContractResolver(),
-                Converters = new List<JsonConverter>
+                Converters = new  List<JsonConverter>
                     {
                         new Iso8601TimeSpanConverter()
                     }
@@ -351,9 +308,8 @@ namespace Fixtures.Azure.AzureCompositeModelClient
                     }
             };
             SerializationSettings.Converters.Add(new PolymorphicSerializeJsonConverter<Fish>("fishtype"));
-            DeserializationSettings.Converters.Add(new PolymorphicDeserializeJsonConverter<Fish>("fishtype"));
+            DeserializationSettings.Converters.Add(new  PolymorphicDeserializeJsonConverter<Fish>("fishtype"));
             CustomInitialize();
-            DeserializationSettings.Converters.Add(new CloudErrorJsonConverter());
         }
         /// <summary>
         /// Product Types
@@ -373,9 +329,6 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        /// <exception cref="ErrorException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
@@ -388,7 +341,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<CatalogArray>> ListAsync(string resourceGroupName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<CatalogArray>> list(string resourceGroupName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -477,14 +430,15 @@ namespace Fixtures.Azure.AzureCompositeModelClient
             string _responseContent = null;
             if ((int)_statusCode != 200)
             {
-                var ex = new ErrorException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                var ex = new System.Exception(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                     Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
-                        ex.Body = _errorBody;
+                        //
+                        //ex.Body = _errorBody;
                     }
                 }
                 catch (JsonException)
@@ -558,9 +512,6 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        /// <exception cref="ErrorException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
@@ -573,7 +524,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<CatalogDictionary>> CreateAsync(string subscriptionId, string resourceGroupName, CatalogDictionaryOfArray bodyParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<CatalogDictionary>> create(string subscriptionId, string resourceGroupName, CatalogDictionaryOfArray bodyParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -678,14 +629,15 @@ namespace Fixtures.Azure.AzureCompositeModelClient
             string _responseContent = null;
             if ((int)_statusCode != 200)
             {
-                var ex = new ErrorException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                var ex = new System.Exception(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                     Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
-                        ex.Body = _errorBody;
+                        //
+                        //ex.Body = _errorBody;
                     }
                 }
                 catch (JsonException)
@@ -759,9 +711,6 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        /// <exception cref="ErrorException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
@@ -774,7 +723,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<CatalogArray>> UpdateAsync(string subscriptionId, string resourceGroupName, CatalogArrayOfDictionary bodyParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<CatalogArray>> update(string subscriptionId, string resourceGroupName, CatalogArrayOfDictionary bodyParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -879,14 +828,15 @@ namespace Fixtures.Azure.AzureCompositeModelClient
             string _responseContent = null;
             if ((int)_statusCode != 200)
             {
-                var ex = new ErrorException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                var ex = new System.Exception(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                     Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
-                        ex.Body = _errorBody;
+                        //
+                        //ex.Body = _errorBody;
                     }
                 }
                 catch (JsonException)

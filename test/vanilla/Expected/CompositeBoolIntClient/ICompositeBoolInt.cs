@@ -36,14 +36,9 @@ namespace Fixtures.CompositeBoolIntClient
 
 
         /// <summary>
-        /// Gets the IBoolModel.
+        /// Gets the Operations.
         /// </summary>
-        IBoolModel BoolModel { get; }
-
-        /// <summary>
-        /// Gets the IIntModel.
-        /// </summary>
-        IIntModel IntModel { get; }
+        IOperations Operations { get; }
 
     }
 }

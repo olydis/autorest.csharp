@@ -50,19 +50,9 @@ namespace Fixtures.Url
         public string GlobalStringQuery { get; set; }
 
         /// <summary>
-        /// Gets the IPaths.
+        /// Gets the operations.
         /// </summary>
-        public virtual IPaths Paths { get; private set; }
-
-        /// <summary>
-        /// Gets the IQueries.
-        /// </summary>
-        public virtual IQueries Queries { get; private set; }
-
-        /// <summary>
-        /// Gets the IPathItems.
-        /// </summary>
-        public virtual IPathItems PathItems { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the AutoRestUrlTestService class.
@@ -143,9 +133,7 @@ namespace Fixtures.Url
         /// </summary>
         private void Initialize()
         {
-            Paths = new Paths(this);
-            Queries = new Queries(this);
-            PathItems = new PathItems(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://localhost:3000");
             SerializationSettings = new JsonSerializerSettings
             {

@@ -45,44 +45,9 @@ namespace Fixtures.BodyComplex
         public string ApiVersion { get; private set; }
 
         /// <summary>
-        /// Gets the IBasicOperations.
+        /// Gets the operations.
         /// </summary>
-        public virtual IBasicOperations Basic { get; private set; }
-
-        /// <summary>
-        /// Gets the IPrimitive.
-        /// </summary>
-        public virtual IPrimitive Primitive { get; private set; }
-
-        /// <summary>
-        /// Gets the IArray.
-        /// </summary>
-        public virtual IArray Array { get; private set; }
-
-        /// <summary>
-        /// Gets the IDictionary.
-        /// </summary>
-        public virtual IDictionary Dictionary { get; private set; }
-
-        /// <summary>
-        /// Gets the IInheritance.
-        /// </summary>
-        public virtual IInheritance Inheritance { get; private set; }
-
-        /// <summary>
-        /// Gets the IPolymorphism.
-        /// </summary>
-        public virtual IPolymorphism Polymorphism { get; private set; }
-
-        /// <summary>
-        /// Gets the IPolymorphicrecursive.
-        /// </summary>
-        public virtual IPolymorphicrecursive Polymorphicrecursive { get; private set; }
-
-        /// <summary>
-        /// Gets the IReadonlyproperty.
-        /// </summary>
-        public virtual IReadonlyproperty Readonlyproperty { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the AutoRestComplexTestService class.
@@ -163,14 +128,7 @@ namespace Fixtures.BodyComplex
         /// </summary>
         private void Initialize()
         {
-            Basic = new BasicOperations(this);
-            Primitive = new Primitive(this);
-            Array = new Array(this);
-            Dictionary = new Dictionary(this);
-            Inheritance = new Inheritance(this);
-            Polymorphism = new Polymorphism(this);
-            Polymorphicrecursive = new Polymorphicrecursive(this);
-            Readonlyproperty = new Readonlyproperty(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://localhost:3000");
             ApiVersion = "2014-04-01-preview";
             SerializationSettings = new JsonSerializerSettings

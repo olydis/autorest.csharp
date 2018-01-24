@@ -29,10 +29,6 @@ namespace @(Settings.Namespace).@(Settings.ModelsName)
 {
     @:[Newtonsoft.Json.JsonObject("@Model.SerializedName")]
 }
-@if (Model.NeedsTransformationConverter)
-{
-    @:[Microsoft.Rest.Serialization.JsonTransformation]
-}
 @if (Model.Deprecated)
 {
     @:[System.Obsolete()]

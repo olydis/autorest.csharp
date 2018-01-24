@@ -38,14 +38,9 @@ namespace Fixtures.ContentTypeHeader
         public string ContentType { get; set; }
 
         /// <summary>
-        /// Gets the IImage.
+        /// Gets the operations.
         /// </summary>
-        public virtual IImage Image { get; private set; }
-
-        /// <summary>
-        /// Gets the IText.
-        /// </summary>
-        public virtual IText Text { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the CowbellModerator class.
@@ -126,8 +121,7 @@ namespace Fixtures.ContentTypeHeader
         /// </summary>
         private void Initialize()
         {
-            Image = new Image(this);
-            Text = new Text(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("https://localhost");
             SerializationSettings = new JsonSerializerSettings
             {

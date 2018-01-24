@@ -35,9 +35,9 @@ namespace Fixtures.BodyArray
 
 
         /// <summary>
-        /// Gets the IArray.
+        /// Gets the Operations.
         /// </summary>
-        IArray Array { get; }
+        IOperations Operations { get; }
 
     }
 }

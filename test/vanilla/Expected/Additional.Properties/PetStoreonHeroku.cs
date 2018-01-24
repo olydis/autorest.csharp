@@ -41,19 +41,9 @@ namespace Fixtures.AdditionalProperties
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
-        /// Gets the IGet.
+        /// Gets the operations.
         /// </summary>
-        public virtual IGet Get { get; private set; }
-
-        /// <summary>
-        /// Gets the IPost.
-        /// </summary>
-        public virtual IPost Post { get; private set; }
-
-        /// <summary>
-        /// Gets the IPut.
-        /// </summary>
-        public virtual IPut Put { get; private set; }
+        public virtual IOperations Operations { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the PetStoreonHeroku class.
@@ -134,9 +124,7 @@ namespace Fixtures.AdditionalProperties
         /// </summary>
         private void Initialize()
         {
-            Get = new Get(this);
-            Post = new Post(this);
-            Put = new Put(this);
+            Operations = new Operations(this);
             BaseUri = new System.Uri("http://petstore-api.herokuapp.com/my/pet");
             SerializationSettings = new JsonSerializerSettings
             {
