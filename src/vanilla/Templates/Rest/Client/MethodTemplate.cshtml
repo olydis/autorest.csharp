@@ -61,7 +61,7 @@
 {
 @:[System.Obsolete()]
 }
-@(Model.AccessModifier) async System.Threading.Tasks.Task<@(Model.OperationResponseReturnTypeString)> @(Model.Name)WithHttpMessagesAsync(@(Model.GetAsyncMethodParameterDeclaration(true)))
+public async System.Threading.Tasks.Task<@(Model.OperationResponseReturnTypeString)> @(Model.Name)Async(@(Model.GetAsyncMethodParameterDeclaration(true)))
 {
     @switch (Model.Flavor)
     {

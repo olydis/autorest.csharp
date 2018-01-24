@@ -30,15 +30,6 @@ regenExpected = (opts,done) ->
     if (opts.azureArm)
       args.push("--csharp.azure-arm=true")
 
-    if (opts.fluent)
-      args.push("--csharp.fluent=true")
-    
-    if (opts.syncMethods)
-      args.push("--csharp.sync-methods=#{opts.syncMethods}")
-    
-    if (opts.flatteningThreshold)
-      args.push("--csharp.payload-flattening-threshold=#{opts.flatteningThreshold}")
-
     if (!!opts.nsPrefix)
       if (optsMappingsValue instanceof Array && optsMappingsValue[1] != undefined)
         args.push("--csharp.namespace=#{optsMappingsValue[1]}")
@@ -155,24 +146,7 @@ task 'regenerate-csazure', '', ['regenerate-csazurecomposite','regenerate-csazur
     'mappings': mappings,
     'outputDir': 'Expected',
     'azureArm': true,
-    'nsPrefix': 'Fixtures.Azure',
-    'flatteningThreshold': '1'
-  },done
-  return null
-
-task 'regenerate-csazurefluent', '', ['regenerate-csazurefluentcomposite','regenerate-csazurefluentallsync', 'regenerate-csazurefluentnosync'], (done) ->
-  mappings = Object.assign({
-    'AzureBodyDuration': 'body-duration.json'
-  }, defaultAzureMappings)
-  regenExpected {
-    'outputBaseDir': 'test/azurefluent',
-    'inputBaseDir': swaggerDir,
-    'mappings': mappings,
-    'outputDir': 'Expected',
-    'azureArm': true,
-    'fluent': true,
-    'nsPrefix': 'Fixtures.Azure.Fluent',
-    'flatteningThreshold': '1'
+    'nsPrefix': 'Fixtures.Azure'
   },done
   return null
 
@@ -191,16 +165,14 @@ task 'regenerate-cs', '', ['regenerate-cswithcreds', 'regenerate-cscomposite', '
     'inputBaseDir': 'test/vanilla/Swagger',
     'mappings': mappings,
     'outputDir': 'Expected',
-    'nsPrefix': 'Fixtures',
-    'flatteningThreshold': '1'
+    'nsPrefix': 'Fixtures'
   }, () ->
     regenExpected {
       'outputBaseDir': 'test/vanilla',
       'inputBaseDir': swaggerDir,
       'mappings': Object.assign({ 'UrlMultiCollectionFormat': 'url-multi-collectionFormat.json' }, defaultMappings),
       'outputDir': 'Expected',
-      'nsPrefix': 'Fixtures',
-      'flatteningThreshold': '1'
+      'nsPrefix': 'Fixtures'
     }, done
   return null
 
@@ -216,8 +188,7 @@ task 'regenerate-cswithcreds', '', (done) ->
     'outputBaseDir': 'test/vanilla',
     'mappings': mappings,
     'outputDir': 'Expected',
-    'nsPrefix': 'Fixtures',
-    'flatteningThreshold': '1',
+    'nsPrefix': 'Fixtures'
     'addCredentials': true
   },done
   return null
@@ -230,23 +201,7 @@ task 'regenerate-csallsync', '', (done) ->
     'outputBaseDir': 'test/vanilla',
     'mappings': mappings,
     'outputDir': 'Expected',
-    'nsPrefix': 'Fixtures',
-    'flatteningThreshold': '1',
-    'syncMethods': 'all'
-  },done
-  return null
-
-task 'regenerate-csnosync', '', (done) ->
-  mappings = {
-    'PetstoreV2NoSync': 'test/vanilla/Swagger/swagger.2.0.example.v2.json',
-  }
-  regenExpected {
-    'outputBaseDir': 'test/vanilla',
-    'mappings': mappings,
-    'outputDir': 'Expected',
-    'nsPrefix': 'Fixtures',
-    'flatteningThreshold': '1',
-    'syncMethods': 'none'
+    'nsPrefix': 'Fixtures'
   },done
   return null
 
@@ -260,26 +215,7 @@ task 'regenerate-csazureallsync', '', (done) ->
     'mappings': mappings,
     'outputDir': 'Expected',
     'azureArm': true,
-    'nsPrefix': 'Fixtures.Azure',
-    'flatteningThreshold': '1',
-    'syncMethods': 'all'
-  },done
-  return null
-
-task 'regenerate-csazurefluentallsync', '', (done) ->
-  mappings = {
-    'AzureBodyDurationAllSync': 'body-duration.json'
-  }
-  regenExpected {
-    'outputBaseDir': 'test/azurefluent',
-    'inputBaseDir': swaggerDir,
-    'mappings': mappings,
-    'outputDir': 'Expected',
-    'azureArm': true,
-    'fluent': true,
-    'nsPrefix': 'Fixtures.Azure.Fluent',
-    'flatteningThreshold': '1',
-    'syncMethods': 'all'
+    'nsPrefix': 'Fixtures.Azure'
   },done
   return null
 
@@ -289,8 +225,7 @@ task 'regenerate-csextensibleenums', '', (done) ->
     'inputBaseDir': swaggerDir,
     'mappings': {'ExtensibleEnums': 'extensible-enums-swagger.json'},
     'outputDir': 'Expected',
-    'nsPrefix': 'Fixtures',
-    'flatteningThreshold': '1'
+    'nsPrefix': 'Fixtures'
   },done
   return null
 
@@ -304,26 +239,7 @@ task 'regenerate-csazurenosync', '', (done) ->
     'mappings': mappings,
     'outputDir': 'Expected',
     'azureArm': true,
-    'nsPrefix': 'Fixtures.Azure',
-    'flatteningThreshold': '1',
-    'syncMethods': 'none'
-  },done
-  return null
-
-task 'regenerate-csazurefluentnosync', '', (done) ->
-  mappings = {
-    'AzureBodyDurationNoSync': 'body-duration.json'
-  }
-  regenExpected {
-    'outputBaseDir': 'test/azurefluent',
-    'inputBaseDir': swaggerDir,
-    'mappings': mappings,
-    'outputDir': 'Expected',
-    'azureArm': true,
-    'fluent': true,
-    'nsPrefix': 'Fixtures.Azure.Fluent',
-    'flatteningThreshold': '1',
-    'syncMethods': 'none'
+    'nsPrefix': 'Fixtures.Azure'
   },done
   return null
 
@@ -334,7 +250,6 @@ task 'regenerate-cscomposite', '', (done) ->
     'mappings': compositeMappings,
     'outputDir': 'Expected',
     'nsPrefix': 'Fixtures',
-    'flatteningThreshold': '1',
     'override-info.title': "Composite Bool Int",
     'override-info.description': "Composite Swagger Client that represents merging body boolean and body integer swagger clients"
   },done
@@ -348,28 +263,11 @@ task 'regenerate-csazurecomposite', '', (done) ->
     'outputDir': 'Expected',
     'azureArm': true,
     'nsPrefix': 'Fixtures.Azure',
-    'flatteningThreshold': '1',
     'override-info.version': "1.0.0",
     'override-info.title': "Azure Composite Model",
     'override-info.description': "Composite Swagger Client that represents merging body complex and complex model swagger clients"
   },done
   return null
 
-task 'regenerate-csazurefluentcomposite', '', (done) ->
-  regenExpected {
-    'outputBaseDir': 'test/azurefluent',
-    'inputBaseDir': swaggerDir,
-    'mappings': azureCompositeMappings,
-    'outputDir': 'Expected',
-    'azureArm': true,
-    'fluent': true,
-    'nsPrefix': 'Fixtures.Azure.Fluent',
-    'flatteningThreshold': '1',
-    'override-info.version': "1.0.0",
-    'override-info.title': "Azure Composite Model",
-    'override-info.description': "Composite Swagger Client that represents merging body complex and complex model swagger clients"
-  },done
-  return null
-
-task 'regenerate', "regenerate expected code for tests", ['regenerate-cs', 'regenerate-csazure', 'regenerate-csazurefluent'], (done) ->
+task 'regenerate', "regenerate expected code for tests", ['regenerate-cs', 'regenerate-csazure'], (done) ->
   done();

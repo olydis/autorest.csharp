@@ -73,7 +73,7 @@ namespace Fixtures.Azure.Head
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected AutoRestHeadTestServiceClient(params DelegatingHandler[] handlers) : base(handlers)
+        public AutoRestHeadTestServiceClient(params DelegatingHandler[] handlers) : base(handlers)
         {
             Initialize();
         }
@@ -87,7 +87,7 @@ namespace Fixtures.Azure.Head
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected AutoRestHeadTestServiceClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
+        public AutoRestHeadTestServiceClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
         {
             Initialize();
         }
@@ -104,7 +104,7 @@ namespace Fixtures.Azure.Head
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected AutoRestHeadTestServiceClient(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
+        public AutoRestHeadTestServiceClient(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
         {
             if (baseUri == null)
             {
@@ -128,7 +128,7 @@ namespace Fixtures.Azure.Head
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected AutoRestHeadTestServiceClient(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        public AutoRestHeadTestServiceClient(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
         {
             if (baseUri == null)
             {

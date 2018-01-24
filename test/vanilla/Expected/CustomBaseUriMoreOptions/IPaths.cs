@@ -49,6 +49,6 @@ namespace Fixtures.CustomBaseUriMoreOptions
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> GetEmptyWithHttpMessagesAsync(string vault, string secret, string keyName, string keyVersion = "v1", Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> GetEmptyAsync(string vault, string secret, string keyName, string keyVersion = "v1", Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

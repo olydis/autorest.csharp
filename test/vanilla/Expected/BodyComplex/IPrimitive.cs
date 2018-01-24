@@ -37,7 +37,7 @@ namespace Fixtures.BodyComplex
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IntWrapper>> GetIntWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IntWrapper>> GetIntAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Put complex types with integer properties
         /// </summary>
@@ -56,7 +56,7 @@ namespace Fixtures.BodyComplex
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutIntWithHttpMessagesAsync(IntWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutIntAsync(IntWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get complex types with long properties
         /// </summary>
@@ -72,7 +72,7 @@ namespace Fixtures.BodyComplex
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<LongWrapper>> GetLongWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<LongWrapper>> GetLongAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Put complex types with long properties
         /// </summary>
@@ -91,7 +91,7 @@ namespace Fixtures.BodyComplex
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutLongWithHttpMessagesAsync(LongWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutLongAsync(LongWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get complex types with float properties
         /// </summary>
@@ -107,7 +107,7 @@ namespace Fixtures.BodyComplex
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<FloatWrapper>> GetFloatWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<FloatWrapper>> GetFloatAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Put complex types with float properties
         /// </summary>
@@ -126,7 +126,7 @@ namespace Fixtures.BodyComplex
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutFloatWithHttpMessagesAsync(FloatWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutFloatAsync(FloatWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get complex types with double properties
         /// </summary>
@@ -142,7 +142,7 @@ namespace Fixtures.BodyComplex
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<DoubleWrapper>> GetDoubleWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<DoubleWrapper>> GetDoubleAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Put complex types with double properties
         /// </summary>
@@ -162,7 +162,7 @@ namespace Fixtures.BodyComplex
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutDoubleWithHttpMessagesAsync(DoubleWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutDoubleAsync(DoubleWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get complex types with bool properties
         /// </summary>
@@ -178,7 +178,7 @@ namespace Fixtures.BodyComplex
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<BooleanWrapper>> GetBoolWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<BooleanWrapper>> GetBoolAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Put complex types with bool properties
         /// </summary>
@@ -197,7 +197,7 @@ namespace Fixtures.BodyComplex
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutBoolWithHttpMessagesAsync(BooleanWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutBoolAsync(BooleanWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get complex types with string properties
         /// </summary>
@@ -213,7 +213,7 @@ namespace Fixtures.BodyComplex
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<StringWrapper>> GetStringWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<StringWrapper>> GetStringAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Put complex types with string properties
         /// </summary>
@@ -232,7 +232,7 @@ namespace Fixtures.BodyComplex
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutStringWithHttpMessagesAsync(StringWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutStringAsync(StringWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get complex types with date properties
         /// </summary>
@@ -248,7 +248,7 @@ namespace Fixtures.BodyComplex
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<DateWrapper>> GetDateWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<DateWrapper>> GetDateAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Put complex types with date properties
         /// </summary>
@@ -267,7 +267,7 @@ namespace Fixtures.BodyComplex
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutDateWithHttpMessagesAsync(DateWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutDateAsync(DateWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get complex types with datetime properties
         /// </summary>
@@ -283,7 +283,7 @@ namespace Fixtures.BodyComplex
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<DatetimeWrapper>> GetDateTimeWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<DatetimeWrapper>> GetDateTimeAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Put complex types with datetime properties
         /// </summary>
@@ -303,7 +303,7 @@ namespace Fixtures.BodyComplex
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutDateTimeWithHttpMessagesAsync(DatetimeWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutDateTimeAsync(DatetimeWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get complex types with datetimeRfc1123 properties
         /// </summary>
@@ -319,7 +319,7 @@ namespace Fixtures.BodyComplex
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Datetimerfc1123Wrapper>> GetDateTimeRfc1123WithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Datetimerfc1123Wrapper>> GetDateTimeRfc1123Async(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Put complex types with datetimeRfc1123 properties
         /// </summary>
@@ -339,7 +339,7 @@ namespace Fixtures.BodyComplex
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutDateTimeRfc1123WithHttpMessagesAsync(Datetimerfc1123Wrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutDateTimeRfc1123Async(Datetimerfc1123Wrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get complex types with duration properties
         /// </summary>
@@ -355,11 +355,12 @@ namespace Fixtures.BodyComplex
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<DurationWrapper>> GetDurationWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<DurationWrapper>> GetDurationAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Put complex types with duration properties
         /// </summary>
-        /// <param name='field'>
+        /// <param name='complexBody'>
+        /// Please put 'P123DT22H14M12.011S'
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -370,7 +371,10 @@ namespace Fixtures.BodyComplex
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationResponse> PutDurationWithHttpMessagesAsync(System.TimeSpan? field = default(System.TimeSpan?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse> PutDurationAsync(DurationWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get complex types with byte properties
         /// </summary>
@@ -386,11 +390,12 @@ namespace Fixtures.BodyComplex
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<ByteWrapper>> GetByteWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ByteWrapper>> GetByteAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Put complex types with byte properties
         /// </summary>
-        /// <param name='field'>
+        /// <param name='complexBody'>
+        /// Please put non-ascii byte string hex(FF FE FD FC 00 FA F9 F8 F7 F6)
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -401,6 +406,9 @@ namespace Fixtures.BodyComplex
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationResponse> PutByteWithHttpMessagesAsync(byte[] field = default(byte[]), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse> PutByteAsync(ByteWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

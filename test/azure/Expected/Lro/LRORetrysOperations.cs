@@ -65,10 +65,10 @@ namespace Fixtures.Azure.Lro
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public async Task<AzureOperationResponse<Product>> Put201CreatingSucceeded200WithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<Product>> Put201CreatingSucceeded200Async(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Send Request
-            AzureOperationResponse<Product> _response = await BeginPut201CreatingSucceeded200WithHttpMessagesAsync(product, customHeaders, cancellationToken).ConfigureAwait(false);
+            AzureOperationResponse<Product> _response = await BeginPut201CreatingSucceeded200Async(product, customHeaders, cancellationToken).ConfigureAwait(false);
             return await Client.GetPutOrPatchOperationResultAsync(_response, customHeaders, cancellationToken).ConfigureAwait(false);
         }
 
@@ -87,10 +87,10 @@ namespace Fixtures.Azure.Lro
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public async Task<AzureOperationResponse<Product,LRORetrysPutAsyncRelativeRetrySucceededHeaders>> PutAsyncRelativeRetrySucceededWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<Product,LRORetrysPutAsyncRelativeRetrySucceededHeaders>> PutAsyncRelativeRetrySucceededAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Send Request
-            AzureOperationResponse<Product,LRORetrysPutAsyncRelativeRetrySucceededHeaders> _response = await BeginPutAsyncRelativeRetrySucceededWithHttpMessagesAsync(product, customHeaders, cancellationToken).ConfigureAwait(false);
+            AzureOperationResponse<Product,LRORetrysPutAsyncRelativeRetrySucceededHeaders> _response = await BeginPutAsyncRelativeRetrySucceededAsync(product, customHeaders, cancellationToken).ConfigureAwait(false);
             return await Client.GetPutOrPatchOperationResultAsync(_response, customHeaders, cancellationToken).ConfigureAwait(false);
         }
 
@@ -106,10 +106,10 @@ namespace Fixtures.Azure.Lro
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public async Task<AzureOperationResponse<Product,LRORetrysDeleteProvisioning202Accepted200SucceededHeaders>> DeleteProvisioning202Accepted200SucceededWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<Product,LRORetrysDeleteProvisioning202Accepted200SucceededHeaders>> DeleteProvisioning202Accepted200SucceededAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Send request
-            AzureOperationResponse<Product,LRORetrysDeleteProvisioning202Accepted200SucceededHeaders> _response = await BeginDeleteProvisioning202Accepted200SucceededWithHttpMessagesAsync(customHeaders, cancellationToken).ConfigureAwait(false);
+            AzureOperationResponse<Product,LRORetrysDeleteProvisioning202Accepted200SucceededHeaders> _response = await BeginDeleteProvisioning202Accepted200SucceededAsync(customHeaders, cancellationToken).ConfigureAwait(false);
             return await Client.GetPostOrDeleteOperationResultAsync(_response, customHeaders, cancellationToken).ConfigureAwait(false);
         }
 
@@ -124,10 +124,10 @@ namespace Fixtures.Azure.Lro
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public async Task<AzureOperationHeaderResponse<LRORetrysDelete202Retry200Headers>> Delete202Retry200WithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationHeaderResponse<LRORetrysDelete202Retry200Headers>> Delete202Retry200Async(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Send request
-            AzureOperationHeaderResponse<LRORetrysDelete202Retry200Headers> _response = await BeginDelete202Retry200WithHttpMessagesAsync(customHeaders, cancellationToken).ConfigureAwait(false);
+            AzureOperationHeaderResponse<LRORetrysDelete202Retry200Headers> _response = await BeginDelete202Retry200Async(customHeaders, cancellationToken).ConfigureAwait(false);
             return await Client.GetPostOrDeleteOperationResultAsync(_response, customHeaders, cancellationToken).ConfigureAwait(false);
         }
 
@@ -142,10 +142,10 @@ namespace Fixtures.Azure.Lro
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public async Task<AzureOperationHeaderResponse<LRORetrysDeleteAsyncRelativeRetrySucceededHeaders>> DeleteAsyncRelativeRetrySucceededWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationHeaderResponse<LRORetrysDeleteAsyncRelativeRetrySucceededHeaders>> DeleteAsyncRelativeRetrySucceededAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Send request
-            AzureOperationHeaderResponse<LRORetrysDeleteAsyncRelativeRetrySucceededHeaders> _response = await BeginDeleteAsyncRelativeRetrySucceededWithHttpMessagesAsync(customHeaders, cancellationToken).ConfigureAwait(false);
+            AzureOperationHeaderResponse<LRORetrysDeleteAsyncRelativeRetrySucceededHeaders> _response = await BeginDeleteAsyncRelativeRetrySucceededAsync(customHeaders, cancellationToken).ConfigureAwait(false);
             return await Client.GetPostOrDeleteOperationResultAsync(_response, customHeaders, cancellationToken).ConfigureAwait(false);
         }
 
@@ -163,10 +163,10 @@ namespace Fixtures.Azure.Lro
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public async Task<AzureOperationHeaderResponse<LRORetrysPost202Retry200Headers>> Post202Retry200WithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationHeaderResponse<LRORetrysPost202Retry200Headers>> Post202Retry200Async(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Send request
-            AzureOperationHeaderResponse<LRORetrysPost202Retry200Headers> _response = await BeginPost202Retry200WithHttpMessagesAsync(product, customHeaders, cancellationToken).ConfigureAwait(false);
+            AzureOperationHeaderResponse<LRORetrysPost202Retry200Headers> _response = await BeginPost202Retry200Async(product, customHeaders, cancellationToken).ConfigureAwait(false);
             return await Client.GetPostOrDeleteOperationResultAsync(_response, customHeaders, cancellationToken).ConfigureAwait(false);
         }
 
@@ -185,10 +185,10 @@ namespace Fixtures.Azure.Lro
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public async Task<AzureOperationHeaderResponse<LRORetrysPostAsyncRelativeRetrySucceededHeaders>> PostAsyncRelativeRetrySucceededWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationHeaderResponse<LRORetrysPostAsyncRelativeRetrySucceededHeaders>> PostAsyncRelativeRetrySucceededAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Send request
-            AzureOperationHeaderResponse<LRORetrysPostAsyncRelativeRetrySucceededHeaders> _response = await BeginPostAsyncRelativeRetrySucceededWithHttpMessagesAsync(product, customHeaders, cancellationToken).ConfigureAwait(false);
+            AzureOperationHeaderResponse<LRORetrysPostAsyncRelativeRetrySucceededHeaders> _response = await BeginPostAsyncRelativeRetrySucceededAsync(product, customHeaders, cancellationToken).ConfigureAwait(false);
             return await Client.GetPostOrDeleteOperationResultAsync(_response, customHeaders, cancellationToken).ConfigureAwait(false);
         }
 
@@ -216,7 +216,7 @@ namespace Fixtures.Azure.Lro
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<Product>> BeginPut201CreatingSucceeded200WithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<Product>> BeginPut201CreatingSucceeded200Async(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -406,7 +406,7 @@ namespace Fixtures.Azure.Lro
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<Product,LRORetrysPutAsyncRelativeRetrySucceededHeaders>> BeginPutAsyncRelativeRetrySucceededWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<Product,LRORetrysPutAsyncRelativeRetrySucceededHeaders>> BeginPutAsyncRelativeRetrySucceededAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -588,7 +588,7 @@ namespace Fixtures.Azure.Lro
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<Product,LRORetrysDeleteProvisioning202Accepted200SucceededHeaders>> BeginDeleteProvisioning202Accepted200SucceededWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<Product,LRORetrysDeleteProvisioning202Accepted200SucceededHeaders>> BeginDeleteProvisioning202Accepted200SucceededAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -777,7 +777,7 @@ namespace Fixtures.Azure.Lro
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationHeaderResponse<LRORetrysDelete202Retry200Headers>> BeginDelete202Retry200WithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationHeaderResponse<LRORetrysDelete202Retry200Headers>> BeginDelete202Retry200Async(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -930,7 +930,7 @@ namespace Fixtures.Azure.Lro
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationHeaderResponse<LRORetrysDeleteAsyncRelativeRetrySucceededHeaders>> BeginDeleteAsyncRelativeRetrySucceededWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationHeaderResponse<LRORetrysDeleteAsyncRelativeRetrySucceededHeaders>> BeginDeleteAsyncRelativeRetrySucceededAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1086,7 +1086,7 @@ namespace Fixtures.Azure.Lro
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationHeaderResponse<LRORetrysPost202Retry200Headers>> BeginPost202Retry200WithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationHeaderResponse<LRORetrysPost202Retry200Headers>> BeginPost202Retry200Async(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1250,7 +1250,7 @@ namespace Fixtures.Azure.Lro
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationHeaderResponse<LRORetrysPostAsyncRelativeRetrySucceededHeaders>> BeginPostAsyncRelativeRetrySucceededWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationHeaderResponse<LRORetrysPostAsyncRelativeRetrySucceededHeaders>> BeginPostAsyncRelativeRetrySucceededAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;

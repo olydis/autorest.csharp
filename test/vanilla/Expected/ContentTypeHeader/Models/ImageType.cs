@@ -7,68 +7,101 @@
 namespace Fixtures.ContentTypeHeader.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for ImageType.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum ImageType
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(ImageTypeConverter))]
+    public struct ImageType : System.IEquatable<ImageType>
     {
-        [EnumMember(Value = "image/gif")]
-        ImageGif,
-        [EnumMember(Value = "image/jpeg")]
-        ImageJpeg,
-        [EnumMember(Value = "image/png")]
-        ImagePng,
-        [EnumMember(Value = "image/bmp")]
-        ImageBmp,
-        [EnumMember(Value = "image/tiff")]
-        ImageTiff
-    }
-    internal static class ImageTypeEnumExtension
-    {
-        internal static string ToSerializedValue(this ImageType? value)
+        private ImageType(string underlyingValue)
         {
-            return value == null ? null : ((ImageType)value).ToSerializedValue();
+            UnderlyingValue=underlyingValue;
         }
 
-        internal static string ToSerializedValue(this ImageType value)
+        public static readonly ImageType ImageGif = "image/gif";
+
+        public static readonly ImageType ImageJpeg = "image/jpeg";
+
+        public static readonly ImageType ImagePng = "image/png";
+
+        public static readonly ImageType ImageBmp = "image/bmp";
+
+        public static readonly ImageType ImageTiff = "image/tiff";
+
+
+        /// <summary>
+        /// Underlying value of enum ImageType
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for ImageType
+        /// </summary>
+        public override string ToString()
         {
-            switch( value )
-            {
-                case ImageType.ImageGif:
-                    return "image/gif";
-                case ImageType.ImageJpeg:
-                    return "image/jpeg";
-                case ImageType.ImagePng:
-                    return "image/png";
-                case ImageType.ImageBmp:
-                    return "image/bmp";
-                case ImageType.ImageTiff:
-                    return "image/tiff";
-            }
-            return null;
+            return UnderlyingValue.ToString();
         }
 
-        internal static ImageType? ParseImageType(this string value)
+        /// <summary>
+        /// Compares enums of type ImageType
+        /// </summary>
+        public bool Equals(ImageType e)
         {
-            switch( value )
-            {
-                case "image/gif":
-                    return ImageType.ImageGif;
-                case "image/jpeg":
-                    return ImageType.ImageJpeg;
-                case "image/png":
-                    return ImageType.ImagePng;
-                case "image/bmp":
-                    return ImageType.ImageBmp;
-                case "image/tiff":
-                    return ImageType.ImageTiff;
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
+
+        /// <summary>
+        /// Implicit operator to convert string to ImageType
+        /// </summary>
+        public static implicit operator ImageType(string value)
+        {
+            return new ImageType(value);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert ImageType to string
+        /// </summary>
+        public static implicit operator string(ImageType e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum ImageType
+        /// </summary>
+        public static bool operator == (ImageType e1, ImageType e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum ImageType
+        /// </summary>
+        public static bool operator != (ImageType e1, ImageType e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for ImageType
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is ImageType && Equals((ImageType)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode ImageType
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

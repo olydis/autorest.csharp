@@ -74,7 +74,7 @@ namespace Fixtures.CustomBaseUri
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> GetEmptyWithHttpMessagesAsync(string accountName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> GetEmptyAsync(string accountName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (accountName == null)
             {

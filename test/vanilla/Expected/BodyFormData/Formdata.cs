@@ -81,7 +81,7 @@ namespace Fixtures.BodyFormData
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Stream>> UploadFileWithHttpMessagesAsync(Stream fileContent, string fileName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Stream>> UploadFileAsync(Stream fileContent, string fileName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (fileContent == null)
             {
@@ -235,7 +235,7 @@ namespace Fixtures.BodyFormData
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Stream>> UploadFileViaBodyWithHttpMessagesAsync(Stream fileContent, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Stream>> UploadFileViaBodyAsync(Stream fileContent, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (fileContent == null)
             {

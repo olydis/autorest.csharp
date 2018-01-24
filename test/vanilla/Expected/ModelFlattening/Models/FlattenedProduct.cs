@@ -10,8 +10,6 @@
 
 namespace Fixtures.ModelFlattening.Models
 {
-    using Microsoft.Rest;
-    using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
@@ -21,7 +19,6 @@ namespace Fixtures.ModelFlattening.Models
     /// Flattened product.
     /// <see href="http://tempuri.org" />
     /// </summary>
-    [JsonTransformation]
     public partial class FlattenedProduct : Resource
     {
         /// <summary>
@@ -39,17 +36,10 @@ namespace Fixtures.ModelFlattening.Models
         /// <param name="type">Resource Type</param>
         /// <param name="location">Resource Location</param>
         /// <param name="name">Resource Name</param>
-        /// <param name="provisioningStateValues">Possible values include:
-        /// 'Succeeded', 'Failed', 'canceled', 'Accepted', 'Creating',
-        /// 'Created', 'Updating', 'Updated', 'Deleting', 'Deleted',
-        /// 'OK'</param>
-        public FlattenedProduct(string id = default(string), string type = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>), string location = default(string), string name = default(string), string pname = default(string), string flattenedProductType = default(string), string provisioningStateValues = default(string), string provisioningState = default(string))
+        public FlattenedProduct(string id = default(string), string type = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>), string location = default(string), string name = default(string), FlattenedProductProperties properties = default(FlattenedProductProperties))
             : base(id, type, tags, location, name)
         {
-            Pname = pname;
-            FlattenedProductType = flattenedProductType;
-            ProvisioningStateValues = provisioningStateValues;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             CustomInit();
         }
 
@@ -60,26 +50,8 @@ namespace Fixtures.ModelFlattening.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "properties.p\\.name")]
-        public string Pname { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.type")]
-        public string FlattenedProductType { get; set; }
-
-        /// <summary>
-        /// Gets possible values include: 'Succeeded', 'Failed', 'canceled',
-        /// 'Accepted', 'Creating', 'Created', 'Updating', 'Updated',
-        /// 'Deleting', 'Deleted', 'OK'
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.provisioningStateValues")]
-        public string ProvisioningStateValues { get; private set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.provisioningState")]
-        public string ProvisioningState { get; set; }
+        [JsonProperty(PropertyName = "properties")]
+        public FlattenedProductProperties Properties { get; set; }
 
     }
 }

@@ -6,13 +6,96 @@
 
 namespace Fixtures.ContentTypeHeader.Models
 {
+    using Newtonsoft.Json;
 
     /// <summary>
     /// Defines values for ImageTypeRestrictedStrings.
     /// </summary>
-    public static class ImageTypeRestrictedStrings
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(ImageTypeRestrictedStringsConverter))]
+    public struct ImageTypeRestrictedStrings : System.IEquatable<ImageTypeRestrictedStrings>
     {
-        public const string ImagePng = "image/png";
-        public const string ImageTiff = "image/tiff";
+        private ImageTypeRestrictedStrings(string underlyingValue)
+        {
+            UnderlyingValue=underlyingValue;
+        }
+
+        public static readonly ImageTypeRestrictedStrings ImagePng = "image/png";
+
+        public static readonly ImageTypeRestrictedStrings ImageTiff = "image/tiff";
+
+
+        /// <summary>
+        /// Underlying value of enum ImageTypeRestrictedStrings
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for ImageTypeRestrictedStrings
+        /// </summary>
+        public override string ToString()
+        {
+            return UnderlyingValue.ToString();
+        }
+
+        /// <summary>
+        /// Compares enums of type ImageTypeRestrictedStrings
+        /// </summary>
+        public bool Equals(ImageTypeRestrictedStrings e)
+        {
+            return UnderlyingValue.Equals(e.UnderlyingValue);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert string to ImageTypeRestrictedStrings
+        /// </summary>
+        public static implicit operator ImageTypeRestrictedStrings(string value)
+        {
+            return new ImageTypeRestrictedStrings(value);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert ImageTypeRestrictedStrings to string
+        /// </summary>
+        public static implicit operator string(ImageTypeRestrictedStrings e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum ImageTypeRestrictedStrings
+        /// </summary>
+        public static bool operator == (ImageTypeRestrictedStrings e1, ImageTypeRestrictedStrings e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum ImageTypeRestrictedStrings
+        /// </summary>
+        public static bool operator != (ImageTypeRestrictedStrings e1, ImageTypeRestrictedStrings e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for ImageTypeRestrictedStrings
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is ImageTypeRestrictedStrings && Equals((ImageTypeRestrictedStrings)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode ImageTypeRestrictedStrings
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

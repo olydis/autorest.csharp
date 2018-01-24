@@ -12,7 +12,6 @@ namespace Fixtures.Azure.AzureSpecials
 {
     using Microsoft.Rest;
     using Microsoft.Rest.Azure;
-    using Microsoft.Rest.Azure.OData;
     using Models;
     using System.Collections;
     using System.Collections.Generic;
@@ -28,8 +27,15 @@ namespace Fixtures.Azure.AzureSpecials
         /// Specify filter parameter with value '$filter=id gt 5 and name eq
         /// 'foo'&amp;$orderby=id&amp;$top=10'
         /// </summary>
-        /// <param name='odataQuery'>
-        /// OData parameters to apply to the operation.
+        /// <param name='filter'>
+        /// The filter parameter with value '$filter=id gt 5 and name eq
+        /// 'foo''.
+        /// </param>
+        /// <param name='top'>
+        /// The top parameter with value 10.
+        /// </param>
+        /// <param name='orderby'>
+        /// The orderby parameter with value id.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -40,6 +46,6 @@ namespace Fixtures.Azure.AzureSpecials
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationResponse> GetWithFilterWithHttpMessagesAsync(ODataQuery<OdataFilter> odataQuery = default(ODataQuery<OdataFilter>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse> GetWithFilterAsync(string filter = default(string), int? top = default(int?), string orderby = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

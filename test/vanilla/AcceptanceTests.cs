@@ -2308,22 +2308,6 @@ namespace AutoRest.CSharp.Tests
         }
 
         [Fact]
-        public void SyncMethodsValidation()
-        {
-            var petstoreWithAllSyncMethods = typeof(SwaggerPetstoreV2Extensions);
-            Assert.NotNull(petstoreWithAllSyncMethods.GetMethod("AddPet"));
-            Assert.NotNull(petstoreWithAllSyncMethods.GetMethod("AddPetWithHttpMessages"));
-
-            var petstoreWithNoSyncMethods = typeof(Fixtures.PetstoreV2NoSync.SwaggerPetstoreV2Extensions);
-            Assert.Null(petstoreWithNoSyncMethods.GetMethod("AddPet"));
-            Assert.Null(petstoreWithNoSyncMethods.GetMethod("AddPetWithHttpMessages"));
-
-            var petstoreWithEssentialSyncMethods = typeof(Fixtures.PetstoreV2.SwaggerPetstoreV2Extensions);
-            Assert.NotNull(petstoreWithEssentialSyncMethods.GetMethod("AddPet"));
-            Assert.Null(petstoreWithEssentialSyncMethods.GetMethod("AddPetWithHttpMessages"));
-        }
-
-        [Fact]
         // Really, this test is more useful at compile time since this field is introduced by a partial and compilation
         // will fail if the partials can't be merged.
         public void SupportsPartialExceptionTest()

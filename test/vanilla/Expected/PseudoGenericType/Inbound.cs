@@ -78,7 +78,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponse<EndpointViewModel>>> GetEndpointsWithHttpMessagesAsync(string subscriptionId, int? take = default(int?), int? skip = default(int?), string search = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponse<EndpointViewModel>>> GetEndpointsAsync(string subscriptionId, int? take = default(int?), int? skip = default(int?), string search = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -141,12 +141,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {
@@ -240,7 +234,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<SimpleEndpointModel>> GetSimpleEndpointWithHttpMessagesAsync(string subscriptionId, string endpointId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<SimpleEndpointModel>> GetSimpleEndpointAsync(string subscriptionId, string endpointId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -289,12 +283,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {
@@ -388,7 +376,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<SimpleEndpointModel>> UpdateSimpleEndpointWithHttpMessagesAsync(string subscriptionId, SimpleEndpointModel model, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<SimpleEndpointModel>> UpdateSimpleEndpointAsync(string subscriptionId, SimpleEndpointModel model, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -441,12 +429,6 @@ namespace Zapappi.Client
                 _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(model, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
-            }
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             }
             // Send Request
             if (_shouldTrace)
@@ -549,7 +531,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<SimpleEndpointModel>> CreateSimpleEndpointWithHttpMessagesAsync(string subscriptionId, string description, string forwardUri, string username = default(string), string password = default(string), string proxyUri = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<SimpleEndpointModel>> CreateSimpleEndpointAsync(string subscriptionId, string description, string forwardUri, string username = default(string), string password = default(string), string proxyUri = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -630,12 +612,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {
@@ -735,7 +711,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponse<EndpointMappingViewModel>>> GetMappingsWithHttpMessagesAsync(string subscriptionId, int? take = default(int?), int? skip = default(int?), string search = default(string), bool? withoutEndpoint = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponse<EndpointMappingViewModel>>> GetMappingsAsync(string subscriptionId, int? take = default(int?), int? skip = default(int?), string search = default(string), bool? withoutEndpoint = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -803,12 +779,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {
@@ -909,7 +879,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<EndpointMappingViewModel>> AddMappingWithHttpMessagesAsync(string subscriptionId, string domain, string match, string endpointId, bool isDefault, string cvar1, string cvar2, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<EndpointMappingViewModel>> AddMappingAsync(string subscriptionId, string domain, string match, string endpointId, bool isDefault, string cvar1, string cvar2, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -1004,12 +974,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {
@@ -1103,7 +1067,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<EndpointMappingViewModel>> GetMappingWithHttpMessagesAsync(string subscriptionId, System.Guid id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<EndpointMappingViewModel>> GetMappingAsync(string subscriptionId, System.Guid id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -1148,12 +1112,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {
@@ -1246,7 +1204,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<EndpointMappingViewModel>> UpdateMappingWithHttpMessagesAsync(string subscriptionId, string id, string endpointId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<EndpointMappingViewModel>> UpdateMappingAsync(string subscriptionId, string id, string endpointId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -1309,12 +1267,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {

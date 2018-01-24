@@ -68,7 +68,7 @@ namespace Fixtures.Azure.Paging
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Product>>> GetSinglePagesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<Product>>> GetSinglePagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -214,8 +214,12 @@ namespace Fixtures.Azure.Paging
         /// </summary>
         /// <param name='clientRequestId'>
         /// </param>
-        /// <param name='pagingGetMultiplePagesOptions'>
-        /// Additional parameters for the operation
+        /// <param name='maxresults'>
+        /// Sets the maximum number of items to return in the response.
+        /// </param>
+        /// <param name='timeout'>
+        /// Sets the maximum time that the server can spend processing the request, in
+        /// seconds. The default is 30 seconds.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -232,18 +236,8 @@ namespace Fixtures.Azure.Paging
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesWithHttpMessagesAsync(string clientRequestId = default(string), PagingGetMultiplePagesOptions pagingGetMultiplePagesOptions = default(PagingGetMultiplePagesOptions), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesAsync(string clientRequestId = default(string), int? maxresults = default(int?), int? timeout = 30, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            int? maxresults = default(int?);
-            if (pagingGetMultiplePagesOptions != null)
-            {
-                maxresults = pagingGetMultiplePagesOptions.Maxresults;
-            }
-            int? timeout = default(int?);
-            if (pagingGetMultiplePagesOptions != null)
-            {
-                timeout = pagingGetMultiplePagesOptions.Timeout;
-            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -283,14 +277,6 @@ namespace Fixtures.Azure.Paging
                 }
                 _httpRequest.Headers.TryAddWithoutValidation("client-request-id", clientRequestId);
             }
-            if (Client.AcceptLanguage != null)
-            {
-                if (_httpRequest.Headers.Contains("accept-language"))
-                {
-                    _httpRequest.Headers.Remove("accept-language");
-                }
-                _httpRequest.Headers.TryAddWithoutValidation("accept-language", Client.AcceptLanguage);
-            }
             if (maxresults != null)
             {
                 if (_httpRequest.Headers.Contains("maxresults"))
@@ -306,6 +292,14 @@ namespace Fixtures.Azure.Paging
                     _httpRequest.Headers.Remove("timeout");
                 }
                 _httpRequest.Headers.TryAddWithoutValidation("timeout", Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(timeout, Client.SerializationSettings).Trim('"'));
+            }
+            if (Client.AcceptLanguage != null)
+            {
+                if (_httpRequest.Headers.Contains("accept-language"))
+                {
+                    _httpRequest.Headers.Remove("accept-language");
+                }
+                _httpRequest.Headers.TryAddWithoutValidation("accept-language", Client.AcceptLanguage);
             }
 
 
@@ -416,8 +410,12 @@ namespace Fixtures.Azure.Paging
         /// </summary>
         /// <param name='clientRequestId'>
         /// </param>
-        /// <param name='pagingGetOdataMultiplePagesOptions'>
-        /// Additional parameters for the operation
+        /// <param name='maxresults'>
+        /// Sets the maximum number of items to return in the response.
+        /// </param>
+        /// <param name='timeout'>
+        /// Sets the maximum time that the server can spend processing the request, in
+        /// seconds. The default is 30 seconds.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -434,18 +432,8 @@ namespace Fixtures.Azure.Paging
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Product>>> GetOdataMultiplePagesWithHttpMessagesAsync(string clientRequestId = default(string), PagingGetOdataMultiplePagesOptions pagingGetOdataMultiplePagesOptions = default(PagingGetOdataMultiplePagesOptions), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<Product>>> GetOdataMultiplePagesAsync(string clientRequestId = default(string), int? maxresults = default(int?), int? timeout = 30, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            int? maxresults = default(int?);
-            if (pagingGetOdataMultiplePagesOptions != null)
-            {
-                maxresults = pagingGetOdataMultiplePagesOptions.Maxresults;
-            }
-            int? timeout = default(int?);
-            if (pagingGetOdataMultiplePagesOptions != null)
-            {
-                timeout = pagingGetOdataMultiplePagesOptions.Timeout;
-            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -485,14 +473,6 @@ namespace Fixtures.Azure.Paging
                 }
                 _httpRequest.Headers.TryAddWithoutValidation("client-request-id", clientRequestId);
             }
-            if (Client.AcceptLanguage != null)
-            {
-                if (_httpRequest.Headers.Contains("accept-language"))
-                {
-                    _httpRequest.Headers.Remove("accept-language");
-                }
-                _httpRequest.Headers.TryAddWithoutValidation("accept-language", Client.AcceptLanguage);
-            }
             if (maxresults != null)
             {
                 if (_httpRequest.Headers.Contains("maxresults"))
@@ -508,6 +488,14 @@ namespace Fixtures.Azure.Paging
                     _httpRequest.Headers.Remove("timeout");
                 }
                 _httpRequest.Headers.TryAddWithoutValidation("timeout", Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(timeout, Client.SerializationSettings).Trim('"'));
+            }
+            if (Client.AcceptLanguage != null)
+            {
+                if (_httpRequest.Headers.Contains("accept-language"))
+                {
+                    _httpRequest.Headers.Remove("accept-language");
+                }
+                _httpRequest.Headers.TryAddWithoutValidation("accept-language", Client.AcceptLanguage);
             }
 
 
@@ -615,10 +603,17 @@ namespace Fixtures.Azure.Paging
         /// <summary>
         /// A paging operation that includes a nextLink that has 10 pages
         /// </summary>
-        /// <param name='pagingGetMultiplePagesWithOffsetOptions'>
-        /// Additional parameters for the operation
+        /// <param name='offset'>
+        /// Offset of return value
         /// </param>
         /// <param name='clientRequestId'>
+        /// </param>
+        /// <param name='maxresults'>
+        /// Sets the maximum number of items to return in the response.
+        /// </param>
+        /// <param name='timeout'>
+        /// Sets the maximum time that the server can spend processing the request, in
+        /// seconds. The default is 30 seconds.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -632,40 +627,11 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        /// <exception cref="ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        /// <exception cref="System.ArgumentNullException">
-        /// Thrown when a required parameter is null
-        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesWithOffsetWithHttpMessagesAsync(PagingGetMultiplePagesWithOffsetOptions pagingGetMultiplePagesWithOffsetOptions, string clientRequestId = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesWithOffsetAsync(int offset, string clientRequestId = default(string), int? maxresults = default(int?), int? timeout = 30, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (pagingGetMultiplePagesWithOffsetOptions == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "pagingGetMultiplePagesWithOffsetOptions");
-            }
-            if (pagingGetMultiplePagesWithOffsetOptions != null)
-            {
-                pagingGetMultiplePagesWithOffsetOptions.Validate();
-            }
-            int? maxresults = default(int?);
-            if (pagingGetMultiplePagesWithOffsetOptions != null)
-            {
-                maxresults = pagingGetMultiplePagesWithOffsetOptions.Maxresults;
-            }
-            int offset = default(int);
-            if (pagingGetMultiplePagesWithOffsetOptions != null)
-            {
-                offset = pagingGetMultiplePagesWithOffsetOptions.Offset;
-            }
-            int? timeout = default(int?);
-            if (pagingGetMultiplePagesWithOffsetOptions != null)
-            {
-                timeout = pagingGetMultiplePagesWithOffsetOptions.Timeout;
-            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -707,14 +673,6 @@ namespace Fixtures.Azure.Paging
                 }
                 _httpRequest.Headers.TryAddWithoutValidation("client-request-id", clientRequestId);
             }
-            if (Client.AcceptLanguage != null)
-            {
-                if (_httpRequest.Headers.Contains("accept-language"))
-                {
-                    _httpRequest.Headers.Remove("accept-language");
-                }
-                _httpRequest.Headers.TryAddWithoutValidation("accept-language", Client.AcceptLanguage);
-            }
             if (maxresults != null)
             {
                 if (_httpRequest.Headers.Contains("maxresults"))
@@ -730,6 +688,14 @@ namespace Fixtures.Azure.Paging
                     _httpRequest.Headers.Remove("timeout");
                 }
                 _httpRequest.Headers.TryAddWithoutValidation("timeout", Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(timeout, Client.SerializationSettings).Trim('"'));
+            }
+            if (Client.AcceptLanguage != null)
+            {
+                if (_httpRequest.Headers.Contains("accept-language"))
+                {
+                    _httpRequest.Headers.Remove("accept-language");
+                }
+                _httpRequest.Headers.TryAddWithoutValidation("accept-language", Client.AcceptLanguage);
             }
 
 
@@ -853,7 +819,7 @@ namespace Fixtures.Azure.Paging
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesRetryFirstWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesRetryFirstAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1014,7 +980,7 @@ namespace Fixtures.Azure.Paging
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesRetrySecondWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesRetrySecondAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1173,7 +1139,7 @@ namespace Fixtures.Azure.Paging
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Product>>> GetSinglePagesFailureWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<Product>>> GetSinglePagesFailureAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1332,7 +1298,7 @@ namespace Fixtures.Azure.Paging
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesFailureWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesFailureAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1491,7 +1457,7 @@ namespace Fixtures.Azure.Paging
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesFailureUriWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesFailureUriAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1662,7 +1628,7 @@ namespace Fixtures.Azure.Paging
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesFragmentNextLinkWithHttpMessagesAsync(string apiVersion, string tenant, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesFragmentNextLinkAsync(string apiVersion, string tenant, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (apiVersion == null)
             {
@@ -1822,8 +1788,11 @@ namespace Fixtures.Azure.Paging
         /// A paging operation that doesn't return a full URL, just a fragment with
         /// parameters grouped
         /// </summary>
-        /// <param name='customParameterGroup'>
-        /// Additional parameters for the operation
+        /// <param name='apiVersion'>
+        /// Sets the api version to use.
+        /// </param>
+        /// <param name='tenant'>
+        /// Sets the tenant to use.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1846,25 +1815,15 @@ namespace Fixtures.Azure.Paging
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesFragmentWithGroupingNextLinkWithHttpMessagesAsync(CustomParameterGroup customParameterGroup, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesFragmentWithGroupingNextLinkAsync(string apiVersion, string tenant, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (customParameterGroup == null)
+            if (apiVersion == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "customParameterGroup");
+                throw new ValidationException(ValidationRules.CannotBeNull, "apiVersion");
             }
-            if (customParameterGroup != null)
+            if (tenant == null)
             {
-                customParameterGroup.Validate();
-            }
-            string apiVersion = default(string);
-            if (customParameterGroup != null)
-            {
-                apiVersion = customParameterGroup.ApiVersion;
-            }
-            string tenant = default(string);
-            if (customParameterGroup != null)
-            {
-                tenant = customParameterGroup.Tenant;
+                throw new ValidationException(ValidationRules.CannotBeNull, "tenant");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -2045,7 +2004,7 @@ namespace Fixtures.Azure.Paging
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Product>>> NextFragmentWithHttpMessagesAsync(string apiVersion, string tenant, string nextLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<Product>>> NextFragmentAsync(string apiVersion, string tenant, string nextLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (apiVersion == null)
             {
@@ -2210,11 +2169,14 @@ namespace Fixtures.Azure.Paging
         /// <summary>
         /// A paging operation that doesn't return a full URL, just a fragment
         /// </summary>
+        /// <param name='apiVersion'>
+        /// Sets the api version to use.
+        /// </param>
+        /// <param name='tenant'>
+        /// Sets the tenant to use.
+        /// </param>
         /// <param name='nextLink'>
         /// Next link for list operation.
-        /// </param>
-        /// <param name='customParameterGroup'>
-        /// Additional parameters for the operation
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2237,29 +2199,19 @@ namespace Fixtures.Azure.Paging
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Product>>> NextFragmentWithGroupingWithHttpMessagesAsync(string nextLink, CustomParameterGroup customParameterGroup, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<Product>>> NextFragmentWithGroupingAsync(string apiVersion, string tenant, string nextLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (apiVersion == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "apiVersion");
+            }
+            if (tenant == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "tenant");
+            }
             if (nextLink == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "nextLink");
-            }
-            if (customParameterGroup == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "customParameterGroup");
-            }
-            if (customParameterGroup != null)
-            {
-                customParameterGroup.Validate();
-            }
-            string apiVersion = default(string);
-            if (customParameterGroup != null)
-            {
-                apiVersion = customParameterGroup.ApiVersion;
-            }
-            string tenant = default(string);
-            if (customParameterGroup != null)
-            {
-                tenant = customParameterGroup.Tenant;
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -2268,17 +2220,17 @@ namespace Fixtures.Azure.Paging
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("nextLink", nextLink);
                 tracingParameters.Add("apiVersion", apiVersion);
                 tracingParameters.Add("tenant", tenant);
+                tracingParameters.Add("nextLink", nextLink);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "NextFragmentWithGrouping", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "paging/multiple/fragmentwithgrouping/{tenant}/{nextLink}").ToString();
-            _url = _url.Replace("{nextLink}", nextLink);
             _url = _url.Replace("{tenant}", System.Uri.EscapeDataString(tenant));
+            _url = _url.Replace("{nextLink}", nextLink);
             List<string> _queryParameters = new List<string>();
             if (apiVersion != null)
             {
@@ -2436,7 +2388,7 @@ namespace Fixtures.Azure.Paging
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Product>>> GetSinglePagesNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<Product>>> GetSinglePagesNextAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (nextPageLink == null)
             {
@@ -2590,8 +2542,12 @@ namespace Fixtures.Azure.Paging
         /// </param>
         /// <param name='clientRequestId'>
         /// </param>
-        /// <param name='pagingGetMultiplePagesOptions'>
-        /// Additional parameters for the operation
+        /// <param name='maxresults'>
+        /// Sets the maximum number of items to return in the response.
+        /// </param>
+        /// <param name='timeout'>
+        /// Sets the maximum time that the server can spend processing the request, in
+        /// seconds. The default is 30 seconds.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2614,21 +2570,11 @@ namespace Fixtures.Azure.Paging
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesNextWithHttpMessagesAsync(string nextPageLink, string clientRequestId = default(string), PagingGetMultiplePagesOptions pagingGetMultiplePagesOptions = default(PagingGetMultiplePagesOptions), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesNextAsync(string nextPageLink, string clientRequestId = default(string), int? maxresults = default(int?), int? timeout = 30, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (nextPageLink == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "nextPageLink");
-            }
-            int? maxresults = default(int?);
-            if (pagingGetMultiplePagesOptions != null)
-            {
-                maxresults = pagingGetMultiplePagesOptions.Maxresults;
-            }
-            int? timeout = default(int?);
-            if (pagingGetMultiplePagesOptions != null)
-            {
-                timeout = pagingGetMultiplePagesOptions.Timeout;
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -2670,14 +2616,6 @@ namespace Fixtures.Azure.Paging
                 }
                 _httpRequest.Headers.TryAddWithoutValidation("client-request-id", clientRequestId);
             }
-            if (Client.AcceptLanguage != null)
-            {
-                if (_httpRequest.Headers.Contains("accept-language"))
-                {
-                    _httpRequest.Headers.Remove("accept-language");
-                }
-                _httpRequest.Headers.TryAddWithoutValidation("accept-language", Client.AcceptLanguage);
-            }
             if (maxresults != null)
             {
                 if (_httpRequest.Headers.Contains("maxresults"))
@@ -2693,6 +2631,14 @@ namespace Fixtures.Azure.Paging
                     _httpRequest.Headers.Remove("timeout");
                 }
                 _httpRequest.Headers.TryAddWithoutValidation("timeout", Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(timeout, Client.SerializationSettings).Trim('"'));
+            }
+            if (Client.AcceptLanguage != null)
+            {
+                if (_httpRequest.Headers.Contains("accept-language"))
+                {
+                    _httpRequest.Headers.Remove("accept-language");
+                }
+                _httpRequest.Headers.TryAddWithoutValidation("accept-language", Client.AcceptLanguage);
             }
 
 
@@ -2806,8 +2752,12 @@ namespace Fixtures.Azure.Paging
         /// </param>
         /// <param name='clientRequestId'>
         /// </param>
-        /// <param name='pagingGetOdataMultiplePagesOptions'>
-        /// Additional parameters for the operation
+        /// <param name='maxresults'>
+        /// Sets the maximum number of items to return in the response.
+        /// </param>
+        /// <param name='timeout'>
+        /// Sets the maximum time that the server can spend processing the request, in
+        /// seconds. The default is 30 seconds.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2830,21 +2780,11 @@ namespace Fixtures.Azure.Paging
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Product>>> GetOdataMultiplePagesNextWithHttpMessagesAsync(string nextPageLink, string clientRequestId = default(string), PagingGetOdataMultiplePagesOptions pagingGetOdataMultiplePagesOptions = default(PagingGetOdataMultiplePagesOptions), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<Product>>> GetOdataMultiplePagesNextAsync(string nextPageLink, string clientRequestId = default(string), int? maxresults = default(int?), int? timeout = 30, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (nextPageLink == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "nextPageLink");
-            }
-            int? maxresults = default(int?);
-            if (pagingGetOdataMultiplePagesOptions != null)
-            {
-                maxresults = pagingGetOdataMultiplePagesOptions.Maxresults;
-            }
-            int? timeout = default(int?);
-            if (pagingGetOdataMultiplePagesOptions != null)
-            {
-                timeout = pagingGetOdataMultiplePagesOptions.Timeout;
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -2886,14 +2826,6 @@ namespace Fixtures.Azure.Paging
                 }
                 _httpRequest.Headers.TryAddWithoutValidation("client-request-id", clientRequestId);
             }
-            if (Client.AcceptLanguage != null)
-            {
-                if (_httpRequest.Headers.Contains("accept-language"))
-                {
-                    _httpRequest.Headers.Remove("accept-language");
-                }
-                _httpRequest.Headers.TryAddWithoutValidation("accept-language", Client.AcceptLanguage);
-            }
             if (maxresults != null)
             {
                 if (_httpRequest.Headers.Contains("maxresults"))
@@ -2909,6 +2841,14 @@ namespace Fixtures.Azure.Paging
                     _httpRequest.Headers.Remove("timeout");
                 }
                 _httpRequest.Headers.TryAddWithoutValidation("timeout", Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(timeout, Client.SerializationSettings).Trim('"'));
+            }
+            if (Client.AcceptLanguage != null)
+            {
+                if (_httpRequest.Headers.Contains("accept-language"))
+                {
+                    _httpRequest.Headers.Remove("accept-language");
+                }
+                _httpRequest.Headers.TryAddWithoutValidation("accept-language", Client.AcceptLanguage);
             }
 
 
@@ -3021,8 +2961,12 @@ namespace Fixtures.Azure.Paging
         /// </param>
         /// <param name='clientRequestId'>
         /// </param>
-        /// <param name='pagingGetMultiplePagesWithOffsetNextOptions'>
-        /// Additional parameters for the operation
+        /// <param name='maxresults'>
+        /// Sets the maximum number of items to return in the response.
+        /// </param>
+        /// <param name='timeout'>
+        /// Sets the maximum time that the server can spend processing the request, in
+        /// seconds. The default is 30 seconds.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -3045,21 +2989,11 @@ namespace Fixtures.Azure.Paging
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesWithOffsetNextWithHttpMessagesAsync(string nextPageLink, string clientRequestId = default(string), PagingGetMultiplePagesWithOffsetNextOptions pagingGetMultiplePagesWithOffsetNextOptions = default(PagingGetMultiplePagesWithOffsetNextOptions), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesWithOffsetNextAsync(string nextPageLink, string clientRequestId = default(string), int? maxresults = default(int?), int? timeout = 30, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (nextPageLink == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "nextPageLink");
-            }
-            int? maxresults = default(int?);
-            if (pagingGetMultiplePagesWithOffsetNextOptions != null)
-            {
-                maxresults = pagingGetMultiplePagesWithOffsetNextOptions.Maxresults;
-            }
-            int? timeout = default(int?);
-            if (pagingGetMultiplePagesWithOffsetNextOptions != null)
-            {
-                timeout = pagingGetMultiplePagesWithOffsetNextOptions.Timeout;
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -3101,14 +3035,6 @@ namespace Fixtures.Azure.Paging
                 }
                 _httpRequest.Headers.TryAddWithoutValidation("client-request-id", clientRequestId);
             }
-            if (Client.AcceptLanguage != null)
-            {
-                if (_httpRequest.Headers.Contains("accept-language"))
-                {
-                    _httpRequest.Headers.Remove("accept-language");
-                }
-                _httpRequest.Headers.TryAddWithoutValidation("accept-language", Client.AcceptLanguage);
-            }
             if (maxresults != null)
             {
                 if (_httpRequest.Headers.Contains("maxresults"))
@@ -3124,6 +3050,14 @@ namespace Fixtures.Azure.Paging
                     _httpRequest.Headers.Remove("timeout");
                 }
                 _httpRequest.Headers.TryAddWithoutValidation("timeout", Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(timeout, Client.SerializationSettings).Trim('"'));
+            }
+            if (Client.AcceptLanguage != null)
+            {
+                if (_httpRequest.Headers.Contains("accept-language"))
+                {
+                    _httpRequest.Headers.Remove("accept-language");
+                }
+                _httpRequest.Headers.TryAddWithoutValidation("accept-language", Client.AcceptLanguage);
             }
 
 
@@ -3256,7 +3190,7 @@ namespace Fixtures.Azure.Paging
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesRetryFirstNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesRetryFirstNextAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (nextPageLink == null)
             {
@@ -3431,7 +3365,7 @@ namespace Fixtures.Azure.Paging
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesRetrySecondNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesRetrySecondNextAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (nextPageLink == null)
             {
@@ -3604,7 +3538,7 @@ namespace Fixtures.Azure.Paging
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Product>>> GetSinglePagesFailureNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<Product>>> GetSinglePagesFailureNextAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (nextPageLink == null)
             {
@@ -3777,7 +3711,7 @@ namespace Fixtures.Azure.Paging
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesFailureNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesFailureNextAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (nextPageLink == null)
             {
@@ -3950,7 +3884,7 @@ namespace Fixtures.Azure.Paging
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesFailureUriNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesFailureUriNextAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (nextPageLink == null)
             {

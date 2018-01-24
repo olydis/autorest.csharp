@@ -42,7 +42,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<Product>> PutNonRetry400WithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Product>> PutNonRetry400Async(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running put request, service returns a Product with
         /// 'ProvisioningState' = 'Creating' and 201 response code
@@ -62,7 +62,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<Product>> PutNonRetry201Creating400WithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Product>> PutNonRetry201Creating400Async(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running put request, service returns a Product with
         /// 'ProvisioningState' = 'Creating' and 201 response code
@@ -82,7 +82,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<Product>> PutNonRetry201Creating400InvalidJsonWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Product>> PutNonRetry201Creating400InvalidJsonAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running put request, service returns a 200 with
         /// ProvisioningState=’Creating’. Poll the endpoint indicated in the
@@ -103,7 +103,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<Product,LROSADsPutAsyncRelativeRetry400Headers>> PutAsyncRelativeRetry400WithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Product,LROSADsPutAsyncRelativeRetry400Headers>> PutAsyncRelativeRetry400Async(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running delete request, service returns a 400 with an error
         /// body
@@ -117,7 +117,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsDeleteNonRetry400Headers>> DeleteNonRetry400WithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsDeleteNonRetry400Headers>> DeleteNonRetry400Async(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running delete request, service returns a 202 with a location
         /// header
@@ -131,7 +131,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsDelete202NonRetry400Headers>> Delete202NonRetry400WithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsDelete202NonRetry400Headers>> Delete202NonRetry400Async(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running delete request, service returns a 202 to the initial
         /// request. Poll the endpoint indicated in the Azure-AsyncOperation
@@ -146,7 +146,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsDeleteAsyncRelativeRetry400Headers>> DeleteAsyncRelativeRetry400WithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsDeleteAsyncRelativeRetry400Headers>> DeleteAsyncRelativeRetry400Async(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running post request, service returns a 400 with no error body
         /// </summary>
@@ -162,7 +162,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsPostNonRetry400Headers>> PostNonRetry400WithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsPostNonRetry400Headers>> PostNonRetry400Async(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running post request, service returns a 202 with a location
         /// header
@@ -179,7 +179,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsPost202NonRetry400Headers>> Post202NonRetry400WithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsPost202NonRetry400Headers>> Post202NonRetry400Async(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running post request, service returns a 202 to the initial
         /// request Poll the endpoint indicated in the Azure-AsyncOperation
@@ -197,7 +197,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsPostAsyncRelativeRetry400Headers>> PostAsyncRelativeRetry400WithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsPostAsyncRelativeRetry400Headers>> PostAsyncRelativeRetry400Async(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running put request, service returns a 201 to the initial
         /// request with no payload
@@ -217,7 +217,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<Product>> PutError201NoProvisioningStatePayloadWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Product>> PutError201NoProvisioningStatePayloadAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running put request, service returns a 200 to the initial
         /// request, with an entity that contains ProvisioningState=’Creating’.
@@ -239,7 +239,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<Product,LROSADsPutAsyncRelativeRetryNoStatusHeaders>> PutAsyncRelativeRetryNoStatusWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Product,LROSADsPutAsyncRelativeRetryNoStatusHeaders>> PutAsyncRelativeRetryNoStatusAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running put request, service returns a 200 to the initial
         /// request, with an entity that contains ProvisioningState=’Creating’.
@@ -261,7 +261,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<Product,LROSADsPutAsyncRelativeRetryNoStatusPayloadHeaders>> PutAsyncRelativeRetryNoStatusPayloadWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Product,LROSADsPutAsyncRelativeRetryNoStatusPayloadHeaders>> PutAsyncRelativeRetryNoStatusPayloadAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running delete request, service returns a 204 to the initial
         /// request, indicating success.
@@ -275,7 +275,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationResponse> Delete204SucceededWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse> Delete204SucceededAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running delete request, service returns a 202 to the initial
         /// request. Poll the endpoint indicated in the Azure-AsyncOperation
@@ -290,7 +290,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsDeleteAsyncRelativeRetryNoStatusHeaders>> DeleteAsyncRelativeRetryNoStatusWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsDeleteAsyncRelativeRetryNoStatusHeaders>> DeleteAsyncRelativeRetryNoStatusAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running post request, service returns a 202 to the initial
         /// request, without a location header.
@@ -307,7 +307,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsPost202NoLocationHeaders>> Post202NoLocationWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsPost202NoLocationHeaders>> Post202NoLocationAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running post request, service returns a 202 to the initial
         /// request, with an entity that contains ProvisioningState=’Creating’.
@@ -326,7 +326,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsPostAsyncRelativeRetryNoPayloadHeaders>> PostAsyncRelativeRetryNoPayloadWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsPostAsyncRelativeRetryNoPayloadHeaders>> PostAsyncRelativeRetryNoPayloadAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running put request, service returns a 200 to the initial
         /// request, with an entity that is not a valid json
@@ -346,7 +346,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<Product>> Put200InvalidJsonWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Product>> Put200InvalidJsonAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running put request, service returns a 200 to the initial
         /// request, with an entity that contains ProvisioningState=’Creating’.
@@ -368,7 +368,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<Product,LROSADsPutAsyncRelativeRetryInvalidHeaderHeaders>> PutAsyncRelativeRetryInvalidHeaderWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Product,LROSADsPutAsyncRelativeRetryInvalidHeaderHeaders>> PutAsyncRelativeRetryInvalidHeaderAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running put request, service returns a 200 to the initial
         /// request, with an entity that contains ProvisioningState=’Creating’.
@@ -390,7 +390,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<Product,LROSADsPutAsyncRelativeRetryInvalidJsonPollingHeaders>> PutAsyncRelativeRetryInvalidJsonPollingWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Product,LROSADsPutAsyncRelativeRetryInvalidJsonPollingHeaders>> PutAsyncRelativeRetryInvalidJsonPollingAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running delete request, service returns a 202 to the initial
         /// request receing a reponse with an invalid 'Location' and
@@ -405,7 +405,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsDelete202RetryInvalidHeaderHeaders>> Delete202RetryInvalidHeaderWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsDelete202RetryInvalidHeaderHeaders>> Delete202RetryInvalidHeaderAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running delete request, service returns a 202 to the initial
         /// request. The endpoint indicated in the Azure-AsyncOperation header
@@ -420,7 +420,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsDeleteAsyncRelativeRetryInvalidHeaderHeaders>> DeleteAsyncRelativeRetryInvalidHeaderWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsDeleteAsyncRelativeRetryInvalidHeaderHeaders>> DeleteAsyncRelativeRetryInvalidHeaderAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running delete request, service returns a 202 to the initial
         /// request. Poll the endpoint indicated in the Azure-AsyncOperation
@@ -435,7 +435,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsDeleteAsyncRelativeRetryInvalidJsonPollingHeaders>> DeleteAsyncRelativeRetryInvalidJsonPollingWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsDeleteAsyncRelativeRetryInvalidJsonPollingHeaders>> DeleteAsyncRelativeRetryInvalidJsonPollingAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running post request, service returns a 202 to the initial
         /// request, with invalid 'Location' and 'Retry-After' headers.
@@ -452,7 +452,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsPost202RetryInvalidHeaderHeaders>> Post202RetryInvalidHeaderWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsPost202RetryInvalidHeaderHeaders>> Post202RetryInvalidHeaderAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running post request, service returns a 202 to the initial
         /// request, with an entity that contains ProvisioningState=’Creating’.
@@ -471,7 +471,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsPostAsyncRelativeRetryInvalidHeaderHeaders>> PostAsyncRelativeRetryInvalidHeaderWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsPostAsyncRelativeRetryInvalidHeaderHeaders>> PostAsyncRelativeRetryInvalidHeaderAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running post request, service returns a 202 to the initial
         /// request, with an entity that contains ProvisioningState=’Creating’.
@@ -490,7 +490,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsPostAsyncRelativeRetryInvalidJsonPollingHeaders>> PostAsyncRelativeRetryInvalidJsonPollingWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsPostAsyncRelativeRetryInvalidJsonPollingHeaders>> PostAsyncRelativeRetryInvalidJsonPollingAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running put request, service returns a 400 to the initial
         /// request
@@ -510,7 +510,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<Product>> BeginPutNonRetry400WithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Product>> BeginPutNonRetry400Async(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running put request, service returns a Product with
         /// 'ProvisioningState' = 'Creating' and 201 response code
@@ -530,7 +530,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<Product>> BeginPutNonRetry201Creating400WithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Product>> BeginPutNonRetry201Creating400Async(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running put request, service returns a Product with
         /// 'ProvisioningState' = 'Creating' and 201 response code
@@ -550,7 +550,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<Product>> BeginPutNonRetry201Creating400InvalidJsonWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Product>> BeginPutNonRetry201Creating400InvalidJsonAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running put request, service returns a 200 with
         /// ProvisioningState=’Creating’. Poll the endpoint indicated in the
@@ -571,7 +571,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<Product,LROSADsPutAsyncRelativeRetry400Headers>> BeginPutAsyncRelativeRetry400WithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Product,LROSADsPutAsyncRelativeRetry400Headers>> BeginPutAsyncRelativeRetry400Async(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running delete request, service returns a 400 with an error
         /// body
@@ -585,7 +585,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsDeleteNonRetry400Headers>> BeginDeleteNonRetry400WithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsDeleteNonRetry400Headers>> BeginDeleteNonRetry400Async(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running delete request, service returns a 202 with a location
         /// header
@@ -599,7 +599,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsDelete202NonRetry400Headers>> BeginDelete202NonRetry400WithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsDelete202NonRetry400Headers>> BeginDelete202NonRetry400Async(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running delete request, service returns a 202 to the initial
         /// request. Poll the endpoint indicated in the Azure-AsyncOperation
@@ -614,7 +614,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsDeleteAsyncRelativeRetry400Headers>> BeginDeleteAsyncRelativeRetry400WithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsDeleteAsyncRelativeRetry400Headers>> BeginDeleteAsyncRelativeRetry400Async(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running post request, service returns a 400 with no error body
         /// </summary>
@@ -630,7 +630,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsPostNonRetry400Headers>> BeginPostNonRetry400WithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsPostNonRetry400Headers>> BeginPostNonRetry400Async(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running post request, service returns a 202 with a location
         /// header
@@ -647,7 +647,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsPost202NonRetry400Headers>> BeginPost202NonRetry400WithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsPost202NonRetry400Headers>> BeginPost202NonRetry400Async(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running post request, service returns a 202 to the initial
         /// request Poll the endpoint indicated in the Azure-AsyncOperation
@@ -665,7 +665,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsPostAsyncRelativeRetry400Headers>> BeginPostAsyncRelativeRetry400WithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsPostAsyncRelativeRetry400Headers>> BeginPostAsyncRelativeRetry400Async(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running put request, service returns a 201 to the initial
         /// request with no payload
@@ -685,7 +685,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<Product>> BeginPutError201NoProvisioningStatePayloadWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Product>> BeginPutError201NoProvisioningStatePayloadAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running put request, service returns a 200 to the initial
         /// request, with an entity that contains ProvisioningState=’Creating’.
@@ -707,7 +707,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<Product,LROSADsPutAsyncRelativeRetryNoStatusHeaders>> BeginPutAsyncRelativeRetryNoStatusWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Product,LROSADsPutAsyncRelativeRetryNoStatusHeaders>> BeginPutAsyncRelativeRetryNoStatusAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running put request, service returns a 200 to the initial
         /// request, with an entity that contains ProvisioningState=’Creating’.
@@ -729,7 +729,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<Product,LROSADsPutAsyncRelativeRetryNoStatusPayloadHeaders>> BeginPutAsyncRelativeRetryNoStatusPayloadWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Product,LROSADsPutAsyncRelativeRetryNoStatusPayloadHeaders>> BeginPutAsyncRelativeRetryNoStatusPayloadAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running delete request, service returns a 204 to the initial
         /// request, indicating success.
@@ -743,7 +743,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationResponse> BeginDelete204SucceededWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse> BeginDelete204SucceededAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running delete request, service returns a 202 to the initial
         /// request. Poll the endpoint indicated in the Azure-AsyncOperation
@@ -758,7 +758,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsDeleteAsyncRelativeRetryNoStatusHeaders>> BeginDeleteAsyncRelativeRetryNoStatusWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsDeleteAsyncRelativeRetryNoStatusHeaders>> BeginDeleteAsyncRelativeRetryNoStatusAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running post request, service returns a 202 to the initial
         /// request, without a location header.
@@ -775,7 +775,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsPost202NoLocationHeaders>> BeginPost202NoLocationWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsPost202NoLocationHeaders>> BeginPost202NoLocationAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running post request, service returns a 202 to the initial
         /// request, with an entity that contains ProvisioningState=’Creating’.
@@ -794,7 +794,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsPostAsyncRelativeRetryNoPayloadHeaders>> BeginPostAsyncRelativeRetryNoPayloadWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsPostAsyncRelativeRetryNoPayloadHeaders>> BeginPostAsyncRelativeRetryNoPayloadAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running put request, service returns a 200 to the initial
         /// request, with an entity that is not a valid json
@@ -814,7 +814,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<Product>> BeginPut200InvalidJsonWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Product>> BeginPut200InvalidJsonAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running put request, service returns a 200 to the initial
         /// request, with an entity that contains ProvisioningState=’Creating’.
@@ -836,7 +836,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<Product,LROSADsPutAsyncRelativeRetryInvalidHeaderHeaders>> BeginPutAsyncRelativeRetryInvalidHeaderWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Product,LROSADsPutAsyncRelativeRetryInvalidHeaderHeaders>> BeginPutAsyncRelativeRetryInvalidHeaderAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running put request, service returns a 200 to the initial
         /// request, with an entity that contains ProvisioningState=’Creating’.
@@ -858,7 +858,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<Product,LROSADsPutAsyncRelativeRetryInvalidJsonPollingHeaders>> BeginPutAsyncRelativeRetryInvalidJsonPollingWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Product,LROSADsPutAsyncRelativeRetryInvalidJsonPollingHeaders>> BeginPutAsyncRelativeRetryInvalidJsonPollingAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running delete request, service returns a 202 to the initial
         /// request receing a reponse with an invalid 'Location' and
@@ -873,7 +873,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsDelete202RetryInvalidHeaderHeaders>> BeginDelete202RetryInvalidHeaderWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsDelete202RetryInvalidHeaderHeaders>> BeginDelete202RetryInvalidHeaderAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running delete request, service returns a 202 to the initial
         /// request. The endpoint indicated in the Azure-AsyncOperation header
@@ -888,7 +888,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsDeleteAsyncRelativeRetryInvalidHeaderHeaders>> BeginDeleteAsyncRelativeRetryInvalidHeaderWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsDeleteAsyncRelativeRetryInvalidHeaderHeaders>> BeginDeleteAsyncRelativeRetryInvalidHeaderAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running delete request, service returns a 202 to the initial
         /// request. Poll the endpoint indicated in the Azure-AsyncOperation
@@ -903,7 +903,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsDeleteAsyncRelativeRetryInvalidJsonPollingHeaders>> BeginDeleteAsyncRelativeRetryInvalidJsonPollingWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsDeleteAsyncRelativeRetryInvalidJsonPollingHeaders>> BeginDeleteAsyncRelativeRetryInvalidJsonPollingAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running post request, service returns a 202 to the initial
         /// request, with invalid 'Location' and 'Retry-After' headers.
@@ -920,7 +920,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsPost202RetryInvalidHeaderHeaders>> BeginPost202RetryInvalidHeaderWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsPost202RetryInvalidHeaderHeaders>> BeginPost202RetryInvalidHeaderAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running post request, service returns a 202 to the initial
         /// request, with an entity that contains ProvisioningState=’Creating’.
@@ -939,7 +939,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsPostAsyncRelativeRetryInvalidHeaderHeaders>> BeginPostAsyncRelativeRetryInvalidHeaderWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsPostAsyncRelativeRetryInvalidHeaderHeaders>> BeginPostAsyncRelativeRetryInvalidHeaderAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Long running post request, service returns a 202 to the initial
         /// request, with an entity that contains ProvisioningState=’Creating’.
@@ -958,6 +958,6 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROSADsPostAsyncRelativeRetryInvalidJsonPollingHeaders>> BeginPostAsyncRelativeRetryInvalidJsonPollingWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROSADsPostAsyncRelativeRetryInvalidJsonPollingHeaders>> BeginPostAsyncRelativeRetryInvalidJsonPollingAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

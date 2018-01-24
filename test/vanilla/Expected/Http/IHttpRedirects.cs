@@ -34,7 +34,7 @@ namespace Fixtures.Http
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationHeaderResponse<HttpRedirectsHead300Headers>> Head300WithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HttpRedirectsHead300Headers>> Head300Async(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Return 300 status code and redirect to /http/success/200
         /// </summary>
@@ -50,7 +50,7 @@ namespace Fixtures.Http
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IList<string>,HttpRedirectsGet300Headers>> Get300WithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<string>,HttpRedirectsGet300Headers>> Get300Async(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Return 301 status code and redirect to /http/success/200
         /// </summary>
@@ -63,7 +63,7 @@ namespace Fixtures.Http
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationHeaderResponse<HttpRedirectsHead301Headers>> Head301WithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HttpRedirectsHead301Headers>> Head301Async(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Return 301 status code and redirect to /http/success/200
         /// </summary>
@@ -76,7 +76,7 @@ namespace Fixtures.Http
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationHeaderResponse<HttpRedirectsGet301Headers>> Get301WithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HttpRedirectsGet301Headers>> Get301Async(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Put true Boolean value in request returns 301.  This request should
         /// not be automatically redirected, but should return the received 301
@@ -94,7 +94,7 @@ namespace Fixtures.Http
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationHeaderResponse<HttpRedirectsPut301Headers>> Put301WithHttpMessagesAsync(bool? booleanValue = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HttpRedirectsPut301Headers>> Put301Async(bool? booleanValue = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Return 302 status code and redirect to /http/success/200
         /// </summary>
@@ -107,7 +107,7 @@ namespace Fixtures.Http
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationHeaderResponse<HttpRedirectsHead302Headers>> Head302WithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HttpRedirectsHead302Headers>> Head302Async(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Return 302 status code and redirect to /http/success/200
         /// </summary>
@@ -120,7 +120,7 @@ namespace Fixtures.Http
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationHeaderResponse<HttpRedirectsGet302Headers>> Get302WithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HttpRedirectsGet302Headers>> Get302Async(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Patch true Boolean value in request returns 302.  This request
         /// should not be automatically redirected, but should return the
@@ -138,7 +138,7 @@ namespace Fixtures.Http
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationHeaderResponse<HttpRedirectsPatch302Headers>> Patch302WithHttpMessagesAsync(bool? booleanValue = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HttpRedirectsPatch302Headers>> Patch302Async(bool? booleanValue = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Post true Boolean value in request returns 303.  This request
         /// should be automatically redirected usign a get, ultimately
@@ -156,7 +156,7 @@ namespace Fixtures.Http
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationHeaderResponse<HttpRedirectsPost303Headers>> Post303WithHttpMessagesAsync(bool? booleanValue = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HttpRedirectsPost303Headers>> Post303Async(bool? booleanValue = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Redirect with 307, resulting in a 200 success
         /// </summary>
@@ -169,7 +169,7 @@ namespace Fixtures.Http
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationHeaderResponse<HttpRedirectsHead307Headers>> Head307WithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HttpRedirectsHead307Headers>> Head307Async(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Redirect get with 307, resulting in a 200 success
         /// </summary>
@@ -182,7 +182,7 @@ namespace Fixtures.Http
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationHeaderResponse<HttpRedirectsGet307Headers>> Get307WithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HttpRedirectsGet307Headers>> Get307Async(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Put redirected with 307, resulting in a 200 after redirect
         /// </summary>
@@ -198,7 +198,7 @@ namespace Fixtures.Http
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationHeaderResponse<HttpRedirectsPut307Headers>> Put307WithHttpMessagesAsync(bool? booleanValue = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HttpRedirectsPut307Headers>> Put307Async(bool? booleanValue = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Patch redirected with 307, resulting in a 200 after redirect
         /// </summary>
@@ -214,7 +214,7 @@ namespace Fixtures.Http
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationHeaderResponse<HttpRedirectsPatch307Headers>> Patch307WithHttpMessagesAsync(bool? booleanValue = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HttpRedirectsPatch307Headers>> Patch307Async(bool? booleanValue = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Post redirected with 307, resulting in a 200 after redirect
         /// </summary>
@@ -230,7 +230,7 @@ namespace Fixtures.Http
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationHeaderResponse<HttpRedirectsPost307Headers>> Post307WithHttpMessagesAsync(bool? booleanValue = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HttpRedirectsPost307Headers>> Post307Async(bool? booleanValue = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Delete redirected with 307, resulting in a 200 after redirect
         /// </summary>
@@ -246,6 +246,6 @@ namespace Fixtures.Http
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationHeaderResponse<HttpRedirectsDelete307Headers>> Delete307WithHttpMessagesAsync(bool? booleanValue = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HttpRedirectsDelete307Headers>> Delete307Async(bool? booleanValue = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

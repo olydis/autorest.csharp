@@ -16,12 +16,6 @@ namespace AutoRest.CSharp.Model
         {
         }
 
-        public override Method Add(Method method)
-        {
-            (method as MethodCs).SyncMethods = Singleton<GeneratorSettingsCs>.Instance.SyncMethods;
-            return base.Add(method);
-        }
-
         /// <Summary>
         /// Accessor for <code>ExtensionTypeName</code>
         /// </Summary>

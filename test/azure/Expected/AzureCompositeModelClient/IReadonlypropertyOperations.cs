@@ -38,11 +38,11 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<ReadonlyObj>> GetValidWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<ReadonlyObj>> GetValidAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Put complex types that have readonly properties
         /// </summary>
-        /// <param name='size'>
+        /// <param name='complexBody'>
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -53,6 +53,9 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationResponse> PutValidWithHttpMessagesAsync(int? size = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<AzureOperationResponse> PutValidAsync(ReadonlyObj complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

@@ -74,7 +74,7 @@ namespace Fixtures.Azure.Paging
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected AutoRestPagingTestServiceClient(params DelegatingHandler[] handlers) : base(handlers)
+        public AutoRestPagingTestServiceClient(params DelegatingHandler[] handlers) : base(handlers)
         {
             Initialize();
         }
@@ -88,7 +88,7 @@ namespace Fixtures.Azure.Paging
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected AutoRestPagingTestServiceClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
+        public AutoRestPagingTestServiceClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
         {
             Initialize();
         }
@@ -105,7 +105,7 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected AutoRestPagingTestServiceClient(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
+        public AutoRestPagingTestServiceClient(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
         {
             if (baseUri == null)
             {
@@ -129,7 +129,7 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected AutoRestPagingTestServiceClient(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        public AutoRestPagingTestServiceClient(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
         {
             if (baseUri == null)
             {

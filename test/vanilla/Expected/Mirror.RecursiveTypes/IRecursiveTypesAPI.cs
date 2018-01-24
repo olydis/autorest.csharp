@@ -66,7 +66,7 @@ namespace Fixtures.MirrorRecursiveTypes
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<Product>> PostWithHttpMessagesAsync(string subscriptionId, string resourceGroupName, string apiVersion, Product body = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Product>> PostAsync(string subscriptionId, string resourceGroupName, string apiVersion, Product body = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

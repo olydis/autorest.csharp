@@ -134,7 +134,6 @@ namespace Fixtures.ModelFlattening
                         new Iso8601TimeSpanConverter()
                     }
             };
-            SerializationSettings.Converters.Add(new TransformationJsonConverter());
             DeserializationSettings = new JsonSerializerSettings
             {
                 DateFormatHandling = Newtonsoft.Json.DateFormatHandling.IsoDateFormat,
@@ -148,7 +147,6 @@ namespace Fixtures.ModelFlattening
                     }
             };
             CustomInitialize();
-            DeserializationSettings.Converters.Add(new TransformationJsonConverter());
         }
         /// <summary>
         /// Put External Resource as an Array
@@ -169,7 +167,7 @@ namespace Fixtures.ModelFlattening
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PutArrayWithHttpMessagesAsync(IList<Resource> resourceArray = default(IList<Resource>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PutArrayAsync(IList<Resource> resourceArray = default(IList<Resource>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -183,7 +181,7 @@ namespace Fixtures.ModelFlattening
                 ServiceClientTracing.Enter(_invocationId, this, "PutArray", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "model-flatten/array").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -209,7 +207,7 @@ namespace Fixtures.ModelFlattening
             string _requestContent = null;
             if(resourceArray != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(resourceArray, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(resourceArray, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -219,7 +217,7 @@ namespace Fixtures.ModelFlattening
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -233,7 +231,7 @@ namespace Fixtures.ModelFlattening
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, DeserializationSettings);
+                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -286,7 +284,7 @@ namespace Fixtures.ModelFlattening
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<FlattenedProduct>>> GetArrayWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<FlattenedProduct>>> GetArrayAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -299,7 +297,7 @@ namespace Fixtures.ModelFlattening
                 ServiceClientTracing.Enter(_invocationId, this, "GetArray", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "model-flatten/array").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -329,7 +327,7 @@ namespace Fixtures.ModelFlattening
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -343,7 +341,7 @@ namespace Fixtures.ModelFlattening
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, DeserializationSettings);
+                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -376,7 +374,7 @@ namespace Fixtures.ModelFlattening
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<IList<FlattenedProduct>>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<IList<FlattenedProduct>>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -415,7 +413,7 @@ namespace Fixtures.ModelFlattening
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PutWrappedArrayWithHttpMessagesAsync(IList<WrappedProduct> resourceArray = default(IList<WrappedProduct>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PutWrappedArrayAsync(IList<WrappedProduct> resourceArray = default(IList<WrappedProduct>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -429,7 +427,7 @@ namespace Fixtures.ModelFlattening
                 ServiceClientTracing.Enter(_invocationId, this, "PutWrappedArray", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "model-flatten/wrappedarray").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -455,7 +453,7 @@ namespace Fixtures.ModelFlattening
             string _requestContent = null;
             if(resourceArray != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(resourceArray, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(resourceArray, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -465,7 +463,7 @@ namespace Fixtures.ModelFlattening
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -479,7 +477,7 @@ namespace Fixtures.ModelFlattening
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, DeserializationSettings);
+                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -533,7 +531,7 @@ namespace Fixtures.ModelFlattening
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<ProductWrapper>>> GetWrappedArrayWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<ProductWrapper>>> GetWrappedArrayAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -546,7 +544,7 @@ namespace Fixtures.ModelFlattening
                 ServiceClientTracing.Enter(_invocationId, this, "GetWrappedArray", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "model-flatten/wrappedarray").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -576,7 +574,7 @@ namespace Fixtures.ModelFlattening
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -590,7 +588,7 @@ namespace Fixtures.ModelFlattening
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, DeserializationSettings);
+                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -623,7 +621,7 @@ namespace Fixtures.ModelFlattening
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<IList<ProductWrapper>>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<IList<ProductWrapper>>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -661,7 +659,7 @@ namespace Fixtures.ModelFlattening
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PutDictionaryWithHttpMessagesAsync(IDictionary<string, FlattenedProduct> resourceDictionary = default(IDictionary<string, FlattenedProduct>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PutDictionaryAsync(IDictionary<string, FlattenedProduct> resourceDictionary = default(IDictionary<string, FlattenedProduct>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -675,7 +673,7 @@ namespace Fixtures.ModelFlattening
                 ServiceClientTracing.Enter(_invocationId, this, "PutDictionary", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "model-flatten/dictionary").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -701,7 +699,7 @@ namespace Fixtures.ModelFlattening
             string _requestContent = null;
             if(resourceDictionary != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(resourceDictionary, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(resourceDictionary, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -711,7 +709,7 @@ namespace Fixtures.ModelFlattening
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -725,7 +723,7 @@ namespace Fixtures.ModelFlattening
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, DeserializationSettings);
+                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -778,7 +776,7 @@ namespace Fixtures.ModelFlattening
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IDictionary<string, FlattenedProduct>>> GetDictionaryWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IDictionary<string, FlattenedProduct>>> GetDictionaryAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -791,7 +789,7 @@ namespace Fixtures.ModelFlattening
                 ServiceClientTracing.Enter(_invocationId, this, "GetDictionary", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "model-flatten/dictionary").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -821,7 +819,7 @@ namespace Fixtures.ModelFlattening
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -835,7 +833,7 @@ namespace Fixtures.ModelFlattening
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, DeserializationSettings);
+                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -868,7 +866,7 @@ namespace Fixtures.ModelFlattening
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<IDictionary<string, FlattenedProduct>>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<IDictionary<string, FlattenedProduct>>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -906,7 +904,7 @@ namespace Fixtures.ModelFlattening
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PutResourceCollectionWithHttpMessagesAsync(ResourceCollection resourceComplexObject = default(ResourceCollection), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PutResourceCollectionAsync(ResourceCollection resourceComplexObject = default(ResourceCollection), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -920,7 +918,7 @@ namespace Fixtures.ModelFlattening
                 ServiceClientTracing.Enter(_invocationId, this, "PutResourceCollection", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "model-flatten/resourcecollection").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -946,7 +944,7 @@ namespace Fixtures.ModelFlattening
             string _requestContent = null;
             if(resourceComplexObject != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(resourceComplexObject, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(resourceComplexObject, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -956,7 +954,7 @@ namespace Fixtures.ModelFlattening
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -970,7 +968,7 @@ namespace Fixtures.ModelFlattening
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, DeserializationSettings);
+                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -1023,7 +1021,7 @@ namespace Fixtures.ModelFlattening
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceCollection>> GetResourceCollectionWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceCollection>> GetResourceCollectionAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1036,7 +1034,7 @@ namespace Fixtures.ModelFlattening
                 ServiceClientTracing.Enter(_invocationId, this, "GetResourceCollection", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "model-flatten/resourcecollection").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -1066,7 +1064,7 @@ namespace Fixtures.ModelFlattening
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -1080,7 +1078,7 @@ namespace Fixtures.ModelFlattening
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, DeserializationSettings);
+                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -1113,7 +1111,7 @@ namespace Fixtures.ModelFlattening
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceCollection>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceCollection>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -1154,7 +1152,7 @@ namespace Fixtures.ModelFlattening
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<SimpleProduct>> PutSimpleProductWithHttpMessagesAsync(SimpleProduct simpleBodyProduct = default(SimpleProduct), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<SimpleProduct>> PutSimpleProductAsync(SimpleProduct simpleBodyProduct = default(SimpleProduct), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (simpleBodyProduct != null)
             {
@@ -1172,7 +1170,7 @@ namespace Fixtures.ModelFlattening
                 ServiceClientTracing.Enter(_invocationId, this, "PutSimpleProduct", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "model-flatten/customFlattening").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -1198,7 +1196,7 @@ namespace Fixtures.ModelFlattening
             string _requestContent = null;
             if(simpleBodyProduct != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(simpleBodyProduct, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(simpleBodyProduct, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -1208,7 +1206,7 @@ namespace Fixtures.ModelFlattening
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -1222,7 +1220,7 @@ namespace Fixtures.ModelFlattening
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, DeserializationSettings);
+                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -1255,7 +1253,7 @@ namespace Fixtures.ModelFlattening
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<SimpleProduct>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<SimpleProduct>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -1278,22 +1276,8 @@ namespace Fixtures.ModelFlattening
         /// Put Flattened Simple Product with client flattening true on the parameter
         /// <see href="http://tempuri.org" />
         /// </summary>
-        /// <param name='productId'>
-        /// Unique identifier representing a specific product for a given latitude
-        /// &amp; longitude. For example, uberX in San Francisco will have a different
-        /// product_id than uberX in Los Angeles.
-        /// </param>
-        /// <param name='maxProductDisplayName'>
-        /// Display name of product.
-        /// </param>
-        /// <param name='description'>
-        /// Description of product.
-        /// </param>
-        /// <param name='genericValue'>
-        /// Generic URL value.
-        /// </param>
-        /// <param name='odatavalue'>
-        /// URL value.
+        /// <param name='simpleBodyProduct'>
+        /// Simple body product to post
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1307,34 +1291,14 @@ namespace Fixtures.ModelFlattening
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        /// <exception cref="ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        /// <exception cref="System.ArgumentNullException">
-        /// Thrown when a required parameter is null
-        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<SimpleProduct>> PostFlattenedSimpleProductWithHttpMessagesAsync(string productId, string maxProductDisplayName, string description = default(string), string genericValue = default(string), string odatavalue = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<SimpleProduct>> PostFlattenedSimpleProductAsync(SimpleProduct simpleBodyProduct = default(SimpleProduct), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (productId == null)
+            if (simpleBodyProduct != null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "productId");
-            }
-            if (maxProductDisplayName == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "maxProductDisplayName");
-            }
-            SimpleProduct simpleBodyProduct = default(SimpleProduct);
-            if (productId != null || description != null || maxProductDisplayName != null || genericValue != null || odatavalue != null)
-            {
-                simpleBodyProduct = new SimpleProduct();
-                simpleBodyProduct.ProductId = productId;
-                simpleBodyProduct.Description = description;
-                simpleBodyProduct.MaxProductDisplayName = maxProductDisplayName;
-                simpleBodyProduct.GenericValue = genericValue;
-                simpleBodyProduct.Odatavalue = odatavalue;
+                simpleBodyProduct.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1348,7 +1312,7 @@ namespace Fixtures.ModelFlattening
                 ServiceClientTracing.Enter(_invocationId, this, "PostFlattenedSimpleProduct", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "model-flatten/customFlattening").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -1374,7 +1338,7 @@ namespace Fixtures.ModelFlattening
             string _requestContent = null;
             if(simpleBodyProduct != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(simpleBodyProduct, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(simpleBodyProduct, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -1384,7 +1348,7 @@ namespace Fixtures.ModelFlattening
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -1398,7 +1362,7 @@ namespace Fixtures.ModelFlattening
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, DeserializationSettings);
+                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -1431,7 +1395,7 @@ namespace Fixtures.ModelFlattening
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<SimpleProduct>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<SimpleProduct>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -1454,8 +1418,11 @@ namespace Fixtures.ModelFlattening
         /// Put Simple Product with client flattening true on the model
         /// <see href="http://tempuri.org" />
         /// </summary>
-        /// <param name='flattenParameterGroup'>
-        /// Additional parameters for the operation
+        /// <param name='name'>
+        /// Product name with value 'groupproduct'
+        /// </param>
+        /// <param name='simpleBodyProduct'>
+        /// Simple body product to put
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1478,55 +1445,15 @@ namespace Fixtures.ModelFlattening
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<SimpleProduct>> PutSimpleProductWithGroupingWithHttpMessagesAsync(FlattenParameterGroup flattenParameterGroup, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<SimpleProduct>> PutSimpleProductWithGroupingAsync(string name, SimpleProduct simpleBodyProduct = default(SimpleProduct), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (flattenParameterGroup == null)
+            if (simpleBodyProduct != null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "flattenParameterGroup");
+                simpleBodyProduct.Validate();
             }
-            if (flattenParameterGroup != null)
+            if (name == null)
             {
-                flattenParameterGroup.Validate();
-            }
-            string name = default(string);
-            if (flattenParameterGroup != null)
-            {
-                name = flattenParameterGroup.Name;
-            }
-            string productId = default(string);
-            if (flattenParameterGroup != null)
-            {
-                productId = flattenParameterGroup.ProductId;
-            }
-            string description = default(string);
-            if (flattenParameterGroup != null)
-            {
-                description = flattenParameterGroup.Description;
-            }
-            string maxProductDisplayName = default(string);
-            if (flattenParameterGroup != null)
-            {
-                maxProductDisplayName = flattenParameterGroup.MaxProductDisplayName;
-            }
-            string genericValue = default(string);
-            if (flattenParameterGroup != null)
-            {
-                genericValue = flattenParameterGroup.GenericValue;
-            }
-            string odatavalue = default(string);
-            if (flattenParameterGroup != null)
-            {
-                odatavalue = flattenParameterGroup.Odatavalue;
-            }
-            SimpleProduct simpleBodyProduct = default(SimpleProduct);
-            if (productId != null || description != null || maxProductDisplayName != null || genericValue != null || odatavalue != null)
-            {
-                simpleBodyProduct = new SimpleProduct();
-                simpleBodyProduct.ProductId = productId;
-                simpleBodyProduct.Description = description;
-                simpleBodyProduct.MaxProductDisplayName = maxProductDisplayName;
-                simpleBodyProduct.GenericValue = genericValue;
-                simpleBodyProduct.Odatavalue = odatavalue;
+                throw new ValidationException(ValidationRules.CannotBeNull, "name");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1535,18 +1462,13 @@ namespace Fixtures.ModelFlattening
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("name", name);
-                tracingParameters.Add("productId", productId);
-                tracingParameters.Add("description", description);
-                tracingParameters.Add("maxProductDisplayName", maxProductDisplayName);
-                tracingParameters.Add("genericValue", genericValue);
-                tracingParameters.Add("odatavalue", odatavalue);
                 tracingParameters.Add("simpleBodyProduct", simpleBodyProduct);
+                tracingParameters.Add("name", name);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "PutSimpleProductWithGrouping", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "model-flatten/customFlattening/parametergrouping/{name}/").ToString();
             _url = _url.Replace("{name}", System.Uri.EscapeDataString(name));
             // Create HTTP transport objects
@@ -1573,7 +1495,7 @@ namespace Fixtures.ModelFlattening
             string _requestContent = null;
             if(simpleBodyProduct != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(simpleBodyProduct, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(simpleBodyProduct, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -1583,7 +1505,7 @@ namespace Fixtures.ModelFlattening
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -1597,7 +1519,7 @@ namespace Fixtures.ModelFlattening
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, DeserializationSettings);
+                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -1630,7 +1552,7 @@ namespace Fixtures.ModelFlattening
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<SimpleProduct>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<SimpleProduct>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

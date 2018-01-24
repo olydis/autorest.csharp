@@ -78,7 +78,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponse<PortModel>>> GetPortRequestsWithHttpMessagesAsync(string subscriptionId, int take, int skip, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponse<PortModel>>> GetPortRequestsAsync(string subscriptionId, int take, int skip, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -130,12 +130,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {
@@ -243,7 +237,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PortModel>> CreatePortRequestWithHttpMessagesAsync(string subscriptionId, string reference, string type, string countryId, string billingNumber = default(string), System.DateTime? requestedPortDate = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PortModel>> CreatePortRequestAsync(string subscriptionId, string reference, string type, string countryId, string billingNumber = default(string), System.DateTime? requestedPortDate = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -328,12 +322,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {
@@ -428,7 +416,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PortModel>> GetPortRequestWithHttpMessagesAsync(string subscriptionId, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PortModel>> GetPortRequestAsync(string subscriptionId, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -473,12 +461,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {
@@ -582,7 +564,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<bool?>> UpdatePortRequestWithHttpMessagesAsync(string subscriptionId, int id, string billingNumber, string reference = default(string), System.DateTime? requestedPortDate = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<bool?>> UpdatePortRequestAsync(string subscriptionId, int id, string billingNumber, string reference = default(string), System.DateTime? requestedPortDate = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -651,12 +633,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {
@@ -751,7 +727,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<bool?>> DeletePortRequestWithHttpMessagesAsync(string subscriptionId, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<bool?>> DeletePortRequestAsync(string subscriptionId, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -796,12 +772,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {
@@ -905,7 +875,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponse<RequestNumberModel>>> GetPortNumbersWithHttpMessagesAsync(string subscriptionId, int id, int take, int skip, string search = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponse<RequestNumberModel>>> GetPortNumbersAsync(string subscriptionId, int id, int take, int skip, string search = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -964,12 +934,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {
@@ -1067,7 +1031,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponse<RequestNumberModel>>> AddPortNumbersWithHttpMessagesAsync(string subscriptionId, int id, IList<string> numbers, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponse<RequestNumberModel>>> AddPortNumbersAsync(string subscriptionId, int id, IList<string> numbers, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -1122,12 +1086,6 @@ namespace Zapappi.Client
                 _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(numbers, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
-            }
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             }
             // Send Request
             if (_shouldTrace)
@@ -1221,7 +1179,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponse<RequestNumberModel>>> RemovePortNumbersWithHttpMessagesAsync(string subscriptionId, int id, IList<int?> numbers, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponse<RequestNumberModel>>> RemovePortNumbersAsync(string subscriptionId, int id, IList<int?> numbers, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -1276,12 +1234,6 @@ namespace Zapappi.Client
                 _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(numbers, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
-            }
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             }
             // Send Request
             if (_shouldTrace)
@@ -1377,7 +1329,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<bool?>> SubmitPortRequestWithHttpMessagesAsync(string subscriptionId, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<bool?>> SubmitPortRequestAsync(string subscriptionId, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -1422,12 +1374,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {
@@ -1522,7 +1468,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<bool?>> AddPortFileWithHttpMessagesAsync(string subscriptionId, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<bool?>> AddPortFileAsync(string subscriptionId, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -1567,12 +1513,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {
@@ -1682,7 +1622,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<LoaModel>> AddPortLoaWithHttpMessagesAsync(string subscriptionId, int id, string customerContactId, string requesterContactId, string siteContactId, string losingProviderId, string otherProvider = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<LoaModel>> AddPortLoaAsync(string subscriptionId, int id, string customerContactId, string requesterContactId, string siteContactId, string losingProviderId, string otherProvider = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -1773,12 +1713,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {
@@ -1876,7 +1810,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<bool?>> AddPortLoaFileWithHttpMessagesAsync(string subscriptionId, int id, int loaId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<bool?>> AddPortLoaFileAsync(string subscriptionId, int id, int loaId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -1923,12 +1857,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {
@@ -2023,7 +1951,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<LoaModel>> GeneratePortLoaFileWithHttpMessagesAsync(string subscriptionId, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<LoaModel>> GeneratePortLoaFileAsync(string subscriptionId, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -2068,12 +1996,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {
@@ -2174,7 +2096,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<bool?>> GetPortMessagesWithHttpMessagesAsync(string subscriptionId, int id, int take, int skip, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<bool?>> GetPortMessagesAsync(string subscriptionId, int id, int take, int skip, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -2228,12 +2150,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {
@@ -2331,7 +2247,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<bool?>> AddPortMessageWithHttpMessagesAsync(string subscriptionId, int id, string message, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<bool?>> AddPortMessageAsync(string subscriptionId, int id, string message, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -2390,12 +2306,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {
@@ -2487,7 +2397,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<CountryModel>>> GetPortingCountriesWithHttpMessagesAsync(string subscriptionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<CountryModel>>> GetPortingCountriesAsync(string subscriptionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -2530,12 +2440,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {
@@ -2633,7 +2537,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponse<ProviderModel>>> GetPortingProvidersWithHttpMessagesAsync(string subscriptionId, string countryId, string type, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponse<ProviderModel>>> GetPortingProvidersAsync(string subscriptionId, string countryId, string type, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -2696,12 +2600,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {
@@ -2796,7 +2694,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<RequestWebhookModel>> AddPortingWebhookWithHttpMessagesAsync(string subscriptionId, string url, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<RequestWebhookModel>> AddPortingWebhookAsync(string subscriptionId, string url, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -2853,12 +2751,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {

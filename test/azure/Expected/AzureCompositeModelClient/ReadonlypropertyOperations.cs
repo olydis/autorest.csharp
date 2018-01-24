@@ -68,7 +68,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<ReadonlyObj>> GetValidWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<ReadonlyObj>> GetValidAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -207,7 +207,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <summary>
         /// Put complex types that have readonly properties
         /// </summary>
-        /// <param name='size'>
+        /// <param name='complexBody'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -218,15 +218,20 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> PutValidWithHttpMessagesAsync(int? size = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> PutValidAsync(ReadonlyObj complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            ReadonlyObj complexBody = new ReadonlyObj();
-            if (size != null)
+            if (complexBody == null)
             {
-                complexBody.Size = size;
+                throw new ValidationException(ValidationRules.CannotBeNull, "complexBody");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;

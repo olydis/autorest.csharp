@@ -38,7 +38,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<ApplicationModel>>> GetApplicationsWithHttpMessagesAsync(string subscriptionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<ApplicationModel>>> GetApplicationsAsync(string subscriptionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Adds a new Application to the Zapappi subscription
         /// </summary>
@@ -69,7 +69,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<string>> AddApplicationWithHttpMessagesAsync(string subscriptionId, string name, string description, bool enabled, string scriptBody, string scriptUrl, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<string>> AddApplicationAsync(string subscriptionId, string name, string description, bool enabled, string scriptBody, string scriptUrl, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a specific Application based on the Id
         /// </summary>
@@ -92,7 +92,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<ApplicationModel>> GetApplicationWithHttpMessagesAsync(string subscriptionId, string id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ApplicationModel>> GetApplicationAsync(string subscriptionId, string id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates an existing Zapappi Application
         /// </summary>
@@ -131,7 +131,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> UpdateApplicationWithHttpMessagesAsync(string subscriptionId, string appId, string description, bool enabled, string scriptBody, string scriptUrl, string id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> UpdateApplicationAsync(string subscriptionId, string appId, string description, bool enabled, string scriptBody, string scriptUrl, string id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of media files attached to this Application
         /// </summary>
@@ -155,7 +155,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<string>>> GetApplicationFilesWithHttpMessagesAsync(string subscriptionId, string id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<string>>> GetApplicationFilesAsync(string subscriptionId, string id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes a media file attached to this Application
         /// </summary>
@@ -181,7 +181,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> DeleteApplicationFileWithHttpMessagesAsync(string subscriptionId, string id, string filename, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> DeleteApplicationFileAsync(string subscriptionId, string id, string filename, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Creates a new outbound call request for this Application
         /// </summary>
@@ -208,7 +208,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<CalloutReturnModel>> ApplicationCalloutWithHttpMessagesAsync(string subscriptionId, string id, CalloutModel model, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<CalloutReturnModel>> ApplicationCalloutAsync(string subscriptionId, string id, CalloutModel model, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of Application Resources associated with the given
         /// Application
@@ -232,7 +232,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<ResourceModel>>> GetApplicationResourcesWithHttpMessagesAsync(string subscriptionId, string id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<ResourceModel>>> GetApplicationResourcesAsync(string subscriptionId, string id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Adds an Application Resource to the given Application
         /// </summary>
@@ -254,7 +254,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> AddApplicationResourcesWithHttpMessagesAsync(string subscriptionId, string id, ResourceModel model, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> AddApplicationResourcesAsync(string subscriptionId, string id, ResourceModel model, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes an Application Resource from the given Application
         /// </summary>
@@ -279,7 +279,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> DeleteApplicationResourcesWithHttpMessagesAsync(string subscriptionId, string id, string resourceId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> DeleteApplicationResourcesAsync(string subscriptionId, string id, string resourceId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets a list of SIP Provider Accounts connected to your ZapApp
         /// platform
@@ -301,7 +301,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<SIPProviderModel>>> GetSIPProvidersWithHttpMessagesAsync(string subscriptionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<SIPProviderModel>>> GetSIPProvidersAsync(string subscriptionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns call records for the given application
         /// </summary>
@@ -330,7 +330,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<ApplicationCDRModel>>> GetApplicationCDRWithHttpMessagesAsync(string subscriptionId, string id, int? skip = default(int?), System.DateTime? startDate = default(System.DateTime?), System.DateTime? endDate = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<ApplicationCDRModel>>> GetApplicationCDRAsync(string subscriptionId, string id, int? skip = default(int?), System.DateTime? startDate = default(System.DateTime?), System.DateTime? endDate = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <param name='subscriptionId'>
         /// </param>
         /// <param name='manifestUrl'>
@@ -356,7 +356,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<ApplicationModel>> DeployApplicationWithHttpMessagesAsync(string subscriptionId, string manifestUrl, string applicationName, string applicationDescription, IDictionary<string, string> configurationValues, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ApplicationModel>> DeployApplicationAsync(string subscriptionId, string manifestUrl, string applicationName, string applicationDescription, IDictionary<string, string> configurationValues, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns all the Key Value Pairs for a given Application
         /// </summary>
@@ -381,6 +381,6 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<KeyValuePairModel>>> GetApplicationKeyValuePairsWithHttpMessagesAsync(string subscriptionId, string id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<KeyValuePairModel>>> GetApplicationKeyValuePairsAsync(string subscriptionId, string id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

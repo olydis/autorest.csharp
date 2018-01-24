@@ -79,7 +79,7 @@ namespace Fixtures.Azure.CustomBaseUri
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected AutoRestParameterizedHostTestClient(params DelegatingHandler[] handlers) : base(handlers)
+        public AutoRestParameterizedHostTestClient(params DelegatingHandler[] handlers) : base(handlers)
         {
             Initialize();
         }
@@ -93,7 +93,7 @@ namespace Fixtures.Azure.CustomBaseUri
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected AutoRestParameterizedHostTestClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
+        public AutoRestParameterizedHostTestClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
         {
             Initialize();
         }

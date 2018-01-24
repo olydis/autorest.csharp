@@ -64,7 +64,7 @@ namespace Fixtures.Azure.Head
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<bool>> Head200WithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> Head200Async(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -173,10 +173,9 @@ namespace Fixtures.Azure.Head
                 throw ex;
             }
             // Create Result
-            var _result = new AzureOperationResponse<bool>();
+            var _result = new AzureOperationResponse();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
-            _result.Body = _statusCode == System.Net.HttpStatusCode.OK;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
             {
                 _result.RequestId = _httpResponse.Headers.GetValues("x-ms-request-id").FirstOrDefault();
@@ -203,7 +202,7 @@ namespace Fixtures.Azure.Head
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<bool>> Head204WithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> Head204Async(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -312,10 +311,9 @@ namespace Fixtures.Azure.Head
                 throw ex;
             }
             // Create Result
-            var _result = new AzureOperationResponse<bool>();
+            var _result = new AzureOperationResponse();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
-            _result.Body = _statusCode == System.Net.HttpStatusCode.NoContent;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
             {
                 _result.RequestId = _httpResponse.Headers.GetValues("x-ms-request-id").FirstOrDefault();
@@ -342,7 +340,7 @@ namespace Fixtures.Azure.Head
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<bool>> Head404WithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> Head404Async(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -451,10 +449,9 @@ namespace Fixtures.Azure.Head
                 throw ex;
             }
             // Create Result
-            var _result = new AzureOperationResponse<bool>();
+            var _result = new AzureOperationResponse();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
-            _result.Body = _statusCode == System.Net.HttpStatusCode.NoContent;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
             {
                 _result.RequestId = _httpResponse.Headers.GetValues("x-ms-request-id").FirstOrDefault();

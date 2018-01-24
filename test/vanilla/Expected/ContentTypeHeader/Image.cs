@@ -70,7 +70,7 @@ namespace Fixtures.ContentTypeHeader
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> AWithHttpMessagesAsync(Stream image, ImageType imageContentType, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> AAsync(Stream image, ImageType imageContentType, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (image == null)
             {
@@ -194,7 +194,7 @@ namespace Fixtures.ContentTypeHeader
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> BWithHttpMessagesAsync(Stream image, ImageType imageContentType, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> BAsync(Stream image, ImageType imageContentType, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (image == null)
             {
@@ -318,7 +318,7 @@ namespace Fixtures.ContentTypeHeader
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> CWithHttpMessagesAsync(Stream image, ImageTypeRestricted imageContentType, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> CAsync(Stream image, ImageTypeRestricted imageContentType, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (image == null)
             {
@@ -442,7 +442,7 @@ namespace Fixtures.ContentTypeHeader
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> DWithHttpMessagesAsync(Stream image, string imageContentType, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> DAsync(Stream image, string imageContentType, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (image == null)
             {

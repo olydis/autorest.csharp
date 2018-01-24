@@ -75,7 +75,7 @@ namespace Fixtures.Azure.AzureSpecials
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationHeaderResponse<HeaderCustomNamedRequestIdHeaders>> CustomNamedRequestIdWithHttpMessagesAsync(string fooClientRequestId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationHeaderResponse<HeaderCustomNamedRequestIdHeaders>> CustomNamedRequestIdAsync(string fooClientRequestId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (fooClientRequestId == null)
             {
@@ -223,8 +223,8 @@ namespace Fixtures.Azure.AzureSpecials
         /// Send foo-client-request-id = 9C4D50EE-2D56-4CD3-8152-34347DC9F2B0 in the
         /// header of the request, via a parameter group
         /// </summary>
-        /// <param name='headerCustomNamedRequestIdParamGroupingParameters'>
-        /// Additional parameters for the operation
+        /// <param name='fooClientRequestId'>
+        /// The fooRequestId
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -244,20 +244,11 @@ namespace Fixtures.Azure.AzureSpecials
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationHeaderResponse<HeaderCustomNamedRequestIdParamGroupingHeaders>> CustomNamedRequestIdParamGroupingWithHttpMessagesAsync(HeaderCustomNamedRequestIdParamGroupingParameters headerCustomNamedRequestIdParamGroupingParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationHeaderResponse<HeaderCustomNamedRequestIdParamGroupingHeaders>> CustomNamedRequestIdParamGroupingAsync(string fooClientRequestId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (headerCustomNamedRequestIdParamGroupingParameters == null)
+            if (fooClientRequestId == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "headerCustomNamedRequestIdParamGroupingParameters");
-            }
-            if (headerCustomNamedRequestIdParamGroupingParameters != null)
-            {
-                headerCustomNamedRequestIdParamGroupingParameters.Validate();
-            }
-            string fooClientRequestId = default(string);
-            if (headerCustomNamedRequestIdParamGroupingParameters != null)
-            {
-                fooClientRequestId = headerCustomNamedRequestIdParamGroupingParameters.FooClientRequestId;
+                throw new ValidationException(ValidationRules.CannotBeNull, "fooClientRequestId");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -288,14 +279,6 @@ namespace Fixtures.Azure.AzureSpecials
             {
                 _httpRequest.Headers.TryAddWithoutValidation("foo-client-request-id", System.Guid.NewGuid().ToString());
             }
-            if (Client.AcceptLanguage != null)
-            {
-                if (_httpRequest.Headers.Contains("accept-language"))
-                {
-                    _httpRequest.Headers.Remove("accept-language");
-                }
-                _httpRequest.Headers.TryAddWithoutValidation("accept-language", Client.AcceptLanguage);
-            }
             if (fooClientRequestId != null)
             {
                 if (_httpRequest.Headers.Contains("foo-client-request-id"))
@@ -303,6 +286,14 @@ namespace Fixtures.Azure.AzureSpecials
                     _httpRequest.Headers.Remove("foo-client-request-id");
                 }
                 _httpRequest.Headers.TryAddWithoutValidation("foo-client-request-id", fooClientRequestId);
+            }
+            if (Client.AcceptLanguage != null)
+            {
+                if (_httpRequest.Headers.Contains("accept-language"))
+                {
+                    _httpRequest.Headers.Remove("accept-language");
+                }
+                _httpRequest.Headers.TryAddWithoutValidation("accept-language", Client.AcceptLanguage);
             }
 
 
@@ -422,7 +413,7 @@ namespace Fixtures.Azure.AzureSpecials
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<bool,HeaderCustomNamedRequestIdHeadHeaders>> CustomNamedRequestIdHeadWithHttpMessagesAsync(string fooClientRequestId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationHeaderResponse<HeaderCustomNamedRequestIdHeadHeaders>> CustomNamedRequestIdHeadAsync(string fooClientRequestId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (fooClientRequestId == null)
             {
@@ -539,10 +530,9 @@ namespace Fixtures.Azure.AzureSpecials
                 throw ex;
             }
             // Create Result
-            var _result = new AzureOperationResponse<bool,HeaderCustomNamedRequestIdHeadHeaders>();
+            var _result = new AzureOperationHeaderResponse<HeaderCustomNamedRequestIdHeadHeaders>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
-            _result.Body = _statusCode == System.Net.HttpStatusCode.OK;
             if (_httpResponse.Headers.Contains("foo-request-id"))
             {
                 _result.RequestId = _httpResponse.Headers.GetValues("foo-request-id").FirstOrDefault();

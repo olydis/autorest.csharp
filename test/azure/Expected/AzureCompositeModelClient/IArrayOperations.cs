@@ -38,11 +38,13 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<ArrayWrapper>> GetValidWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<ArrayWrapper>> GetValidAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Put complex types with array property
         /// </summary>
-        /// <param name='array'>
+        /// <param name='complexBody'>
+        /// Please put an array with 4 items: "1, 2, 3, 4", "", null,
+        /// "&amp;S#$(*Y", "The quick brown fox jumps over the lazy dog"
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -53,7 +55,10 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationResponse> PutValidWithHttpMessagesAsync(IList<string> array = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<AzureOperationResponse> PutValidAsync(ArrayWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get complex types with array property which is empty
         /// </summary>
@@ -69,11 +74,12 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<ArrayWrapper>> GetEmptyWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<ArrayWrapper>> GetEmptyAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Put complex types with array property which is empty
         /// </summary>
-        /// <param name='array'>
+        /// <param name='complexBody'>
+        /// Please put an empty array
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -84,7 +90,10 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationResponse> PutEmptyWithHttpMessagesAsync(IList<string> array = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<AzureOperationResponse> PutEmptyAsync(ArrayWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get complex types with array property while server doesn't provide
         /// a response payload
@@ -101,6 +110,6 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<ArrayWrapper>> GetNotProvidedWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<ArrayWrapper>> GetNotProvidedAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

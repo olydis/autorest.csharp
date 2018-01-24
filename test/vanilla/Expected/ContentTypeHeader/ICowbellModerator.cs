@@ -28,6 +28,11 @@ namespace Fixtures.ContentTypeHeader
         /// </summary>
         JsonSerializerSettings DeserializationSettings { get; }
 
+        /// <summary>
+        /// The content type of the image.
+        /// </summary>
+        string ContentType { get; set; }
+
 
         /// <summary>
         /// Gets the IImage.

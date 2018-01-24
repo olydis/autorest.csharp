@@ -10,14 +10,11 @@
 
 namespace Fixtures.Azure.Lro.Models
 {
-    using Microsoft.Rest;
-    using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
 
-    [JsonTransformation]
     public partial class Product : Resource
     {
         /// <summary>
@@ -35,15 +32,10 @@ namespace Fixtures.Azure.Lro.Models
         /// <param name="type">Resource Type</param>
         /// <param name="location">Resource Location</param>
         /// <param name="name">Resource Name</param>
-        /// <param name="provisioningStateValues">Possible values include:
-        /// 'Succeeded', 'Failed', 'canceled', 'Accepted', 'Creating',
-        /// 'Created', 'Updating', 'Updated', 'Deleting', 'Deleted',
-        /// 'OK'</param>
-        public Product(string id = default(string), string type = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>), string location = default(string), string name = default(string), string provisioningState = default(string), string provisioningStateValues = default(string))
+        public Product(string id = default(string), string type = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>), string location = default(string), string name = default(string), ProductProperties properties = default(ProductProperties))
             : base(id, type, tags, location, name)
         {
-            ProvisioningState = provisioningState;
-            ProvisioningStateValues = provisioningStateValues;
+            Properties = properties;
             CustomInit();
         }
 
@@ -54,16 +46,8 @@ namespace Fixtures.Azure.Lro.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "properties.provisioningState")]
-        public string ProvisioningState { get; set; }
-
-        /// <summary>
-        /// Gets possible values include: 'Succeeded', 'Failed', 'canceled',
-        /// 'Accepted', 'Creating', 'Created', 'Updating', 'Updated',
-        /// 'Deleting', 'Deleted', 'OK'
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.provisioningStateValues")]
-        public string ProvisioningStateValues { get; private set; }
+        [JsonProperty(PropertyName = "properties")]
+        public ProductProperties Properties { get; set; }
 
     }
 }

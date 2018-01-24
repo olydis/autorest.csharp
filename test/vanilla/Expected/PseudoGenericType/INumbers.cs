@@ -46,7 +46,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<TelephoneNumberModel>>> ExistingNumbersWithHttpMessagesAsync(string subscriptionId, int? skip = default(int?), int? take = default(int?), System.Guid? countryId = default(System.Guid?), string search = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<TelephoneNumberModel>>> ExistingNumbersAsync(string subscriptionId, int? skip = default(int?), int? take = default(int?), System.Guid? countryId = default(System.Guid?), string search = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <param name='subscriptionId'>
         /// </param>
         /// <param name='countryId'>
@@ -76,7 +76,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<TelephoneNumberModel>>> PurchaseNumbersWithHttpMessagesAsync(string subscriptionId, string countryId, string numberType, string areaId, int numberQty, string description = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<TelephoneNumberModel>>> PurchaseNumbersAsync(string subscriptionId, string countryId, string numberType, string areaId, int numberQty, string description = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a specific number for the given subscription
         /// </summary>
@@ -101,7 +101,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<TelephoneNumberModel>> ExistingNumberWithHttpMessagesAsync(string id, string subscriptionId, string numberId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<TelephoneNumberModel>> ExistingNumberAsync(string id, string subscriptionId, string numberId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of countries for which numbers are available
         /// </summary>
@@ -122,7 +122,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<Country>>> GetCountriesWithHttpMessagesAsync(string subscriptionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<Country>>> GetCountriesAsync(string subscriptionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of states available for a given country
         /// </summary>
@@ -145,7 +145,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<State>>> GetStatesByCountryWithHttpMessagesAsync(string countryId, string subscriptionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<State>>> GetStatesByCountryAsync(string countryId, string subscriptionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of Areas available for a given State and Country
         /// </summary>
@@ -174,7 +174,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<Area>>> GetAreasByStateAndCountryWithHttpMessagesAsync(string countryId, string stateId, string numberType, string subscriptionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<Area>>> GetAreasByStateAndCountryAsync(string countryId, string stateId, string numberType, string subscriptionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of Areas available for a given Country
         /// </summary>
@@ -201,7 +201,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<Area>>> GetAreasByCountryWithHttpMessagesAsync(string countryId, string numberType, string subscriptionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<Area>>> GetAreasByCountryAsync(string countryId, string numberType, string subscriptionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Set the SMS Endoint for the given number
         /// </summary>
@@ -234,6 +234,6 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> SetSMSEndpointWithHttpMessagesAsync(string numberId, string endpointType, string subscriptionId, string number, string data = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> SetSMSEndpointAsync(string numberId, string endpointType, string subscriptionId, string number, string data = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

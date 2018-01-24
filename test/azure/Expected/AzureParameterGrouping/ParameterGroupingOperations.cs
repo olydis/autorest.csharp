@@ -53,8 +53,15 @@ namespace Fixtures.Azure.AzureParameterGrouping
         /// <summary>
         /// Post a bunch of required parameters grouped
         /// </summary>
-        /// <param name='parameterGroupingPostRequiredParameters'>
-        /// Additional parameters for the operation
+        /// <param name='body'>
+        /// </param>
+        /// <param name='path'>
+        /// Path parameter
+        /// </param>
+        /// <param name='customHeader'>
+        /// </param>
+        /// <param name='query'>
+        /// Query parameter with default
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -74,35 +81,11 @@ namespace Fixtures.Azure.AzureParameterGrouping
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> PostRequiredWithHttpMessagesAsync(ParameterGroupingPostRequiredParameters parameterGroupingPostRequiredParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> PostRequiredAsync(int body, string path, string customHeader = default(string), int? query = 30, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (parameterGroupingPostRequiredParameters == null)
+            if (path == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "parameterGroupingPostRequiredParameters");
-            }
-            if (parameterGroupingPostRequiredParameters != null)
-            {
-                parameterGroupingPostRequiredParameters.Validate();
-            }
-            int body = default(int);
-            if (parameterGroupingPostRequiredParameters != null)
-            {
-                body = parameterGroupingPostRequiredParameters.Body;
-            }
-            string customHeader = default(string);
-            if (parameterGroupingPostRequiredParameters != null)
-            {
-                customHeader = parameterGroupingPostRequiredParameters.CustomHeader;
-            }
-            int? query = default(int?);
-            if (parameterGroupingPostRequiredParameters != null)
-            {
-                query = parameterGroupingPostRequiredParameters.Query;
-            }
-            string path = default(string);
-            if (parameterGroupingPostRequiredParameters != null)
-            {
-                path = parameterGroupingPostRequiredParameters.Path;
+                throw new ValidationException(ValidationRules.CannotBeNull, "path");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -141,14 +124,6 @@ namespace Fixtures.Azure.AzureParameterGrouping
             {
                 _httpRequest.Headers.TryAddWithoutValidation("x-ms-client-request-id", System.Guid.NewGuid().ToString());
             }
-            if (Client.AcceptLanguage != null)
-            {
-                if (_httpRequest.Headers.Contains("accept-language"))
-                {
-                    _httpRequest.Headers.Remove("accept-language");
-                }
-                _httpRequest.Headers.TryAddWithoutValidation("accept-language", Client.AcceptLanguage);
-            }
             if (customHeader != null)
             {
                 if (_httpRequest.Headers.Contains("customHeader"))
@@ -156,6 +131,14 @@ namespace Fixtures.Azure.AzureParameterGrouping
                     _httpRequest.Headers.Remove("customHeader");
                 }
                 _httpRequest.Headers.TryAddWithoutValidation("customHeader", customHeader);
+            }
+            if (Client.AcceptLanguage != null)
+            {
+                if (_httpRequest.Headers.Contains("accept-language"))
+                {
+                    _httpRequest.Headers.Remove("accept-language");
+                }
+                _httpRequest.Headers.TryAddWithoutValidation("accept-language", Client.AcceptLanguage);
             }
 
 
@@ -243,8 +226,10 @@ namespace Fixtures.Azure.AzureParameterGrouping
         /// <summary>
         /// Post a bunch of optional parameters grouped
         /// </summary>
-        /// <param name='parameterGroupingPostOptionalParameters'>
-        /// Additional parameters for the operation
+        /// <param name='customHeader'>
+        /// </param>
+        /// <param name='query'>
+        /// Query parameter with default
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -258,18 +243,8 @@ namespace Fixtures.Azure.AzureParameterGrouping
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> PostOptionalWithHttpMessagesAsync(ParameterGroupingPostOptionalParameters parameterGroupingPostOptionalParameters = default(ParameterGroupingPostOptionalParameters), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> PostOptionalAsync(string customHeader = default(string), int? query = 30, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            string customHeader = default(string);
-            if (parameterGroupingPostOptionalParameters != null)
-            {
-                customHeader = parameterGroupingPostOptionalParameters.CustomHeader;
-            }
-            int? query = default(int?);
-            if (parameterGroupingPostOptionalParameters != null)
-            {
-                query = parameterGroupingPostOptionalParameters.Query;
-            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -304,14 +279,6 @@ namespace Fixtures.Azure.AzureParameterGrouping
             {
                 _httpRequest.Headers.TryAddWithoutValidation("x-ms-client-request-id", System.Guid.NewGuid().ToString());
             }
-            if (Client.AcceptLanguage != null)
-            {
-                if (_httpRequest.Headers.Contains("accept-language"))
-                {
-                    _httpRequest.Headers.Remove("accept-language");
-                }
-                _httpRequest.Headers.TryAddWithoutValidation("accept-language", Client.AcceptLanguage);
-            }
             if (customHeader != null)
             {
                 if (_httpRequest.Headers.Contains("customHeader"))
@@ -319,6 +286,14 @@ namespace Fixtures.Azure.AzureParameterGrouping
                     _httpRequest.Headers.Remove("customHeader");
                 }
                 _httpRequest.Headers.TryAddWithoutValidation("customHeader", customHeader);
+            }
+            if (Client.AcceptLanguage != null)
+            {
+                if (_httpRequest.Headers.Contains("accept-language"))
+                {
+                    _httpRequest.Headers.Remove("accept-language");
+                }
+                _httpRequest.Headers.TryAddWithoutValidation("accept-language", Client.AcceptLanguage);
             }
 
 
@@ -403,11 +378,15 @@ namespace Fixtures.Azure.AzureParameterGrouping
         /// <summary>
         /// Post parameters from multiple different parameter groups
         /// </summary>
-        /// <param name='firstParameterGroup'>
-        /// Additional parameters for the operation
+        /// <param name='headerOne'>
         /// </param>
-        /// <param name='parameterGroupingPostMultiParamGroupsSecondParamGroup'>
-        /// Additional parameters for the operation
+        /// <param name='queryOne'>
+        /// Query parameter with default
+        /// </param>
+        /// <param name='headerTwo'>
+        /// </param>
+        /// <param name='queryTwo'>
+        /// Query parameter with default
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -421,28 +400,8 @@ namespace Fixtures.Azure.AzureParameterGrouping
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> PostMultiParamGroupsWithHttpMessagesAsync(FirstParameterGroup firstParameterGroup = default(FirstParameterGroup), ParameterGroupingPostMultiParamGroupsSecondParamGroup parameterGroupingPostMultiParamGroupsSecondParamGroup = default(ParameterGroupingPostMultiParamGroupsSecondParamGroup), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> PostMultiParamGroupsAsync(string headerOne = default(string), int? queryOne = 30, string headerTwo = default(string), int? queryTwo = 30, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            string headerOne = default(string);
-            if (firstParameterGroup != null)
-            {
-                headerOne = firstParameterGroup.HeaderOne;
-            }
-            int? queryOne = default(int?);
-            if (firstParameterGroup != null)
-            {
-                queryOne = firstParameterGroup.QueryOne;
-            }
-            string headerTwo = default(string);
-            if (parameterGroupingPostMultiParamGroupsSecondParamGroup != null)
-            {
-                headerTwo = parameterGroupingPostMultiParamGroupsSecondParamGroup.HeaderTwo;
-            }
-            int? queryTwo = default(int?);
-            if (parameterGroupingPostMultiParamGroupsSecondParamGroup != null)
-            {
-                queryTwo = parameterGroupingPostMultiParamGroupsSecondParamGroup.QueryTwo;
-            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -483,14 +442,6 @@ namespace Fixtures.Azure.AzureParameterGrouping
             {
                 _httpRequest.Headers.TryAddWithoutValidation("x-ms-client-request-id", System.Guid.NewGuid().ToString());
             }
-            if (Client.AcceptLanguage != null)
-            {
-                if (_httpRequest.Headers.Contains("accept-language"))
-                {
-                    _httpRequest.Headers.Remove("accept-language");
-                }
-                _httpRequest.Headers.TryAddWithoutValidation("accept-language", Client.AcceptLanguage);
-            }
             if (headerOne != null)
             {
                 if (_httpRequest.Headers.Contains("header-one"))
@@ -506,6 +457,14 @@ namespace Fixtures.Azure.AzureParameterGrouping
                     _httpRequest.Headers.Remove("header-two");
                 }
                 _httpRequest.Headers.TryAddWithoutValidation("header-two", headerTwo);
+            }
+            if (Client.AcceptLanguage != null)
+            {
+                if (_httpRequest.Headers.Contains("accept-language"))
+                {
+                    _httpRequest.Headers.Remove("accept-language");
+                }
+                _httpRequest.Headers.TryAddWithoutValidation("accept-language", Client.AcceptLanguage);
             }
 
 
@@ -590,8 +549,10 @@ namespace Fixtures.Azure.AzureParameterGrouping
         /// <summary>
         /// Post parameters with a shared parameter group object
         /// </summary>
-        /// <param name='firstParameterGroup'>
-        /// Additional parameters for the operation
+        /// <param name='headerOne'>
+        /// </param>
+        /// <param name='queryOne'>
+        /// Query parameter with default
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -605,18 +566,8 @@ namespace Fixtures.Azure.AzureParameterGrouping
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> PostSharedParameterGroupObjectWithHttpMessagesAsync(FirstParameterGroup firstParameterGroup = default(FirstParameterGroup), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> PostSharedParameterGroupObjectAsync(string headerOne = default(string), int? queryOne = 30, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            string headerOne = default(string);
-            if (firstParameterGroup != null)
-            {
-                headerOne = firstParameterGroup.HeaderOne;
-            }
-            int? queryOne = default(int?);
-            if (firstParameterGroup != null)
-            {
-                queryOne = firstParameterGroup.QueryOne;
-            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -651,14 +602,6 @@ namespace Fixtures.Azure.AzureParameterGrouping
             {
                 _httpRequest.Headers.TryAddWithoutValidation("x-ms-client-request-id", System.Guid.NewGuid().ToString());
             }
-            if (Client.AcceptLanguage != null)
-            {
-                if (_httpRequest.Headers.Contains("accept-language"))
-                {
-                    _httpRequest.Headers.Remove("accept-language");
-                }
-                _httpRequest.Headers.TryAddWithoutValidation("accept-language", Client.AcceptLanguage);
-            }
             if (headerOne != null)
             {
                 if (_httpRequest.Headers.Contains("header-one"))
@@ -666,6 +609,14 @@ namespace Fixtures.Azure.AzureParameterGrouping
                     _httpRequest.Headers.Remove("header-one");
                 }
                 _httpRequest.Headers.TryAddWithoutValidation("header-one", headerOne);
+            }
+            if (Client.AcceptLanguage != null)
+            {
+                if (_httpRequest.Headers.Contains("accept-language"))
+                {
+                    _httpRequest.Headers.Remove("accept-language");
+                }
+                _httpRequest.Headers.TryAddWithoutValidation("accept-language", Client.AcceptLanguage);
             }
 
 

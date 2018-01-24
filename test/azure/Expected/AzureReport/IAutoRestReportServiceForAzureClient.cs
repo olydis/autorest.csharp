@@ -76,7 +76,7 @@ namespace Fixtures.Azure.AzureReport
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<AzureOperationResponse<IDictionary<string, int?>>> GetReportWithHttpMessagesAsync(string qualifier = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IDictionary<string, int?>>> GetReportAsync(string qualifier = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

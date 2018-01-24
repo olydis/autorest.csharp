@@ -46,7 +46,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<SMSResponseModel>> SendSmsWithHttpMessagesAsync(string subscriptionId, string source, string destination, string message, string webhook = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<SMSResponseModel>> SendSmsAsync(string subscriptionId, string source, string destination, string message, string webhook = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns all SMSs currently in your numbers queue
         /// </summary>
@@ -72,7 +72,7 @@ namespace Zapappi.Client
         /// Thrown when a required parameter is null
         /// </exception>
         [System.Obsolete()]
-        Task<HttpOperationResponse<IList<SMSQueueItem>>> GetSmsQueueWithHttpMessagesAsync(string numberId, string subscriptionId, string id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<SMSQueueItem>>> GetSmsQueueAsync(string numberId, string subscriptionId, string id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes a specific SMS from the queue
         /// </summary>
@@ -100,7 +100,7 @@ namespace Zapappi.Client
         /// Thrown when a required parameter is null
         /// </exception>
         [System.Obsolete()]
-        Task<HttpOperationResponse<object>> GetSmsFromQueueWithHttpMessagesAsync(string id, string entryId, string subscriptionId, string messageId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GetSmsFromQueueAsync(string id, string entryId, string subscriptionId, string messageId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns the SMS Log for the given Subscription Id
         /// </summary>
@@ -129,6 +129,6 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<SmsCdrEntry>>> GetSmsLogWithHttpMessagesAsync(string subscriptionId, int? take = default(int?), int? skip = default(int?), string messageId = default(string), string destination = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<SmsCdrEntry>>> GetSmsLogAsync(string subscriptionId, int? take = default(int?), int? skip = default(int?), string messageId = default(string), string destination = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

@@ -41,10 +41,6 @@ namespace AutoRest.CSharp.Model
         public bool ContainsCredentials => Properties.Any(p => p.ModelType.IsPrimaryType(KnownPrimaryType.Credentials));
 
         [JsonIgnore]
-        public string ConstructorVisibility
-            => Singleton<GeneratorSettingsCs>.Instance.InternalConstructors ? "internal" : "public";
-
-        [JsonIgnore]
         public string RequiredConstructorParameters
         {
             get

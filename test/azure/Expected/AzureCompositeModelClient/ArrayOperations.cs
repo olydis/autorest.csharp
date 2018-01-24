@@ -68,7 +68,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<ArrayWrapper>> GetValidWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<ArrayWrapper>> GetValidAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -207,7 +207,9 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <summary>
         /// Put complex types with array property
         /// </summary>
-        /// <param name='array'>
+        /// <param name='complexBody'>
+        /// Please put an array with 4 items: "1, 2, 3, 4", "", null, "&amp;S#$(*Y",
+        /// "The quick brown fox jumps over the lazy dog"
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -218,15 +220,20 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> PutValidWithHttpMessagesAsync(IList<string> array = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> PutValidAsync(ArrayWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            ArrayWrapper complexBody = new ArrayWrapper();
-            if (array != null)
+            if (complexBody == null)
             {
-                complexBody.Array = array;
+                throw new ValidationException(ValidationRules.CannotBeNull, "complexBody");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -369,7 +376,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<ArrayWrapper>> GetEmptyWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<ArrayWrapper>> GetEmptyAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -508,7 +515,8 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <summary>
         /// Put complex types with array property which is empty
         /// </summary>
-        /// <param name='array'>
+        /// <param name='complexBody'>
+        /// Please put an empty array
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -519,15 +527,20 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> PutEmptyWithHttpMessagesAsync(IList<string> array = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> PutEmptyAsync(ArrayWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            ArrayWrapper complexBody = new ArrayWrapper();
-            if (array != null)
+            if (complexBody == null)
             {
-                complexBody.Array = array;
+                throw new ValidationException(ValidationRules.CannotBeNull, "complexBody");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -671,7 +684,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<ArrayWrapper>> GetNotProvidedWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<ArrayWrapper>> GetNotProvidedAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;

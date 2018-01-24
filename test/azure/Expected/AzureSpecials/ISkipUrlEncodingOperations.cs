@@ -42,7 +42,7 @@ namespace Fixtures.Azure.AzureSpecials
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse> GetMethodPathValidWithHttpMessagesAsync(string unencodedPathParam, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse> GetMethodPathValidAsync(string unencodedPathParam, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get method with unencoded path parameter with value
         /// 'path1/path2/path3'
@@ -62,7 +62,7 @@ namespace Fixtures.Azure.AzureSpecials
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse> GetPathPathValidWithHttpMessagesAsync(string unencodedPathParam, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse> GetPathPathValidAsync(string unencodedPathParam, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get method with unencoded path parameter with value
         /// 'path1/path2/path3'
@@ -79,7 +79,7 @@ namespace Fixtures.Azure.AzureSpecials
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse> GetSwaggerPathValidWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse> GetSwaggerPathValidAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get method with unencoded query parameter with value
         /// 'value1&amp;q2=value2&amp;q3=value3'
@@ -100,7 +100,7 @@ namespace Fixtures.Azure.AzureSpecials
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse> GetMethodQueryValidWithHttpMessagesAsync(string q1, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse> GetMethodQueryValidAsync(string q1, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get method with unencoded query parameter with value null
         /// </summary>
@@ -116,7 +116,7 @@ namespace Fixtures.Azure.AzureSpecials
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationResponse> GetMethodQueryNullWithHttpMessagesAsync(string q1 = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse> GetMethodQueryNullAsync(string q1 = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get method with unencoded query parameter with value
         /// 'value1&amp;q2=value2&amp;q3=value3'
@@ -137,7 +137,7 @@ namespace Fixtures.Azure.AzureSpecials
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse> GetPathQueryValidWithHttpMessagesAsync(string q1, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse> GetPathQueryValidAsync(string q1, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get method with unencoded query parameter with value
         /// 'value1&amp;q2=value2&amp;q3=value3'
@@ -154,6 +154,6 @@ namespace Fixtures.Azure.AzureSpecials
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse> GetSwaggerQueryValidWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse> GetSwaggerQueryValidAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

@@ -68,7 +68,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IntWrapper>> GetIntWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IntWrapper>> GetIntAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -228,7 +228,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> PutIntWithHttpMessagesAsync(IntWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> PutIntAsync(IntWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (complexBody == null)
             {
@@ -375,7 +375,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<LongWrapper>> GetLongWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<LongWrapper>> GetLongAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -535,7 +535,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> PutLongWithHttpMessagesAsync(LongWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> PutLongAsync(LongWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (complexBody == null)
             {
@@ -682,7 +682,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<FloatWrapper>> GetFloatWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<FloatWrapper>> GetFloatAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -842,7 +842,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> PutFloatWithHttpMessagesAsync(FloatWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> PutFloatAsync(FloatWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (complexBody == null)
             {
@@ -989,7 +989,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<DoubleWrapper>> GetDoubleWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<DoubleWrapper>> GetDoubleAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1150,7 +1150,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> PutDoubleWithHttpMessagesAsync(DoubleWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> PutDoubleAsync(DoubleWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (complexBody == null)
             {
@@ -1297,7 +1297,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<BooleanWrapper>> GetBoolWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<BooleanWrapper>> GetBoolAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1457,7 +1457,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> PutBoolWithHttpMessagesAsync(BooleanWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> PutBoolAsync(BooleanWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (complexBody == null)
             {
@@ -1604,7 +1604,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<StringWrapper>> GetStringWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<StringWrapper>> GetStringAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1764,7 +1764,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> PutStringWithHttpMessagesAsync(StringWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> PutStringAsync(StringWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (complexBody == null)
             {
@@ -1911,7 +1911,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<DateWrapper>> GetDateWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<DateWrapper>> GetDateAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -2071,7 +2071,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> PutDateWithHttpMessagesAsync(DateWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> PutDateAsync(DateWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (complexBody == null)
             {
@@ -2218,7 +2218,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<DatetimeWrapper>> GetDateTimeWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<DatetimeWrapper>> GetDateTimeAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -2378,7 +2378,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> PutDateTimeWithHttpMessagesAsync(DatetimeWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> PutDateTimeAsync(DatetimeWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (complexBody == null)
             {
@@ -2525,7 +2525,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<Datetimerfc1123Wrapper>> GetDateTimeRfc1123WithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<Datetimerfc1123Wrapper>> GetDateTimeRfc1123Async(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -2686,7 +2686,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> PutDateTimeRfc1123WithHttpMessagesAsync(Datetimerfc1123Wrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> PutDateTimeRfc1123Async(Datetimerfc1123Wrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (complexBody == null)
             {
@@ -2833,7 +2833,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<DurationWrapper>> GetDurationWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<DurationWrapper>> GetDurationAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -2972,7 +2972,8 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <summary>
         /// Put complex types with duration properties
         /// </summary>
-        /// <param name='field'>
+        /// <param name='complexBody'>
+        /// Please put 'P123DT22H14M12.011S'
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2983,15 +2984,20 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> PutDurationWithHttpMessagesAsync(System.TimeSpan? field = default(System.TimeSpan?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> PutDurationAsync(DurationWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            DurationWrapper complexBody = new DurationWrapper();
-            if (field != null)
+            if (complexBody == null)
             {
-                complexBody.Field = field;
+                throw new ValidationException(ValidationRules.CannotBeNull, "complexBody");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -3134,7 +3140,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<ByteWrapper>> GetByteWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<ByteWrapper>> GetByteAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -3273,7 +3279,8 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <summary>
         /// Put complex types with byte properties
         /// </summary>
-        /// <param name='field'>
+        /// <param name='complexBody'>
+        /// Please put non-ascii byte string hex(FF FE FD FC 00 FA F9 F8 F7 F6)
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -3284,15 +3291,20 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> PutByteWithHttpMessagesAsync(byte[] field = default(byte[]), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> PutByteAsync(ByteWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            ByteWrapper complexBody = new ByteWrapper();
-            if (field != null)
+            if (complexBody == null)
             {
-                complexBody.Field = field;
+                throw new ValidationException(ValidationRules.CannotBeNull, "complexBody");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;

@@ -189,7 +189,7 @@ namespace Fixtures.Validation
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Product>> ValidationOfMethodParametersWithHttpMessagesAsync(string resourceGroupName, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Product>> ValidationOfMethodParametersAsync(string resourceGroupName, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (SubscriptionId == null)
             {
@@ -250,11 +250,11 @@ namespace Fixtures.Validation
                 ServiceClientTracing.Enter(_invocationId, this, "ValidationOfMethodParameters", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "fakepath/{subscriptionId}/{resourceGroupName}/{id}").ToString();
             _url = _url.Replace("{subscriptionId}", System.Uri.EscapeDataString(SubscriptionId));
             _url = _url.Replace("{resourceGroupName}", System.Uri.EscapeDataString(resourceGroupName));
-            _url = _url.Replace("{id}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(id, SerializationSettings).Trim('"')));
+            _url = _url.Replace("{id}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(id, this.Client.SerializationSettings).Trim('"')));
             List<string> _queryParameters = new List<string>();
             if (ApiVersion != null)
             {
@@ -292,7 +292,7 @@ namespace Fixtures.Validation
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -306,7 +306,7 @@ namespace Fixtures.Validation
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, DeserializationSettings);
+                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -339,7 +339,7 @@ namespace Fixtures.Validation
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<Product>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<Product>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -390,7 +390,7 @@ namespace Fixtures.Validation
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Product>> ValidationOfBodyWithHttpMessagesAsync(string resourceGroupName, int id, Product body = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Product>> ValidationOfBodyAsync(string resourceGroupName, int id, Product body = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (SubscriptionId == null)
             {
@@ -456,11 +456,11 @@ namespace Fixtures.Validation
                 ServiceClientTracing.Enter(_invocationId, this, "ValidationOfBody", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "fakepath/{subscriptionId}/{resourceGroupName}/{id}").ToString();
             _url = _url.Replace("{subscriptionId}", System.Uri.EscapeDataString(SubscriptionId));
             _url = _url.Replace("{resourceGroupName}", System.Uri.EscapeDataString(resourceGroupName));
-            _url = _url.Replace("{id}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(id, SerializationSettings).Trim('"')));
+            _url = _url.Replace("{id}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(id, this.Client.SerializationSettings).Trim('"')));
             List<string> _queryParameters = new List<string>();
             if (ApiVersion != null)
             {
@@ -494,7 +494,7 @@ namespace Fixtures.Validation
             string _requestContent = null;
             if(body != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(body, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -504,7 +504,7 @@ namespace Fixtures.Validation
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -518,7 +518,7 @@ namespace Fixtures.Validation
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, DeserializationSettings);
+                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -551,7 +551,7 @@ namespace Fixtures.Validation
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<Product>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<Product>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -582,7 +582,7 @@ namespace Fixtures.Validation
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> GetWithConstantInPathWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> GetWithConstantInPathAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             string constantParam = "constant";
             // Tracing
@@ -597,7 +597,7 @@ namespace Fixtures.Validation
                 ServiceClientTracing.Enter(_invocationId, this, "GetWithConstantInPath", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "validation/constantsInPath/{constantParam}/value").ToString();
             _url = _url.Replace("{constantParam}", System.Uri.EscapeDataString(constantParam));
             // Create HTTP transport objects
@@ -628,7 +628,7 @@ namespace Fixtures.Validation
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -686,7 +686,7 @@ namespace Fixtures.Validation
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Product>> PostWithConstantInBodyWithHttpMessagesAsync(Product body = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Product>> PostWithConstantInBodyAsync(Product body = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (body != null)
             {
@@ -706,7 +706,7 @@ namespace Fixtures.Validation
                 ServiceClientTracing.Enter(_invocationId, this, "PostWithConstantInBody", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "validation/constantsInPath/{constantParam}/value").ToString();
             _url = _url.Replace("{constantParam}", System.Uri.EscapeDataString(constantParam));
             // Create HTTP transport objects
@@ -733,7 +733,7 @@ namespace Fixtures.Validation
             string _requestContent = null;
             if(body != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(body, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -743,7 +743,7 @@ namespace Fixtures.Validation
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -783,7 +783,7 @@ namespace Fixtures.Validation
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<Product>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<Product>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

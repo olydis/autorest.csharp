@@ -37,7 +37,7 @@ namespace Fixtures.BodyDateTimeRfc1123
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<System.DateTime?>> GetNullWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<System.DateTime?>> GetNullAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get invalid datetime value
         /// </summary>
@@ -53,7 +53,7 @@ namespace Fixtures.BodyDateTimeRfc1123
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<System.DateTime?>> GetInvalidWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<System.DateTime?>> GetInvalidAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get overflow datetime value
         /// </summary>
@@ -69,7 +69,7 @@ namespace Fixtures.BodyDateTimeRfc1123
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<System.DateTime?>> GetOverflowWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<System.DateTime?>> GetOverflowAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get underflow datetime value
         /// </summary>
@@ -85,7 +85,7 @@ namespace Fixtures.BodyDateTimeRfc1123
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<System.DateTime?>> GetUnderflowWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<System.DateTime?>> GetUnderflowAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Put max datetime value Fri, 31 Dec 9999 23:59:59 GMT
         /// </summary>
@@ -100,7 +100,7 @@ namespace Fixtures.BodyDateTimeRfc1123
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationResponse> PutUtcMaxDateTimeWithHttpMessagesAsync(System.DateTime datetimeBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutUtcMaxDateTimeAsync(System.DateTime datetimeBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get max datetime value fri, 31 dec 9999 23:59:59 gmt
         /// </summary>
@@ -116,7 +116,7 @@ namespace Fixtures.BodyDateTimeRfc1123
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<System.DateTime?>> GetUtcLowercaseMaxDateTimeWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<System.DateTime?>> GetUtcLowercaseMaxDateTimeAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get max datetime value FRI, 31 DEC 9999 23:59:59 GMT
         /// </summary>
@@ -132,7 +132,7 @@ namespace Fixtures.BodyDateTimeRfc1123
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<System.DateTime?>> GetUtcUppercaseMaxDateTimeWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<System.DateTime?>> GetUtcUppercaseMaxDateTimeAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Put min datetime value Mon, 1 Jan 0001 00:00:00 GMT
         /// </summary>
@@ -147,7 +147,7 @@ namespace Fixtures.BodyDateTimeRfc1123
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationResponse> PutUtcMinDateTimeWithHttpMessagesAsync(System.DateTime datetimeBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutUtcMinDateTimeAsync(System.DateTime datetimeBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get min datetime value Mon, 1 Jan 0001 00:00:00 GMT
         /// </summary>
@@ -163,6 +163,6 @@ namespace Fixtures.BodyDateTimeRfc1123
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<System.DateTime?>> GetUtcMinDateTimeWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<System.DateTime?>> GetUtcMinDateTimeAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

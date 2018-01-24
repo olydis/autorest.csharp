@@ -121,7 +121,7 @@ namespace Fixtures.Azure.AzureSpecials
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected AutoRestAzureSpecialParametersTestClient(params DelegatingHandler[] handlers) : base(handlers)
+        public AutoRestAzureSpecialParametersTestClient(params DelegatingHandler[] handlers) : base(handlers)
         {
             Initialize();
         }
@@ -135,7 +135,7 @@ namespace Fixtures.Azure.AzureSpecials
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected AutoRestAzureSpecialParametersTestClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
+        public AutoRestAzureSpecialParametersTestClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
         {
             Initialize();
         }
@@ -152,7 +152,7 @@ namespace Fixtures.Azure.AzureSpecials
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected AutoRestAzureSpecialParametersTestClient(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
+        public AutoRestAzureSpecialParametersTestClient(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
         {
             if (baseUri == null)
             {
@@ -176,7 +176,7 @@ namespace Fixtures.Azure.AzureSpecials
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected AutoRestAzureSpecialParametersTestClient(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        public AutoRestAzureSpecialParametersTestClient(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
         {
             if (baseUri == null)
             {

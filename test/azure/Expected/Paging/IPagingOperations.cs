@@ -39,14 +39,18 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<IPage<Product>>> GetSinglePagesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<Product>>> GetSinglePagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// A paging operation that includes a nextLink that has 10 pages
         /// </summary>
         /// <param name='clientRequestId'>
         /// </param>
-        /// <param name='pagingGetMultiplePagesOptions'>
-        /// Additional parameters for the operation
+        /// <param name='maxresults'>
+        /// Sets the maximum number of items to return in the response.
+        /// </param>
+        /// <param name='timeout'>
+        /// Sets the maximum time that the server can spend processing the
+        /// request, in seconds. The default is 30 seconds.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -60,15 +64,19 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesWithHttpMessagesAsync(string clientRequestId = default(string), PagingGetMultiplePagesOptions pagingGetMultiplePagesOptions = default(PagingGetMultiplePagesOptions), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesAsync(string clientRequestId = default(string), int? maxresults = default(int?), int? timeout = 30, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// A paging operation that includes a nextLink in odata format that
         /// has 10 pages
         /// </summary>
         /// <param name='clientRequestId'>
         /// </param>
-        /// <param name='pagingGetOdataMultiplePagesOptions'>
-        /// Additional parameters for the operation
+        /// <param name='maxresults'>
+        /// Sets the maximum number of items to return in the response.
+        /// </param>
+        /// <param name='timeout'>
+        /// Sets the maximum time that the server can spend processing the
+        /// request, in seconds. The default is 30 seconds.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -82,14 +90,21 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<IPage<Product>>> GetOdataMultiplePagesWithHttpMessagesAsync(string clientRequestId = default(string), PagingGetOdataMultiplePagesOptions pagingGetOdataMultiplePagesOptions = default(PagingGetOdataMultiplePagesOptions), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<Product>>> GetOdataMultiplePagesAsync(string clientRequestId = default(string), int? maxresults = default(int?), int? timeout = 30, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// A paging operation that includes a nextLink that has 10 pages
         /// </summary>
-        /// <param name='pagingGetMultiplePagesWithOffsetOptions'>
-        /// Additional parameters for the operation
+        /// <param name='offset'>
+        /// Offset of return value
         /// </param>
         /// <param name='clientRequestId'>
+        /// </param>
+        /// <param name='maxresults'>
+        /// Sets the maximum number of items to return in the response.
+        /// </param>
+        /// <param name='timeout'>
+        /// Sets the maximum time that the server can spend processing the
+        /// request, in seconds. The default is 30 seconds.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -103,10 +118,7 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesWithOffsetWithHttpMessagesAsync(PagingGetMultiplePagesWithOffsetOptions pagingGetMultiplePagesWithOffsetOptions, string clientRequestId = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesWithOffsetAsync(int offset, string clientRequestId = default(string), int? maxresults = default(int?), int? timeout = 30, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// A paging operation that fails on the first call with 500 and then
         /// retries and then get a response including a nextLink that has 10
@@ -124,7 +136,7 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesRetryFirstWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesRetryFirstAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// A paging operation that includes a nextLink that has 10 pages, of
         /// which the 2nd call fails first with 500. The client should retry
@@ -142,7 +154,7 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesRetrySecondWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesRetrySecondAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// A paging operation that receives a 400 on the first call
         /// </summary>
@@ -158,7 +170,7 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<IPage<Product>>> GetSinglePagesFailureWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<Product>>> GetSinglePagesFailureAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// A paging operation that receives a 400 on the second call
         /// </summary>
@@ -174,7 +186,7 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesFailureWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesFailureAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// A paging operation that receives an invalid nextLink
         /// </summary>
@@ -190,7 +202,7 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesFailureUriWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesFailureUriAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// A paging operation that doesn't return a full URL, just a fragment
         /// </summary>
@@ -215,13 +227,16 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesFragmentNextLinkWithHttpMessagesAsync(string apiVersion, string tenant, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesFragmentNextLinkAsync(string apiVersion, string tenant, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// A paging operation that doesn't return a full URL, just a fragment
         /// with parameters grouped
         /// </summary>
-        /// <param name='customParameterGroup'>
-        /// Additional parameters for the operation
+        /// <param name='apiVersion'>
+        /// Sets the api version to use.
+        /// </param>
+        /// <param name='tenant'>
+        /// Sets the tenant to use.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -238,7 +253,7 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesFragmentWithGroupingNextLinkWithHttpMessagesAsync(CustomParameterGroup customParameterGroup, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesFragmentWithGroupingNextLinkAsync(string apiVersion, string tenant, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// A paging operation that doesn't return a full URL, just a fragment
         /// </summary>
@@ -266,15 +281,18 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<IPage<Product>>> NextFragmentWithHttpMessagesAsync(string apiVersion, string tenant, string nextLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<Product>>> NextFragmentAsync(string apiVersion, string tenant, string nextLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// A paging operation that doesn't return a full URL, just a fragment
         /// </summary>
+        /// <param name='apiVersion'>
+        /// Sets the api version to use.
+        /// </param>
+        /// <param name='tenant'>
+        /// Sets the tenant to use.
+        /// </param>
         /// <param name='nextLink'>
         /// Next link for list operation.
-        /// </param>
-        /// <param name='customParameterGroup'>
-        /// Additional parameters for the operation
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -291,7 +309,7 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<IPage<Product>>> NextFragmentWithGroupingWithHttpMessagesAsync(string nextLink, CustomParameterGroup customParameterGroup, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<Product>>> NextFragmentWithGroupingAsync(string apiVersion, string tenant, string nextLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// A paging operation that finishes on the first call without a
         /// nextlink
@@ -314,7 +332,7 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<IPage<Product>>> GetSinglePagesNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<Product>>> GetSinglePagesNextAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// A paging operation that includes a nextLink that has 10 pages
         /// </summary>
@@ -323,8 +341,12 @@ namespace Fixtures.Azure.Paging
         /// </param>
         /// <param name='clientRequestId'>
         /// </param>
-        /// <param name='pagingGetMultiplePagesOptions'>
-        /// Additional parameters for the operation
+        /// <param name='maxresults'>
+        /// Sets the maximum number of items to return in the response.
+        /// </param>
+        /// <param name='timeout'>
+        /// Sets the maximum time that the server can spend processing the
+        /// request, in seconds. The default is 30 seconds.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -341,7 +363,7 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesNextWithHttpMessagesAsync(string nextPageLink, string clientRequestId = default(string), PagingGetMultiplePagesOptions pagingGetMultiplePagesOptions = default(PagingGetMultiplePagesOptions), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesNextAsync(string nextPageLink, string clientRequestId = default(string), int? maxresults = default(int?), int? timeout = 30, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// A paging operation that includes a nextLink in odata format that
         /// has 10 pages
@@ -351,8 +373,12 @@ namespace Fixtures.Azure.Paging
         /// </param>
         /// <param name='clientRequestId'>
         /// </param>
-        /// <param name='pagingGetOdataMultiplePagesOptions'>
-        /// Additional parameters for the operation
+        /// <param name='maxresults'>
+        /// Sets the maximum number of items to return in the response.
+        /// </param>
+        /// <param name='timeout'>
+        /// Sets the maximum time that the server can spend processing the
+        /// request, in seconds. The default is 30 seconds.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -369,7 +395,7 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<IPage<Product>>> GetOdataMultiplePagesNextWithHttpMessagesAsync(string nextPageLink, string clientRequestId = default(string), PagingGetOdataMultiplePagesOptions pagingGetOdataMultiplePagesOptions = default(PagingGetOdataMultiplePagesOptions), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<Product>>> GetOdataMultiplePagesNextAsync(string nextPageLink, string clientRequestId = default(string), int? maxresults = default(int?), int? timeout = 30, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// A paging operation that includes a nextLink that has 10 pages
         /// </summary>
@@ -378,8 +404,12 @@ namespace Fixtures.Azure.Paging
         /// </param>
         /// <param name='clientRequestId'>
         /// </param>
-        /// <param name='pagingGetMultiplePagesWithOffsetNextOptions'>
-        /// Additional parameters for the operation
+        /// <param name='maxresults'>
+        /// Sets the maximum number of items to return in the response.
+        /// </param>
+        /// <param name='timeout'>
+        /// Sets the maximum time that the server can spend processing the
+        /// request, in seconds. The default is 30 seconds.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -396,7 +426,7 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesWithOffsetNextWithHttpMessagesAsync(string nextPageLink, string clientRequestId = default(string), PagingGetMultiplePagesWithOffsetNextOptions pagingGetMultiplePagesWithOffsetNextOptions = default(PagingGetMultiplePagesWithOffsetNextOptions), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesWithOffsetNextAsync(string nextPageLink, string clientRequestId = default(string), int? maxresults = default(int?), int? timeout = 30, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// A paging operation that fails on the first call with 500 and then
         /// retries and then get a response including a nextLink that has 10
@@ -420,7 +450,7 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesRetryFirstNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesRetryFirstNextAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// A paging operation that includes a nextLink that has 10 pages, of
         /// which the 2nd call fails first with 500. The client should retry
@@ -444,7 +474,7 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesRetrySecondNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesRetrySecondNextAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// A paging operation that receives a 400 on the first call
         /// </summary>
@@ -466,7 +496,7 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<IPage<Product>>> GetSinglePagesFailureNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<Product>>> GetSinglePagesFailureNextAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// A paging operation that receives a 400 on the second call
         /// </summary>
@@ -488,7 +518,7 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesFailureNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesFailureNextAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// A paging operation that receives an invalid nextLink
         /// </summary>
@@ -510,6 +540,6 @@ namespace Fixtures.Azure.Paging
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesFailureUriNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<Product>>> GetMultiplePagesFailureUriNextAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

@@ -117,7 +117,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected AzureCompositeModelClient(params DelegatingHandler[] handlers) : base(handlers)
+        public AzureCompositeModelClient(params DelegatingHandler[] handlers) : base(handlers)
         {
             Initialize();
         }
@@ -131,7 +131,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected AzureCompositeModelClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
+        public AzureCompositeModelClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
         {
             Initialize();
         }
@@ -148,7 +148,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected AzureCompositeModelClient(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
+        public AzureCompositeModelClient(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
         {
             if (baseUri == null)
             {
@@ -172,7 +172,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected AzureCompositeModelClient(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        public AzureCompositeModelClient(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
         {
             if (baseUri == null)
             {
@@ -388,7 +388,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<CatalogArray>> ListWithHttpMessagesAsync(string resourceGroupName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<CatalogArray>> ListAsync(string resourceGroupName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -408,7 +408,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
                 ServiceClientTracing.Enter(_invocationId, this, "List", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/Microsoft.Cache/Redis").ToString();
             _url = _url.Replace("{subscriptionId}", System.Uri.EscapeDataString(SubscriptionId));
             _url = _url.Replace("{resourceGroupName}", System.Uri.EscapeDataString(resourceGroupName));
@@ -427,7 +427,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-            if (GenerateClientRequestId != null && GenerateClientRequestId.Value)
+            if (this.Client.GenerateClientRequestId != null && this.Client.GenerateClientRequestId.Value)
             {
                 _httpRequest.Headers.TryAddWithoutValidation("x-ms-client-request-id", System.Guid.NewGuid().ToString());
             }
@@ -456,10 +456,10 @@ namespace Fixtures.Azure.AzureCompositeModelClient
             // Serialize Request
             string _requestContent = null;
             // Set Credentials
-            if (Credentials != null)
+            if (this.Client.Credentials != null)
             {
                 cancellationToken.ThrowIfCancellationRequested();
-                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+                await this.Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             }
             // Send Request
             if (_shouldTrace)
@@ -467,7 +467,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -481,7 +481,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, DeserializationSettings);
+                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -518,7 +518,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<CatalogArray>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<CatalogArray>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -549,8 +549,8 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <param name='resourceGroupName'>
         /// Resource Group ID.
         /// </param>
-        /// <param name='productDictionaryOfArray'>
-        /// Dictionary of Array of product
+        /// <param name='bodyParameter'>
+        /// body Parameter
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -573,7 +573,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<CatalogDictionary>> CreateWithHttpMessagesAsync(string subscriptionId, string resourceGroupName, IDictionary<string, IList<Product>> productDictionaryOfArray = default(IDictionary<string, IList<Product>>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<CatalogDictionary>> CreateAsync(string subscriptionId, string resourceGroupName, CatalogDictionaryOfArray bodyParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -583,12 +583,11 @@ namespace Fixtures.Azure.AzureCompositeModelClient
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "resourceGroupName");
             }
-            string apiVersion = "2014-04-01-preview";
-            CatalogDictionaryOfArray bodyParameter = new CatalogDictionaryOfArray();
-            if (productDictionaryOfArray != null)
+            if (bodyParameter == null)
             {
-                bodyParameter.ProductDictionaryOfArray = productDictionaryOfArray;
+                throw new ValidationException(ValidationRules.CannotBeNull, "bodyParameter");
             }
+            string apiVersion = "2014-04-01-preview";
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -598,13 +597,13 @@ namespace Fixtures.Azure.AzureCompositeModelClient
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("subscriptionId", subscriptionId);
                 tracingParameters.Add("resourceGroupName", resourceGroupName);
-                tracingParameters.Add("apiVersion", apiVersion);
                 tracingParameters.Add("bodyParameter", bodyParameter);
+                tracingParameters.Add("apiVersion", apiVersion);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Create", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/Microsoft.Cache/Redis").ToString();
             _url = _url.Replace("{subscriptionId}", System.Uri.EscapeDataString(subscriptionId));
             _url = _url.Replace("{resourceGroupName}", System.Uri.EscapeDataString(resourceGroupName));
@@ -623,7 +622,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-            if (GenerateClientRequestId != null && GenerateClientRequestId.Value)
+            if (this.Client.GenerateClientRequestId != null && this.Client.GenerateClientRequestId.Value)
             {
                 _httpRequest.Headers.TryAddWithoutValidation("x-ms-client-request-id", System.Guid.NewGuid().ToString());
             }
@@ -653,15 +652,15 @@ namespace Fixtures.Azure.AzureCompositeModelClient
             string _requestContent = null;
             if(bodyParameter != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(bodyParameter, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(bodyParameter, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
-            if (Credentials != null)
+            if (this.Client.Credentials != null)
             {
                 cancellationToken.ThrowIfCancellationRequested();
-                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+                await this.Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             }
             // Send Request
             if (_shouldTrace)
@@ -669,7 +668,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -683,7 +682,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, DeserializationSettings);
+                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -720,7 +719,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<CatalogDictionary>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<CatalogDictionary>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -751,8 +750,8 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <param name='resourceGroupName'>
         /// Resource Group ID.
         /// </param>
-        /// <param name='productArrayOfDictionary'>
-        /// Array of dictionary of products
+        /// <param name='bodyParameter'>
+        /// body Parameter
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -775,7 +774,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<CatalogArray>> UpdateWithHttpMessagesAsync(string subscriptionId, string resourceGroupName, IList<IDictionary<string, Product>> productArrayOfDictionary = default(IList<IDictionary<string, Product>>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<CatalogArray>> UpdateAsync(string subscriptionId, string resourceGroupName, CatalogArrayOfDictionary bodyParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -785,12 +784,11 @@ namespace Fixtures.Azure.AzureCompositeModelClient
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "resourceGroupName");
             }
-            string apiVersion = "2014-04-01-preview";
-            CatalogArrayOfDictionary bodyParameter = new CatalogArrayOfDictionary();
-            if (productArrayOfDictionary != null)
+            if (bodyParameter == null)
             {
-                bodyParameter.ProductArrayOfDictionary = productArrayOfDictionary;
+                throw new ValidationException(ValidationRules.CannotBeNull, "bodyParameter");
             }
+            string apiVersion = "2014-04-01-preview";
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -800,13 +798,13 @@ namespace Fixtures.Azure.AzureCompositeModelClient
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("subscriptionId", subscriptionId);
                 tracingParameters.Add("resourceGroupName", resourceGroupName);
-                tracingParameters.Add("apiVersion", apiVersion);
                 tracingParameters.Add("bodyParameter", bodyParameter);
+                tracingParameters.Add("apiVersion", apiVersion);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Update", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/Microsoft.Cache/Redis").ToString();
             _url = _url.Replace("{subscriptionId}", System.Uri.EscapeDataString(subscriptionId));
             _url = _url.Replace("{resourceGroupName}", System.Uri.EscapeDataString(resourceGroupName));
@@ -825,7 +823,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
             _httpRequest.Method = new HttpMethod("PUT");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-            if (GenerateClientRequestId != null && GenerateClientRequestId.Value)
+            if (this.Client.GenerateClientRequestId != null && this.Client.GenerateClientRequestId.Value)
             {
                 _httpRequest.Headers.TryAddWithoutValidation("x-ms-client-request-id", System.Guid.NewGuid().ToString());
             }
@@ -855,15 +853,15 @@ namespace Fixtures.Azure.AzureCompositeModelClient
             string _requestContent = null;
             if(bodyParameter != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(bodyParameter, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(bodyParameter, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
-            if (Credentials != null)
+            if (this.Client.Credentials != null)
             {
                 cancellationToken.ThrowIfCancellationRequested();
-                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+                await this.Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             }
             // Send Request
             if (_shouldTrace)
@@ -871,7 +869,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -885,7 +883,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, DeserializationSettings);
+                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -922,7 +920,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<CatalogArray>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<CatalogArray>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

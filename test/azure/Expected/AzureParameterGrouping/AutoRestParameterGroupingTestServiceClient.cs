@@ -74,7 +74,7 @@ namespace Fixtures.Azure.AzureParameterGrouping
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected AutoRestParameterGroupingTestServiceClient(params DelegatingHandler[] handlers) : base(handlers)
+        public AutoRestParameterGroupingTestServiceClient(params DelegatingHandler[] handlers) : base(handlers)
         {
             Initialize();
         }
@@ -88,7 +88,7 @@ namespace Fixtures.Azure.AzureParameterGrouping
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected AutoRestParameterGroupingTestServiceClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
+        public AutoRestParameterGroupingTestServiceClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
         {
             Initialize();
         }
@@ -105,7 +105,7 @@ namespace Fixtures.Azure.AzureParameterGrouping
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected AutoRestParameterGroupingTestServiceClient(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
+        public AutoRestParameterGroupingTestServiceClient(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
         {
             if (baseUri == null)
             {
@@ -129,7 +129,7 @@ namespace Fixtures.Azure.AzureParameterGrouping
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected AutoRestParameterGroupingTestServiceClient(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        public AutoRestParameterGroupingTestServiceClient(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
         {
             if (baseUri == null)
             {

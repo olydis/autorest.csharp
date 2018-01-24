@@ -68,7 +68,7 @@ namespace Fixtures.BodyComplex
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<DictionaryWrapper>> GetValidWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<DictionaryWrapper>> GetValidAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -180,7 +180,9 @@ namespace Fixtures.BodyComplex
         /// <summary>
         /// Put complex types with dictionary property
         /// </summary>
-        /// <param name='defaultProgram'>
+        /// <param name='complexBody'>
+        /// Please put a dictionary with 5 key-value pairs: "txt":"notepad",
+        /// "bmp":"mspaint", "xls":"excel", "exe":"", "":null
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -191,15 +193,20 @@ namespace Fixtures.BodyComplex
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PutValidWithHttpMessagesAsync(IDictionary<string, string> defaultProgram = default(IDictionary<string, string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PutValidAsync(DictionaryWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            DictionaryWrapper complexBody = new DictionaryWrapper();
-            if (defaultProgram != null)
+            if (complexBody == null)
             {
-                complexBody.DefaultProgram = defaultProgram;
+                throw new ValidationException(ValidationRules.CannotBeNull, "complexBody");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -315,7 +322,7 @@ namespace Fixtures.BodyComplex
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<DictionaryWrapper>> GetEmptyWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<DictionaryWrapper>> GetEmptyAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -427,7 +434,8 @@ namespace Fixtures.BodyComplex
         /// <summary>
         /// Put complex types with dictionary property which is empty
         /// </summary>
-        /// <param name='defaultProgram'>
+        /// <param name='complexBody'>
+        /// Please put an empty dictionary
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -438,15 +446,20 @@ namespace Fixtures.BodyComplex
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PutEmptyWithHttpMessagesAsync(IDictionary<string, string> defaultProgram = default(IDictionary<string, string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PutEmptyAsync(DictionaryWrapper complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            DictionaryWrapper complexBody = new DictionaryWrapper();
-            if (defaultProgram != null)
+            if (complexBody == null)
             {
-                complexBody.DefaultProgram = defaultProgram;
+                throw new ValidationException(ValidationRules.CannotBeNull, "complexBody");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -562,7 +575,7 @@ namespace Fixtures.BodyComplex
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<DictionaryWrapper>> GetNullWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<DictionaryWrapper>> GetNullAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -690,7 +703,7 @@ namespace Fixtures.BodyComplex
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<DictionaryWrapper>> GetNotProvidedWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<DictionaryWrapper>> GetNotProvidedAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;

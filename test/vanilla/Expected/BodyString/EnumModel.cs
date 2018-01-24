@@ -69,7 +69,7 @@ namespace Fixtures.BodyString
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Colors?>> GetNotExpandableWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Colors?>> GetNotExpandableAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -197,7 +197,7 @@ namespace Fixtures.BodyString
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PutNotExpandableWithHttpMessagesAsync(Colors stringBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PutNotExpandableAsync(Colors stringBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -311,7 +311,7 @@ namespace Fixtures.BodyString
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Colors?>> GetReferencedWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Colors?>> GetReferencedAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -439,7 +439,7 @@ namespace Fixtures.BodyString
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PutReferencedWithHttpMessagesAsync(Colors enumStringBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PutReferencedAsync(Colors enumStringBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -552,7 +552,7 @@ namespace Fixtures.BodyString
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<RefColorConstant>> GetReferencedConstantWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<RefColorConstant>> GetReferencedConstantAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -664,8 +664,7 @@ namespace Fixtures.BodyString
         /// <summary>
         /// Sends value 'green-color' from a constant
         /// </summary>
-        /// <param name='field1'>
-        /// Sample string.
+        /// <param name='enumStringBody'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -676,15 +675,20 @@ namespace Fixtures.BodyString
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PutReferencedConstantWithHttpMessagesAsync(string field1 = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PutReferencedConstantAsync(RefColorConstant enumStringBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            RefColorConstant enumStringBody = new RefColorConstant();
-            if (field1 != null)
+            if (enumStringBody == null)
             {
-                enumStringBody.Field1 = field1;
+                throw new ValidationException(ValidationRules.CannotBeNull, "enumStringBody");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;

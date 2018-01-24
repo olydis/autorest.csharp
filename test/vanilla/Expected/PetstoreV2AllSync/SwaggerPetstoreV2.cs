@@ -181,7 +181,7 @@ namespace Fixtures.PetstoreV2AllSync
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Pet>> AddPetWithHttpMessagesAsync(Pet body, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Pet>> AddPetAsync(Pet body, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (body == null)
             {
@@ -203,7 +203,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.Enter(_invocationId, this, "AddPet", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "pet").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -229,7 +229,7 @@ namespace Fixtures.PetstoreV2AllSync
             string _requestContent = null;
             if(body != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(body, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -239,7 +239,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -287,7 +287,7 @@ namespace Fixtures.PetstoreV2AllSync
                     }
                     else
                     {
-                        _result.Body = SafeJsonConvert.DeserializeObject<Pet>(_responseContent, DeserializationSettings);
+                        _result.Body = SafeJsonConvert.DeserializeObject<Pet>(_responseContent, this.Client.DeserializationSettings);
                     }
                 }
                 catch (JsonException ex)
@@ -331,7 +331,7 @@ namespace Fixtures.PetstoreV2AllSync
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> UpdatePetWithHttpMessagesAsync(Pet body, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> UpdatePetAsync(Pet body, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (body == null)
             {
@@ -353,7 +353,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.Enter(_invocationId, this, "UpdatePet", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "pet").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -379,7 +379,7 @@ namespace Fixtures.PetstoreV2AllSync
             string _requestContent = null;
             if(body != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(body, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -389,7 +389,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -460,7 +460,7 @@ namespace Fixtures.PetstoreV2AllSync
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<Pet>>> FindPetsByStatusWithHttpMessagesAsync(IList<string> status, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<Pet>>> FindPetsByStatusAsync(IList<string> status, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (status == null)
             {
@@ -478,7 +478,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.Enter(_invocationId, this, "FindPetsByStatus", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "pet/findByStatus").ToString();
             List<string> _queryParameters = new List<string>();
             if (status != null)
@@ -517,7 +517,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -565,7 +565,7 @@ namespace Fixtures.PetstoreV2AllSync
                     }
                     else
                     {
-                        _result.Body = SafeJsonConvert.DeserializeObject<IList<Pet>>(_responseContent, DeserializationSettings);
+                        _result.Body = SafeJsonConvert.DeserializeObject<IList<Pet>>(_responseContent, this.Client.DeserializationSettings);
                     }
                 }
                 catch (JsonException ex)
@@ -616,7 +616,7 @@ namespace Fixtures.PetstoreV2AllSync
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<Pet>>> FindPetsByTagsWithHttpMessagesAsync(IList<string> tags, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<Pet>>> FindPetsByTagsAsync(IList<string> tags, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (tags == null)
             {
@@ -634,7 +634,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.Enter(_invocationId, this, "FindPetsByTags", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "pet/findByTags").ToString();
             List<string> _queryParameters = new List<string>();
             if (tags != null)
@@ -673,7 +673,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -721,7 +721,7 @@ namespace Fixtures.PetstoreV2AllSync
                     }
                     else
                     {
-                        _result.Body = SafeJsonConvert.DeserializeObject<IList<Pet>>(_responseContent, DeserializationSettings);
+                        _result.Body = SafeJsonConvert.DeserializeObject<IList<Pet>>(_responseContent, this.Client.DeserializationSettings);
                     }
                 }
                 catch (JsonException ex)
@@ -765,7 +765,7 @@ namespace Fixtures.PetstoreV2AllSync
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Pet>> GetPetByIdWithHttpMessagesAsync(long petId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Pet>> GetPetByIdAsync(long petId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -779,9 +779,9 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.Enter(_invocationId, this, "GetPetById", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "pet/{petId}").ToString();
-            _url = _url.Replace("{petId}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(petId, SerializationSettings).Trim('"')));
+            _url = _url.Replace("{petId}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(petId, this.Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -810,7 +810,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -858,7 +858,7 @@ namespace Fixtures.PetstoreV2AllSync
                     }
                     else
                     {
-                        _result.Body = SafeJsonConvert.DeserializeObject<Pet>(_responseContent, DeserializationSettings);
+                        _result.Body = SafeJsonConvert.DeserializeObject<Pet>(_responseContent, this.Client.DeserializationSettings);
                     }
                 }
                 catch (JsonException ex)
@@ -911,7 +911,7 @@ namespace Fixtures.PetstoreV2AllSync
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> UpdatePetWithFormWithHttpMessagesAsync(long petId, Stream fileContent, string fileName = default(string), string status = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> UpdatePetWithFormAsync(long petId, Stream fileContent, string fileName = default(string), string status = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (fileContent == null)
             {
@@ -932,9 +932,9 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.Enter(_invocationId, this, "UpdatePetWithForm", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "pet/{petId}").ToString();
-            _url = _url.Replace("{petId}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(petId, SerializationSettings).Trim('"')));
+            _url = _url.Replace("{petId}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(petId, this.Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -989,7 +989,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -1050,7 +1050,7 @@ namespace Fixtures.PetstoreV2AllSync
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> DeletePetWithHttpMessagesAsync(long petId, string apiKey = "", Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> DeletePetAsync(long petId, string apiKey = "", Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1065,9 +1065,9 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.Enter(_invocationId, this, "DeletePet", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "pet/{petId}").ToString();
-            _url = _url.Replace("{petId}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(petId, SerializationSettings).Trim('"')));
+            _url = _url.Replace("{petId}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(petId, this.Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -1104,7 +1104,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -1166,7 +1166,7 @@ namespace Fixtures.PetstoreV2AllSync
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IDictionary<string, int?>>> GetInventoryWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IDictionary<string, int?>>> GetInventoryAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1179,7 +1179,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.Enter(_invocationId, this, "GetInventory", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "store/inventory").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -1209,7 +1209,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -1257,7 +1257,7 @@ namespace Fixtures.PetstoreV2AllSync
                     }
                     else
                     {
-                        _result.Body = SafeJsonConvert.DeserializeObject<IDictionary<string, int?>>(_responseContent, DeserializationSettings);
+                        _result.Body = SafeJsonConvert.DeserializeObject<IDictionary<string, int?>>(_responseContent, this.Client.DeserializationSettings);
                     }
                 }
                 catch (JsonException ex)
@@ -1304,7 +1304,7 @@ namespace Fixtures.PetstoreV2AllSync
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Order>> PlaceOrderWithHttpMessagesAsync(Order body, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Order>> PlaceOrderAsync(Order body, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (body == null)
             {
@@ -1322,7 +1322,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.Enter(_invocationId, this, "PlaceOrder", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "store/order").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -1348,7 +1348,7 @@ namespace Fixtures.PetstoreV2AllSync
             string _requestContent = null;
             if(body != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(body, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -1358,7 +1358,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -1406,7 +1406,7 @@ namespace Fixtures.PetstoreV2AllSync
                     }
                     else
                     {
-                        _result.Body = SafeJsonConvert.DeserializeObject<Order>(_responseContent, DeserializationSettings);
+                        _result.Body = SafeJsonConvert.DeserializeObject<Order>(_responseContent, this.Client.DeserializationSettings);
                     }
                 }
                 catch (JsonException ex)
@@ -1457,7 +1457,7 @@ namespace Fixtures.PetstoreV2AllSync
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Order>> GetOrderByIdWithHttpMessagesAsync(string orderId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Order>> GetOrderByIdAsync(string orderId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (orderId == null)
             {
@@ -1486,7 +1486,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.Enter(_invocationId, this, "GetOrderById", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "store/order/{orderId}").ToString();
             _url = _url.Replace("{orderId}", System.Uri.EscapeDataString(orderId));
             // Create HTTP transport objects
@@ -1517,7 +1517,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -1565,7 +1565,7 @@ namespace Fixtures.PetstoreV2AllSync
                     }
                     else
                     {
-                        _result.Body = SafeJsonConvert.DeserializeObject<Order>(_responseContent, DeserializationSettings);
+                        _result.Body = SafeJsonConvert.DeserializeObject<Order>(_responseContent, this.Client.DeserializationSettings);
                     }
                 }
                 catch (JsonException ex)
@@ -1613,7 +1613,7 @@ namespace Fixtures.PetstoreV2AllSync
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> DeleteOrderWithHttpMessagesAsync(string orderId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> DeleteOrderAsync(string orderId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (orderId == null)
             {
@@ -1638,7 +1638,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.Enter(_invocationId, this, "DeleteOrder", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "store/order/{orderId}").ToString();
             _url = _url.Replace("{orderId}", System.Uri.EscapeDataString(orderId));
             // Create HTTP transport objects
@@ -1669,7 +1669,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -1737,7 +1737,7 @@ namespace Fixtures.PetstoreV2AllSync
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> CreateUserWithHttpMessagesAsync(User body, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> CreateUserAsync(User body, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (body == null)
             {
@@ -1755,7 +1755,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.Enter(_invocationId, this, "CreateUser", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "user").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -1781,7 +1781,7 @@ namespace Fixtures.PetstoreV2AllSync
             string _requestContent = null;
             if(body != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(body, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -1791,7 +1791,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -1856,7 +1856,7 @@ namespace Fixtures.PetstoreV2AllSync
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> CreateUsersWithArrayInputWithHttpMessagesAsync(IList<User> body, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> CreateUsersWithArrayInputAsync(IList<User> body, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (body == null)
             {
@@ -1874,7 +1874,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.Enter(_invocationId, this, "CreateUsersWithArrayInput", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "user/createWithArray").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -1900,7 +1900,7 @@ namespace Fixtures.PetstoreV2AllSync
             string _requestContent = null;
             if(body != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(body, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -1910,7 +1910,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -1975,7 +1975,7 @@ namespace Fixtures.PetstoreV2AllSync
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> CreateUsersWithListInputWithHttpMessagesAsync(IList<User> body, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> CreateUsersWithListInputAsync(IList<User> body, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (body == null)
             {
@@ -1993,7 +1993,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.Enter(_invocationId, this, "CreateUsersWithListInput", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "user/createWithList").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -2019,7 +2019,7 @@ namespace Fixtures.PetstoreV2AllSync
             string _requestContent = null;
             if(body != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(body, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -2029,7 +2029,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -2100,7 +2100,7 @@ namespace Fixtures.PetstoreV2AllSync
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<string,LoginUserHeaders>> LoginUserWithHttpMessagesAsync(string username, string password, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<string,LoginUserHeaders>> LoginUserAsync(string username, string password, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (username == null)
             {
@@ -2123,7 +2123,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.Enter(_invocationId, this, "LoginUser", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "user/login").ToString();
             List<string> _queryParameters = new List<string>();
             if (username != null)
@@ -2166,7 +2166,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -2214,7 +2214,7 @@ namespace Fixtures.PetstoreV2AllSync
                     }
                     else
                     {
-                        _result.Body = SafeJsonConvert.DeserializeObject<string>(_responseContent, DeserializationSettings);
+                        _result.Body = SafeJsonConvert.DeserializeObject<string>(_responseContent, this.Client.DeserializationSettings);
                     }
                 }
                 catch (JsonException ex)
@@ -2229,7 +2229,7 @@ namespace Fixtures.PetstoreV2AllSync
             }
             try
             {
-                _result.Headers = _httpResponse.GetHeadersAsJson().ToObject<LoginUserHeaders>(JsonSerializer.Create(DeserializationSettings));
+                _result.Headers = _httpResponse.GetHeadersAsJson().ToObject<LoginUserHeaders>(JsonSerializer.Create(this.Client.DeserializationSettings));
             }
             catch (JsonException ex)
             {
@@ -2262,7 +2262,7 @@ namespace Fixtures.PetstoreV2AllSync
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> LogoutUserWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> LogoutUserAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -2275,7 +2275,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.Enter(_invocationId, this, "LogoutUser", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "user/logout").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -2305,7 +2305,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -2373,7 +2373,7 @@ namespace Fixtures.PetstoreV2AllSync
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<User>> GetUserByNameWithHttpMessagesAsync(string username, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<User>> GetUserByNameAsync(string username, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (username == null)
             {
@@ -2391,7 +2391,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.Enter(_invocationId, this, "GetUserByName", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "user/{username}").ToString();
             _url = _url.Replace("{username}", System.Uri.EscapeDataString(username));
             // Create HTTP transport objects
@@ -2422,7 +2422,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -2470,7 +2470,7 @@ namespace Fixtures.PetstoreV2AllSync
                     }
                     else
                     {
-                        _result.Body = SafeJsonConvert.DeserializeObject<User>(_responseContent, DeserializationSettings);
+                        _result.Body = SafeJsonConvert.DeserializeObject<User>(_responseContent, this.Client.DeserializationSettings);
                     }
                 }
                 catch (JsonException ex)
@@ -2520,7 +2520,7 @@ namespace Fixtures.PetstoreV2AllSync
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> UpdateUserWithHttpMessagesAsync(string username, User body, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> UpdateUserAsync(string username, User body, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (username == null)
             {
@@ -2543,7 +2543,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.Enter(_invocationId, this, "UpdateUser", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "user/{username}").ToString();
             _url = _url.Replace("{username}", System.Uri.EscapeDataString(username));
             // Create HTTP transport objects
@@ -2570,7 +2570,7 @@ namespace Fixtures.PetstoreV2AllSync
             string _requestContent = null;
             if(body != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(body, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -2580,7 +2580,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -2648,7 +2648,7 @@ namespace Fixtures.PetstoreV2AllSync
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> DeleteUserWithHttpMessagesAsync(string username, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> DeleteUserAsync(string username, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (username == null)
             {
@@ -2666,7 +2666,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.Enter(_invocationId, this, "DeleteUser", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "user/{username}").ToString();
             _url = _url.Replace("{username}", System.Uri.EscapeDataString(username));
             // Create HTTP transport objects
@@ -2697,7 +2697,7 @@ namespace Fixtures.PetstoreV2AllSync
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);

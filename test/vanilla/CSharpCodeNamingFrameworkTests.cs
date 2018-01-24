@@ -321,7 +321,6 @@ namespace AutoRest.CSharp.Tests
                 });
 
                 MethodCs templateModel = method as MethodCs;
-                templateModel.SyncMethods = SyncMethodsGenerationMode.All;
 
                 var output = templateModel.BuildInputMappings();
                 System.Console.WriteLine(output);
@@ -401,7 +400,6 @@ namespace AutoRest.CSharp.Tests
                 });
 
                 MethodCs templateModel = method as MethodCs;
-                templateModel.SyncMethods = SyncMethodsGenerationMode.All;
 
                 var output = templateModel.BuildInputMappings();
                 string expected =
@@ -505,7 +503,6 @@ namespace AutoRest.CSharp.Tests
                 });
 
                 MethodCs templateModel = method as MethodCs;
-                templateModel.SyncMethods = SyncMethodsGenerationMode.All;
 
                 var output = templateModel.BuildInputMappings();
                 string expected =

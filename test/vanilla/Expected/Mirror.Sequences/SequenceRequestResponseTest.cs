@@ -176,7 +176,7 @@ namespace Fixtures.MirrorSequences
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<Pet>>> AddPetWithHttpMessagesAsync(IList<Pet> pets, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<Pet>>> AddPetAsync(IList<Pet> pets, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (pets == null)
             {
@@ -204,7 +204,7 @@ namespace Fixtures.MirrorSequences
                 ServiceClientTracing.Enter(_invocationId, this, "AddPet", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "pets").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -230,7 +230,7 @@ namespace Fixtures.MirrorSequences
             string _requestContent = null;
             if(pets != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(pets, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(pets, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -240,7 +240,7 @@ namespace Fixtures.MirrorSequences
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -254,7 +254,7 @@ namespace Fixtures.MirrorSequences
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    ErrorModel _errorBody =  SafeJsonConvert.DeserializeObject<ErrorModel>(_responseContent, DeserializationSettings);
+                    ErrorModel _errorBody =  SafeJsonConvert.DeserializeObject<ErrorModel>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -287,7 +287,7 @@ namespace Fixtures.MirrorSequences
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<IList<Pet>>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<IList<Pet>>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -333,7 +333,7 @@ namespace Fixtures.MirrorSequences
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<int?>>> AddPetStylesWithHttpMessagesAsync(IList<int?> petStyle, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<int?>>> AddPetStylesAsync(IList<int?> petStyle, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (petStyle == null)
             {
@@ -351,7 +351,7 @@ namespace Fixtures.MirrorSequences
                 ServiceClientTracing.Enter(_invocationId, this, "AddPetStyles", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "primitives").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -377,7 +377,7 @@ namespace Fixtures.MirrorSequences
             string _requestContent = null;
             if(petStyle != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(petStyle, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(petStyle, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -387,7 +387,7 @@ namespace Fixtures.MirrorSequences
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -401,7 +401,7 @@ namespace Fixtures.MirrorSequences
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    IList<ErrorModel> _errorBody =  SafeJsonConvert.DeserializeObject<IList<ErrorModel>>(_responseContent, DeserializationSettings);
+                    IList<ErrorModel> _errorBody =  SafeJsonConvert.DeserializeObject<IList<ErrorModel>>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -434,7 +434,7 @@ namespace Fixtures.MirrorSequences
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<IList<int?>>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<IList<int?>>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -480,7 +480,7 @@ namespace Fixtures.MirrorSequences
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<int?>>> UpdatePetStylesWithHttpMessagesAsync(IList<int?> petStyle, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<int?>>> UpdatePetStylesAsync(IList<int?> petStyle, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (petStyle == null)
             {
@@ -498,7 +498,7 @@ namespace Fixtures.MirrorSequences
                 ServiceClientTracing.Enter(_invocationId, this, "UpdatePetStyles", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "primitives").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -524,7 +524,7 @@ namespace Fixtures.MirrorSequences
             string _requestContent = null;
             if(petStyle != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(petStyle, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(petStyle, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -534,7 +534,7 @@ namespace Fixtures.MirrorSequences
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -548,7 +548,7 @@ namespace Fixtures.MirrorSequences
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    IList<ErrorModel> _errorBody =  SafeJsonConvert.DeserializeObject<IList<ErrorModel>>(_responseContent, DeserializationSettings);
+                    IList<ErrorModel> _errorBody =  SafeJsonConvert.DeserializeObject<IList<ErrorModel>>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -581,7 +581,7 @@ namespace Fixtures.MirrorSequences
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<IList<int?>>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<IList<int?>>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

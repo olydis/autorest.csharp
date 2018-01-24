@@ -11,56 +11,97 @@
 namespace Fixtures.Url.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for UriColor.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum UriColor
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(UriColorConverter))]
+    public struct UriColor : System.IEquatable<UriColor>
     {
-        [EnumMember(Value = "red color")]
-        Redcolor,
-        [EnumMember(Value = "green color")]
-        Greencolor,
-        [EnumMember(Value = "blue color")]
-        Bluecolor
-    }
-    internal static class UriColorEnumExtension
-    {
-        internal static string ToSerializedValue(this UriColor? value)
+        private UriColor(string underlyingValue)
         {
-            return value == null ? null : ((UriColor)value).ToSerializedValue();
+            UnderlyingValue=underlyingValue;
         }
 
-        internal static string ToSerializedValue(this UriColor value)
+        public static readonly UriColor Redcolor = "red color";
+
+        public static readonly UriColor Greencolor = "green color";
+
+        public static readonly UriColor Bluecolor = "blue color";
+
+
+        /// <summary>
+        /// Underlying value of enum UriColor
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for UriColor
+        /// </summary>
+        public override string ToString()
         {
-            switch( value )
-            {
-                case UriColor.Redcolor:
-                    return "red color";
-                case UriColor.Greencolor:
-                    return "green color";
-                case UriColor.Bluecolor:
-                    return "blue color";
-            }
-            return null;
+            return UnderlyingValue.ToString();
         }
 
-        internal static UriColor? ParseUriColor(this string value)
+        /// <summary>
+        /// Compares enums of type UriColor
+        /// </summary>
+        public bool Equals(UriColor e)
         {
-            switch( value )
-            {
-                case "red color":
-                    return UriColor.Redcolor;
-                case "green color":
-                    return UriColor.Greencolor;
-                case "blue color":
-                    return UriColor.Bluecolor;
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
+
+        /// <summary>
+        /// Implicit operator to convert string to UriColor
+        /// </summary>
+        public static implicit operator UriColor(string value)
+        {
+            return new UriColor(value);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert UriColor to string
+        /// </summary>
+        public static implicit operator string(UriColor e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum UriColor
+        /// </summary>
+        public static bool operator == (UriColor e1, UriColor e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum UriColor
+        /// </summary>
+        public static bool operator != (UriColor e1, UriColor e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for UriColor
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is UriColor && Equals((UriColor)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode UriColor
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

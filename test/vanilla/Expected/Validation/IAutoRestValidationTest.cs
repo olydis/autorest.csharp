@@ -65,7 +65,7 @@ namespace Fixtures.Validation
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<Product>> ValidationOfMethodParametersWithHttpMessagesAsync(string resourceGroupName, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Product>> ValidationOfMethodParametersAsync(string resourceGroupName, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Validates body parameters on the method. See swagger for details.
@@ -84,7 +84,7 @@ namespace Fixtures.Validation
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<Product>> ValidationOfBodyWithHttpMessagesAsync(string resourceGroupName, int id, Product body = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Product>> ValidationOfBodyAsync(string resourceGroupName, int id, Product body = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -92,7 +92,7 @@ namespace Fixtures.Validation
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse> GetWithConstantInPathWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> GetWithConstantInPathAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='body'>
         /// </param>
@@ -102,7 +102,7 @@ namespace Fixtures.Validation
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<Product>> PostWithConstantInBodyWithHttpMessagesAsync(Product body = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Product>> PostWithConstantInBodyAsync(Product body = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

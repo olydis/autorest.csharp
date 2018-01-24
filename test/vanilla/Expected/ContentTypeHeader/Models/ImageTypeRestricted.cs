@@ -7,50 +7,95 @@
 namespace Fixtures.ContentTypeHeader.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for ImageTypeRestricted.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum ImageTypeRestricted
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(ImageTypeRestrictedConverter))]
+    public struct ImageTypeRestricted : System.IEquatable<ImageTypeRestricted>
     {
-        [EnumMember(Value = "image/png")]
-        ImagePng,
-        [EnumMember(Value = "image/tiff")]
-        ImageTiff
-    }
-    internal static class ImageTypeRestrictedEnumExtension
-    {
-        internal static string ToSerializedValue(this ImageTypeRestricted? value)
+        private ImageTypeRestricted(string underlyingValue)
         {
-            return value == null ? null : ((ImageTypeRestricted)value).ToSerializedValue();
+            UnderlyingValue=underlyingValue;
         }
 
-        internal static string ToSerializedValue(this ImageTypeRestricted value)
+        public static readonly ImageTypeRestricted ImagePng = "image/png";
+
+        public static readonly ImageTypeRestricted ImageTiff = "image/tiff";
+
+
+        /// <summary>
+        /// Underlying value of enum ImageTypeRestricted
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for ImageTypeRestricted
+        /// </summary>
+        public override string ToString()
         {
-            switch( value )
-            {
-                case ImageTypeRestricted.ImagePng:
-                    return "image/png";
-                case ImageTypeRestricted.ImageTiff:
-                    return "image/tiff";
-            }
-            return null;
+            return UnderlyingValue.ToString();
         }
 
-        internal static ImageTypeRestricted? ParseImageTypeRestricted(this string value)
+        /// <summary>
+        /// Compares enums of type ImageTypeRestricted
+        /// </summary>
+        public bool Equals(ImageTypeRestricted e)
         {
-            switch( value )
-            {
-                case "image/png":
-                    return ImageTypeRestricted.ImagePng;
-                case "image/tiff":
-                    return ImageTypeRestricted.ImageTiff;
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
+
+        /// <summary>
+        /// Implicit operator to convert string to ImageTypeRestricted
+        /// </summary>
+        public static implicit operator ImageTypeRestricted(string value)
+        {
+            return new ImageTypeRestricted(value);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert ImageTypeRestricted to string
+        /// </summary>
+        public static implicit operator string(ImageTypeRestricted e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum ImageTypeRestricted
+        /// </summary>
+        public static bool operator == (ImageTypeRestricted e1, ImageTypeRestricted e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum ImageTypeRestricted
+        /// </summary>
+        public static bool operator != (ImageTypeRestricted e1, ImageTypeRestricted e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for ImageTypeRestricted
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is ImageTypeRestricted && Equals((ImageTypeRestricted)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode ImageTypeRestricted
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

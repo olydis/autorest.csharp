@@ -40,9 +40,7 @@ namespace AutoRest.CSharp.Azure.Model
                     throw new InvalidOperationException(
                         $"Long running operations for '{Name}' requires a GET operation under the same path and same operation group '{Group}'.");
                 }
-                MethodCsa method = getMethod as MethodCsa;
-                method.SyncMethods = SyncMethods;
-                return method;
+                return getMethod as MethodCsa;
             }
         }
 

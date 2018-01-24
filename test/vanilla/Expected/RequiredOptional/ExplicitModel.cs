@@ -68,7 +68,7 @@ namespace Fixtures.RequiredOptional
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Error>> PostRequiredIntegerParameterWithHttpMessagesAsync(int bodyParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Error>> PostRequiredIntegerParameterAsync(int bodyParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -194,7 +194,7 @@ namespace Fixtures.RequiredOptional
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PostOptionalIntegerParameterWithHttpMessagesAsync(int? bodyParameter = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PostOptionalIntegerParameterAsync(int? bodyParameter = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -297,7 +297,7 @@ namespace Fixtures.RequiredOptional
         /// 'value' = null and the client library should throw before the request is
         /// sent.
         /// </summary>
-        /// <param name='value'>
+        /// <param name='bodyParameter'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -308,13 +308,25 @@ namespace Fixtures.RequiredOptional
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Error>> PostRequiredIntegerPropertyWithHttpMessagesAsync(int value, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Error>> PostRequiredIntegerPropertyAsync(IntWrapper bodyParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            IntWrapper bodyParameter = new IntWrapper();
-            bodyParameter.Value = value;
+            if (bodyParameter == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "bodyParameter");
+            }
+            if (bodyParameter != null)
+            {
+                bodyParameter.Validate();
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -429,7 +441,7 @@ namespace Fixtures.RequiredOptional
         /// Test explicitly optional integer. Please put a valid int-wrapper with
         /// 'value' = null.
         /// </summary>
-        /// <param name='value'>
+        /// <param name='bodyParameter'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -443,14 +455,8 @@ namespace Fixtures.RequiredOptional
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PostOptionalIntegerPropertyWithHttpMessagesAsync(int? value = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PostOptionalIntegerPropertyAsync(IntOptionalWrapper bodyParameter = default(IntOptionalWrapper), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            IntOptionalWrapper bodyParameter = default(IntOptionalWrapper);
-            if (value != null)
-            {
-                bodyParameter = new IntOptionalWrapper();
-                bodyParameter.Value = value;
-            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -565,7 +571,7 @@ namespace Fixtures.RequiredOptional
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Error>> PostRequiredIntegerHeaderWithHttpMessagesAsync(int headerParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Error>> PostRequiredIntegerHeaderAsync(int headerParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -694,7 +700,7 @@ namespace Fixtures.RequiredOptional
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PostOptionalIntegerHeaderWithHttpMessagesAsync(int? headerParameter = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PostOptionalIntegerHeaderAsync(int? headerParameter = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -818,7 +824,7 @@ namespace Fixtures.RequiredOptional
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Error>> PostRequiredStringParameterWithHttpMessagesAsync(string bodyParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Error>> PostRequiredStringParameterAsync(string bodyParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (bodyParameter == null)
             {
@@ -951,7 +957,7 @@ namespace Fixtures.RequiredOptional
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PostOptionalStringParameterWithHttpMessagesAsync(string bodyParameter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PostOptionalStringParameterAsync(string bodyParameter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1054,7 +1060,7 @@ namespace Fixtures.RequiredOptional
         /// 'value' = null and the client library should throw before the request is
         /// sent.
         /// </summary>
-        /// <param name='value'>
+        /// <param name='bodyParameter'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1074,16 +1080,15 @@ namespace Fixtures.RequiredOptional
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Error>> PostRequiredStringPropertyWithHttpMessagesAsync(string value, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Error>> PostRequiredStringPropertyAsync(StringWrapper bodyParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (value == null)
+            if (bodyParameter == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "value");
+                throw new ValidationException(ValidationRules.CannotBeNull, "bodyParameter");
             }
-            StringWrapper bodyParameter = new StringWrapper();
-            if (value != null)
+            if (bodyParameter != null)
             {
-                bodyParameter.Value = value;
+                bodyParameter.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1199,7 +1204,7 @@ namespace Fixtures.RequiredOptional
         /// Test explicitly optional integer. Please put a valid string-wrapper with
         /// 'value' = null.
         /// </summary>
-        /// <param name='value'>
+        /// <param name='bodyParameter'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1213,14 +1218,8 @@ namespace Fixtures.RequiredOptional
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PostOptionalStringPropertyWithHttpMessagesAsync(string value = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PostOptionalStringPropertyAsync(StringOptionalWrapper bodyParameter = default(StringOptionalWrapper), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            StringOptionalWrapper bodyParameter = default(StringOptionalWrapper);
-            if (value != null)
-            {
-                bodyParameter = new StringOptionalWrapper();
-                bodyParameter.Value = value;
-            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -1341,7 +1340,7 @@ namespace Fixtures.RequiredOptional
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Error>> PostRequiredStringHeaderWithHttpMessagesAsync(string headerParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Error>> PostRequiredStringHeaderAsync(string headerParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (headerParameter == null)
             {
@@ -1477,7 +1476,7 @@ namespace Fixtures.RequiredOptional
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PostOptionalStringHeaderWithHttpMessagesAsync(string bodyParameter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PostOptionalStringHeaderAsync(string bodyParameter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1601,7 +1600,7 @@ namespace Fixtures.RequiredOptional
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Error>> PostRequiredClassParameterWithHttpMessagesAsync(Product bodyParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Error>> PostRequiredClassParameterAsync(Product bodyParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (bodyParameter == null)
             {
@@ -1738,7 +1737,7 @@ namespace Fixtures.RequiredOptional
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PostOptionalClassParameterWithHttpMessagesAsync(Product bodyParameter = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PostOptionalClassParameterAsync(Product bodyParameter = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (bodyParameter != null)
             {
@@ -1845,7 +1844,7 @@ namespace Fixtures.RequiredOptional
         /// with 'value' = null and the client library should throw before the request
         /// is sent.
         /// </summary>
-        /// <param name='value'>
+        /// <param name='bodyParameter'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1865,20 +1864,15 @@ namespace Fixtures.RequiredOptional
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Error>> PostRequiredClassPropertyWithHttpMessagesAsync(Product value, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Error>> PostRequiredClassPropertyAsync(ClassWrapper bodyParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (value == null)
+            if (bodyParameter == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "value");
+                throw new ValidationException(ValidationRules.CannotBeNull, "bodyParameter");
             }
-            if (value != null)
+            if (bodyParameter != null)
             {
-                value.Validate();
-            }
-            ClassWrapper bodyParameter = new ClassWrapper();
-            if (value != null)
-            {
-                bodyParameter.Value = value;
+                bodyParameter.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1994,7 +1988,7 @@ namespace Fixtures.RequiredOptional
         /// Test explicitly optional complex object. Please put a valid class-wrapper
         /// with 'value' = null.
         /// </summary>
-        /// <param name='value'>
+        /// <param name='bodyParameter'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2008,17 +2002,11 @@ namespace Fixtures.RequiredOptional
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PostOptionalClassPropertyWithHttpMessagesAsync(Product value = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PostOptionalClassPropertyAsync(ClassOptionalWrapper bodyParameter = default(ClassOptionalWrapper), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (value != null)
+            if (bodyParameter != null)
             {
-                value.Validate();
-            }
-            ClassOptionalWrapper bodyParameter = default(ClassOptionalWrapper);
-            if (value != null)
-            {
-                bodyParameter = new ClassOptionalWrapper();
-                bodyParameter.Value = value;
+                bodyParameter.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -2140,7 +2128,7 @@ namespace Fixtures.RequiredOptional
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Error>> PostRequiredArrayParameterWithHttpMessagesAsync(IList<string> bodyParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Error>> PostRequiredArrayParameterAsync(IList<string> bodyParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (bodyParameter == null)
             {
@@ -2273,7 +2261,7 @@ namespace Fixtures.RequiredOptional
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PostOptionalArrayParameterWithHttpMessagesAsync(IList<string> bodyParameter = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PostOptionalArrayParameterAsync(IList<string> bodyParameter = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -2376,7 +2364,7 @@ namespace Fixtures.RequiredOptional
         /// 'value' = null and the client library should throw before the request is
         /// sent.
         /// </summary>
-        /// <param name='value'>
+        /// <param name='bodyParameter'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2396,16 +2384,15 @@ namespace Fixtures.RequiredOptional
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Error>> PostRequiredArrayPropertyWithHttpMessagesAsync(IList<string> value, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Error>> PostRequiredArrayPropertyAsync(ArrayWrapper bodyParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (value == null)
+            if (bodyParameter == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "value");
+                throw new ValidationException(ValidationRules.CannotBeNull, "bodyParameter");
             }
-            ArrayWrapper bodyParameter = new ArrayWrapper();
-            if (value != null)
+            if (bodyParameter != null)
             {
-                bodyParameter.Value = value;
+                bodyParameter.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -2521,7 +2508,7 @@ namespace Fixtures.RequiredOptional
         /// Test explicitly optional array. Please put a valid array-wrapper with
         /// 'value' = null.
         /// </summary>
-        /// <param name='value'>
+        /// <param name='bodyParameter'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2535,14 +2522,8 @@ namespace Fixtures.RequiredOptional
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PostOptionalArrayPropertyWithHttpMessagesAsync(IList<string> value = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PostOptionalArrayPropertyAsync(ArrayOptionalWrapper bodyParameter = default(ArrayOptionalWrapper), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            ArrayOptionalWrapper bodyParameter = default(ArrayOptionalWrapper);
-            if (value != null)
-            {
-                bodyParameter = new ArrayOptionalWrapper();
-                bodyParameter.Value = value;
-            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -2663,7 +2644,7 @@ namespace Fixtures.RequiredOptional
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Error>> PostRequiredArrayHeaderWithHttpMessagesAsync(IList<string> headerParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Error>> PostRequiredArrayHeaderAsync(IList<string> headerParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (headerParameter == null)
             {
@@ -2799,7 +2780,7 @@ namespace Fixtures.RequiredOptional
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PostOptionalArrayHeaderWithHttpMessagesAsync(IList<string> headerParameter = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PostOptionalArrayHeaderAsync(IList<string> headerParameter = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;

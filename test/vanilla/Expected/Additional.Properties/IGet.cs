@@ -37,6 +37,6 @@ namespace Fixtures.AdditionalProperties
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IList<Pet>>> PetsWithHttpMessagesAsync(int? limit = 11, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<Pet>>> PetsAsync(int? limit = 11, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

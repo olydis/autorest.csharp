@@ -68,7 +68,7 @@ namespace Fixtures.BodyComplex
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ReadonlyObj>> GetValidWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ReadonlyObj>> GetValidAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -180,7 +180,7 @@ namespace Fixtures.BodyComplex
         /// <summary>
         /// Put complex types that have readonly properties
         /// </summary>
-        /// <param name='size'>
+        /// <param name='complexBody'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -191,15 +191,20 @@ namespace Fixtures.BodyComplex
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PutValidWithHttpMessagesAsync(int? size = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PutValidAsync(ReadonlyObj complexBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            ReadonlyObj complexBody = new ReadonlyObj();
-            if (size != null)
+            if (complexBody == null)
             {
-                complexBody.Size = size;
+                throw new ValidationException(ValidationRules.CannotBeNull, "complexBody");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;

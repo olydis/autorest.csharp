@@ -80,7 +80,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<SMSResponseModel>> SendSmsWithHttpMessagesAsync(string subscriptionId, string source, string destination, string message, string webhook = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<SMSResponseModel>> SendSmsAsync(string subscriptionId, string source, string destination, string message, string webhook = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -160,12 +160,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {
@@ -262,7 +256,7 @@ namespace Zapappi.Client
         /// A response object containing the response body and response headers.
         /// </return>
         [System.Obsolete()]
-        public async Task<HttpOperationResponse<IList<SMSQueueItem>>> GetSmsQueueWithHttpMessagesAsync(string numberId, string subscriptionId, string id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<SMSQueueItem>>> GetSmsQueueAsync(string numberId, string subscriptionId, string id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (numberId == null)
             {
@@ -325,12 +319,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {
@@ -429,7 +417,7 @@ namespace Zapappi.Client
         /// A response object containing the response body and response headers.
         /// </return>
         [System.Obsolete()]
-        public async Task<HttpOperationResponse<object>> GetSmsFromQueueWithHttpMessagesAsync(string id, string entryId, string subscriptionId, string messageId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> GetSmsFromQueueAsync(string id, string entryId, string subscriptionId, string messageId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (id == null)
             {
@@ -498,12 +486,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {
@@ -603,7 +585,7 @@ namespace Zapappi.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<SmsCdrEntry>>> GetSmsLogWithHttpMessagesAsync(string subscriptionId, int? take = default(int?), int? skip = default(int?), string messageId = default(string), string destination = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<SmsCdrEntry>>> GetSmsLogAsync(string subscriptionId, int? take = default(int?), int? skip = default(int?), string messageId = default(string), string destination = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -671,12 +653,6 @@ namespace Zapappi.Client
 
             // Serialize Request
             string _requestContent = null;
-            // Set Credentials
-            if (Client.Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
             // Send Request
             if (_shouldTrace)
             {

@@ -12,7 +12,6 @@ namespace Fixtures.Azure.AzureSpecials
 {
     using Microsoft.Rest;
     using Microsoft.Rest.Azure;
-    using Microsoft.Rest.Azure.OData;
     using Models;
     using Newtonsoft.Json;
     using System.Collections;
@@ -55,8 +54,14 @@ namespace Fixtures.Azure.AzureSpecials
         /// Specify filter parameter with value '$filter=id gt 5 and name eq
         /// 'foo'&amp;$orderby=id&amp;$top=10'
         /// </summary>
-        /// <param name='odataQuery'>
-        /// OData parameters to apply to the operation.
+        /// <param name='filter'>
+        /// The filter parameter with value '$filter=id gt 5 and name eq 'foo''.
+        /// </param>
+        /// <param name='top'>
+        /// The top parameter with value 10.
+        /// </param>
+        /// <param name='orderby'>
+        /// The orderby parameter with value id.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -70,7 +75,7 @@ namespace Fixtures.Azure.AzureSpecials
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> GetWithFilterWithHttpMessagesAsync(ODataQuery<OdataFilter> odataQuery = default(ODataQuery<OdataFilter>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> GetWithFilterAsync(string filter = default(string), int? top = default(int?), string orderby = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -79,7 +84,9 @@ namespace Fixtures.Azure.AzureSpecials
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("odataQuery", odataQuery);
+                tracingParameters.Add("filter", filter);
+                tracingParameters.Add("top", top);
+                tracingParameters.Add("orderby", orderby);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetWithFilter", tracingParameters);
             }
@@ -87,13 +94,17 @@ namespace Fixtures.Azure.AzureSpecials
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "azurespecials/odata/filter").ToString();
             List<string> _queryParameters = new List<string>();
-            if (odataQuery != null)
+            if (filter != null)
             {
-                var _odataFilter = odataQuery.ToString();
-                if (!string.IsNullOrEmpty(_odataFilter))
-                {
-                    _queryParameters.Add(_odataFilter);
-                }
+                _queryParameters.Add(string.Format("$filter={0}", System.Uri.EscapeDataString(filter)));
+            }
+            if (top != null)
+            {
+                _queryParameters.Add(string.Format("$top={0}", System.Uri.EscapeDataString(Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(top, Client.SerializationSettings).Trim('"'))));
+            }
+            if (orderby != null)
+            {
+                _queryParameters.Add(string.Format("$orderby={0}", System.Uri.EscapeDataString(orderby)));
             }
             if (_queryParameters.Count > 0)
             {

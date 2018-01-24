@@ -44,7 +44,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponse<EndpointViewModel>>> GetEndpointsWithHttpMessagesAsync(string subscriptionId, int? take = default(int?), int? skip = default(int?), string search = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponse<EndpointViewModel>>> GetEndpointsAsync(string subscriptionId, int? take = default(int?), int? skip = default(int?), string search = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get Simple Endpoint Details
         /// </summary>
@@ -67,7 +67,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<SimpleEndpointModel>> GetSimpleEndpointWithHttpMessagesAsync(string subscriptionId, string endpointId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<SimpleEndpointModel>> GetSimpleEndpointAsync(string subscriptionId, string endpointId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update Simple Endpoint
         /// </summary>
@@ -90,7 +90,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<SimpleEndpointModel>> UpdateSimpleEndpointWithHttpMessagesAsync(string subscriptionId, SimpleEndpointModel model, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<SimpleEndpointModel>> UpdateSimpleEndpointAsync(string subscriptionId, SimpleEndpointModel model, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create Simple Endpoint
         /// </summary>
@@ -121,7 +121,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<SimpleEndpointModel>> CreateSimpleEndpointWithHttpMessagesAsync(string subscriptionId, string description, string forwardUri, string username = default(string), string password = default(string), string proxyUri = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<SimpleEndpointModel>> CreateSimpleEndpointAsync(string subscriptionId, string description, string forwardUri, string username = default(string), string password = default(string), string proxyUri = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get Mappings from Inbound Platform
         /// </summary>
@@ -150,7 +150,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponse<EndpointMappingViewModel>>> GetMappingsWithHttpMessagesAsync(string subscriptionId, int? take = default(int?), int? skip = default(int?), string search = default(string), bool? withoutEndpoint = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponse<EndpointMappingViewModel>>> GetMappingsAsync(string subscriptionId, int? take = default(int?), int? skip = default(int?), string search = default(string), bool? withoutEndpoint = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <param name='subscriptionId'>
         /// </param>
         /// <param name='domain'>
@@ -180,7 +180,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<EndpointMappingViewModel>> AddMappingWithHttpMessagesAsync(string subscriptionId, string domain, string match, string endpointId, bool isDefault, string cvar1, string cvar2, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<EndpointMappingViewModel>> AddMappingAsync(string subscriptionId, string domain, string match, string endpointId, bool isDefault, string cvar1, string cvar2, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a specific Mapping from Inbound Platform by Id
         /// </summary>
@@ -203,7 +203,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<EndpointMappingViewModel>> GetMappingWithHttpMessagesAsync(string subscriptionId, System.Guid id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<EndpointMappingViewModel>> GetMappingAsync(string subscriptionId, System.Guid id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <param name='subscriptionId'>
         /// </param>
         /// <param name='id'>
@@ -225,6 +225,6 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<EndpointMappingViewModel>> UpdateMappingWithHttpMessagesAsync(string subscriptionId, string id, string endpointId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<EndpointMappingViewModel>> UpdateMappingAsync(string subscriptionId, string id, string endpointId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

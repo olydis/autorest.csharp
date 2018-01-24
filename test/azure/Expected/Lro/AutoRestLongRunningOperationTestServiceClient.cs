@@ -89,7 +89,7 @@ namespace Fixtures.Azure.Lro
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected AutoRestLongRunningOperationTestServiceClient(params DelegatingHandler[] handlers) : base(handlers)
+        public AutoRestLongRunningOperationTestServiceClient(params DelegatingHandler[] handlers) : base(handlers)
         {
             Initialize();
         }
@@ -103,7 +103,7 @@ namespace Fixtures.Azure.Lro
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected AutoRestLongRunningOperationTestServiceClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
+        public AutoRestLongRunningOperationTestServiceClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
         {
             Initialize();
         }
@@ -120,7 +120,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected AutoRestLongRunningOperationTestServiceClient(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
+        public AutoRestLongRunningOperationTestServiceClient(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
         {
             if (baseUri == null)
             {
@@ -144,7 +144,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected AutoRestLongRunningOperationTestServiceClient(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        public AutoRestLongRunningOperationTestServiceClient(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
         {
             if (baseUri == null)
             {
@@ -305,7 +305,6 @@ namespace Fixtures.Azure.Lro
                         new Iso8601TimeSpanConverter()
                     }
             };
-            SerializationSettings.Converters.Add(new TransformationJsonConverter());
             DeserializationSettings = new JsonSerializerSettings
             {
                 DateFormatHandling = Newtonsoft.Json.DateFormatHandling.IsoDateFormat,
@@ -319,7 +318,6 @@ namespace Fixtures.Azure.Lro
                     }
             };
             CustomInitialize();
-            DeserializationSettings.Converters.Add(new TransformationJsonConverter());
             DeserializationSettings.Converters.Add(new CloudErrorJsonConverter());
         }
     }

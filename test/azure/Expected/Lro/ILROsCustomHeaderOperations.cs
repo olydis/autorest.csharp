@@ -45,7 +45,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<Product,LROsCustomHeaderPutAsyncRetrySucceededHeaders>> PutAsyncRetrySucceededWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Product,LROsCustomHeaderPutAsyncRetrySucceededHeaders>> PutAsyncRetrySucceededAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// x-ms-client-request-id = 9C4D50EE-2D56-4CD3-8152-34347DC9F2B0 is
         /// required message header for all requests. Long running put request,
@@ -69,7 +69,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<Product>> Put201CreatingSucceeded200WithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Product>> Put201CreatingSucceeded200Async(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// x-ms-client-request-id = 9C4D50EE-2D56-4CD3-8152-34347DC9F2B0 is
         /// required message header for all requests. Long running post
@@ -89,7 +89,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROsCustomHeaderPost202Retry200Headers>> Post202Retry200WithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROsCustomHeaderPost202Retry200Headers>> Post202Retry200Async(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// x-ms-client-request-id = 9C4D50EE-2D56-4CD3-8152-34347DC9F2B0 is
         /// required message header for all requests. Long running post
@@ -110,7 +110,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROsCustomHeaderPostAsyncRetrySucceededHeaders>> PostAsyncRetrySucceededWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROsCustomHeaderPostAsyncRetrySucceededHeaders>> PostAsyncRetrySucceededAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// x-ms-client-request-id = 9C4D50EE-2D56-4CD3-8152-34347DC9F2B0 is
         /// required message header for all requests. Long running put request,
@@ -133,7 +133,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<Product,LROsCustomHeaderPutAsyncRetrySucceededHeaders>> BeginPutAsyncRetrySucceededWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Product,LROsCustomHeaderPutAsyncRetrySucceededHeaders>> BeginPutAsyncRetrySucceededAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// x-ms-client-request-id = 9C4D50EE-2D56-4CD3-8152-34347DC9F2B0 is
         /// required message header for all requests. Long running put request,
@@ -157,7 +157,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<AzureOperationResponse<Product>> BeginPut201CreatingSucceeded200WithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Product>> BeginPut201CreatingSucceeded200Async(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// x-ms-client-request-id = 9C4D50EE-2D56-4CD3-8152-34347DC9F2B0 is
         /// required message header for all requests. Long running post
@@ -177,7 +177,7 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROsCustomHeaderPost202Retry200Headers>> BeginPost202Retry200WithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROsCustomHeaderPost202Retry200Headers>> BeginPost202Retry200Async(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// x-ms-client-request-id = 9C4D50EE-2D56-4CD3-8152-34347DC9F2B0 is
         /// required message header for all requests. Long running post
@@ -198,6 +198,6 @@ namespace Fixtures.Azure.Lro
         /// <exception cref="Microsoft.Rest.Azure.CloudException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<AzureOperationHeaderResponse<LROsCustomHeaderPostAsyncRetrySucceededHeaders>> BeginPostAsyncRetrySucceededWithHttpMessagesAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationHeaderResponse<LROsCustomHeaderPostAsyncRetrySucceededHeaders>> BeginPostAsyncRetrySucceededAsync(Product product = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

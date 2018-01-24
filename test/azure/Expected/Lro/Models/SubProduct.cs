@@ -10,12 +10,9 @@
 
 namespace Fixtures.Azure.Lro.Models
 {
-    using Microsoft.Rest;
-    using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
     using System.Linq;
 
-    [JsonTransformation]
     public partial class SubProduct : SubResource
     {
         /// <summary>
@@ -30,15 +27,10 @@ namespace Fixtures.Azure.Lro.Models
         /// Initializes a new instance of the SubProduct class.
         /// </summary>
         /// <param name="id">Sub Resource Id</param>
-        /// <param name="provisioningStateValues">Possible values include:
-        /// 'Succeeded', 'Failed', 'canceled', 'Accepted', 'Creating',
-        /// 'Created', 'Updating', 'Updated', 'Deleting', 'Deleted',
-        /// 'OK'</param>
-        public SubProduct(string id = default(string), string provisioningState = default(string), string provisioningStateValues = default(string))
+        public SubProduct(string id = default(string), SubProductProperties properties = default(SubProductProperties))
             : base(id)
         {
-            ProvisioningState = provisioningState;
-            ProvisioningStateValues = provisioningStateValues;
+            Properties = properties;
             CustomInit();
         }
 
@@ -49,16 +41,8 @@ namespace Fixtures.Azure.Lro.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "properties.provisioningState")]
-        public string ProvisioningState { get; set; }
-
-        /// <summary>
-        /// Gets possible values include: 'Succeeded', 'Failed', 'canceled',
-        /// 'Accepted', 'Creating', 'Created', 'Updating', 'Updated',
-        /// 'Deleting', 'Deleted', 'OK'
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.provisioningStateValues")]
-        public string ProvisioningStateValues { get; private set; }
+        [JsonProperty(PropertyName = "properties")]
+        public SubProductProperties Properties { get; set; }
 
     }
 }

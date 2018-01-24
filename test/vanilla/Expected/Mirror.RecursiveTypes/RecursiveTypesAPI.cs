@@ -190,7 +190,7 @@ namespace Fixtures.MirrorRecursiveTypes
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Product>> PostWithHttpMessagesAsync(string subscriptionId, string resourceGroupName, string apiVersion, Product body = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Product>> PostAsync(string subscriptionId, string resourceGroupName, string apiVersion, Product body = default(Product), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (subscriptionId == null)
             {
@@ -219,7 +219,7 @@ namespace Fixtures.MirrorRecursiveTypes
                 ServiceClientTracing.Enter(_invocationId, this, "Post", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/Microsoft.Cache/Redis").ToString();
             _url = _url.Replace("{subscriptionId}", System.Uri.EscapeDataString(subscriptionId));
             _url = _url.Replace("{resourceGroupName}", System.Uri.EscapeDataString(resourceGroupName));
@@ -248,7 +248,7 @@ namespace Fixtures.MirrorRecursiveTypes
             string _requestContent = null;
             if(body != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(body, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -258,7 +258,7 @@ namespace Fixtures.MirrorRecursiveTypes
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -272,7 +272,7 @@ namespace Fixtures.MirrorRecursiveTypes
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, DeserializationSettings);
+                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -305,7 +305,7 @@ namespace Fixtures.MirrorRecursiveTypes
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<Product>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<Product>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

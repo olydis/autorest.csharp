@@ -21,10 +21,6 @@ namespace AutoRest.CSharp.Model
         public bool IsCustomBaseUri
             => CodeModel.Extensions.ContainsKey(SwaggerExtensions.ParameterizedHostExtension);
 
-        public SyncMethodsGenerationMode SyncMethods { get; set; }
-
-        public bool ExcludeFromInterface { get; set; }
-
         /// <summary>
         /// Get the predicate to determine of the http operation status code indicates failure
         /// </summary>
@@ -247,14 +243,11 @@ namespace AutoRest.CSharp.Model
         [JsonIgnore]
         public ParameterCs RequestBody => Body as ParameterCs;
 
-        [JsonIgnore]
-        public string AccessModifier => Hidden ? "internal" : "public";
-
         /// <summary>
         /// Generate a reference to the ServiceClient
         /// </summary>
         [JsonIgnore]
-        public string ClientReference => Group.IsNullOrEmpty() ? "this" : "this.Client";
+        public string ClientReference => "this.Client";
 
         /// <summary>
         /// Returns serialization settings reference.

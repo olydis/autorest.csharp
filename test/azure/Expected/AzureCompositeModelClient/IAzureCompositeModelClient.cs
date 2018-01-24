@@ -126,7 +126,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<AzureOperationResponse<CatalogArray>> ListWithHttpMessagesAsync(string resourceGroupName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<CatalogArray>> ListAsync(string resourceGroupName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create products
@@ -140,8 +140,8 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <param name='resourceGroupName'>
         /// Resource Group ID.
         /// </param>
-        /// <param name='productDictionaryOfArray'>
-        /// Dictionary of Array of product
+        /// <param name='bodyParameter'>
+        /// body Parameter
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -149,7 +149,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<AzureOperationResponse<CatalogDictionary>> CreateWithHttpMessagesAsync(string subscriptionId, string resourceGroupName, IDictionary<string, IList<Product>> productDictionaryOfArray = default(IDictionary<string, IList<Product>>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<CatalogDictionary>> CreateAsync(string subscriptionId, string resourceGroupName, CatalogDictionaryOfArray bodyParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Update products
@@ -163,8 +163,8 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <param name='resourceGroupName'>
         /// Resource Group ID.
         /// </param>
-        /// <param name='productArrayOfDictionary'>
-        /// Array of dictionary of products
+        /// <param name='bodyParameter'>
+        /// body Parameter
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -172,7 +172,7 @@ namespace Fixtures.Azure.AzureCompositeModelClient
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<AzureOperationResponse<CatalogArray>> UpdateWithHttpMessagesAsync(string subscriptionId, string resourceGroupName, IList<IDictionary<string, Product>> productArrayOfDictionary = default(IList<IDictionary<string, Product>>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<CatalogArray>> UpdateAsync(string subscriptionId, string resourceGroupName, CatalogArrayOfDictionary bodyParameter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

@@ -50,7 +50,7 @@ namespace Fixtures.InternalCtors
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        internal InternalClient(params DelegatingHandler[] handlers) : base(handlers)
+        public InternalClient(params DelegatingHandler[] handlers) : base(handlers)
         {
             Initialize();
         }
@@ -64,7 +64,7 @@ namespace Fixtures.InternalCtors
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        internal InternalClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
+        public InternalClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
         {
             Initialize();
         }
@@ -81,7 +81,7 @@ namespace Fixtures.InternalCtors
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        internal InternalClient(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
+        public InternalClient(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
         {
             if (baseUri == null)
             {
@@ -105,7 +105,7 @@ namespace Fixtures.InternalCtors
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        internal InternalClient(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        public InternalClient(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
         {
             if (baseUri == null)
             {

@@ -71,7 +71,7 @@ namespace Fixtures.Azure.AzureResource
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected AutoRestResourceFlatteningTestServiceClient(params DelegatingHandler[] handlers) : base(handlers)
+        public AutoRestResourceFlatteningTestServiceClient(params DelegatingHandler[] handlers) : base(handlers)
         {
             Initialize();
         }
@@ -85,7 +85,7 @@ namespace Fixtures.Azure.AzureResource
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected AutoRestResourceFlatteningTestServiceClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
+        public AutoRestResourceFlatteningTestServiceClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
         {
             Initialize();
         }
@@ -102,7 +102,7 @@ namespace Fixtures.Azure.AzureResource
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected AutoRestResourceFlatteningTestServiceClient(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
+        public AutoRestResourceFlatteningTestServiceClient(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
         {
             if (baseUri == null)
             {
@@ -126,7 +126,7 @@ namespace Fixtures.Azure.AzureResource
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected AutoRestResourceFlatteningTestServiceClient(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        public AutoRestResourceFlatteningTestServiceClient(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
         {
             if (baseUri == null)
             {
@@ -283,7 +283,6 @@ namespace Fixtures.Azure.AzureResource
                         new Iso8601TimeSpanConverter()
                     }
             };
-            SerializationSettings.Converters.Add(new TransformationJsonConverter());
             DeserializationSettings = new JsonSerializerSettings
             {
                 DateFormatHandling = Newtonsoft.Json.DateFormatHandling.IsoDateFormat,
@@ -297,7 +296,6 @@ namespace Fixtures.Azure.AzureResource
                     }
             };
             CustomInitialize();
-            DeserializationSettings.Converters.Add(new TransformationJsonConverter());
             DeserializationSettings.Converters.Add(new CloudErrorJsonConverter());
         }
         /// <summary>
@@ -319,7 +317,7 @@ namespace Fixtures.Azure.AzureResource
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> PutArrayWithHttpMessagesAsync(IList<ResourceX> resourceArray = default(IList<ResourceX>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> PutArrayAsync(IList<ResourceX> resourceArray = default(IList<ResourceX>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -333,7 +331,7 @@ namespace Fixtures.Azure.AzureResource
                 ServiceClientTracing.Enter(_invocationId, this, "PutArray", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "azure/resource-flatten/array").ToString();
             List<string> _queryParameters = new List<string>();
             if (_queryParameters.Count > 0)
@@ -346,7 +344,7 @@ namespace Fixtures.Azure.AzureResource
             _httpRequest.Method = new HttpMethod("PUT");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-            if (GenerateClientRequestId != null && GenerateClientRequestId.Value)
+            if (this.Client.GenerateClientRequestId != null && this.Client.GenerateClientRequestId.Value)
             {
                 _httpRequest.Headers.TryAddWithoutValidation("x-ms-client-request-id", System.Guid.NewGuid().ToString());
             }
@@ -376,15 +374,15 @@ namespace Fixtures.Azure.AzureResource
             string _requestContent = null;
             if(resourceArray != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(resourceArray, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(resourceArray, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
-            if (Credentials != null)
+            if (this.Client.Credentials != null)
             {
                 cancellationToken.ThrowIfCancellationRequested();
-                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+                await this.Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             }
             // Send Request
             if (_shouldTrace)
@@ -392,7 +390,7 @@ namespace Fixtures.Azure.AzureResource
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -406,7 +404,7 @@ namespace Fixtures.Azure.AzureResource
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, DeserializationSettings);
+                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -463,7 +461,7 @@ namespace Fixtures.Azure.AzureResource
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IList<FlattenedProduct>>> GetArrayWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IList<FlattenedProduct>>> GetArrayAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -476,7 +474,7 @@ namespace Fixtures.Azure.AzureResource
                 ServiceClientTracing.Enter(_invocationId, this, "GetArray", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "azure/resource-flatten/array").ToString();
             List<string> _queryParameters = new List<string>();
             if (_queryParameters.Count > 0)
@@ -489,7 +487,7 @@ namespace Fixtures.Azure.AzureResource
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-            if (GenerateClientRequestId != null && GenerateClientRequestId.Value)
+            if (this.Client.GenerateClientRequestId != null && this.Client.GenerateClientRequestId.Value)
             {
                 _httpRequest.Headers.TryAddWithoutValidation("x-ms-client-request-id", System.Guid.NewGuid().ToString());
             }
@@ -518,10 +516,10 @@ namespace Fixtures.Azure.AzureResource
             // Serialize Request
             string _requestContent = null;
             // Set Credentials
-            if (Credentials != null)
+            if (this.Client.Credentials != null)
             {
                 cancellationToken.ThrowIfCancellationRequested();
-                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+                await this.Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             }
             // Send Request
             if (_shouldTrace)
@@ -529,7 +527,7 @@ namespace Fixtures.Azure.AzureResource
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -543,7 +541,7 @@ namespace Fixtures.Azure.AzureResource
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, DeserializationSettings);
+                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -580,7 +578,7 @@ namespace Fixtures.Azure.AzureResource
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<IList<FlattenedProduct>>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<IList<FlattenedProduct>>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -618,7 +616,7 @@ namespace Fixtures.Azure.AzureResource
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> PutDictionaryWithHttpMessagesAsync(IDictionary<string, FlattenedProduct> resourceDictionary = default(IDictionary<string, FlattenedProduct>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> PutDictionaryAsync(IDictionary<string, FlattenedProduct> resourceDictionary = default(IDictionary<string, FlattenedProduct>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -632,7 +630,7 @@ namespace Fixtures.Azure.AzureResource
                 ServiceClientTracing.Enter(_invocationId, this, "PutDictionary", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "azure/resource-flatten/dictionary").ToString();
             List<string> _queryParameters = new List<string>();
             if (_queryParameters.Count > 0)
@@ -645,7 +643,7 @@ namespace Fixtures.Azure.AzureResource
             _httpRequest.Method = new HttpMethod("PUT");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-            if (GenerateClientRequestId != null && GenerateClientRequestId.Value)
+            if (this.Client.GenerateClientRequestId != null && this.Client.GenerateClientRequestId.Value)
             {
                 _httpRequest.Headers.TryAddWithoutValidation("x-ms-client-request-id", System.Guid.NewGuid().ToString());
             }
@@ -675,15 +673,15 @@ namespace Fixtures.Azure.AzureResource
             string _requestContent = null;
             if(resourceDictionary != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(resourceDictionary, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(resourceDictionary, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
-            if (Credentials != null)
+            if (this.Client.Credentials != null)
             {
                 cancellationToken.ThrowIfCancellationRequested();
-                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+                await this.Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             }
             // Send Request
             if (_shouldTrace)
@@ -691,7 +689,7 @@ namespace Fixtures.Azure.AzureResource
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -705,7 +703,7 @@ namespace Fixtures.Azure.AzureResource
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, DeserializationSettings);
+                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -762,7 +760,7 @@ namespace Fixtures.Azure.AzureResource
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IDictionary<string, FlattenedProduct>>> GetDictionaryWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IDictionary<string, FlattenedProduct>>> GetDictionaryAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -775,7 +773,7 @@ namespace Fixtures.Azure.AzureResource
                 ServiceClientTracing.Enter(_invocationId, this, "GetDictionary", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "azure/resource-flatten/dictionary").ToString();
             List<string> _queryParameters = new List<string>();
             if (_queryParameters.Count > 0)
@@ -788,7 +786,7 @@ namespace Fixtures.Azure.AzureResource
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-            if (GenerateClientRequestId != null && GenerateClientRequestId.Value)
+            if (this.Client.GenerateClientRequestId != null && this.Client.GenerateClientRequestId.Value)
             {
                 _httpRequest.Headers.TryAddWithoutValidation("x-ms-client-request-id", System.Guid.NewGuid().ToString());
             }
@@ -817,10 +815,10 @@ namespace Fixtures.Azure.AzureResource
             // Serialize Request
             string _requestContent = null;
             // Set Credentials
-            if (Credentials != null)
+            if (this.Client.Credentials != null)
             {
                 cancellationToken.ThrowIfCancellationRequested();
-                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+                await this.Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             }
             // Send Request
             if (_shouldTrace)
@@ -828,7 +826,7 @@ namespace Fixtures.Azure.AzureResource
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -842,7 +840,7 @@ namespace Fixtures.Azure.AzureResource
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, DeserializationSettings);
+                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -879,7 +877,7 @@ namespace Fixtures.Azure.AzureResource
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<IDictionary<string, FlattenedProduct>>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<IDictionary<string, FlattenedProduct>>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -917,7 +915,7 @@ namespace Fixtures.Azure.AzureResource
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> PutResourceCollectionWithHttpMessagesAsync(ResourceCollection resourceComplexObject = default(ResourceCollection), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> PutResourceCollectionAsync(ResourceCollection resourceComplexObject = default(ResourceCollection), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -931,7 +929,7 @@ namespace Fixtures.Azure.AzureResource
                 ServiceClientTracing.Enter(_invocationId, this, "PutResourceCollection", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "azure/resource-flatten/resourcecollection").ToString();
             List<string> _queryParameters = new List<string>();
             if (_queryParameters.Count > 0)
@@ -944,7 +942,7 @@ namespace Fixtures.Azure.AzureResource
             _httpRequest.Method = new HttpMethod("PUT");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-            if (GenerateClientRequestId != null && GenerateClientRequestId.Value)
+            if (this.Client.GenerateClientRequestId != null && this.Client.GenerateClientRequestId.Value)
             {
                 _httpRequest.Headers.TryAddWithoutValidation("x-ms-client-request-id", System.Guid.NewGuid().ToString());
             }
@@ -974,15 +972,15 @@ namespace Fixtures.Azure.AzureResource
             string _requestContent = null;
             if(resourceComplexObject != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(resourceComplexObject, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(resourceComplexObject, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
-            if (Credentials != null)
+            if (this.Client.Credentials != null)
             {
                 cancellationToken.ThrowIfCancellationRequested();
-                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+                await this.Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             }
             // Send Request
             if (_shouldTrace)
@@ -990,7 +988,7 @@ namespace Fixtures.Azure.AzureResource
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -1004,7 +1002,7 @@ namespace Fixtures.Azure.AzureResource
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, DeserializationSettings);
+                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -1061,7 +1059,7 @@ namespace Fixtures.Azure.AzureResource
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<ResourceCollection>> GetResourceCollectionWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<ResourceCollection>> GetResourceCollectionAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1074,7 +1072,7 @@ namespace Fixtures.Azure.AzureResource
                 ServiceClientTracing.Enter(_invocationId, this, "GetResourceCollection", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "azure/resource-flatten/resourcecollection").ToString();
             List<string> _queryParameters = new List<string>();
             if (_queryParameters.Count > 0)
@@ -1087,7 +1085,7 @@ namespace Fixtures.Azure.AzureResource
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-            if (GenerateClientRequestId != null && GenerateClientRequestId.Value)
+            if (this.Client.GenerateClientRequestId != null && this.Client.GenerateClientRequestId.Value)
             {
                 _httpRequest.Headers.TryAddWithoutValidation("x-ms-client-request-id", System.Guid.NewGuid().ToString());
             }
@@ -1116,10 +1114,10 @@ namespace Fixtures.Azure.AzureResource
             // Serialize Request
             string _requestContent = null;
             // Set Credentials
-            if (Credentials != null)
+            if (this.Client.Credentials != null)
             {
                 cancellationToken.ThrowIfCancellationRequested();
-                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+                await this.Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             }
             // Send Request
             if (_shouldTrace)
@@ -1127,7 +1125,7 @@ namespace Fixtures.Azure.AzureResource
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -1141,7 +1139,7 @@ namespace Fixtures.Azure.AzureResource
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, DeserializationSettings);
+                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -1178,7 +1176,7 @@ namespace Fixtures.Azure.AzureResource
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceCollection>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceCollection>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

@@ -11,56 +11,97 @@
 namespace Fixtures.BodyString.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for Colors.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum Colors
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(ColorsConverter))]
+    public struct Colors : System.IEquatable<Colors>
     {
-        [EnumMember(Value = "red color")]
-        Redcolor,
-        [EnumMember(Value = "green-color")]
-        GreenColor,
-        [EnumMember(Value = "blue_color")]
-        BlueColor
-    }
-    internal static class ColorsEnumExtension
-    {
-        internal static string ToSerializedValue(this Colors? value)
+        private Colors(string underlyingValue)
         {
-            return value == null ? null : ((Colors)value).ToSerializedValue();
+            UnderlyingValue=underlyingValue;
         }
 
-        internal static string ToSerializedValue(this Colors value)
+        public static readonly Colors Redcolor = "red color";
+
+        public static readonly Colors GreenColor = "green-color";
+
+        public static readonly Colors BlueColor = "blue_color";
+
+
+        /// <summary>
+        /// Underlying value of enum Colors
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for Colors
+        /// </summary>
+        public override string ToString()
         {
-            switch( value )
-            {
-                case Colors.Redcolor:
-                    return "red color";
-                case Colors.GreenColor:
-                    return "green-color";
-                case Colors.BlueColor:
-                    return "blue_color";
-            }
-            return null;
+            return UnderlyingValue.ToString();
         }
 
-        internal static Colors? ParseColors(this string value)
+        /// <summary>
+        /// Compares enums of type Colors
+        /// </summary>
+        public bool Equals(Colors e)
         {
-            switch( value )
-            {
-                case "red color":
-                    return Colors.Redcolor;
-                case "green-color":
-                    return Colors.GreenColor;
-                case "blue_color":
-                    return Colors.BlueColor;
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
+
+        /// <summary>
+        /// Implicit operator to convert string to Colors
+        /// </summary>
+        public static implicit operator Colors(string value)
+        {
+            return new Colors(value);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert Colors to string
+        /// </summary>
+        public static implicit operator string(Colors e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum Colors
+        /// </summary>
+        public static bool operator == (Colors e1, Colors e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum Colors
+        /// </summary>
+        public static bool operator != (Colors e1, Colors e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for Colors
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is Colors && Equals((Colors)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode Colors
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

@@ -10,15 +10,12 @@
 
 namespace Fixtures.ModelFlattening.Models
 {
-    using Microsoft.Rest;
-    using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
     using System.Linq;
 
     /// <summary>
     /// The wrapped produc.
     /// </summary>
-    [JsonTransformation]
     public partial class ProductWrapper
     {
         /// <summary>
@@ -32,10 +29,9 @@ namespace Fixtures.ModelFlattening.Models
         /// <summary>
         /// Initializes a new instance of the ProductWrapper class.
         /// </summary>
-        /// <param name="value">the product value</param>
-        public ProductWrapper(string value = default(string))
+        public ProductWrapper(WrappedProduct property = default(WrappedProduct))
         {
-            Value = value;
+            Property = property;
             CustomInit();
         }
 
@@ -45,10 +41,9 @@ namespace Fixtures.ModelFlattening.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the product value
         /// </summary>
-        [JsonProperty(PropertyName = "property.value")]
-        public string Value { get; set; }
+        [JsonProperty(PropertyName = "property")]
+        public WrappedProduct Property { get; set; }
 
     }
 }

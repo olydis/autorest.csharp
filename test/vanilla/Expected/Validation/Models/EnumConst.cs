@@ -11,44 +11,93 @@
 namespace Fixtures.Validation.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for EnumConst.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum EnumConst
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(EnumConstConverter))]
+    public struct EnumConst : System.IEquatable<EnumConst>
     {
-        [EnumMember(Value = "constant_string_as_enum")]
-        ConstantStringAsEnum
-    }
-    internal static class EnumConstEnumExtension
-    {
-        internal static string ToSerializedValue(this EnumConst? value)
+        private EnumConst(string underlyingValue)
         {
-            return value == null ? null : ((EnumConst)value).ToSerializedValue();
+            UnderlyingValue=underlyingValue;
         }
 
-        internal static string ToSerializedValue(this EnumConst value)
+        public static readonly EnumConst ConstantStringAsEnum = "constant_string_as_enum";
+
+
+        /// <summary>
+        /// Underlying value of enum EnumConst
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for EnumConst
+        /// </summary>
+        public override string ToString()
         {
-            switch( value )
-            {
-                case EnumConst.ConstantStringAsEnum:
-                    return "constant_string_as_enum";
-            }
-            return null;
+            return UnderlyingValue.ToString();
         }
 
-        internal static EnumConst? ParseEnumConst(this string value)
+        /// <summary>
+        /// Compares enums of type EnumConst
+        /// </summary>
+        public bool Equals(EnumConst e)
         {
-            switch( value )
-            {
-                case "constant_string_as_enum":
-                    return EnumConst.ConstantStringAsEnum;
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
+
+        /// <summary>
+        /// Implicit operator to convert string to EnumConst
+        /// </summary>
+        public static implicit operator EnumConst(string value)
+        {
+            return new EnumConst(value);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert EnumConst to string
+        /// </summary>
+        public static implicit operator string(EnumConst e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum EnumConst
+        /// </summary>
+        public static bool operator == (EnumConst e1, EnumConst e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum EnumConst
+        /// </summary>
+        public static bool operator != (EnumConst e1, EnumConst e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for EnumConst
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is EnumConst && Equals((EnumConst)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode EnumConst
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

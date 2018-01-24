@@ -53,7 +53,7 @@ namespace Fixtures.Report
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<IDictionary<string, int?>>> GetReportWithHttpMessagesAsync(string qualifier = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, int?>>> GetReportAsync(string qualifier = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

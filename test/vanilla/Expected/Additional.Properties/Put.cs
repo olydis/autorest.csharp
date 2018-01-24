@@ -70,7 +70,7 @@ namespace Fixtures.AdditionalProperties
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PetsWithHttpMessagesAsync(Pet pet, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PetsAsync(Pet pet, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (pet == null)
             {

@@ -177,7 +177,7 @@ namespace Fixtures.MirrorPolymorphic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Animal>> CreateOrUpdatePolymorphicAnimalsWithHttpMessagesAsync(Animal animalCreateOrUpdateParameter = default(Animal), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Animal>> CreateOrUpdatePolymorphicAnimalsAsync(Animal animalCreateOrUpdateParameter = default(Animal), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -191,7 +191,7 @@ namespace Fixtures.MirrorPolymorphic
                 ServiceClientTracing.Enter(_invocationId, this, "CreateOrUpdatePolymorphicAnimals", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "getpolymorphicAnimals").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -217,7 +217,7 @@ namespace Fixtures.MirrorPolymorphic
             string _requestContent = null;
             if(animalCreateOrUpdateParameter != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(animalCreateOrUpdateParameter, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(animalCreateOrUpdateParameter, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -227,7 +227,7 @@ namespace Fixtures.MirrorPolymorphic
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -241,7 +241,7 @@ namespace Fixtures.MirrorPolymorphic
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error2 _errorBody =  SafeJsonConvert.DeserializeObject<Error2>(_responseContent, DeserializationSettings);
+                    Error2 _errorBody =  SafeJsonConvert.DeserializeObject<Error2>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -274,7 +274,7 @@ namespace Fixtures.MirrorPolymorphic
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<Animal>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<Animal>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

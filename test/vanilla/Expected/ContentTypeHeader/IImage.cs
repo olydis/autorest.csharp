@@ -38,7 +38,7 @@ namespace Fixtures.ContentTypeHeader
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> AWithHttpMessagesAsync(Stream image, ImageType imageContentType, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> AAsync(Stream image, ImageType imageContentType, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <param name='image'>
         /// An image stream.
         /// </param>
@@ -58,7 +58,7 @@ namespace Fixtures.ContentTypeHeader
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> BWithHttpMessagesAsync(Stream image, ImageType imageContentType, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> BAsync(Stream image, ImageType imageContentType, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <param name='image'>
         /// An image stream.
         /// </param>
@@ -78,7 +78,7 @@ namespace Fixtures.ContentTypeHeader
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> CWithHttpMessagesAsync(Stream image, ImageTypeRestricted imageContentType, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> CAsync(Stream image, ImageTypeRestricted imageContentType, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <param name='image'>
         /// An image stream.
         /// </param>
@@ -98,6 +98,6 @@ namespace Fixtures.ContentTypeHeader
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> DWithHttpMessagesAsync(Stream image, string imageContentType, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> DAsync(Stream image, string imageContentType, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

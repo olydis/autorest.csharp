@@ -38,17 +38,14 @@ namespace AutoRest.CSharp.Azure
             // we're guaranteed to be in our language-specific context here.
             Settings.Instance.AddCredentials = true;
 
-            // add the Credentials
-            // PopulateAdditionalProperties(codeModel);
-
-            // todo: these should be turned into individual transformers
-            AzureExtensions.NormalizeAzureClientModel(codeModel);
-
-            // Do parameter transformations
-            TransformParameters(codeModel);
+            SwaggerExtensions.ProcessParameterizedHost(codeModel);
+            AzureExtensions.ProcessClientRequestIdExtension(codeModel);
+            AzureExtensions.AddLongRunningOperations(codeModel);
+            AzureExtensions.AddAzureProperties(codeModel);
+            AzureExtensions.SetDefaultResponses(codeModel);
+            AzureExtensions.AddPageableMethod(codeModel);
 
             NormalizePaginatedMethods(codeModel);
-            NormalizeODataMethods(codeModel);
 
             foreach (var model in codeModel.ModelTypes)
             {
@@ -61,52 +58,6 @@ namespace AutoRest.CSharp.Azure
             }
 
             return codeModel;
-        }
-
-        public virtual void NormalizeODataMethods(CodeModel client)
-        {
-            if (client == null)
-            {
-                throw new ArgumentNullException("client");
-            }
-
-            foreach (var method in client.Methods)
-            {
-                if (method.Extensions.ContainsKey(AzureExtensions.ODataExtension))
-                {
-                    var odataFilter = method.Parameters.FirstOrDefault(p =>
-                        p.SerializedName.EqualsIgnoreCase("$filter") &&
-                        (p.Location == ParameterLocation.Query) &&
-                        p.ModelType is CompositeType);
-
-                    if (odataFilter == null)
-                    {
-                        continue;
-                    }
-
-                    // Remove all odata parameters
-                    method.Remove(source =>
-                        (source.SerializedName.EqualsIgnoreCase("$filter") ||
-                         source.SerializedName.EqualsIgnoreCase("$top") ||
-                         source.SerializedName.EqualsIgnoreCase("$orderby") ||
-                         source.SerializedName.EqualsIgnoreCase("$skip") ||
-                         source.SerializedName.EqualsIgnoreCase("$expand"))
-                        && (source.Location == ParameterLocation.Query));
-
-                    var odataQuery = New<Parameter>(new
-                    {
-                        SerializedName = "$filter",
-                        Name = "odataQuery",
-                        ModelType = New<ILiteralType>($"Microsoft.Rest.Azure.OData.ODataQuery<{odataFilter.ModelType.Name}>"),
-                        Documentation = "OData parameters to apply to the operation.",
-                        Location = ParameterLocation.Query,
-                        odataFilter.IsRequired
-                    });
-                    odataQuery.Extensions[AzureExtensions.ODataExtension] =
-                        method.Extensions[AzureExtensions.ODataExtension];
-                    method.Insert(odataQuery);
-                }
-            }
         }
 
         /// <summary>

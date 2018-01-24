@@ -40,7 +40,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> ParamExistingKeyWithHttpMessagesAsync(string userAgent, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> ParamExistingKeyAsync(string userAgent, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a response with header value "User-Agent": "overwrite"
         /// </summary>
@@ -53,7 +53,7 @@ namespace Fixtures.Header
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationHeaderResponse<HeaderResponseExistingKeyHeaders>> ResponseExistingKeyWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HeaderResponseExistingKeyHeaders>> ResponseExistingKeyAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Send a post request with header value "Content-Type": "text/html"
         /// </summary>
@@ -72,7 +72,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> ParamProtectedKeyWithHttpMessagesAsync(string contentType, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> ParamProtectedKeyAsync(string contentType, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a response with header value "Content-Type": "text/html"
         /// </summary>
@@ -85,7 +85,7 @@ namespace Fixtures.Header
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationHeaderResponse<HeaderResponseProtectedKeyHeaders>> ResponseProtectedKeyWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HeaderResponseProtectedKeyHeaders>> ResponseProtectedKeyAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Send a post request with header values "scenario": "positive",
         /// "value": 1 or "scenario": "negative", "value": -2
@@ -109,7 +109,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> ParamIntegerWithHttpMessagesAsync(string scenario, int value, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> ParamIntegerAsync(string scenario, int value, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a response with header value "value": 1 or -2
         /// </summary>
@@ -129,7 +129,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationHeaderResponse<HeaderResponseIntegerHeaders>> ResponseIntegerWithHttpMessagesAsync(string scenario, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HeaderResponseIntegerHeaders>> ResponseIntegerAsync(string scenario, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Send a post request with header values "scenario": "positive",
         /// "value": 105 or "scenario": "negative", "value": -2
@@ -153,7 +153,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> ParamLongWithHttpMessagesAsync(string scenario, long value, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> ParamLongAsync(string scenario, long value, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a response with header value "value": 105 or -2
         /// </summary>
@@ -173,7 +173,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationHeaderResponse<HeaderResponseLongHeaders>> ResponseLongWithHttpMessagesAsync(string scenario, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HeaderResponseLongHeaders>> ResponseLongAsync(string scenario, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Send a post request with header values "scenario": "positive",
         /// "value": 0.07 or "scenario": "negative", "value": -3.0
@@ -197,7 +197,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> ParamFloatWithHttpMessagesAsync(string scenario, double value, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> ParamFloatAsync(string scenario, double value, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a response with header value "value": 0.07 or -3.0
         /// </summary>
@@ -217,7 +217,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationHeaderResponse<HeaderResponseFloatHeaders>> ResponseFloatWithHttpMessagesAsync(string scenario, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HeaderResponseFloatHeaders>> ResponseFloatAsync(string scenario, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Send a post request with header values "scenario": "positive",
         /// "value": 7e120 or "scenario": "negative", "value": -3.0
@@ -241,7 +241,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> ParamDoubleWithHttpMessagesAsync(string scenario, double value, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> ParamDoubleAsync(string scenario, double value, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a response with header value "value": 7e120 or -3.0
         /// </summary>
@@ -261,7 +261,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationHeaderResponse<HeaderResponseDoubleHeaders>> ResponseDoubleWithHttpMessagesAsync(string scenario, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HeaderResponseDoubleHeaders>> ResponseDoubleAsync(string scenario, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Send a post request with header values "scenario": "true", "value":
         /// true or "scenario": "false", "value": false
@@ -285,7 +285,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> ParamBoolWithHttpMessagesAsync(string scenario, bool value, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> ParamBoolAsync(string scenario, bool value, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a response with header value "value": true or false
         /// </summary>
@@ -305,7 +305,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationHeaderResponse<HeaderResponseBoolHeaders>> ResponseBoolWithHttpMessagesAsync(string scenario, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HeaderResponseBoolHeaders>> ResponseBoolAsync(string scenario, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Send a post request with header values "scenario": "valid",
         /// "value": "The quick brown fox jumps over the lazy dog" or
@@ -332,7 +332,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> ParamStringWithHttpMessagesAsync(string scenario, string value = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> ParamStringAsync(string scenario, string value = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a response with header values "The quick brown fox jumps over
         /// the lazy dog" or null or ""
@@ -353,7 +353,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationHeaderResponse<HeaderResponseStringHeaders>> ResponseStringWithHttpMessagesAsync(string scenario, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HeaderResponseStringHeaders>> ResponseStringAsync(string scenario, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Send a post request with header values "scenario": "valid",
         /// "value": "2010-01-01" or "scenario": "min", "value": "0001-01-01"
@@ -376,7 +376,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> ParamDateWithHttpMessagesAsync(string scenario, System.DateTime value, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> ParamDateAsync(string scenario, System.DateTime value, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a response with header values "2010-01-01" or "0001-01-01"
         /// </summary>
@@ -395,7 +395,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationHeaderResponse<HeaderResponseDateHeaders>> ResponseDateWithHttpMessagesAsync(string scenario, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HeaderResponseDateHeaders>> ResponseDateAsync(string scenario, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Send a post request with header values "scenario": "valid",
         /// "value": "2010-01-01T12:34:56Z" or "scenario": "min", "value":
@@ -420,7 +420,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> ParamDatetimeWithHttpMessagesAsync(string scenario, System.DateTime value, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> ParamDatetimeAsync(string scenario, System.DateTime value, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a response with header values "2010-01-01T12:34:56Z" or
         /// "0001-01-01T00:00:00Z"
@@ -440,7 +440,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationHeaderResponse<HeaderResponseDatetimeHeaders>> ResponseDatetimeWithHttpMessagesAsync(string scenario, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HeaderResponseDatetimeHeaders>> ResponseDatetimeAsync(string scenario, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Send a post request with header values "scenario": "valid",
         /// "value": "Wed, 01 Jan 2010 12:34:56 GMT" or "scenario": "min",
@@ -465,7 +465,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> ParamDatetimeRfc1123WithHttpMessagesAsync(string scenario, System.DateTime? value = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> ParamDatetimeRfc1123Async(string scenario, System.DateTime? value = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a response with header values "Wed, 01 Jan 2010 12:34:56 GMT"
         /// or "Mon, 01 Jan 0001 00:00:00 GMT"
@@ -485,7 +485,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationHeaderResponse<HeaderResponseDatetimeRfc1123Headers>> ResponseDatetimeRfc1123WithHttpMessagesAsync(string scenario, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HeaderResponseDatetimeRfc1123Headers>> ResponseDatetimeRfc1123Async(string scenario, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Send a post request with header values "scenario": "valid",
         /// "value": "P123DT22H14M12.011S"
@@ -508,7 +508,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> ParamDurationWithHttpMessagesAsync(string scenario, System.TimeSpan value, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> ParamDurationAsync(string scenario, System.TimeSpan value, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a response with header values "P123DT22H14M12.011S"
         /// </summary>
@@ -527,7 +527,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationHeaderResponse<HeaderResponseDurationHeaders>> ResponseDurationWithHttpMessagesAsync(string scenario, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HeaderResponseDurationHeaders>> ResponseDurationAsync(string scenario, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Send a post request with header values "scenario": "valid",
         /// "value": "啊齄丂狛狜隣郎隣兀﨩"
@@ -550,7 +550,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> ParamByteWithHttpMessagesAsync(string scenario, byte[] value, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> ParamByteAsync(string scenario, byte[] value, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a response with header values "啊齄丂狛狜隣郎隣兀﨩"
         /// </summary>
@@ -569,7 +569,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationHeaderResponse<HeaderResponseByteHeaders>> ResponseByteWithHttpMessagesAsync(string scenario, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HeaderResponseByteHeaders>> ResponseByteAsync(string scenario, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Send a post request with header values "scenario": "valid",
         /// "value": "GREY" or "scenario": "null", "value": null
@@ -594,7 +594,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> ParamEnumWithHttpMessagesAsync(string scenario, GreyscaleColors? value = default(GreyscaleColors?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> ParamEnumAsync(string scenario, GreyscaleColors? value = default(GreyscaleColors?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a response with header values "GREY" or null
         /// </summary>
@@ -614,7 +614,7 @@ namespace Fixtures.Header
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationHeaderResponse<HeaderResponseEnumHeaders>> ResponseEnumWithHttpMessagesAsync(string scenario, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<HeaderResponseEnumHeaders>> ResponseEnumAsync(string scenario, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Send x-ms-client-request-id = 9C4D50EE-2D56-4CD3-8152-34347DC9F2B0
         /// in the header of the request
@@ -628,6 +628,6 @@ namespace Fixtures.Header
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationResponse> CustomRequestIdWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> CustomRequestIdAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

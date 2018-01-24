@@ -51,7 +51,7 @@ namespace Fixtures.ModelFlattening
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse> PutArrayWithHttpMessagesAsync(IList<Resource> resourceArray = default(IList<Resource>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutArrayAsync(IList<Resource> resourceArray = default(IList<Resource>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get External Resource as an Array
@@ -62,7 +62,7 @@ namespace Fixtures.ModelFlattening
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<IList<FlattenedProduct>>> GetArrayWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<FlattenedProduct>>> GetArrayAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// No need to have a route in Express server for this operation. Used
@@ -78,7 +78,7 @@ namespace Fixtures.ModelFlattening
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse> PutWrappedArrayWithHttpMessagesAsync(IList<WrappedProduct> resourceArray = default(IList<WrappedProduct>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutWrappedArrayAsync(IList<WrappedProduct> resourceArray = default(IList<WrappedProduct>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// No need to have a route in Express server for this operation. Used
@@ -91,7 +91,7 @@ namespace Fixtures.ModelFlattening
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<IList<ProductWrapper>>> GetWrappedArrayWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<ProductWrapper>>> GetWrappedArrayAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Put External Resource as a Dictionary
@@ -105,7 +105,7 @@ namespace Fixtures.ModelFlattening
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse> PutDictionaryWithHttpMessagesAsync(IDictionary<string, FlattenedProduct> resourceDictionary = default(IDictionary<string, FlattenedProduct>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutDictionaryAsync(IDictionary<string, FlattenedProduct> resourceDictionary = default(IDictionary<string, FlattenedProduct>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get External Resource as a Dictionary
@@ -116,7 +116,7 @@ namespace Fixtures.ModelFlattening
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<IDictionary<string, FlattenedProduct>>> GetDictionaryWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, FlattenedProduct>>> GetDictionaryAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Put External Resource as a ResourceCollection
@@ -130,7 +130,7 @@ namespace Fixtures.ModelFlattening
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse> PutResourceCollectionWithHttpMessagesAsync(ResourceCollection resourceComplexObject = default(ResourceCollection), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutResourceCollectionAsync(ResourceCollection resourceComplexObject = default(ResourceCollection), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get External Resource as a ResourceCollection
@@ -141,7 +141,7 @@ namespace Fixtures.ModelFlattening
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceCollection>> GetResourceCollectionWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceCollection>> GetResourceCollectionAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Put Simple Product with client flattening true on the model
@@ -155,28 +155,14 @@ namespace Fixtures.ModelFlattening
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<SimpleProduct>> PutSimpleProductWithHttpMessagesAsync(SimpleProduct simpleBodyProduct = default(SimpleProduct), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<SimpleProduct>> PutSimpleProductAsync(SimpleProduct simpleBodyProduct = default(SimpleProduct), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Put Flattened Simple Product with client flattening true on the
         /// parameter
         /// </summary>
-        /// <param name='productId'>
-        /// Unique identifier representing a specific product for a given
-        /// latitude &amp; longitude. For example, uberX in San Francisco will
-        /// have a different product_id than uberX in Los Angeles.
-        /// </param>
-        /// <param name='maxProductDisplayName'>
-        /// Display name of product.
-        /// </param>
-        /// <param name='description'>
-        /// Description of product.
-        /// </param>
-        /// <param name='genericValue'>
-        /// Generic URL value.
-        /// </param>
-        /// <param name='odatavalue'>
-        /// URL value.
+        /// <param name='simpleBodyProduct'>
+        /// Simple body product to post
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -184,13 +170,16 @@ namespace Fixtures.ModelFlattening
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<SimpleProduct>> PostFlattenedSimpleProductWithHttpMessagesAsync(string productId, string maxProductDisplayName, string description = default(string), string genericValue = default(string), string odatavalue = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<SimpleProduct>> PostFlattenedSimpleProductAsync(SimpleProduct simpleBodyProduct = default(SimpleProduct), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Put Simple Product with client flattening true on the model
         /// </summary>
-        /// <param name='flattenParameterGroup'>
-        /// Additional parameters for the operation
+        /// <param name='name'>
+        /// Product name with value 'groupproduct'
+        /// </param>
+        /// <param name='simpleBodyProduct'>
+        /// Simple body product to put
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -198,7 +187,7 @@ namespace Fixtures.ModelFlattening
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<SimpleProduct>> PutSimpleProductWithGroupingWithHttpMessagesAsync(FlattenParameterGroup flattenParameterGroup, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<SimpleProduct>> PutSimpleProductWithGroupingAsync(string name, SimpleProduct simpleBodyProduct = default(SimpleProduct), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

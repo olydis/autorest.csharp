@@ -66,7 +66,7 @@ namespace Fixtures.Components
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Cowbell>> GetWithHttpMessagesAsync(long id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Cowbell>> GetAsync(long id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -198,7 +198,7 @@ namespace Fixtures.Components
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> AddWithHttpMessagesAsync(Cowbell body, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> AddAsync(Cowbell body, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (body == null)
             {
@@ -309,7 +309,7 @@ namespace Fixtures.Components
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> EmptyWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> EmptyAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             throw new System.NotImplementedException();
         }
@@ -326,7 +326,7 @@ namespace Fixtures.Components
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> GetImplementationAgnosticWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> GetImplementationAgnosticAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // language agnostic stub implementation:
             return null; // no cowbell to retrieve here
@@ -344,7 +344,7 @@ namespace Fixtures.Components
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> GetImplementationSpecificWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> GetImplementationSpecificAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // C# specific stub implementation:
             return null; // no cowbell to retrieve here
@@ -364,9 +364,9 @@ namespace Fixtures.Components
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> GetForwardToWithHttpMessagesAsync(long id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> GetForwardToAsync(long id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            return await Client.Cowbell.GetWithHttpMessagesAsync(
+            return await Client.Cowbell.GetAsync(
                 id: id,
                 customHeaders: customHeaders,
                 cancellationToken: cancellationToken);
@@ -384,9 +384,9 @@ namespace Fixtures.Components
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> GetForwardToCustomArgs1WithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> GetForwardToCustomArgs1Async(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            return await Client.Cowbell.GetWithHttpMessagesAsync(
+            return await Client.Cowbell.GetAsync(
                 id: default(long),
                 customHeaders: customHeaders,
                 cancellationToken: cancellationToken);
@@ -414,9 +414,9 @@ namespace Fixtures.Components
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> GetForwardToCustomArgs2WithHttpMessagesAsync(string name, long id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> GetForwardToCustomArgs2Async(string name, long id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            return await Client.Cowbell.GetWithHttpMessagesAsync(
+            return await Client.Cowbell.GetAsync(
                 id: id,
                 customHeaders: customHeaders,
                 cancellationToken: cancellationToken);
@@ -444,9 +444,9 @@ namespace Fixtures.Components
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> GetForwardToCustomArgs3WithHttpMessagesAsync(string name, long idx, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> GetForwardToCustomArgs3Async(string name, long idx, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            return await Client.Cowbell.GetWithHttpMessagesAsync(
+            return await Client.Cowbell.GetAsync(
                 id: default(long),
                 customHeaders: customHeaders,
                 cancellationToken: cancellationToken);
@@ -474,9 +474,9 @@ namespace Fixtures.Components
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> GetForwardToCustomArgs4WithHttpMessagesAsync(string name, long idx, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> GetForwardToCustomArgs4Async(string name, long idx, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            return await Client.Cowbell.GetWithHttpMessagesAsync(
+            return await Client.Cowbell.GetAsync(
                 id: idx,
                 customHeaders: customHeaders,
                 cancellationToken: cancellationToken);

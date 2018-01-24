@@ -33,6 +33,11 @@ namespace Fixtures.ContentTypeHeader
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
+        /// The content type of the image.
+        /// </summary>
+        public string ContentType { get; set; }
+
+        /// <summary>
         /// Gets the IImage.
         /// </summary>
         public virtual IImage Image { get; private set; }

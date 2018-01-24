@@ -74,7 +74,7 @@ namespace Fixtures.ExtensibleEnums
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Pet>> GetByPetIdWithHttpMessagesAsync(string petId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Pet>> GetByPetIdAsync(string petId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (petId == null)
             {
@@ -199,7 +199,7 @@ namespace Fixtures.ExtensibleEnums
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Pet>> AddPetWithHttpMessagesAsync(Pet petParam = default(Pet), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Pet>> AddPetAsync(Pet petParam = default(Pet), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (petParam != null)
             {

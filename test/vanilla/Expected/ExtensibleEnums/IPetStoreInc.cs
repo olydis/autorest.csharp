@@ -33,6 +33,11 @@ namespace Fixtures.ExtensibleEnums
         /// </summary>
         JsonSerializerSettings DeserializationSettings { get; }
 
+        /// <summary>
+        /// Pet id
+        /// </summary>
+        string PetId { get; set; }
+
 
         /// <summary>
         /// Gets the IPetOperations.

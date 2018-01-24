@@ -59,7 +59,7 @@ namespace Fixtures.ParameterFlattening
         /// The name of the storage availability set.
         /// </param>
         /// <param name='tags'>
-        /// A set of tags. A description about the set of tags.
+        /// The tags.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -79,7 +79,7 @@ namespace Fixtures.ParameterFlattening
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> UpdateWithHttpMessagesAsync(string resourceGroupName, string avset, IDictionary<string, string> tags, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> UpdateAsync(string resourceGroupName, string avset, AvailabilitySetUpdateParameters tags, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -100,11 +100,6 @@ namespace Fixtures.ParameterFlattening
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "tags");
             }
-            AvailabilitySetUpdateParameters tags1 = new AvailabilitySetUpdateParameters();
-            if (tags != null)
-            {
-                tags1.Tags = tags;
-            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -114,7 +109,7 @@ namespace Fixtures.ParameterFlattening
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("resourceGroupName", resourceGroupName);
                 tracingParameters.Add("avset", avset);
-                tracingParameters.Add("tags1", tags1);
+                tracingParameters.Add("tags", tags);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Update", tracingParameters);
             }
@@ -145,9 +140,9 @@ namespace Fixtures.ParameterFlattening
 
             // Serialize Request
             string _requestContent = null;
-            if(tags1 != null)
+            if(tags != null)
             {
-                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(tags1, Client.SerializationSettings);
+                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(tags, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }

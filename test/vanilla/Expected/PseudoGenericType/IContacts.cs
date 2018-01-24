@@ -47,7 +47,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponse<ContactsModel>>> GetContactsWithHttpMessagesAsync(string subscriptionId, int take, int skip, System.Guid? country = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponse<ContactsModel>>> GetContactsAsync(string subscriptionId, int take, int skip, System.Guid? country = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Add a new contact
         /// </summary>
@@ -84,7 +84,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<ContactsModel>> AddContactWithHttpMessagesAsync(string subscriptionId, string building, string city, string street, string postcode, string company = default(string), string title = default(string), string firstName = default(string), string lastName = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ContactsModel>> AddContactAsync(string subscriptionId, string building, string city, string street, string postcode, string company = default(string), string title = default(string), string firstName = default(string), string lastName = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a contact
         /// </summary>
@@ -108,6 +108,6 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<ContactsModel>> GetContactWithHttpMessagesAsync(string subscriptionId, string id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ContactsModel>> GetContactAsync(string subscriptionId, string id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

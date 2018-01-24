@@ -11,56 +11,97 @@
 namespace Fixtures.Header.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for GreyscaleColors.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum GreyscaleColors
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(GreyscaleColorsConverter))]
+    public struct GreyscaleColors : System.IEquatable<GreyscaleColors>
     {
-        [EnumMember(Value = "White")]
-        White,
-        [EnumMember(Value = "black")]
-        Black,
-        [EnumMember(Value = "GREY")]
-        GREY
-    }
-    internal static class GreyscaleColorsEnumExtension
-    {
-        internal static string ToSerializedValue(this GreyscaleColors? value)
+        private GreyscaleColors(string underlyingValue)
         {
-            return value == null ? null : ((GreyscaleColors)value).ToSerializedValue();
+            UnderlyingValue=underlyingValue;
         }
 
-        internal static string ToSerializedValue(this GreyscaleColors value)
+        public static readonly GreyscaleColors White = "White";
+
+        public static readonly GreyscaleColors Black = "black";
+
+        public static readonly GreyscaleColors GREY = "GREY";
+
+
+        /// <summary>
+        /// Underlying value of enum GreyscaleColors
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for GreyscaleColors
+        /// </summary>
+        public override string ToString()
         {
-            switch( value )
-            {
-                case GreyscaleColors.White:
-                    return "White";
-                case GreyscaleColors.Black:
-                    return "black";
-                case GreyscaleColors.GREY:
-                    return "GREY";
-            }
-            return null;
+            return UnderlyingValue.ToString();
         }
 
-        internal static GreyscaleColors? ParseGreyscaleColors(this string value)
+        /// <summary>
+        /// Compares enums of type GreyscaleColors
+        /// </summary>
+        public bool Equals(GreyscaleColors e)
         {
-            switch( value )
-            {
-                case "White":
-                    return GreyscaleColors.White;
-                case "black":
-                    return GreyscaleColors.Black;
-                case "GREY":
-                    return GreyscaleColors.GREY;
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
+
+        /// <summary>
+        /// Implicit operator to convert string to GreyscaleColors
+        /// </summary>
+        public static implicit operator GreyscaleColors(string value)
+        {
+            return new GreyscaleColors(value);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert GreyscaleColors to string
+        /// </summary>
+        public static implicit operator string(GreyscaleColors e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum GreyscaleColors
+        /// </summary>
+        public static bool operator == (GreyscaleColors e1, GreyscaleColors e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum GreyscaleColors
+        /// </summary>
+        public static bool operator != (GreyscaleColors e1, GreyscaleColors e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for GreyscaleColors
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is GreyscaleColors && Equals((GreyscaleColors)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode GreyscaleColors
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

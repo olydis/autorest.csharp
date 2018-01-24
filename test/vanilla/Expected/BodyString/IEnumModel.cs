@@ -38,7 +38,7 @@ namespace Fixtures.BodyString
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Colors?>> GetNotExpandableWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Colors?>> GetNotExpandableAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Sends value 'red color' from enumeration of 'red color',
         /// 'green-color', 'blue_color'
@@ -55,7 +55,7 @@ namespace Fixtures.BodyString
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationResponse> PutNotExpandableWithHttpMessagesAsync(Colors stringBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutNotExpandableAsync(Colors stringBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get enum value 'red color' from enumeration of 'red color',
         /// 'green-color', 'blue_color'.
@@ -72,7 +72,7 @@ namespace Fixtures.BodyString
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Colors?>> GetReferencedWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Colors?>> GetReferencedAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Sends value 'red color' from enumeration of 'red color',
         /// 'green-color', 'blue_color'
@@ -89,7 +89,7 @@ namespace Fixtures.BodyString
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationResponse> PutReferencedWithHttpMessagesAsync(Colors enumStringBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutReferencedAsync(Colors enumStringBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get value 'green-color' from the constant.
         /// </summary>
@@ -105,12 +105,11 @@ namespace Fixtures.BodyString
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<RefColorConstant>> GetReferencedConstantWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<RefColorConstant>> GetReferencedConstantAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Sends value 'green-color' from a constant
         /// </summary>
-        /// <param name='field1'>
-        /// Sample string.
+        /// <param name='enumStringBody'>
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -121,6 +120,9 @@ namespace Fixtures.BodyString
         /// <exception cref="ErrorException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationResponse> PutReferencedConstantWithHttpMessagesAsync(string field1 = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse> PutReferencedConstantAsync(RefColorConstant enumStringBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

@@ -84,7 +84,7 @@ namespace Fixtures.Azure.SubscriptionIdApiVersion
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected MicrosoftAzureTestUrlClient(params DelegatingHandler[] handlers) : base(handlers)
+        public MicrosoftAzureTestUrlClient(params DelegatingHandler[] handlers) : base(handlers)
         {
             Initialize();
         }
@@ -98,7 +98,7 @@ namespace Fixtures.Azure.SubscriptionIdApiVersion
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected MicrosoftAzureTestUrlClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
+        public MicrosoftAzureTestUrlClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
         {
             Initialize();
         }
@@ -115,7 +115,7 @@ namespace Fixtures.Azure.SubscriptionIdApiVersion
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected MicrosoftAzureTestUrlClient(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
+        public MicrosoftAzureTestUrlClient(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
         {
             if (baseUri == null)
             {
@@ -139,7 +139,7 @@ namespace Fixtures.Azure.SubscriptionIdApiVersion
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected MicrosoftAzureTestUrlClient(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        public MicrosoftAzureTestUrlClient(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
         {
             if (baseUri == null)
             {

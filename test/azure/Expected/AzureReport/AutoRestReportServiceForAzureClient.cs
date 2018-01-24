@@ -71,7 +71,7 @@ namespace Fixtures.Azure.AzureReport
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected AutoRestReportServiceForAzureClient(params DelegatingHandler[] handlers) : base(handlers)
+        public AutoRestReportServiceForAzureClient(params DelegatingHandler[] handlers) : base(handlers)
         {
             Initialize();
         }
@@ -85,7 +85,7 @@ namespace Fixtures.Azure.AzureReport
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected AutoRestReportServiceForAzureClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
+        public AutoRestReportServiceForAzureClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
         {
             Initialize();
         }
@@ -102,7 +102,7 @@ namespace Fixtures.Azure.AzureReport
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected AutoRestReportServiceForAzureClient(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
+        public AutoRestReportServiceForAzureClient(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
         {
             if (baseUri == null)
             {
@@ -126,7 +126,7 @@ namespace Fixtures.Azure.AzureReport
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected AutoRestReportServiceForAzureClient(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        public AutoRestReportServiceForAzureClient(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
         {
             if (baseUri == null)
             {
@@ -321,7 +321,7 @@ namespace Fixtures.Azure.AzureReport
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IDictionary<string, int?>>> GetReportWithHttpMessagesAsync(string qualifier = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IDictionary<string, int?>>> GetReportAsync(string qualifier = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -335,7 +335,7 @@ namespace Fixtures.Azure.AzureReport
                 ServiceClientTracing.Enter(_invocationId, this, "GetReport", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
+            var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "report/azure").ToString();
             List<string> _queryParameters = new List<string>();
             if (qualifier != null)
@@ -352,7 +352,7 @@ namespace Fixtures.Azure.AzureReport
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-            if (GenerateClientRequestId != null && GenerateClientRequestId.Value)
+            if (this.Client.GenerateClientRequestId != null && this.Client.GenerateClientRequestId.Value)
             {
                 _httpRequest.Headers.TryAddWithoutValidation("x-ms-client-request-id", System.Guid.NewGuid().ToString());
             }
@@ -381,10 +381,10 @@ namespace Fixtures.Azure.AzureReport
             // Serialize Request
             string _requestContent = null;
             // Set Credentials
-            if (Credentials != null)
+            if (this.Client.Credentials != null)
             {
                 cancellationToken.ThrowIfCancellationRequested();
-                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+                await this.Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             }
             // Send Request
             if (_shouldTrace)
@@ -392,7 +392,7 @@ namespace Fixtures.Azure.AzureReport
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await this.Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
@@ -406,7 +406,7 @@ namespace Fixtures.Azure.AzureReport
                 try
                 {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, DeserializationSettings);
+                    Error _errorBody =  SafeJsonConvert.DeserializeObject<Error>(_responseContent, this.Client.DeserializationSettings);
                     if (_errorBody != null)
                     {
                         ex.Body = _errorBody;
@@ -443,7 +443,7 @@ namespace Fixtures.Azure.AzureReport
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<IDictionary<string, int?>>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<IDictionary<string, int?>>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

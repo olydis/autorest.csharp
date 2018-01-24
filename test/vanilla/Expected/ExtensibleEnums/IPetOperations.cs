@@ -40,7 +40,7 @@ namespace Fixtures.ExtensibleEnums
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<Pet>> GetByPetIdWithHttpMessagesAsync(string petId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Pet>> GetByPetIdAsync(string petId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <param name='petParam'>
         /// </param>
         /// <param name='customHeaders'>
@@ -55,6 +55,6 @@ namespace Fixtures.ExtensibleEnums
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Pet>> AddPetWithHttpMessagesAsync(Pet petParam = default(Pet), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Pet>> AddPetAsync(Pet petParam = default(Pet), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

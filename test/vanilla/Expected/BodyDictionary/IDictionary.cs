@@ -37,7 +37,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, int?>>> GetNullWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, int?>>> GetNullAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get empty dictionary value {}
         /// </summary>
@@ -53,7 +53,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, int?>>> GetEmptyWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, int?>>> GetEmptyAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Set dictionary value empty {}
         /// </summary>
@@ -71,7 +71,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutEmptyWithHttpMessagesAsync(IDictionary<string, string> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutEmptyAsync(IDictionary<string, string> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get Dictionary with null value
         /// </summary>
@@ -87,7 +87,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, string>>> GetNullValueWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, string>>> GetNullValueAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get Dictionary with null key
         /// </summary>
@@ -103,7 +103,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, string>>> GetNullKeyWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, string>>> GetNullKeyAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get Dictionary with key as empty string
         /// </summary>
@@ -119,7 +119,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, string>>> GetEmptyStringKeyWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, string>>> GetEmptyStringKeyAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get invalid Dictionary value
         /// </summary>
@@ -135,7 +135,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, string>>> GetInvalidWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, string>>> GetInvalidAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get boolean dictionary value {"0": true, "1": false, "2": false,
         /// "3": true }
@@ -152,7 +152,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, bool?>>> GetBooleanTfftWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, bool?>>> GetBooleanTfftAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Set dictionary value empty {"0": true, "1": false, "2": false, "3":
         /// true }
@@ -171,7 +171,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutBooleanTfftWithHttpMessagesAsync(IDictionary<string, bool?> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutBooleanTfftAsync(IDictionary<string, bool?> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get boolean dictionary value {"0": true, "1": null, "2": false }
         /// </summary>
@@ -187,7 +187,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, bool?>>> GetBooleanInvalidNullWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, bool?>>> GetBooleanInvalidNullAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get boolean dictionary value '{"0": true, "1": "boolean", "2":
         /// false}'
@@ -204,7 +204,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, bool?>>> GetBooleanInvalidStringWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, bool?>>> GetBooleanInvalidStringAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get integer dictionary value {"0": 1, "1": -1, "2": 3, "3": 300}
         /// </summary>
@@ -220,7 +220,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, int?>>> GetIntegerValidWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, int?>>> GetIntegerValidAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Set dictionary value empty {"0": 1, "1": -1, "2": 3, "3": 300}
         /// </summary>
@@ -238,7 +238,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutIntegerValidWithHttpMessagesAsync(IDictionary<string, int?> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutIntegerValidAsync(IDictionary<string, int?> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get integer dictionary value {"0": 1, "1": null, "2": 0}
         /// </summary>
@@ -254,7 +254,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, int?>>> GetIntInvalidNullWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, int?>>> GetIntInvalidNullAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get integer dictionary value {"0": 1, "1": "integer", "2": 0}
         /// </summary>
@@ -270,7 +270,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, int?>>> GetIntInvalidStringWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, int?>>> GetIntInvalidStringAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get integer dictionary value {"0": 1, "1": -1, "2": 3, "3": 300}
         /// </summary>
@@ -286,7 +286,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, long?>>> GetLongValidWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, long?>>> GetLongValidAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Set dictionary value empty {"0": 1, "1": -1, "2": 3, "3": 300}
         /// </summary>
@@ -304,7 +304,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutLongValidWithHttpMessagesAsync(IDictionary<string, long?> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutLongValidAsync(IDictionary<string, long?> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get long dictionary value {"0": 1, "1": null, "2": 0}
         /// </summary>
@@ -320,7 +320,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, long?>>> GetLongInvalidNullWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, long?>>> GetLongInvalidNullAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get long dictionary value {"0": 1, "1": "integer", "2": 0}
         /// </summary>
@@ -336,7 +336,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, long?>>> GetLongInvalidStringWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, long?>>> GetLongInvalidStringAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get float dictionary value {"0": 0, "1": -0.01, "2": 1.2e20}
         /// </summary>
@@ -352,7 +352,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, double?>>> GetFloatValidWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, double?>>> GetFloatValidAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Set dictionary value {"0": 0, "1": -0.01, "2": 1.2e20}
         /// </summary>
@@ -370,7 +370,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutFloatValidWithHttpMessagesAsync(IDictionary<string, double?> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutFloatValidAsync(IDictionary<string, double?> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get float dictionary value {"0": 0.0, "1": null, "2": 1.2e20}
         /// </summary>
@@ -386,7 +386,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, double?>>> GetFloatInvalidNullWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, double?>>> GetFloatInvalidNullAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get boolean dictionary value {"0": 1.0, "1": "number", "2": 0.0}
         /// </summary>
@@ -402,7 +402,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, double?>>> GetFloatInvalidStringWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, double?>>> GetFloatInvalidStringAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get float dictionary value {"0": 0, "1": -0.01, "2": 1.2e20}
         /// </summary>
@@ -418,7 +418,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, double?>>> GetDoubleValidWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, double?>>> GetDoubleValidAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Set dictionary value {"0": 0, "1": -0.01, "2": 1.2e20}
         /// </summary>
@@ -436,7 +436,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutDoubleValidWithHttpMessagesAsync(IDictionary<string, double?> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutDoubleValidAsync(IDictionary<string, double?> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get float dictionary value {"0": 0.0, "1": null, "2": 1.2e20}
         /// </summary>
@@ -452,7 +452,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, double?>>> GetDoubleInvalidNullWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, double?>>> GetDoubleInvalidNullAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get boolean dictionary value {"0": 1.0, "1": "number", "2": 0.0}
         /// </summary>
@@ -468,7 +468,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, double?>>> GetDoubleInvalidStringWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, double?>>> GetDoubleInvalidStringAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get string dictionary value {"0": "foo1", "1": "foo2", "2": "foo3"}
         /// </summary>
@@ -484,7 +484,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, string>>> GetStringValidWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, string>>> GetStringValidAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Set dictionary value {"0": "foo1", "1": "foo2", "2": "foo3"}
         /// </summary>
@@ -502,7 +502,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutStringValidWithHttpMessagesAsync(IDictionary<string, string> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutStringValidAsync(IDictionary<string, string> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get string dictionary value {"0": "foo", "1": null, "2": "foo2"}
         /// </summary>
@@ -518,7 +518,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, string>>> GetStringWithNullWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, string>>> GetStringWithNullAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get string dictionary value {"0": "foo", "1": 123, "2": "foo2"}
         /// </summary>
@@ -534,7 +534,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, string>>> GetStringWithInvalidWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, string>>> GetStringWithInvalidAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get integer dictionary value {"0": "2000-12-01", "1": "1980-01-02",
         /// "2": "1492-10-12"}
@@ -551,7 +551,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, System.DateTime?>>> GetDateValidWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, System.DateTime?>>> GetDateValidAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Set dictionary value  {"0": "2000-12-01", "1": "1980-01-02", "2":
         /// "1492-10-12"}
@@ -570,7 +570,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutDateValidWithHttpMessagesAsync(IDictionary<string, System.DateTime?> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutDateValidAsync(IDictionary<string, System.DateTime?> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get date dictionary value {"0": "2012-01-01", "1": null, "2":
         /// "1776-07-04"}
@@ -587,7 +587,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, System.DateTime?>>> GetDateInvalidNullWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, System.DateTime?>>> GetDateInvalidNullAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get date dictionary value {"0": "2011-03-22", "1": "date"}
         /// </summary>
@@ -603,7 +603,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, System.DateTime?>>> GetDateInvalidCharsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, System.DateTime?>>> GetDateInvalidCharsAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get date-time dictionary value {"0": "2000-12-01t00:00:01z", "1":
         /// "1980-01-02T00:11:35+01:00", "2": "1492-10-12T10:15:01-08:00"}
@@ -620,7 +620,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, System.DateTime?>>> GetDateTimeValidWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, System.DateTime?>>> GetDateTimeValidAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Set dictionary value  {"0": "2000-12-01t00:00:01z", "1":
         /// "1980-01-02T00:11:35+01:00", "2": "1492-10-12T10:15:01-08:00"}
@@ -639,7 +639,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutDateTimeValidWithHttpMessagesAsync(IDictionary<string, System.DateTime?> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutDateTimeValidAsync(IDictionary<string, System.DateTime?> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get date dictionary value {"0": "2000-12-01t00:00:01z", "1": null}
         /// </summary>
@@ -655,7 +655,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, System.DateTime?>>> GetDateTimeInvalidNullWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, System.DateTime?>>> GetDateTimeInvalidNullAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get date dictionary value {"0": "2000-12-01t00:00:01z", "1":
         /// "date-time"}
@@ -672,7 +672,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, System.DateTime?>>> GetDateTimeInvalidCharsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, System.DateTime?>>> GetDateTimeInvalidCharsAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get date-time-rfc1123 dictionary value {"0": "Fri, 01 Dec 2000
         /// 00:00:01 GMT", "1": "Wed, 02 Jan 1980 00:11:35 GMT", "2": "Wed, 12
@@ -690,7 +690,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, System.DateTime?>>> GetDateTimeRfc1123ValidWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, System.DateTime?>>> GetDateTimeRfc1123ValidAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Set dictionary value empty {"0": "Fri, 01 Dec 2000 00:00:01 GMT",
         /// "1": "Wed, 02 Jan 1980 00:11:35 GMT", "2": "Wed, 12 Oct 1492
@@ -710,7 +710,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutDateTimeRfc1123ValidWithHttpMessagesAsync(IDictionary<string, System.DateTime?> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutDateTimeRfc1123ValidAsync(IDictionary<string, System.DateTime?> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get duration dictionary value {"0": "P123DT22H14M12.011S", "1":
         /// "P5DT1H0M0S"}
@@ -727,7 +727,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, System.TimeSpan?>>> GetDurationValidWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, System.TimeSpan?>>> GetDurationValidAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Set dictionary value  {"0": "P123DT22H14M12.011S", "1":
         /// "P5DT1H0M0S"}
@@ -746,7 +746,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutDurationValidWithHttpMessagesAsync(IDictionary<string, System.TimeSpan?> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutDurationValidAsync(IDictionary<string, System.TimeSpan?> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get byte dictionary value {"0": hex(FF FF FF FA), "1": hex(01 02
         /// 03), "2": hex (25, 29, 43)} with each item encoded in base64
@@ -763,7 +763,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, byte[]>>> GetByteValidWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, byte[]>>> GetByteValidAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Put the dictionary value {"0": hex(FF FF FF FA), "1": hex(01 02
         /// 03), "2": hex (25, 29, 43)} with each elementencoded in base 64
@@ -782,7 +782,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutByteValidWithHttpMessagesAsync(IDictionary<string, byte[]> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutByteValidAsync(IDictionary<string, byte[]> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get byte dictionary value {"0": hex(FF FF FF FA), "1": null} with
         /// the first item base64 encoded
@@ -799,7 +799,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, byte[]>>> GetByteInvalidNullWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, byte[]>>> GetByteInvalidNullAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get base64url dictionary value {"0": "a string that gets encoded
         /// with base64url", "1": "test string", "2": "Lorem ipsum"}
@@ -816,7 +816,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, byte[]>>> GetBase64UrlWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, byte[]>>> GetBase64UrlAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get dictionary of complex type null value
         /// </summary>
@@ -832,7 +832,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, Widget>>> GetComplexNullWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, Widget>>> GetComplexNullAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get empty dictionary of complex type {}
         /// </summary>
@@ -848,7 +848,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, Widget>>> GetComplexEmptyWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, Widget>>> GetComplexEmptyAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get dictionary of complex type with null item {"0": {"integer": 1,
         /// "string": "2"}, "1": null, "2": {"integer": 5, "string": "6"}}
@@ -865,7 +865,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, Widget>>> GetComplexItemNullWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, Widget>>> GetComplexItemNullAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get dictionary of complex type with empty item {"0": {"integer": 1,
         /// "string": "2"}, "1:" {}, "2": {"integer": 5, "string": "6"}}
@@ -882,7 +882,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, Widget>>> GetComplexItemEmptyWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, Widget>>> GetComplexItemEmptyAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get dictionary of complex type with {"0": {"integer": 1, "string":
         /// "2"}, "1": {"integer": 3, "string": "4"}, "2": {"integer": 5,
@@ -900,7 +900,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, Widget>>> GetComplexValidWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, Widget>>> GetComplexValidAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Put an dictionary of complex type with values {"0": {"integer": 1,
         /// "string": "2"}, "1": {"integer": 3, "string": "4"}, "2":
@@ -920,7 +920,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutComplexValidWithHttpMessagesAsync(IDictionary<string, Widget> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutComplexValidAsync(IDictionary<string, Widget> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a null array
         /// </summary>
@@ -936,7 +936,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, IList<string>>>> GetArrayNullWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, IList<string>>>> GetArrayNullAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get an empty dictionary {}
         /// </summary>
@@ -952,7 +952,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, IList<string>>>> GetArrayEmptyWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, IList<string>>>> GetArrayEmptyAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get an dictionary of array of strings {"0": ["1", "2", "3"], "1":
         /// null, "2": ["7", "8", "9"]}
@@ -969,7 +969,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, IList<string>>>> GetArrayItemNullWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, IList<string>>>> GetArrayItemNullAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get an array of array of strings [{"0": ["1", "2", "3"], "1": [],
         /// "2": ["7", "8", "9"]}
@@ -986,7 +986,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, IList<string>>>> GetArrayItemEmptyWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, IList<string>>>> GetArrayItemEmptyAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get an array of array of strings {"0": ["1", "2", "3"], "1": ["4",
         /// "5", "6"], "2": ["7", "8", "9"]}
@@ -1003,7 +1003,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, IList<string>>>> GetArrayValidWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, IList<string>>>> GetArrayValidAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Put An array of array of strings {"0": ["1", "2", "3"], "1": ["4",
         /// "5", "6"], "2": ["7", "8", "9"]}
@@ -1022,7 +1022,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutArrayValidWithHttpMessagesAsync(IDictionary<string, IList<string>> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutArrayValidAsync(IDictionary<string, IList<string>> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get an dictionaries of dictionaries with value null
         /// </summary>
@@ -1038,7 +1038,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, IDictionary<string, string>>>> GetDictionaryNullWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, IDictionary<string, string>>>> GetDictionaryNullAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get an dictionaries of dictionaries of type &lt;string, string&gt;
         /// with value {}
@@ -1055,7 +1055,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, IDictionary<string, string>>>> GetDictionaryEmptyWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, IDictionary<string, string>>>> GetDictionaryEmptyAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get an dictionaries of dictionaries of type &lt;string, string&gt;
         /// with value {"0": {"1": "one", "2": "two", "3": "three"}, "1": null,
@@ -1073,7 +1073,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, IDictionary<string, string>>>> GetDictionaryItemNullWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, IDictionary<string, string>>>> GetDictionaryItemNullAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get an dictionaries of dictionaries of type &lt;string, string&gt;
         /// with value {"0": {"1": "one", "2": "two", "3": "three"}, "1": {},
@@ -1091,7 +1091,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, IDictionary<string, string>>>> GetDictionaryItemEmptyWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, IDictionary<string, string>>>> GetDictionaryItemEmptyAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get an dictionaries of dictionaries of type &lt;string, string&gt;
         /// with value {"0": {"1": "one", "2": "two", "3": "three"}, "1": {"4":
@@ -1110,7 +1110,7 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IDictionary<string, IDictionary<string, string>>>> GetDictionaryValidWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IDictionary<string, IDictionary<string, string>>>> GetDictionaryValidAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get an dictionaries of dictionaries of type &lt;string, string&gt;
         /// with value {"0": {"1": "one", "2": "two", "3": "three"}, "1": {"4":
@@ -1131,6 +1131,6 @@ namespace Fixtures.BodyDictionary
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutDictionaryValidWithHttpMessagesAsync(IDictionary<string, IDictionary<string, string>> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutDictionaryValidAsync(IDictionary<string, IDictionary<string, string>> arrayBody, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

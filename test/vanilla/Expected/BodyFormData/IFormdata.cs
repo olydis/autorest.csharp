@@ -48,7 +48,7 @@ namespace Fixtures.BodyFormData
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<Stream>> UploadFileWithHttpMessagesAsync(Stream fileContent, string fileName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Stream>> UploadFileAsync(Stream fileContent, string fileName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Upload file
         /// </summary>
@@ -70,6 +70,6 @@ namespace Fixtures.BodyFormData
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<Stream>> UploadFileViaBodyWithHttpMessagesAsync(Stream fileContent, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Stream>> UploadFileViaBodyAsync(Stream fileContent, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

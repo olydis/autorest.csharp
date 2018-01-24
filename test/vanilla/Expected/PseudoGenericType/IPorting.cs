@@ -44,7 +44,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponse<PortModel>>> GetPortRequestsWithHttpMessagesAsync(string subscriptionId, int take, int skip, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponse<PortModel>>> GetPortRequestsAsync(string subscriptionId, int take, int skip, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create a new port request
         /// </summary>
@@ -81,7 +81,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PortModel>> CreatePortRequestWithHttpMessagesAsync(string subscriptionId, string reference, string type, string countryId, string billingNumber = default(string), System.DateTime? requestedPortDate = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PortModel>> CreatePortRequestAsync(string subscriptionId, string reference, string type, string countryId, string billingNumber = default(string), System.DateTime? requestedPortDate = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a specific port request
         /// </summary>
@@ -105,7 +105,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PortModel>> GetPortRequestWithHttpMessagesAsync(string subscriptionId, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PortModel>> GetPortRequestAsync(string subscriptionId, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update the specified port request
         /// </summary>
@@ -138,7 +138,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<bool?>> UpdatePortRequestWithHttpMessagesAsync(string subscriptionId, int id, string billingNumber, string reference = default(string), System.DateTime? requestedPortDate = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<bool?>> UpdatePortRequestAsync(string subscriptionId, int id, string billingNumber, string reference = default(string), System.DateTime? requestedPortDate = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Delete the specified port request
         /// </summary>
@@ -162,7 +162,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<bool?>> DeletePortRequestWithHttpMessagesAsync(string subscriptionId, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<bool?>> DeletePortRequestAsync(string subscriptionId, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get numbers associated with a specific port request
         /// </summary>
@@ -195,7 +195,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponse<RequestNumberModel>>> GetPortNumbersWithHttpMessagesAsync(string subscriptionId, int id, int take, int skip, string search = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponse<RequestNumberModel>>> GetPortNumbersAsync(string subscriptionId, int id, int take, int skip, string search = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Add numbers to a port request
         /// </summary>
@@ -222,7 +222,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponse<RequestNumberModel>>> AddPortNumbersWithHttpMessagesAsync(string subscriptionId, int id, IList<string> numbers, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponse<RequestNumberModel>>> AddPortNumbersAsync(string subscriptionId, int id, IList<string> numbers, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <param name='subscriptionId'>
         /// </param>
         /// <param name='id'>
@@ -244,7 +244,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponse<RequestNumberModel>>> RemovePortNumbersWithHttpMessagesAsync(string subscriptionId, int id, IList<int?> numbers, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponse<RequestNumberModel>>> RemovePortNumbersAsync(string subscriptionId, int id, IList<int?> numbers, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Submit a specified port request
         /// </summary>
@@ -268,7 +268,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<bool?>> SubmitPortRequestWithHttpMessagesAsync(string subscriptionId, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<bool?>> SubmitPortRequestAsync(string subscriptionId, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Add a Billing file to a specified port request
         /// </summary>
@@ -292,7 +292,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<bool?>> AddPortFileWithHttpMessagesAsync(string subscriptionId, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<bool?>> AddPortFileAsync(string subscriptionId, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Add an LOA to a specified port request
         /// </summary>
@@ -331,7 +331,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<LoaModel>> AddPortLoaWithHttpMessagesAsync(string subscriptionId, int id, string customerContactId, string requesterContactId, string siteContactId, string losingProviderId, string otherProvider = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<LoaModel>> AddPortLoaAsync(string subscriptionId, int id, string customerContactId, string requesterContactId, string siteContactId, string losingProviderId, string otherProvider = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Add a file to an LOA for a specified port request
         /// </summary>
@@ -358,7 +358,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<bool?>> AddPortLoaFileWithHttpMessagesAsync(string subscriptionId, int id, int loaId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<bool?>> AddPortLoaFileAsync(string subscriptionId, int id, int loaId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Generate an LOA file for a specified port request
         /// </summary>
@@ -382,7 +382,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<LoaModel>> GeneratePortLoaFileWithHttpMessagesAsync(string subscriptionId, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<LoaModel>> GeneratePortLoaFileAsync(string subscriptionId, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a list of messages for a specified port request
         /// </summary>
@@ -412,7 +412,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<bool?>> GetPortMessagesWithHttpMessagesAsync(string subscriptionId, int id, int take, int skip, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<bool?>> GetPortMessagesAsync(string subscriptionId, int id, int take, int skip, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Add a message to a specified port request
         /// </summary>
@@ -439,7 +439,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<bool?>> AddPortMessageWithHttpMessagesAsync(string subscriptionId, int id, string message, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<bool?>> AddPortMessageAsync(string subscriptionId, int id, string message, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a list of porting countries
         /// </summary>
@@ -460,7 +460,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<CountryModel>>> GetPortingCountriesWithHttpMessagesAsync(string subscriptionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<CountryModel>>> GetPortingCountriesAsync(string subscriptionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a list of porting providers for a country
         /// </summary>
@@ -487,7 +487,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponse<ProviderModel>>> GetPortingProvidersWithHttpMessagesAsync(string subscriptionId, string countryId, string type, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponse<ProviderModel>>> GetPortingProvidersAsync(string subscriptionId, string countryId, string type, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Add a webhook
         /// </summary>
@@ -511,6 +511,6 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<RequestWebhookModel>> AddPortingWebhookWithHttpMessagesAsync(string subscriptionId, string url, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<RequestWebhookModel>> AddPortingWebhookAsync(string subscriptionId, string url, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

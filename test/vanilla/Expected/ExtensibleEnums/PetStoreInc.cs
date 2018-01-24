@@ -40,6 +40,11 @@ namespace Fixtures.ExtensibleEnums
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
+        /// Pet id
+        /// </summary>
+        public string PetId { get; set; }
+
+        /// <summary>
         /// Gets the IPetOperations.
         /// </summary>
         public virtual IPetOperations Pet { get; private set; }

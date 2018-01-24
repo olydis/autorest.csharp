@@ -44,7 +44,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponse<SipTrunkModel>>> GetTrunksWithHttpMessagesAsync(string subscriptionId, int take, int skip, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponse<SipTrunkModel>>> GetTrunksAsync(string subscriptionId, int take, int skip, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create a new SIP Trunk
         /// </summary>
@@ -71,7 +71,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<NewSipTrunkResponseModel>> CreateTrunkWithHttpMessagesAsync(string subscriptionId, string description, string endpointId, bool autoCreateEndpoint, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<NewSipTrunkResponseModel>> CreateTrunkAsync(string subscriptionId, string description, string endpointId, bool autoCreateEndpoint, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a specific SIP Trunk by Id
         /// </summary>
@@ -94,7 +94,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<SipTrunkModel>> GetTrunkWithHttpMessagesAsync(string subscriptionId, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<SipTrunkModel>> GetTrunkAsync(string subscriptionId, int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update SIP Trunk
         /// </summary>
@@ -121,7 +121,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<SipTrunkModel>> UpdateTrunkWithHttpMessagesAsync(string subscriptionId, int id, UpdateSIPTrunkModel model, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<SipTrunkModel>> UpdateTrunkAsync(string subscriptionId, int id, UpdateSIPTrunkModel model, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Return PagedResponse of SIP Trunk Endpoints (IP Addresses)
         /// </summary>
@@ -151,7 +151,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponse<SipTrunkEndpointModel>>> GetTrunkEndpointsWithHttpMessagesAsync(string subscriptionId, int id, int take, int skip, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponse<SipTrunkEndpointModel>>> GetTrunkEndpointsAsync(string subscriptionId, int id, int take, int skip, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create a new SIP Trunk Endpoint IP Address
         /// </summary>
@@ -178,7 +178,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<SipTrunkEndpointModel>> CreateTrunkEndpointWithHttpMessagesAsync(string subscriptionId, int id, NewSipTrunkEndpointModel model, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<SipTrunkEndpointModel>> CreateTrunkEndpointAsync(string subscriptionId, int id, NewSipTrunkEndpointModel model, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Delete the specified SIP Trunk Endpoint
         /// </summary>
@@ -205,7 +205,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> DeleteTrunkEndpointWithHttpMessagesAsync(string subscriptionId, int id, int endpointId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> DeleteTrunkEndpointAsync(string subscriptionId, int id, int endpointId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get specific SIP Trunk endpoint
         /// </summary>
@@ -232,7 +232,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<SipTrunkEndpointModel>> GetTrunkEndpointWithHttpMessagesAsync(string subscriptionId, int id, int endpointId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<SipTrunkEndpointModel>> GetTrunkEndpointAsync(string subscriptionId, int id, int endpointId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of all restrictions on the trunk (Blacklist and
         /// Whitelist items)
@@ -261,7 +261,7 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponse<SipTrunkRestrictionItemModel>>> GetRestrictionsWithHttpMessagesAsync(string subscriptionId, int id, int take, int skip, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponse<SipTrunkRestrictionItemModel>>> GetRestrictionsAsync(string subscriptionId, int id, int take, int skip, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Adds a new restriction to the trunk (Blacklist and Whitelist items)
         /// </summary>
@@ -292,6 +292,6 @@ namespace Zapappi.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> AddRestrictionWithHttpMessagesAsync(string subscriptionId, int id, string prefix, string description, bool blacklist, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> AddRestrictionAsync(string subscriptionId, int id, string prefix, string description, bool blacklist, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

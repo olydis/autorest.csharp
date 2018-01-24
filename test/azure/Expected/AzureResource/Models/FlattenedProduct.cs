@@ -10,14 +10,11 @@
 
 namespace Fixtures.Azure.AzureResource.Models
 {
-    using Microsoft.Rest;
-    using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
 
-    [JsonTransformation]
     public partial class FlattenedProduct : ResourceX
     {
         /// <summary>
@@ -35,12 +32,10 @@ namespace Fixtures.Azure.AzureResource.Models
         /// <param name="type">Resource Type</param>
         /// <param name="location">Resource Location</param>
         /// <param name="name">Resource Name</param>
-        public FlattenedProduct(string id = default(string), string type = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>), string location = default(string), string name = default(string), string pname = default(string), int? lsize = default(int?), string provisioningState = default(string))
+        public FlattenedProduct(string id = default(string), string type = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>), string location = default(string), string name = default(string), FlattenedResourceProperties properties = default(FlattenedResourceProperties))
             : base(id, type, tags, location, name)
         {
-            Pname = pname;
-            Lsize = lsize;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             CustomInit();
         }
 
@@ -51,18 +46,8 @@ namespace Fixtures.Azure.AzureResource.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "properties.pname")]
-        public string Pname { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.lsize")]
-        public int? Lsize { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.provisioningState")]
-        public string ProvisioningState { get; set; }
+        [JsonProperty(PropertyName = "properties")]
+        public FlattenedResourceProperties Properties { get; set; }
 
     }
 }
