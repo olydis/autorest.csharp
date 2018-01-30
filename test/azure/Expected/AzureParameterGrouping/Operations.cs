@@ -8,6 +8,16 @@
 // regenerated.
 // </auto-generated>
 
+namespace Fixtures.Azure.AzureParameterGrouping.Models {     using Microsoft.Rest;
+    using Microsoft.Rest.Azure;
+    using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Net;
+    using System.Net.Http;
+    using System.Threading;
+    using System.Threading.Tasks;
+}
 namespace Fixtures.Azure.AzureParameterGrouping
 {
     using Microsoft.Rest;
@@ -25,7 +35,7 @@ namespace Fixtures.Azure.AzureParameterGrouping
     /// <summary>
     /// Operations.
     /// </summary>
-    internal partial class Operations : IServiceOperations<AutoRestParameterGroupingTestServiceClient>, IOperations
+    internal partial class Operations : IServiceOperations<AutoRestParameterGroupingTestService>, IOperations
     {
         /// <summary>
         /// Initializes a new instance of the Operations class.
@@ -36,7 +46,7 @@ namespace Fixtures.Azure.AzureParameterGrouping
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        internal Operations(AutoRestParameterGroupingTestServiceClient client)
+        internal Operations(AutoRestParameterGroupingTestService client)
         {
             if (client == null)
             {
@@ -46,9 +56,9 @@ namespace Fixtures.Azure.AzureParameterGrouping
         }
 
         /// <summary>
-        /// Gets a reference to the AutoRestParameterGroupingTestServiceClient
+        /// Gets a reference to the AutoRestParameterGroupingTestService
         /// </summary>
-        public AutoRestParameterGroupingTestServiceClient Client { get; private set; }
+        public AutoRestParameterGroupingTestService Client { get; private set; }
 
         /// <summary>
         /// Post a bunch of required parameters grouped
@@ -193,8 +203,8 @@ namespace Fixtures.Azure.AzureParameterGrouping
                 {
                     // Ignore the exception
                 }
-                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
-                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                //ex.Request = new Microsoft.Rest.HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                //ex.Response = new Microsoft.Rest.HttpResponseMessageWrapper(_httpResponse, _responseContent);
                 if (_shouldTrace)
                 {
                     ServiceClientTracing.Error(_invocationId, ex);
@@ -343,8 +353,8 @@ namespace Fixtures.Azure.AzureParameterGrouping
                 {
                     // Ignore the exception
                 }
-                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
-                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                //ex.Request = new Microsoft.Rest.HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                //ex.Response = new Microsoft.Rest.HttpResponseMessageWrapper(_httpResponse, _responseContent);
                 if (_shouldTrace)
                 {
                     ServiceClientTracing.Error(_invocationId, ex);
@@ -512,8 +522,8 @@ namespace Fixtures.Azure.AzureParameterGrouping
                 {
                     // Ignore the exception
                 }
-                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
-                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                //ex.Request = new Microsoft.Rest.HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                //ex.Response = new Microsoft.Rest.HttpResponseMessageWrapper(_httpResponse, _responseContent);
                 if (_shouldTrace)
                 {
                     ServiceClientTracing.Error(_invocationId, ex);
@@ -662,8 +672,8 @@ namespace Fixtures.Azure.AzureParameterGrouping
                 {
                     // Ignore the exception
                 }
-                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
-                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                //ex.Request = new Microsoft.Rest.HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                //ex.Response = new Microsoft.Rest.HttpResponseMessageWrapper(_httpResponse, _responseContent);
                 if (_shouldTrace)
                 {
                     ServiceClientTracing.Error(_invocationId, ex);

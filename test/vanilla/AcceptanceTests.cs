@@ -2314,22 +2314,6 @@ namespace AutoRest.CSharp.Tests
             Assert.NotNull(ErrorException.StringFromPartial);
         }
 
-        [Fact]
-        public async Task EnsureHiddenMethodsMissingTest()
-        {
-            // Confirm the method exists in body-complex, which hidden methods is based on
-            var knownMethod = typeof(Fixtures.BodyComplex.IBasicOperations).GetMethod("PutValidWithHttpMessagesAsync");
-            // Make sure it is missing for hidden methods
-            var missingMethod = typeof(Fixtures.HiddenMethods.IBasicOperations).GetMethod(knownMethod.Name);
-            Assert.Null(missingMethod);
-
-            // Use the facade method
-            using (var client = new Fixtures.HiddenMethods.AutoRestComplexTestService(Fixture.Uri))
-            {
-                await client.Basic.PutValidAsync("abc", CMYKColors.Magenta, 2);
-            }
-        }
-
         public void EnsureTestCoverage()
         {
             using (var client =

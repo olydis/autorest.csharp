@@ -8,6 +8,16 @@
 // regenerated.
 // </auto-generated>
 
+namespace Fixtures.Azure.AzureResource.Models {     using Microsoft.Rest;
+    using Microsoft.Rest.Azure;
+    using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Net;
+    using System.Net.Http;
+    using System.Threading;
+    using System.Threading.Tasks;
+}
 namespace Fixtures.Azure.AzureResource
 {
     using Microsoft.Rest;
@@ -25,7 +35,7 @@ namespace Fixtures.Azure.AzureResource
     /// <summary>
     /// Operations.
     /// </summary>
-    internal partial class Operations : IServiceOperations<AutoRestResourceFlatteningTestServiceClient>, IOperations
+    internal partial class Operations : IServiceOperations<AutoRestResourceFlatteningTestService>, IOperations
     {
         /// <summary>
         /// Initializes a new instance of the Operations class.
@@ -36,7 +46,7 @@ namespace Fixtures.Azure.AzureResource
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        internal Operations(AutoRestResourceFlatteningTestServiceClient client)
+        internal Operations(AutoRestResourceFlatteningTestService client)
         {
             if (client == null)
             {
@@ -46,9 +56,9 @@ namespace Fixtures.Azure.AzureResource
         }
 
         /// <summary>
-        /// Gets a reference to the AutoRestResourceFlatteningTestServiceClient
+        /// Gets a reference to the AutoRestResourceFlatteningTestService
         /// </summary>
-        public AutoRestResourceFlatteningTestServiceClient Client { get; private set; }
+        public AutoRestResourceFlatteningTestService Client { get; private set; }
 
         /// <summary>
         /// Put External Resource as an Array
@@ -164,8 +174,8 @@ namespace Fixtures.Azure.AzureResource
                 {
                     // Ignore the exception
                 }
-                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
-                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                //ex.Request = new Microsoft.Rest.HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                //ex.Response = new Microsoft.Rest.HttpResponseMessageWrapper(_httpResponse, _responseContent);
                 if (_shouldTrace)
                 {
                     ServiceClientTracing.Error(_invocationId, ex);
@@ -299,8 +309,8 @@ namespace Fixtures.Azure.AzureResource
                 {
                     // Ignore the exception
                 }
-                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
-                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                //ex.Request = new Microsoft.Rest.HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                //ex.Response = new Microsoft.Rest.HttpResponseMessageWrapper(_httpResponse, _responseContent);
                 if (_shouldTrace)
                 {
                     ServiceClientTracing.Error(_invocationId, ex);
@@ -459,8 +469,8 @@ namespace Fixtures.Azure.AzureResource
                 {
                     // Ignore the exception
                 }
-                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
-                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                //ex.Request = new Microsoft.Rest.HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                //ex.Response = new Microsoft.Rest.HttpResponseMessageWrapper(_httpResponse, _responseContent);
                 if (_shouldTrace)
                 {
                     ServiceClientTracing.Error(_invocationId, ex);
@@ -594,8 +604,8 @@ namespace Fixtures.Azure.AzureResource
                 {
                     // Ignore the exception
                 }
-                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
-                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                //ex.Request = new Microsoft.Rest.HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                //ex.Response = new Microsoft.Rest.HttpResponseMessageWrapper(_httpResponse, _responseContent);
                 if (_shouldTrace)
                 {
                     ServiceClientTracing.Error(_invocationId, ex);
@@ -754,8 +764,8 @@ namespace Fixtures.Azure.AzureResource
                 {
                     // Ignore the exception
                 }
-                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
-                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                //ex.Request = new Microsoft.Rest.HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                //ex.Response = new Microsoft.Rest.HttpResponseMessageWrapper(_httpResponse, _responseContent);
                 if (_shouldTrace)
                 {
                     ServiceClientTracing.Error(_invocationId, ex);
@@ -889,8 +899,8 @@ namespace Fixtures.Azure.AzureResource
                 {
                     // Ignore the exception
                 }
-                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
-                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                //ex.Request = new Microsoft.Rest.HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                //ex.Response = new Microsoft.Rest.HttpResponseMessageWrapper(_httpResponse, _responseContent);
                 if (_shouldTrace)
                 {
                     ServiceClientTracing.Error(_invocationId, ex);

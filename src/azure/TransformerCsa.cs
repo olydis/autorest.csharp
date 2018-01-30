@@ -14,6 +14,7 @@ using AutoRest.CSharp.Model;
 using AutoRest.Extensions;
 using AutoRest.Extensions.Azure;
 using Newtonsoft.Json.Linq;
+using AutoRest.Core.Utilities.Collections;
 using static AutoRest.Core.Utilities.DependencyInjection;
 
 namespace AutoRest.CSharp.Azure
@@ -40,7 +41,7 @@ namespace AutoRest.CSharp.Azure
 
             SwaggerExtensions.ProcessParameterizedHost(codeModel);
             AzureExtensions.ProcessClientRequestIdExtension(codeModel);
-            AzureExtensions.AddLongRunningOperations(codeModel);
+            AddLongRunningOperations(codeModel);
             AzureExtensions.AddAzureProperties(codeModel);
             AzureExtensions.SetDefaultResponses(codeModel);
             AzureExtensions.AddPageableMethod(codeModel);
@@ -58,6 +59,28 @@ namespace AutoRest.CSharp.Azure
             }
 
             return codeModel;
+        }
+
+        public const string LongRunningExtension = "x-ms-long-running-operation";
+        public static void AddLongRunningOperations(CodeModel codeModel)
+        {
+            foreach( var method in codeModel.Methods.Where( each => each.Extensions.ContainsKey(LongRunningExtension)).Distinct(each => each.SerializedName).ToArray())
+            {
+                var isLongRunning = method.Extensions[LongRunningExtension];
+                if (true == isLongRunning as bool?)
+                {
+                    // copy the method 
+                    var m = Duplicate(method);
+                    // x-ms-examples of source method do not really apply
+                    m.Extensions.Remove(Core.Model.XmsExtensions.Examples.Name);
+
+                    // change the name, remove the extension.
+                    m.SerializedName = "Begin" + m.SerializedName;
+                    m.Extensions.Remove(LongRunningExtension);
+
+                    codeModel.Add(m);
+                }
+            }
         }
 
         /// <summary>

@@ -8,6 +8,16 @@
 // regenerated.
 // </auto-generated>
 
+namespace Fixtures.Azure.Head.Models {     using Microsoft.Rest;
+    using Microsoft.Rest.Azure;
+    using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Net;
+    using System.Net.Http;
+    using System.Threading;
+    using System.Threading.Tasks;
+}
 namespace Fixtures.Azure.Head
 {
     using Microsoft.Rest;
@@ -25,7 +35,7 @@ namespace Fixtures.Azure.Head
     /// <summary>
     /// Operations.
     /// </summary>
-    internal partial class Operations : IServiceOperations<AutoRestHeadTestServiceClient>, IOperations
+    internal partial class Operations : IServiceOperations<AutoRestHeadTestService>, IOperations
     {
         /// <summary>
         /// Initializes a new instance of the Operations class.
@@ -36,7 +46,7 @@ namespace Fixtures.Azure.Head
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        internal Operations(AutoRestHeadTestServiceClient client)
+        internal Operations(AutoRestHeadTestService client)
         {
             if (client == null)
             {
@@ -46,9 +56,9 @@ namespace Fixtures.Azure.Head
         }
 
         /// <summary>
-        /// Gets a reference to the AutoRestHeadTestServiceClient
+        /// Gets a reference to the AutoRestHeadTestService
         /// </summary>
-        public AutoRestHeadTestServiceClient Client { get; private set; }
+        public AutoRestHeadTestService Client { get; private set; }
 
         /// <summary>
         /// Return 200 status code if successful
@@ -153,8 +163,8 @@ namespace Fixtures.Azure.Head
                 {
                     // Ignore the exception
                 }
-                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
-                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                //ex.Request = new Microsoft.Rest.HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                //ex.Response = new Microsoft.Rest.HttpResponseMessageWrapper(_httpResponse, _responseContent);
                 if (_shouldTrace)
                 {
                     ServiceClientTracing.Error(_invocationId, ex);
@@ -284,8 +294,8 @@ namespace Fixtures.Azure.Head
                 {
                     // Ignore the exception
                 }
-                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
-                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                //ex.Request = new Microsoft.Rest.HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                //ex.Response = new Microsoft.Rest.HttpResponseMessageWrapper(_httpResponse, _responseContent);
                 if (_shouldTrace)
                 {
                     ServiceClientTracing.Error(_invocationId, ex);
@@ -415,8 +425,8 @@ namespace Fixtures.Azure.Head
                 {
                     // Ignore the exception
                 }
-                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
-                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                //ex.Request = new Microsoft.Rest.HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                //ex.Response = new Microsoft.Rest.HttpResponseMessageWrapper(_httpResponse, _responseContent);
                 if (_shouldTrace)
                 {
                     ServiceClientTracing.Error(_invocationId, ex);

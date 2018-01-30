@@ -180,7 +180,7 @@ namespace AutoRest.CSharp.Azure.Model
             if (LogicalParameters.Any(p => p.Location == ParameterLocation.Query))
             {
                 foreach (var queryParameter in LogicalParameters
-                    .Where(p => p.Location == ParameterLocation.Query).Select(p => p as ParameterCsa))
+                    .Where(p => p.Location == ParameterLocation.Query).Select(p => p as ParameterCs))
                 {
                     string queryParametersAddString =
                         "_queryParameters.Add(string.Format(\"{0}={{0}}\", System.Uri.EscapeDataString({1})));";

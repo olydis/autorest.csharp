@@ -11,7 +11,7 @@ using AutoRest.CSharp.Model;
 
 namespace AutoRest.CSharp.Azure
 {
-    public class PluginCsa : Plugin<GeneratorSettingsCs, TransformerCsa, CodeGeneratorCsa, CodeNamerCsa, CodeModelCsa>
+    public class PluginCsa : Plugin<GeneratorSettingsCs, TransformerCsa, CodeGeneratorCsa, CodeNamerCs, CodeModelCsa>
     {
         public PluginCsa()
         {
@@ -27,8 +27,8 @@ namespace AutoRest.CSharp.Azure
                 new Factory<EnumType, EnumTypeCs>(),
                 new Factory<Method, MethodCsa>(),
                 new Factory<MethodGroup, MethodGroupCsa>(),
-                new Factory<Parameter, ParameterCsa>(),
-                new Factory<PrimaryType, PrimaryTypeCsa>(),
+                new Factory<Parameter, ParameterCs>(),
+                new Factory<PrimaryType, PrimaryTypeCs>(),
                 new Factory<Property, PropertyCs>(),
                 new Factory<SequenceType, SequenceTypeCs>(),
 

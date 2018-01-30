@@ -8,6 +8,16 @@
 // regenerated.
 // </auto-generated>
 
+namespace Fixtures.Azure.AzureReport.Models {     using Microsoft.Rest;
+    using Microsoft.Rest.Azure;
+    using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Net;
+    using System.Net.Http;
+    using System.Threading;
+    using System.Threading.Tasks;
+}
 namespace Fixtures.Azure.AzureReport
 {
     using Microsoft.Rest;
@@ -25,7 +35,7 @@ namespace Fixtures.Azure.AzureReport
     /// <summary>
     /// Operations.
     /// </summary>
-    internal partial class Operations : IServiceOperations<AutoRestReportServiceForAzureClient>, IOperations
+    internal partial class Operations : IServiceOperations<AutoRestReportServiceForAzure>, IOperations
     {
         /// <summary>
         /// Initializes a new instance of the Operations class.
@@ -36,7 +46,7 @@ namespace Fixtures.Azure.AzureReport
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        internal Operations(AutoRestReportServiceForAzureClient client)
+        internal Operations(AutoRestReportServiceForAzure client)
         {
             if (client == null)
             {
@@ -46,9 +56,9 @@ namespace Fixtures.Azure.AzureReport
         }
 
         /// <summary>
-        /// Gets a reference to the AutoRestReportServiceForAzureClient
+        /// Gets a reference to the AutoRestReportServiceForAzure
         /// </summary>
-        public AutoRestReportServiceForAzureClient Client { get; private set; }
+        public AutoRestReportServiceForAzure Client { get; private set; }
 
         /// <summary>
         /// Get test coverage report
@@ -166,8 +176,8 @@ namespace Fixtures.Azure.AzureReport
                 {
                     // Ignore the exception
                 }
-                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
-                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                //ex.Request = new Microsoft.Rest.HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                //ex.Response = new Microsoft.Rest.HttpResponseMessageWrapper(_httpResponse, _responseContent);
                 if (_shouldTrace)
                 {
                     ServiceClientTracing.Error(_invocationId, ex);

@@ -5,7 +5,9 @@
 @inherits AutoRest.Core.Template<CodeModelCs>
 @Header("// ")
 @EmptyLine
-namespace @Settings.Namespace
+
+namespace @(Settings.Namespace).Models { }
+namespace @(Settings.Namespace)
 {
     using System.Linq;
     using Microsoft.Rest;

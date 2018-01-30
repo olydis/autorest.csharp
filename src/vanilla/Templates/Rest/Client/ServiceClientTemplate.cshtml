@@ -81,14 +81,6 @@ namespace @Settings.Namespace
             }
 
             CustomInitialize();
-            
-        }    
-    
-        @foreach (MethodCs method in Model.Methods.Where( m => m.Group.IsNullOrEmpty()))
-        {
-        @:@(Include(new MethodTemplate(), method))
-        @EmptyLine
-        @:
         }
     }
 }
