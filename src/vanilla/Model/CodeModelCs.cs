@@ -15,6 +15,9 @@ namespace AutoRest.CSharp.Model
 {
     public class CodeModelCs : CodeModel
     {
+        public IDictionary<KeyValuePair<string, string>, string> pageClasses =
+            new Dictionary<KeyValuePair<string, string>, string>();
+
         [JsonIgnore]
         public IEnumerable<MethodGroupCs> AllOperations => Operations.Where( operation => !operation.Name.IsNullOrEmpty()).Cast<MethodGroupCs>();
 

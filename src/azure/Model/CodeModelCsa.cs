@@ -15,9 +15,6 @@ namespace AutoRest.CSharp.Azure.Model
 {
     public class CodeModelCsa : CodeModelCs
     {
-        public IDictionary<KeyValuePair<string, string>, string> pageClasses =
-            new Dictionary<KeyValuePair<string, string>, string>();
-
         public override bool HaveModelNamespace => base.HaveModelNamespace || pageClasses.Any();
 
         /// <summary>

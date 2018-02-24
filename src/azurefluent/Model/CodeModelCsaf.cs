@@ -20,15 +20,9 @@ namespace AutoRest.CSharp.Azure.Fluent.Model
         {
             _innerTypes = new HashSet<CompositeType>();
 
-            var stringType = New<PrimaryType>(KnownPrimaryType.String, new
-            {
-                Name = "string"
-            });
+            var stringType = new PrimaryTypeCs(KnownPrimaryType.String);
 
-            _resourceType = New<CompositeType>(new
-            {
-                SerializedName = "Resource",
-            });
+            _resourceType = new CompositeTypeCsa { SerializedName = "Resource" };
             _resourceType.Name.FixedValue = "Microsoft.Rest.Azure.Resource";
             _resourceType.Add(new PropertyCs { Name = "location", SerializedName = "location", ModelType = stringType });
             _resourceType.Add(new PropertyCs { Name = "id", SerializedName = "id", ModelType = stringType });
@@ -36,10 +30,7 @@ namespace AutoRest.CSharp.Azure.Fluent.Model
             _resourceType.Add(new PropertyCs { Name = "type", SerializedName = "type", ModelType = stringType });
             _resourceType.Add(new PropertyCs { Name = "tags", SerializedName = "tags", ModelType = New<DictionaryType>(new { ValueType = stringType, NameFormat = "System.Collections.Generic.IDictionary<string, {0}>" }) });
 
-            _subResourceType = New<CompositeType>(new
-            {
-                SerializedName = "SubResource"
-            });
+            _subResourceType = new CompositeTypeCsa { SerializedName = "SubResource" };
             _subResourceType.Name.FixedValue = "Microsoft.Rest.Azure.SubResource";
             _subResourceType.Add(new PropertyCs { Name = "id", SerializedName = "id", ModelType = stringType });
         }
