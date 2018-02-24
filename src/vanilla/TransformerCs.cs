@@ -28,8 +28,11 @@ namespace AutoRest.CSharp
             // add the Credentials
             PopulateAdditionalProperties(codeModel);
 
-            // todo: these should be turned into individual transformers
-            SwaggerExtensions.NormalizeClientModel(codeModel);
+            SwaggerExtensions.ProcessGlobalParameters(codeModel);
+            SwaggerExtensions.FlattenModels(codeModel);
+            SwaggerExtensions.FlattenMethodParameters(codeModel);
+            ParameterGroupExtensionHelper.AddParameterGroups(codeModel);
+            SwaggerExtensions.ProcessParameterizedHost(codeModel);
 
             // Do parameter transformations
             TransformParameters(codeModel);

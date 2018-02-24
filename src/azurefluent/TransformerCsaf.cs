@@ -2,6 +2,7 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // 
 
+using System;
 using System.Linq;
 using AutoRest.Core;
 using AutoRest.Core.Model;
@@ -9,7 +10,9 @@ using AutoRest.Core.Utilities;
 using AutoRest.CSharp.Azure.Fluent.Model;
 using AutoRest.CSharp.Azure.Model;
 using AutoRest.CSharp.Model;
+using AutoRest.Extensions;
 using AutoRest.Extensions.Azure;
+using static AutoRest.Core.Utilities.DependencyInjection;
 
 namespace AutoRest.CSharp.Azure.Fluent
 {
@@ -18,10 +21,29 @@ namespace AutoRest.CSharp.Azure.Fluent
         CodeModelCsaf ITransformer<CodeModelCsaf>.TransformCodeModel(CodeModel cs)
         {
             var codeModel = cs as CodeModelCsaf;
-            Settings.Instance.AddCredentials = true;
 
-            // todo: these should be turned into individual transformers
-            AzureExtensions.NormalizeAzureClientModel(codeModel);
+            var settings = Settings.Instance;
+            settings.AddCredentials = true;
+            using (NewContext)
+            {
+                settings = new Settings().LoadFrom(settings);
+                settings.AddCredentials = true;
+
+                // This extension from general extensions must be run prior to Azure specific extensions.
+                AzureExtensions.ProcessParameterizedHost(codeModel);
+
+                AzureExtensions.ProcessClientRequestIdExtension(codeModel);
+                AzureExtensions.UpdateHeadMethods(codeModel);
+                AzureExtensions.ParseODataExtension(codeModel);
+                AzureExtensions.ProcessGlobalParameters(codeModel);
+                AzureExtensions.FlattenModels(codeModel);
+                AzureExtensions.FlattenMethodParameters(codeModel);
+                ParameterGroupExtensionHelper.AddParameterGroups(codeModel);
+                AzureExtensions.AddLongRunningOperations(codeModel);
+                AzureExtensions.AddAzureProperties(codeModel);
+                AzureExtensions.SetDefaultResponses(codeModel);
+                AzureExtensions.AddPageableMethod(codeModel);
+            }
 
             // Do parameter transformations
             TransformParameters(codeModel);
