@@ -42,8 +42,7 @@ namespace AutoRest.CSharp
             
             foreach (var model in codeModel.ModelTypes)
             {
-                if (model.Extensions.ContainsKey(AzureExtensions.AzureResourceExtension) &&
-                    (bool)model.Extensions[AzureExtensions.AzureResourceExtension])
+                if (true == model.Extensions.Get<bool>(AzureExtensions.AzureResourceExtension))
                 {
                     model.BaseModelType = new CompositeTypeCsa("Microsoft.Rest.Azure.IResource");
                     model.BaseModelType.SerializedName = "Microsoft.Rest.Azure.IResource";
@@ -55,11 +54,6 @@ namespace AutoRest.CSharp
 
         protected void NormalizeODataMethods(CodeModel client)
         {
-            if (client == null)
-            {
-                throw new ArgumentNullException("client");
-            }
-
             foreach (var method in client.Methods)
             {
                 if (method.Extensions.ContainsKey(AzureExtensions.ODataExtension))
@@ -106,11 +100,6 @@ namespace AutoRest.CSharp
         /// <param name="pageClasses"></param>
         protected void NormalizePaginatedMethods(CodeModelCs codeModel)
         {
-            if (codeModel == null)
-            {
-                throw new ArgumentNullException(nameof(codeModel));
-            }
-
             var convertedTypes = new Dictionary<IModelType, CompositeType>();
 
             foreach (

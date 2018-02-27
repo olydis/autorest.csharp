@@ -2,6 +2,7 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 
 using System.Collections.Generic;
+using System.Linq;
 using AutoRest.CSharp.Model;
 
 namespace AutoRest.CSharp.Azure.Model
@@ -19,16 +20,6 @@ namespace AutoRest.CSharp.Azure.Model
         /// <summary>
         /// Returns the using statements for the model.
         /// </summary>
-        public override IEnumerable<string> Usings
-        {
-            get
-            {
-                yield return "Microsoft.Rest.Azure";
-                foreach (string usingString in base.Usings)
-                {
-                    yield return usingString;
-                }
-            }
-        }
+        public override IEnumerable<string> Usings => new []{"Microsoft.Rest.Azure"}.Concat(base.Usings);
     }
 }

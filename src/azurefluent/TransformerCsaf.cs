@@ -105,7 +105,7 @@ namespace AutoRest.CSharp.Azure.Fluent
             }
             foreach (var model in codeModel.ModelTypes)
             {
-                if ((model.BaseModelType != null) && model.BaseModelType.IsResource())
+                if (true == model.BaseModelType?.IsResource())
                 {
                     AppendInnerToTopLevelType(model, codeModel);
                 }
@@ -143,8 +143,7 @@ namespace AutoRest.CSharp.Azure.Fluent
         private void AddNamespaceToResourceType(IModelType type, CodeModelCsa serviceClient)
         {
             // SubResource property { get; set; } => Microsoft.Rest.Azure.SubResource property { get; set; }
-            if ((type is CompositeType compositeType) &&
-                (compositeType.Name.Equals("Resource") || compositeType.Name.Equals("SubResource")))
+            if (type is CompositeType compositeType && compositeType.IsResource() && !compositeType.Name.StartsWith("Microsoft.Rest.Azure."))
             {
                 compositeType.Name.FixedValue = "Microsoft.Rest.Azure." + compositeType.Name;
             }

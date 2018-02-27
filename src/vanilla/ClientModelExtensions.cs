@@ -19,6 +19,11 @@ namespace AutoRest.CSharp
 {
     public static class ClientModelExtensions
     {
+        public static bool IsResource(this IModelType type) =>
+            (type is CompositeType) &&
+            ((type.Name == "Resource") || (type.Name == "SubResource") ||
+             (type.Name == "Microsoft.Rest.Azure.Resource") || (type.Name == "Microsoft.Rest.Azure.SubResource"));
+             
         private static string GetObsoleteAttribute(string message)
             => message == null ? "" : $"[System.Obsolete({Newtonsoft.Json.JsonConvert.SerializeObject(message)})]\n";
 
